@@ -103,21 +103,39 @@ class Embedder(Protocol):
 
 
 class LSAEmbedder:
+    """TF-IDF (word 1-2 grams + char 3-5 grams) → truncated SVD.
+
+    Scales by fitting the vectorizers and SVD on at most `max_fit_docs` documents (a fixed,
+    seeded sample) and then embedding every document in float32 batches, so memory is bounded
+    by the sample size, not the corpus size. Corpora at or below the cap are fitted in full
+    (identical behavior to the unbounded version).
+    """
     name = "lsa-tfidf-word+char-svd"
 
-    def __init__(self, dims: int = 128, seed: int = 0) -> None:
-        self.dims, self.seed = dims, seed
+    def __init__(self, dims: int = 128, seed: int = 0, max_fit_docs: int = 8000, batch: int = 2000) -> None:
+        self.dims, self.seed, self.max_fit_docs, self.batch = dims, seed, max_fit_docs, batch
 
     def fit(self, texts: list[str]) -> None:
-        self.word = TfidfVectorizer(tokenizer=tokenize, lowercase=False, ngram_range=(1, 2), sublinear_tf=True, token_pattern=None)
-        self.char = TfidfVectorizer(analyzer="char_wb", ngram_range=(3, 5), sublinear_tf=True, min_df=1)
-        X = hstack([self.word.fit_transform(texts), self.char.fit_transform(texts)]).tocsr()
+        import random
+        sample = texts
+        if len(texts) > self.max_fit_docs:
+            rng = random.Random(self.seed)
+            sample = [texts[i] for i in sorted(rng.sample(range(len(texts)), self.max_fit_docs))]
+        self.word = TfidfVectorizer(tokenizer=tokenize, lowercase=False, ngram_range=(1, 2), sublinear_tf=True, token_pattern=None,
+                                    dtype=np.float32, max_features=300_000)
+        self.char = TfidfVectorizer(analyzer="char_wb", ngram_range=(3, 5), sublinear_tf=True, min_df=1, dtype=np.float32,
+                                    max_features=300_000)
+        X = hstack([self.word.fit_transform(sample), self.char.fit_transform(sample)]).tocsr()
         self.svd = TruncatedSVD(n_components=min(self.dims, X.shape[0] - 1, X.shape[1] - 1), random_state=self.seed)
         self.svd.fit(X)
 
     def encode(self, texts: list[str]) -> np.ndarray:
-        X = hstack([self.word.transform(texts), self.char.transform(texts)]).tocsr()
-        return l2(self.svd.transform(X))
+        out = []
+        for i in range(0, len(texts), self.batch):
+            part = texts[i:i + self.batch]
+            X = hstack([self.word.transform(part), self.char.transform(part)]).tocsr()
+            out.append(l2(self.svd.transform(X)).astype(np.float32))
+        return np.vstack(out) if out else np.zeros((0, self.svd.n_components), dtype=np.float32)
 
 
 class STEmbedder:  # pragma: no cover - optional, requires model download

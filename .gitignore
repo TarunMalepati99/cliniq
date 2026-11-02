@@ -13,3 +13,4 @@ dbt/logs/
 dbt/.user.yml
 data/uploads/
 scripts/node_modules/
+data/external/trec/trials_judged.jsonl

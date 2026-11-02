@@ -1,0 +1,30 @@
+{
+  "source": "github.com/ncbi-nlp/TrialGPT (Jin et al., Nature Communications 2024) \u2014 preprocessed TREC CT topics, qrels and trial text",
+  "trialgpt_commit": "1b3242cd50c153a9c324661d4a0bd94fc68a4226",
+  "official_topics_qrels": "https://trec.nist.gov/data/trials2021.html, trials2022.html (not reachable from the build sandbox)",
+  "years": {
+    "2021": {
+      "topics": 75,
+      "judgments": 35832,
+      "eligible": 5570,
+      "excluded": 6019
+    },
+    "2022": {
+      "topics": 50,
+      "judgments": 35394,
+      "eligible": 3939,
+      "excluded": 3036
+    }
+  },
+  "judged_unique": 48714,
+  "trials_with_text": 34677,
+  "from_official_corpus_parts_1_3": 20952,
+  "from_trialgpt_only": 13725,
+  "coverage": 0.7118,
+  "sha256": {
+    "topics2021.xml": "132835c5282fd0a2a3226e0bbfe8341f21977481f1ca3d67cf31091de579ab18",
+    "qrels2021.txt": "cb299d2fa5e37906970669f118893c3505178836a544580259a153d6366b6e7c",
+    "topics2022.xml": "4eaf553e1580d9b3987bab6f723c40eb7b789946fa92e9c404a1911172cd557c",
+    "qrels2022.txt": "443ad5f80020d150b6fd6d734ddfc5fa398fa9c69265e2adab743d8f65f63ca8"
+  }
+}

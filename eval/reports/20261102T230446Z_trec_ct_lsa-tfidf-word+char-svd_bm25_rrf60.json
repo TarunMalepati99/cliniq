@@ -1,0 +1,1422 @@
+{
+ "eval_run_id": "87927187-1332-4fd6-985e-ad1ed5b3a334",
+ "suite": "trec_ct",
+ "system_version": "lsa-tfidf-word+char-svd|bm25|rrf60",
+ "prompt_sha256": null,
+ "benchmark_sha256": "443ad5f80020d150b6fd6d734ddfc5fa398fa9c69265e2adab743d8f65f63ca8",
+ "data_version": "dv-d760f6b035cf29a2",
+ "code_version": "9d87cee",
+ "timestamp": "20261102T230446Z",
+ "duration_ms": 985418,
+ "metrics": {
+  "years": [
+   2021,
+   2022
+  ],
+  "topics": 125,
+  "trials_indexed": 34677,
+  "judgments_total": 71226,
+  "judgments_with_text": 51460,
+  "judgment_coverage": 0.7225,
+  "index_build_s": 195.9,
+  "setting": "re-rank judged pool per topic (not full-corpus retrieval)",
+  "bm25": {
+   "ndcg@10": 0.3961,
+   "p@10": 0.2432,
+   "mrr": 0.4524,
+   "recall@100": 0.3374,
+   "topics_scored": 125
+  },
+  "dense": {
+   "ndcg@10": 0.4228,
+   "p@10": 0.2616,
+   "mrr": 0.4446,
+   "recall@100": 0.4069,
+   "topics_scored": 125
+  },
+  "hybrid": {
+   "ndcg@10": 0.4574,
+   "p@10": 0.288,
+   "mrr": 0.4966,
+   "recall@100": 0.3774,
+   "topics_scored": 125
+  }
+ },
+ "items": [
+  {
+   "item_id": "2021-1",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.5413,
+    "p@10": 0.2,
+    "pool": 319,
+    "eligible_in_pool": 46
+   }
+  },
+  {
+   "item_id": "2021-10",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.0,
+    "p@10": 0.0,
+    "pool": 352,
+    "eligible_in_pool": 11
+   }
+  },
+  {
+   "item_id": "2021-11",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.3755,
+    "p@10": 0.0,
+    "pool": 296,
+    "eligible_in_pool": 52
+   }
+  },
+  {
+   "item_id": "2021-12",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.8318,
+    "p@10": 0.8,
+    "pool": 284,
+    "eligible_in_pool": 100
+   }
+  },
+  {
+   "item_id": "2021-13",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.2532,
+    "p@10": 0.1,
+    "pool": 334,
+    "eligible_in_pool": 42
+   }
+  },
+  {
+   "item_id": "2021-14",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.5421,
+    "p@10": 0.2,
+    "pool": 375,
+    "eligible_in_pool": 53
+   }
+  },
+  {
+   "item_id": "2021-15",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.531,
+    "p@10": 0.3,
+    "pool": 385,
+    "eligible_in_pool": 112
+   }
+  },
+  {
+   "item_id": "2021-16",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.2426,
+    "p@10": 0.1,
+    "pool": 394,
+    "eligible_in_pool": 50
+   }
+  },
+  {
+   "item_id": "2021-17",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.5671,
+    "p@10": 0.3,
+    "pool": 418,
+    "eligible_in_pool": 126
+   }
+  },
+  {
+   "item_id": "2021-18",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.365,
+    "p@10": 0.1,
+    "pool": 324,
+    "eligible_in_pool": 12
+   }
+  },
+  {
+   "item_id": "2021-19",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.6769,
+    "p@10": 0.5,
+    "pool": 280,
+    "eligible_in_pool": 87
+   }
+  },
+  {
+   "item_id": "2021-2",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.5792,
+    "p@10": 0.2,
+    "pool": 326,
+    "eligible_in_pool": 124
+   }
+  },
+  {
+   "item_id": "2021-20",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.4865,
+    "p@10": 0.1,
+    "pool": 333,
+    "eligible_in_pool": 42
+   }
+  },
+  {
+   "item_id": "2021-21",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.3372,
+    "p@10": 0.4,
+    "pool": 337,
+    "eligible_in_pool": 49
+   }
+  },
+  {
+   "item_id": "2021-22",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.6015,
+    "p@10": 0.4,
+    "pool": 290,
+    "eligible_in_pool": 70
+   }
+  },
+  {
+   "item_id": "2021-23",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.6024,
+    "p@10": 0.2,
+    "pool": 366,
+    "eligible_in_pool": 75
+   }
+  },
+  {
+   "item_id": "2021-24",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.5701,
+    "p@10": 0.3,
+    "pool": 319,
+    "eligible_in_pool": 106
+   }
+  },
+  {
+   "item_id": "2021-25",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.6287,
+    "p@10": 0.3,
+    "pool": 393,
+    "eligible_in_pool": 61
+   }
+  },
+  {
+   "item_id": "2021-26",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.615,
+    "p@10": 0.3,
+    "pool": 317,
+    "eligible_in_pool": 79
+   }
+  },
+  {
+   "item_id": "2021-27",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.3835,
+    "p@10": 0.0,
+    "pool": 410,
+    "eligible_in_pool": 54
+   }
+  },
+  {
+   "item_id": "2021-28",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.4087,
+    "p@10": 0.2,
+    "pool": 437,
+    "eligible_in_pool": 125
+   }
+  },
+  {
+   "item_id": "2021-29",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.342,
+    "p@10": 0.0,
+    "pool": 396,
+    "eligible_in_pool": 67
+   }
+  },
+  {
+   "item_id": "2021-3",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.1651,
+    "p@10": 0.0,
+    "pool": 407,
+    "eligible_in_pool": 30
+   }
+  },
+  {
+   "item_id": "2021-30",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.6803,
+    "p@10": 0.5,
+    "pool": 276,
+    "eligible_in_pool": 45
+   }
+  },
+  {
+   "item_id": "2021-31",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.3595,
+    "p@10": 0.2,
+    "pool": 366,
+    "eligible_in_pool": 44
+   }
+  },
+  {
+   "item_id": "2021-32",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.0,
+    "p@10": 0.0,
+    "pool": 326,
+    "eligible_in_pool": 25
+   }
+  },
+  {
+   "item_id": "2021-33",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.7968,
+    "p@10": 0.7,
+    "pool": 383,
+    "eligible_in_pool": 152
+   }
+  },
+  {
+   "item_id": "2021-34",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.1988,
+    "p@10": 0.2,
+    "pool": 372,
+    "eligible_in_pool": 69
+   }
+  },
+  {
+   "item_id": "2021-35",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.332,
+    "p@10": 0.1,
+    "pool": 340,
+    "eligible_in_pool": 81
+   }
+  },
+  {
+   "item_id": "2021-36",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.6535,
+    "p@10": 0.3,
+    "pool": 390,
+    "eligible_in_pool": 141
+   }
+  },
+  {
+   "item_id": "2021-37",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.8166,
+    "p@10": 0.8,
+    "pool": 406,
+    "eligible_in_pool": 160
+   }
+  },
+  {
+   "item_id": "2021-38",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.6459,
+    "p@10": 0.4,
+    "pool": 271,
+    "eligible_in_pool": 51
+   }
+  },
+  {
+   "item_id": "2021-39",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.0636,
+    "p@10": 0.1,
+    "pool": 332,
+    "eligible_in_pool": 34
+   }
+  },
+  {
+   "item_id": "2021-4",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.3227,
+    "p@10": 0.2,
+    "pool": 369,
+    "eligible_in_pool": 41
+   }
+  },
+  {
+   "item_id": "2021-40",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.5017,
+    "p@10": 0.4,
+    "pool": 314,
+    "eligible_in_pool": 11
+   }
+  },
+  {
+   "item_id": "2021-41",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.6387,
+    "p@10": 0.3,
+    "pool": 413,
+    "eligible_in_pool": 130
+   }
+  },
+  {
+   "item_id": "2021-42",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.055,
+    "p@10": 0.0,
+    "pool": 397,
+    "eligible_in_pool": 37
+   }
+  },
+  {
+   "item_id": "2021-43",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.6767,
+    "p@10": 0.6,
+    "pool": 317,
+    "eligible_in_pool": 61
+   }
+  },
+  {
+   "item_id": "2021-44",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.44,
+    "p@10": 0.0,
+    "pool": 340,
+    "eligible_in_pool": 5
+   }
+  },
+  {
+   "item_id": "2021-45",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.7655,
+    "p@10": 0.7,
+    "pool": 368,
+    "eligible_in_pool": 145
+   }
+  },
+  {
+   "item_id": "2021-46",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.7788,
+    "p@10": 0.7,
+    "pool": 344,
+    "eligible_in_pool": 110
+   }
+  },
+  {
+   "item_id": "2021-47",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.8125,
+    "p@10": 0.6,
+    "pool": 410,
+    "eligible_in_pool": 118
+   }
+  },
+  {
+   "item_id": "2021-48",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.8135,
+    "p@10": 0.7,
+    "pool": 247,
+    "eligible_in_pool": 44
+   }
+  },
+  {
+   "item_id": "2021-49",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.4265,
+    "p@10": 0.2,
+    "pool": 260,
+    "eligible_in_pool": 35
+   }
+  },
+  {
+   "item_id": "2021-5",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.795,
+    "p@10": 0.6,
+    "pool": 334,
+    "eligible_in_pool": 113
+   }
+  },
+  {
+   "item_id": "2021-50",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.5863,
+    "p@10": 0.3,
+    "pool": 268,
+    "eligible_in_pool": 13
+   }
+  },
+  {
+   "item_id": "2021-51",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.3236,
+    "p@10": 0.2,
+    "pool": 321,
+    "eligible_in_pool": 24
+   }
+  },
+  {
+   "item_id": "2021-52",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.7126,
+    "p@10": 0.6,
+    "pool": 324,
+    "eligible_in_pool": 40
+   }
+  },
+  {
+   "item_id": "2021-53",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.055,
+    "p@10": 0.0,
+    "pool": 380,
+    "eligible_in_pool": 32
+   }
+  },
+  {
+   "item_id": "2021-54",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.6217,
+    "p@10": 0.4,
+    "pool": 261,
+    "eligible_in_pool": 29
+   }
+  },
+  {
+   "item_id": "2021-55",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.423,
+    "p@10": 0.5,
+    "pool": 271,
+    "eligible_in_pool": 23
+   }
+  },
+  {
+   "item_id": "2021-56",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.6467,
+    "p@10": 0.4,
+    "pool": 249,
+    "eligible_in_pool": 51
+   }
+  },
+  {
+   "item_id": "2021-57",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.7097,
+    "p@10": 0.5,
+    "pool": 342,
+    "eligible_in_pool": 100
+   }
+  },
+  {
+   "item_id": "2021-58",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.5596,
+    "p@10": 0.3,
+    "pool": 254,
+    "eligible_in_pool": 55
+   }
+  },
+  {
+   "item_id": "2021-59",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.7187,
+    "p@10": 0.3,
+    "pool": 416,
+    "eligible_in_pool": 175
+   }
+  },
+  {
+   "item_id": "2021-6",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.8436,
+    "p@10": 0.6,
+    "pool": 356,
+    "eligible_in_pool": 110
+   }
+  },
+  {
+   "item_id": "2021-60",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.8876,
+    "p@10": 0.7,
+    "pool": 372,
+    "eligible_in_pool": 141
+   }
+  },
+  {
+   "item_id": "2021-61",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.1918,
+    "p@10": 0.0,
+    "pool": 410,
+    "eligible_in_pool": 97
+   }
+  },
+  {
+   "item_id": "2021-62",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.549,
+    "p@10": 0.3,
+    "pool": 355,
+    "eligible_in_pool": 62
+   }
+  },
+  {
+   "item_id": "2021-63",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.2469,
+    "p@10": 0.2,
+    "pool": 322,
+    "eligible_in_pool": 30
+   }
+  },
+  {
+   "item_id": "2021-64",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.1977,
+    "p@10": 0.0,
+    "pool": 402,
+    "eligible_in_pool": 60
+   }
+  },
+  {
+   "item_id": "2021-65",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.0851,
+    "p@10": 0.1,
+    "pool": 407,
+    "eligible_in_pool": 66
+   }
+  },
+  {
+   "item_id": "2021-66",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.0948,
+    "p@10": 0.1,
+    "pool": 332,
+    "eligible_in_pool": 11
+   }
+  },
+  {
+   "item_id": "2021-67",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.8166,
+    "p@10": 0.6,
+    "pool": 315,
+    "eligible_in_pool": 60
+   }
+  },
+  {
+   "item_id": "2021-68",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.607,
+    "p@10": 0.3,
+    "pool": 273,
+    "eligible_in_pool": 38
+   }
+  },
+  {
+   "item_id": "2021-69",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.323,
+    "p@10": 0.1,
+    "pool": 335,
+    "eligible_in_pool": 29
+   }
+  },
+  {
+   "item_id": "2021-7",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.2381,
+    "p@10": 0.2,
+    "pool": 353,
+    "eligible_in_pool": 101
+   }
+  },
+  {
+   "item_id": "2021-70",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.3521,
+    "p@10": 0.2,
+    "pool": 408,
+    "eligible_in_pool": 109
+   }
+  },
+  {
+   "item_id": "2021-71",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.2591,
+    "p@10": 0.1,
+    "pool": 376,
+    "eligible_in_pool": 110
+   }
+  },
+  {
+   "item_id": "2021-72",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.5367,
+    "p@10": 0.1,
+    "pool": 303,
+    "eligible_in_pool": 14
+   }
+  },
+  {
+   "item_id": "2021-73",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.0793,
+    "p@10": 0.0,
+    "pool": 317,
+    "eligible_in_pool": 20
+   }
+  },
+  {
+   "item_id": "2021-74",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.5959,
+    "p@10": 0.5,
+    "pool": 327,
+    "eligible_in_pool": 11
+   }
+  },
+  {
+   "item_id": "2021-75",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.683,
+    "p@10": 0.4,
+    "pool": 429,
+    "eligible_in_pool": 134
+   }
+  },
+  {
+   "item_id": "2021-8",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.3832,
+    "p@10": 0.2,
+    "pool": 391,
+    "eligible_in_pool": 92
+   }
+  },
+  {
+   "item_id": "2021-9",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.3533,
+    "p@10": 0.0,
+    "pool": 376,
+    "eligible_in_pool": 13
+   }
+  },
+  {
+   "item_id": "2022-1",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.5602,
+    "p@10": 0.3,
+    "pool": 522,
+    "eligible_in_pool": 67
+   }
+  },
+  {
+   "item_id": "2022-10",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.5686,
+    "p@10": 0.3,
+    "pool": 505,
+    "eligible_in_pool": 68
+   }
+  },
+  {
+   "item_id": "2022-11",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.645,
+    "p@10": 0.4,
+    "pool": 609,
+    "eligible_in_pool": 221
+   }
+  },
+  {
+   "item_id": "2022-12",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.4654,
+    "p@10": 0.3,
+    "pool": 571,
+    "eligible_in_pool": 50
+   }
+  },
+  {
+   "item_id": "2022-13",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.5638,
+    "p@10": 0.4,
+    "pool": 434,
+    "eligible_in_pool": 14
+   }
+  },
+  {
+   "item_id": "2022-14",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.5811,
+    "p@10": 0.3,
+    "pool": 412,
+    "eligible_in_pool": 31
+   }
+  },
+  {
+   "item_id": "2022-15",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.6524,
+    "p@10": 0.6,
+    "pool": 419,
+    "eligible_in_pool": 118
+   }
+  },
+  {
+   "item_id": "2022-16",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.2395,
+    "p@10": 0.1,
+    "pool": 541,
+    "eligible_in_pool": 35
+   }
+  },
+  {
+   "item_id": "2022-17",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.0,
+    "p@10": 0.0,
+    "pool": 576,
+    "eligible_in_pool": 19
+   }
+  },
+  {
+   "item_id": "2022-18",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.0,
+    "p@10": 0.0,
+    "pool": 577,
+    "eligible_in_pool": 36
+   }
+  },
+  {
+   "item_id": "2022-19",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.0878,
+    "p@10": 0.1,
+    "pool": 565,
+    "eligible_in_pool": 7
+   }
+  },
+  {
+   "item_id": "2022-2",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.6467,
+    "p@10": 0.2,
+    "pool": 573,
+    "eligible_in_pool": 44
+   }
+  },
+  {
+   "item_id": "2022-20",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.8289,
+    "p@10": 0.6,
+    "pool": 479,
+    "eligible_in_pool": 171
+   }
+  },
+  {
+   "item_id": "2022-21",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.3747,
+    "p@10": 0.3,
+    "pool": 491,
+    "eligible_in_pool": 160
+   }
+  },
+  {
+   "item_id": "2022-22",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.0,
+    "p@10": 0.0,
+    "pool": 508,
+    "eligible_in_pool": 75
+   }
+  },
+  {
+   "item_id": "2022-23",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.7468,
+    "p@10": 0.4,
+    "pool": 619,
+    "eligible_in_pool": 116
+   }
+  },
+  {
+   "item_id": "2022-24",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.1245,
+    "p@10": 0.1,
+    "pool": 505,
+    "eligible_in_pool": 13
+   }
+  },
+  {
+   "item_id": "2022-25",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.2903,
+    "p@10": 0.1,
+    "pool": 517,
+    "eligible_in_pool": 61
+   }
+  },
+  {
+   "item_id": "2022-26",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.6948,
+    "p@10": 0.5,
+    "pool": 438,
+    "eligible_in_pool": 30
+   }
+  },
+  {
+   "item_id": "2022-27",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.3335,
+    "p@10": 0.3,
+    "pool": 293,
+    "eligible_in_pool": 24
+   }
+  },
+  {
+   "item_id": "2022-28",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.4251,
+    "p@10": 0.3,
+    "pool": 535,
+    "eligible_in_pool": 29
+   }
+  },
+  {
+   "item_id": "2022-29",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.049,
+    "p@10": 0.0,
+    "pool": 599,
+    "eligible_in_pool": 9
+   }
+  },
+  {
+   "item_id": "2022-3",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.7384,
+    "p@10": 0.5,
+    "pool": 428,
+    "eligible_in_pool": 25
+   }
+  },
+  {
+   "item_id": "2022-30",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.7875,
+    "p@10": 0.7,
+    "pool": 553,
+    "eligible_in_pool": 260
+   }
+  },
+  {
+   "item_id": "2022-31",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.0,
+    "p@10": 0.0,
+    "pool": 515,
+    "eligible_in_pool": 24
+   }
+  },
+  {
+   "item_id": "2022-32",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.3873,
+    "p@10": 0.1,
+    "pool": 603,
+    "eligible_in_pool": 67
+   }
+  },
+  {
+   "item_id": "2022-33",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.2985,
+    "p@10": 0.2,
+    "pool": 437,
+    "eligible_in_pool": 41
+   }
+  },
+  {
+   "item_id": "2022-34",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.3936,
+    "p@10": 0.1,
+    "pool": 408,
+    "eligible_in_pool": 12
+   }
+  },
+  {
+   "item_id": "2022-35",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.4415,
+    "p@10": 0.3,
+    "pool": 557,
+    "eligible_in_pool": 121
+   }
+  },
+  {
+   "item_id": "2022-36",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.0367,
+    "p@10": 0.0,
+    "pool": 521,
+    "eligible_in_pool": 59
+   }
+  },
+  {
+   "item_id": "2022-37",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.6056,
+    "p@10": 0.4,
+    "pool": 480,
+    "eligible_in_pool": 39
+   }
+  },
+  {
+   "item_id": "2022-38",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.9149,
+    "p@10": 0.9,
+    "pool": 309,
+    "eligible_in_pool": 135
+   }
+  },
+  {
+   "item_id": "2022-39",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.6556,
+    "p@10": 0.4,
+    "pool": 542,
+    "eligible_in_pool": 139
+   }
+  },
+  {
+   "item_id": "2022-4",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.9526,
+    "p@10": 0.9,
+    "pool": 490,
+    "eligible_in_pool": 239
+   }
+  },
+  {
+   "item_id": "2022-40",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.7254,
+    "p@10": 0.6,
+    "pool": 522,
+    "eligible_in_pool": 90
+   }
+  },
+  {
+   "item_id": "2022-41",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.2809,
+    "p@10": 0.3,
+    "pool": 524,
+    "eligible_in_pool": 54
+   }
+  },
+  {
+   "item_id": "2022-42",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.3237,
+    "p@10": 0.0,
+    "pool": 490,
+    "eligible_in_pool": 41
+   }
+  },
+  {
+   "item_id": "2022-43",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.0,
+    "p@10": 0.0,
+    "pool": 607,
+    "eligible_in_pool": 12
+   }
+  },
+  {
+   "item_id": "2022-44",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.7263,
+    "p@10": 0.4,
+    "pool": 538,
+    "eligible_in_pool": 108
+   }
+  },
+  {
+   "item_id": "2022-45",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.0,
+    "p@10": 0.0,
+    "pool": 487,
+    "eligible_in_pool": 11
+   }
+  },
+  {
+   "item_id": "2022-46",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.7854,
+    "p@10": 0.6,
+    "pool": 535,
+    "eligible_in_pool": 130
+   }
+  },
+  {
+   "item_id": "2022-47",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.1931,
+    "p@10": 0.2,
+    "pool": 468,
+    "eligible_in_pool": 89
+   }
+  },
+  {
+   "item_id": "2022-48",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.8166,
+    "p@10": 0.6,
+    "pool": 452,
+    "eligible_in_pool": 86
+   }
+  },
+  {
+   "item_id": "2022-49",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.3051,
+    "p@10": 0.3,
+    "pool": 579,
+    "eligible_in_pool": 15
+   }
+  },
+  {
+   "item_id": "2022-5",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.5121,
+    "p@10": 0.3,
+    "pool": 526,
+    "eligible_in_pool": 57
+   }
+  },
+  {
+   "item_id": "2022-50",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.4133,
+    "p@10": 0.3,
+    "pool": 580,
+    "eligible_in_pool": 112
+   }
+  },
+  {
+   "item_id": "2022-6",
+   "passed": true,
+   "failure_category": null,
+   "details": {
+    "ndcg@10": 0.6787,
+    "p@10": 0.6,
+    "pool": 483,
+    "eligible_in_pool": 118
+   }
+  },
+  {
+   "item_id": "2022-7",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.2415,
+    "p@10": 0.1,
+    "pool": 470,
+    "eligible_in_pool": 15
+   }
+  },
+  {
+   "item_id": "2022-8",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.0347,
+    "p@10": 0.0,
+    "pool": 579,
+    "eligible_in_pool": 14
+   }
+  },
+  {
+   "item_id": "2022-9",
+   "passed": false,
+   "failure_category": "low_ndcg",
+   "details": {
+    "ndcg@10": 0.1492,
+    "p@10": 0.1,
+    "pool": 577,
+    "eligible_in_pool": 58
+   }
+  }
+ ]
+}

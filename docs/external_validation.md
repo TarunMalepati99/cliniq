@@ -7,8 +7,8 @@ and ground truth that CLINIQ did **not** produce.
 | Source | Status | What it tests |
 |---|---|---|
 | **Synthea** (MITRE, third-party FHIR R4) | ✅ done — results below | FHIR ingestion robustness; cohort correctness vs an independent oracle |
-| **Chia** (Kury et al. 2020, annotated eligibility criteria) | ⏳ suite built and tested on fixtures; waiting for data (`scripts/fetch_external.py`) | criteria extraction against independent human annotation |
-| **TREC Clinical Trials 2021/2022** (NIST) | ⏳ suite built; corpus parts 1 & 3 parsed (200/200 sampled trials); topics/qrels pending | patient → trial retrieval with human relevance judgments |
+| **Chia** (Kury et al. 2020, annotated eligibility criteria) | ⏳ suite built and tested on fixtures; data only on figshare/Hugging Face (blocked here; the GitHub repo has code only) | criteria extraction against independent human annotation |
+| **TREC Clinical Trials 2021/2022** (NIST) | ✅ done: 125 topics, 51,460 judgments with text (results in §2) | patient → trial retrieval against human relevance judgments |
 | **Gemini extractor** | ⏳ adapter built and tested with a fake transport; needs your key at the terminal | LLM extraction on the same benchmarks as the rule extractors |
 
 ## 1. Synthea
@@ -89,12 +89,38 @@ CLINIQ_DATABASE_URL=… cliniq ingest output/fhir
 CLINIQ_DATABASE_URL=… CLINIQ_READER_DATABASE_URL=… python scripts/verify_synthea_cohorts.py output/fhir
 ```
 
-## 2. Chia and TREC (pending data)
+## 2. TREC Clinical Trials 2021 + 2022
+
+**Data provenance.** NIST was unreachable from the build sandbox, so this run used other sources:
+- **Topics and judgments:** the copies in NCBI's TrialGPT repository (github.com/ncbi-nlp/TrialGPT, commit `1b3242c`; Jin et al., *Nature Communications* 2024). These are 75 + 50 topics and 35,832 + 35,394 judgments, which matches the official track sizes.
+- **Trial text:** taken from the official 2021-04-27 corpus where available (your parts 1 and 3: 20,952 judged trials), otherwise from TrialGPT's trial records (13,725 more).
+- **Coverage:** 34,677 of 48,714 judged trials have text, which is 51,460 of 71,226 judgments (72%).
+
+`scripts/build_trec_benchmark.py` rebuilds this folder, and `MANIFEST.json` records the hashes and counts.
+
+**Setting.** Each topic's judged pool (the trials with text) is re-ranked; topics with no eligible trial are skipped. Re-ranking a pool is easier than full-corpus retrieval, so these numbers **are not comparable with official TREC submissions**. A random ordering of the same pools gives the baseline.
+
+| Retriever | nDCG@10 | P@10 (eligible) | MRR (eligible) | Recall@100 (eligible) |
+|---|---:|---:|---:|---:|
+| Random ordering (mean of 20 shuffles) | 0.254 | 0.171 | — | — |
+| BM25 | 0.396 | 0.243 | 0.452 | 0.337 |
+| Dense (LSA) | 0.423 | 0.262 | 0.445 | 0.407 |
+| **Hybrid (BM25 + LSA, RRF)** | **0.457** | **0.288** | **0.497** | 0.377 |
+
+**Reading the results**
+- On real trials, hybrid fusion helps clearly: +0.06 nDCG@10 over BM25 and +0.20 over random. On the small synthetic corpus, the retrievers were indistinguishable.
+- The absolute level is modest. CLINIQ's retriever was built for criterion → passage evidence lookup, not for matching a whole patient note to trials, and it does no criterion-level reasoning. This is the clearest signal of where an LLM matching stage would add value.
+- **Defect found and fixed:** the dense embedder ran out of memory on 34,677 trials (killed at 6.3 GB). The LSA embedder now fits on a bounded, seeded sample (8,000 documents) and embeds in float32 batches. Results on the internal benchmark are unchanged (recall@5 0.756, MRR 0.940).
+
+## 2b. Chia (pending data)
 
 The sandboxes CLINIQ was built in cannot reach Hugging Face, figshare or NIST. Run this on a machine
 with normal internet access:
 
 ```bash
+# simplest: open https://doi.org/10.6084/m9.figshare.11855817.v2 in a browser → "Download all" → the zip lands in Downloads
+python scripts/fetch_external.py --chia-zip ~/Downloads/<that zip> --skip-trec
+# or via Hugging Face:
 pip install "datasets<4"      # bigbio/chia uses a dataset script; datasets 4.x removed support
 python scripts/fetch_external.py   # → ~/Downloads/cliniq_external/
 cliniq eval --chia ~/Downloads/cliniq_external/chia.jsonl --trec ~/Downloads/cliniq_external/trec
