@@ -1,0 +1,6374 @@
+{
+"pt-00001": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00002": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00003": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00004": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00005": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00006": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00007": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00008": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00009": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00010": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00011": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00012": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"msi_high"
+]
+},
+"pt-00013": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00014": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00015": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00016": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00017": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00018": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00019": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"alk_fusion"
+]
+},
+"pt-00020": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00021": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00022": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00023": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00024": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00025": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00026": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00027": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00028": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"alk_fusion"
+]
+},
+"pt-00029": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00030": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00031": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00032": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00033": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00034": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00035": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00036": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00037": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00038": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00039": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00040": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00041": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00042": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00043": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00044": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00045": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00046": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00047": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00048": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_l858r"
+]
+},
+"pt-00049": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00050": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00051": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00052": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00053": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00054": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00055": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00056": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00057": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00058": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00059": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00060": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00061": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00062": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00063": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00064": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00065": {
+"disease": "lung",
+"histology": "8012/3",
+"drivers": []
+},
+"pt-00066": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00067": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00068": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00069": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00070": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00071": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00072": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00073": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00074": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00075": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00076": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00077": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00078": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00079": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00080": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00081": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00082": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"alk_fusion"
+]
+},
+"pt-00083": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00084": {
+"disease": "lung",
+"histology": "8012/3",
+"drivers": []
+},
+"pt-00085": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00086": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00087": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"ros1_fusion"
+]
+},
+"pt-00088": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_exon19del"
+]
+},
+"pt-00089": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00090": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_l858r"
+]
+},
+"pt-00091": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00092": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00093": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00094": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00095": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00096": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00097": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00098": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00099": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00100": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00101": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00102": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00103": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_exon19del"
+]
+},
+"pt-00104": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00105": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00106": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00107": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00108": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00109": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00110": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00111": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00112": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00113": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00114": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00115": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00116": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00117": {
+"disease": "breast",
+"histology": null,
+"drivers": [
+"erbb2_amplification"
+]
+},
+"pt-00118": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00119": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00120": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00121": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00122": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00123": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00124": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00125": {
+"disease": "lung",
+"histology": "8046/3",
+"drivers": []
+},
+"pt-00126": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_l858r"
+]
+},
+"pt-00127": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00128": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00129": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00130": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00131": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00132": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_l858r"
+]
+},
+"pt-00133": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00134": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00135": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00136": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00137": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00138": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00139": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00140": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00141": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00142": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00143": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00144": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00145": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00146": {
+"disease": "breast",
+"histology": null,
+"drivers": [
+"erbb2_amplification"
+]
+},
+"pt-00147": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00148": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00149": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00150": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00151": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00152": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00153": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00154": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00155": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"msi_high"
+]
+},
+"pt-00156": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00157": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00158": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00159": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00160": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00161": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00162": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00163": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_exon19del"
+]
+},
+"pt-00164": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00165": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00166": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00167": {
+"disease": "lung",
+"histology": "8046/3",
+"drivers": []
+},
+"pt-00168": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00169": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00170": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00171": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00172": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00173": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00174": {
+"disease": "lung",
+"histology": "8046/3",
+"drivers": []
+},
+"pt-00175": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00176": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00177": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00178": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00179": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00180": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00181": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00182": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00183": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_l858r"
+]
+},
+"pt-00184": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00185": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00186": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00187": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00188": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00189": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00190": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00191": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_exon19del"
+]
+},
+"pt-00192": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00193": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"msi_high"
+]
+},
+"pt-00194": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00195": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00196": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00197": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00198": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00199": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00200": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00201": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00202": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00203": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00204": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00205": {
+"disease": "lung",
+"histology": "8046/3",
+"drivers": []
+},
+"pt-00206": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00207": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00208": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00209": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00210": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00211": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00212": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00213": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00214": {
+"disease": "lung",
+"histology": "8012/3",
+"drivers": []
+},
+"pt-00215": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"msi_high"
+]
+},
+"pt-00216": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00217": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00218": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00219": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00220": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00221": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00222": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00223": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00224": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00225": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00226": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00227": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_exon19del"
+]
+},
+"pt-00228": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00229": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00230": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00231": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00232": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00233": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00234": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00235": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00236": {
+"disease": "lung",
+"histology": "8012/3",
+"drivers": []
+},
+"pt-00237": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00238": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00239": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_exon19del"
+]
+},
+"pt-00240": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00241": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00242": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00243": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00244": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00245": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00246": {
+"disease": "breast",
+"histology": null,
+"drivers": [
+"erbb2_amplification"
+]
+},
+"pt-00247": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00248": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00249": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00250": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00251": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00252": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00253": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"msi_high"
+]
+},
+"pt-00254": {
+"disease": "lung",
+"histology": "8012/3",
+"drivers": []
+},
+"pt-00255": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00256": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00257": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00258": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00259": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00260": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00261": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00262": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00263": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00264": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00265": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00266": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00267": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00268": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00269": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00270": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00271": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00272": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00273": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00274": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00275": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00276": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00277": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00278": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00279": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00280": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00281": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00282": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00283": {
+"disease": "lung",
+"histology": "8046/3",
+"drivers": []
+},
+"pt-00284": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00285": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00286": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00287": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00288": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00289": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00290": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00291": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00292": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00293": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00294": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00295": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00296": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00297": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00298": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00299": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00300": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00301": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00302": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00303": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00304": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00305": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00306": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00307": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00308": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00309": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00310": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00311": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00312": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00313": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00314": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00315": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00316": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00317": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00318": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00319": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00320": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00321": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"alk_fusion"
+]
+},
+"pt-00322": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00323": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00324": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00325": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00326": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00327": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00328": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00329": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00330": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00331": {
+"disease": "lung",
+"histology": "8046/3",
+"drivers": []
+},
+"pt-00332": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00333": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00334": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00335": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00336": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00337": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00338": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00339": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00340": {
+"disease": "lung",
+"histology": "8046/3",
+"drivers": []
+},
+"pt-00341": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00342": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00343": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00344": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00345": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00346": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00347": {
+"disease": "breast",
+"histology": null,
+"drivers": [
+"erbb2_amplification"
+]
+},
+"pt-00348": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00349": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00350": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00351": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00352": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00353": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00354": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00355": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00356": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00357": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00358": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00359": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00360": {
+"disease": "breast",
+"histology": null,
+"drivers": [
+"brca2_pathogenic"
+]
+},
+"pt-00361": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00362": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00363": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00364": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00365": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00366": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00367": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00368": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00369": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00370": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00371": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00372": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00373": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00374": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"alk_fusion"
+]
+},
+"pt-00375": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00376": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00377": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00378": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"msi_high"
+]
+},
+"pt-00379": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00380": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00381": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00382": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00383": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00384": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00385": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00386": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00387": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00388": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00389": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00390": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00391": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00392": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00393": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00394": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00395": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00396": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00397": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00398": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00399": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00400": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00401": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00402": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00403": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00404": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_exon19del"
+]
+},
+"pt-00405": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00406": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00407": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00408": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00409": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00410": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00411": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00412": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00413": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00414": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00415": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00416": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_exon19del"
+]
+},
+"pt-00417": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00418": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00419": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00420": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00421": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00422": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00423": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00424": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00425": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00426": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00427": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00428": {
+"disease": "lung",
+"histology": "8046/3",
+"drivers": []
+},
+"pt-00429": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00430": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00431": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00432": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00433": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00434": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00435": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_exon19del"
+]
+},
+"pt-00436": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00437": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00438": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00439": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00440": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00441": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00442": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00443": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00444": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00445": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00446": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00447": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"alk_fusion"
+]
+},
+"pt-00448": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00449": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00450": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00451": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00452": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00453": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00454": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00455": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00456": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00457": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00458": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00459": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00460": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00461": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00462": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00463": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00464": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00465": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00466": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00467": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00468": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00469": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00470": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00471": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00472": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00473": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00474": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00475": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00476": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00477": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00478": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00479": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00480": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00481": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00482": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00483": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00484": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00485": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00486": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00487": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_l858r"
+]
+},
+"pt-00488": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00489": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00490": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00491": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00492": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00493": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00494": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00495": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00496": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00497": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00498": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00499": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00500": {
+"disease": "breast",
+"histology": null,
+"drivers": [
+"erbb2_amplification"
+]
+},
+"pt-00501": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_l858r"
+]
+},
+"pt-00502": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00503": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00504": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00505": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00506": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00507": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00508": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00509": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00510": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00511": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00512": {
+"disease": "breast",
+"histology": null,
+"drivers": [
+"erbb2_amplification"
+]
+},
+"pt-00513": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00514": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00515": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"msi_high"
+]
+},
+"pt-00516": {
+"disease": "breast",
+"histology": null,
+"drivers": [
+"erbb2_amplification"
+]
+},
+"pt-00517": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00518": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00519": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"alk_fusion"
+]
+},
+"pt-00520": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00521": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00522": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00523": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_exon19del"
+]
+},
+"pt-00524": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00525": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00526": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00527": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00528": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00529": {
+"disease": "breast",
+"histology": null,
+"drivers": [
+"erbb2_amplification"
+]
+},
+"pt-00530": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00531": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00532": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00533": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00534": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00535": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00536": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00537": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00538": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00539": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00540": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00541": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00542": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00543": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00544": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00545": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00546": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00547": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00548": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00549": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00550": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00551": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00552": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00553": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00554": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00555": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00556": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00557": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00558": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"msi_high"
+]
+},
+"pt-00559": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00560": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00561": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00562": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00563": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00564": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00565": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00566": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00567": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00568": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00569": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00570": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00571": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00572": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00573": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00574": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00575": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00576": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00577": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00578": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00579": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00580": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00581": {
+"disease": "breast",
+"histology": null,
+"drivers": [
+"brca1_pathogenic"
+]
+},
+"pt-00582": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00583": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00584": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00585": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00586": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00587": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00588": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00589": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00590": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00591": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00592": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00593": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"kras_g12c",
+"msi_high"
+]
+},
+"pt-00594": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00595": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00596": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00597": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00598": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00599": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00600": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00601": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00602": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00603": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00604": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00605": {
+"disease": "prostate",
+"histology": null,
+"drivers": [
+"brca2_pathogenic"
+]
+},
+"pt-00606": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00607": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"msi_high"
+]
+},
+"pt-00608": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00609": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00610": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00611": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00612": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00613": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00614": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00615": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00616": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00617": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00618": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00619": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00620": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00621": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00622": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00623": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00624": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00625": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00626": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00627": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00628": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00629": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00630": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00631": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00632": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00633": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"alk_fusion"
+]
+},
+"pt-00634": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00635": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00636": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00637": {
+"disease": "lung",
+"histology": "8046/3",
+"drivers": []
+},
+"pt-00638": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00639": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00640": {
+"disease": "breast",
+"histology": null,
+"drivers": [
+"brca2_pathogenic"
+]
+},
+"pt-00641": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00642": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00643": {
+"disease": "prostate",
+"histology": null,
+"drivers": [
+"brca2_pathogenic"
+]
+},
+"pt-00644": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"braf_v600e",
+"msi_high"
+]
+},
+"pt-00645": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00646": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00647": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00648": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00649": {
+"disease": "breast",
+"histology": null,
+"drivers": [
+"erbb2_amplification"
+]
+},
+"pt-00650": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00651": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00652": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00653": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00654": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00655": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00656": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00657": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00658": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00659": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00660": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00661": {
+"disease": "prostate",
+"histology": null,
+"drivers": [
+"brca2_pathogenic"
+]
+},
+"pt-00662": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00663": {
+"disease": "lung",
+"histology": "8046/3",
+"drivers": []
+},
+"pt-00664": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00665": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00666": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00667": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00668": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00669": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00670": {
+"disease": "breast",
+"histology": null,
+"drivers": [
+"erbb2_amplification"
+]
+},
+"pt-00671": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00672": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00673": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00674": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00675": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00676": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00677": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00678": {
+"disease": "lung",
+"histology": "8012/3",
+"drivers": []
+},
+"pt-00679": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00680": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00681": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00682": {
+"disease": "lung",
+"histology": "8046/3",
+"drivers": []
+},
+"pt-00683": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00684": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00685": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00686": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00687": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00688": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00689": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00690": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00691": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00692": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00693": {
+"disease": "lung",
+"histology": "8012/3",
+"drivers": []
+},
+"pt-00694": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"msi_high"
+]
+},
+"pt-00695": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00696": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00697": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00698": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00699": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00700": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00701": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00702": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00703": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00704": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00705": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00706": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00707": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00708": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00709": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00710": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00711": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00712": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00713": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00714": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00715": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00716": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00717": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00718": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00719": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00720": {
+"disease": "lung",
+"histology": "8012/3",
+"drivers": []
+},
+"pt-00721": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00722": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00723": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00724": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00725": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00726": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00727": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00728": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00729": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00730": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_l858r"
+]
+},
+"pt-00731": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00732": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00733": {
+"disease": "lung",
+"histology": "8046/3",
+"drivers": []
+},
+"pt-00734": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00735": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_exon19del"
+]
+},
+"pt-00736": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00737": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00738": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00739": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00740": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00741": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00742": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00743": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00744": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00745": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00746": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00747": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00748": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00749": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00750": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00751": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"msi_high"
+]
+},
+"pt-00752": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00753": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00754": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00755": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00756": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00757": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00758": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00759": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00760": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00761": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_l858r"
+]
+},
+"pt-00762": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00763": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00764": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00765": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_l858r"
+]
+},
+"pt-00766": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00767": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00768": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00769": {
+"disease": "breast",
+"histology": null,
+"drivers": [
+"erbb2_amplification"
+]
+},
+"pt-00770": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00771": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"msi_high"
+]
+},
+"pt-00772": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00773": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00774": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00775": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00776": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00777": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00778": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00779": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00780": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00781": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00782": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00783": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00784": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00785": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00786": {
+"disease": "breast",
+"histology": null,
+"drivers": [
+"erbb2_amplification"
+]
+},
+"pt-00787": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00788": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00789": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00790": {
+"disease": "breast",
+"histology": null,
+"drivers": [
+"erbb2_amplification"
+]
+},
+"pt-00791": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00792": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00793": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00794": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00795": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00796": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00797": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00798": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00799": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"msi_high"
+]
+},
+"pt-00800": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00801": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00802": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00803": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00804": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00805": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00806": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00807": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00808": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00809": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00810": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00811": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00812": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00813": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00814": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00815": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00816": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00817": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00818": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00819": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00820": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00821": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00822": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00823": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00824": {
+"disease": "lung",
+"histology": "8012/3",
+"drivers": []
+},
+"pt-00825": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"msi_high"
+]
+},
+"pt-00826": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00827": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00828": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00829": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00830": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00831": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"msi_high"
+]
+},
+"pt-00832": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00833": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00834": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00835": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00836": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00837": {
+"disease": "lung",
+"histology": "8046/3",
+"drivers": []
+},
+"pt-00838": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00839": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00840": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00841": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00842": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00843": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00844": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00845": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00846": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00847": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00848": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00849": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00850": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00851": {
+"disease": "breast",
+"histology": null,
+"drivers": [
+"erbb2_amplification"
+]
+},
+"pt-00852": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00853": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00854": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"msi_high"
+]
+},
+"pt-00855": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00856": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00857": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00858": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00859": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00860": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00861": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00862": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00863": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00864": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00865": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00866": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00867": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00868": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00869": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00870": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00871": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00872": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00873": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_exon19del"
+]
+},
+"pt-00874": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00875": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00876": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00877": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00878": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00879": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00880": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00881": {
+"disease": "lung",
+"histology": "8012/3",
+"drivers": []
+},
+"pt-00882": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00883": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00884": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"msi_high"
+]
+},
+"pt-00885": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00886": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00887": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00888": {
+"disease": "lung",
+"histology": "8012/3",
+"drivers": []
+},
+"pt-00889": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00890": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00891": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00892": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00893": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00894": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00895": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00896": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00897": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00898": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00899": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00900": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00901": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00902": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00903": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00904": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00905": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_exon19del"
+]
+},
+"pt-00906": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": [
+"brca2_pathogenic"
+]
+},
+"pt-00907": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00908": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00909": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00910": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00911": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00912": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00913": {
+"disease": "lung",
+"histology": "8046/3",
+"drivers": []
+},
+"pt-00914": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00915": {
+"disease": "prostate",
+"histology": null,
+"drivers": [
+"brca2_pathogenic"
+]
+},
+"pt-00916": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00917": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00918": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_l858r"
+]
+},
+"pt-00919": {
+"disease": "lung",
+"histology": "8046/3",
+"drivers": []
+},
+"pt-00920": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-00921": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00922": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"alk_fusion"
+]
+},
+"pt-00923": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_exon19del"
+]
+},
+"pt-00924": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00925": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00926": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00927": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"msi_high"
+]
+},
+"pt-00928": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00929": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00930": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00931": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00932": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00933": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00934": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00935": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00936": {
+"disease": "breast",
+"histology": null,
+"drivers": [
+"erbb2_amplification"
+]
+},
+"pt-00937": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00938": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_exon19del"
+]
+},
+"pt-00939": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00940": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00941": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00942": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00943": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00944": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00945": {
+"disease": "lung",
+"histology": "8012/3",
+"drivers": []
+},
+"pt-00946": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00947": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00948": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00949": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00950": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00951": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00952": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00953": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00954": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00955": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00956": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00957": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00958": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00959": {
+"disease": "lung",
+"histology": "8046/3",
+"drivers": []
+},
+"pt-00960": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-00961": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00962": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00963": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00964": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00965": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00966": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00967": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00968": {
+"disease": "lung",
+"histology": "8046/3",
+"drivers": []
+},
+"pt-00969": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00970": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00971": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"msi_high"
+]
+},
+"pt-00972": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00973": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00974": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-00975": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00976": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00977": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00978": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00979": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00980": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00981": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00982": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_exon19del"
+]
+},
+"pt-00983": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-00984": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00985": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-00986": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-00987": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00988": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-00989": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00990": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00991": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_exon19del"
+]
+},
+"pt-00992": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00993": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00994": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-00995": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-00996": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00997": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-00998": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-00999": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-01000": {
+"disease": "breast",
+"histology": null,
+"drivers": [
+"erbb2_amplification"
+]
+},
+"pt-01001": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01002": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-01003": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-01004": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-01005": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01006": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-01007": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01008": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01009": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-01010": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-01011": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-01012": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-01013": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_l858r"
+]
+},
+"pt-01014": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-01015": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-01016": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01017": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"alk_fusion"
+]
+},
+"pt-01018": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-01019": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01020": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01021": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01022": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-01023": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-01024": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01025": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-01026": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_exon19del"
+]
+},
+"pt-01027": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-01028": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-01029": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01030": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-01031": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01032": {
+"disease": "breast",
+"histology": null,
+"drivers": [
+"brca1_pathogenic"
+]
+},
+"pt-01033": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01034": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01035": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-01036": {
+"disease": "prostate",
+"histology": null,
+"drivers": [
+"brca2_pathogenic"
+]
+},
+"pt-01037": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01038": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01039": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-01040": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-01041": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-01042": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01043": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01044": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01045": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-01046": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01047": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-01048": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01049": {
+"disease": "lung",
+"histology": "8012/3",
+"drivers": []
+},
+"pt-01050": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01051": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-01052": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_l858r"
+]
+},
+"pt-01053": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01054": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-01055": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01056": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-01057": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-01058": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-01059": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-01060": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-01061": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-01062": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"msi_high"
+]
+},
+"pt-01063": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-01064": {
+"disease": "lung",
+"histology": "8012/3",
+"drivers": []
+},
+"pt-01065": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-01066": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01067": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01068": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-01069": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01070": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01071": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-01072": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01073": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-01074": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-01075": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01076": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-01077": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-01078": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-01079": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01080": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-01081": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-01082": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-01083": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-01084": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_l858r"
+]
+},
+"pt-01085": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01086": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01087": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-01088": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-01089": {
+"disease": "lung",
+"histology": "8012/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-01090": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-01091": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-01092": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-01093": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01094": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-01095": {
+"disease": "breast",
+"histology": null,
+"drivers": [
+"erbb2_amplification"
+]
+},
+"pt-01096": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01097": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_l858r"
+]
+},
+"pt-01098": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-01099": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-01100": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-01101": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-01102": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-01103": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-01104": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-01105": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-01106": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-01107": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-01108": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-01109": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01110": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-01111": {
+"disease": "breast",
+"histology": null,
+"drivers": [
+"erbb2_amplification"
+]
+},
+"pt-01112": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01113": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"msi_high"
+]
+},
+"pt-01114": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-01115": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"msi_high"
+]
+},
+"pt-01116": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01117": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-01118": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-01119": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01120": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-01121": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-01122": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01123": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-01124": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"egfr_exon19del"
+]
+},
+"pt-01125": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01126": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01127": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-01128": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-01129": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01130": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01131": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-01132": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-01133": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01134": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-01135": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-01136": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01137": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-01138": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-01139": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-01140": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01141": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-01142": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-01143": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-01144": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01145": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01146": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01147": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01148": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01149": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-01150": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01151": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-01152": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-01153": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-01154": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01155": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-01156": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01157": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-01158": {
+"disease": "lung",
+"histology": "8046/3",
+"drivers": []
+},
+"pt-01159": {
+"disease": "breast",
+"histology": null,
+"drivers": [
+"erbb2_amplification"
+]
+},
+"pt-01160": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01161": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01162": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01163": {
+"disease": "prostate",
+"histology": null,
+"drivers": []
+},
+"pt-01164": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-01165": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-01166": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-01167": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-01168": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01169": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-01170": {
+"disease": "colorectal",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-01171": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"alk_fusion"
+]
+},
+"pt-01172": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": [
+"kras_g12c"
+]
+},
+"pt-01173": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01174": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-01175": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-01176": {
+"disease": "lung",
+"histology": "8046/3",
+"drivers": []
+},
+"pt-01177": {
+"disease": "lung",
+"histology": "8070/3",
+"drivers": []
+},
+"pt-01178": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-01179": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01180": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01181": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-01182": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-01183": {
+"disease": "melanoma",
+"histology": null,
+"drivers": [
+"braf_v600e"
+]
+},
+"pt-01184": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01185": {
+"disease": "lung",
+"histology": "8046/3",
+"drivers": []
+},
+"pt-01186": {
+"disease": "lung",
+"histology": "8046/3",
+"drivers": []
+},
+"pt-01187": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01188": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-01189": {
+"disease": "melanoma",
+"histology": null,
+"drivers": []
+},
+"pt-01190": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01191": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-01192": {
+"disease": "lung",
+"histology": "8140/3",
+"drivers": []
+},
+"pt-01193": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-01194": {
+"disease": "colorectal",
+"histology": null,
+"drivers": []
+},
+"pt-01195": {
+"disease": "breast",
+"histology": null,
+"drivers": []
+},
+"pt-01196": {
+"disease": "lung",
+"histology": "8041/3",
+"drivers": []
+},
+"pt-01197": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+},
+"pt-01198": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-01199": {
+"disease": null,
+"histology": null,
+"drivers": []
+},
+"pt-01200": {
+"disease": "pancreatic",
+"histology": null,
+"drivers": []
+}
+}

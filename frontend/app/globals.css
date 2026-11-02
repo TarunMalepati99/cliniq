@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+body { @apply bg-surface-app text-ink antialiased; font-feature-settings: "tnum" 1; }
+.card { @apply bg-surface border border-surface-line rounded-lg; }
+.card-h { @apply px-4 pt-3 pb-2 text-sm font-semibold text-ink flex items-center justify-between gap-2; }
+.card-b { @apply px-4 pb-4; }
+.btn { @apply inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-medium border transition-colors disabled:opacity-50 disabled:cursor-not-allowed; }
+.btn-primary { @apply btn bg-brand text-white border-brand hover:bg-[#1c5cab]; }
+.btn-secondary { @apply btn bg-white text-ink border-surface-line hover:bg-surface-app; }
+.btn-danger { @apply btn bg-white text-[#b42f2f] border-[#e9b9b9] hover:bg-[#fdf2f2]; }
+.input { @apply w-full rounded-md border border-surface-line bg-white px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand/30 focus:border-brand; }
+.tbl { @apply w-full text-sm; }
+.tbl th { @apply text-left font-medium text-ink-2 text-xs uppercase tracking-wide px-3 py-2 border-b border-surface-line bg-surface-app/60; }
+.tbl td { @apply px-3 py-2 border-b border-surface-line/70 align-top; }
+.tbl tr:hover td { @apply bg-brand-soft/40; }
+.mono { @apply font-mono text-[12px]; }
+.label { @apply text-xs font-medium text-ink-2; }
+a.link, button.link { @apply text-brand hover:underline; }

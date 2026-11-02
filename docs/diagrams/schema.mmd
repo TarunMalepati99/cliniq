@@ -1,0 +1,58 @@
+erDiagram
+  SOURCE_FILES ||--o{ RAW_RECORDS : contains
+  PIPELINE_RUNS ||--o{ RAW_RECORDS : landed_by
+  PIPELINE_RUNS ||--o{ DEAD_LETTER : rejected_in
+  RAW_RECORDS ||--o| PERSON : source_record_id
+  RAW_RECORDS ||--o{ CONDITION_OCCURRENCE : source_record_id
+  RAW_RECORDS ||--o{ MEASUREMENT : source_record_id
+  PERSON ||--o{ CONDITION_OCCURRENCE : has
+  PERSON ||--o{ MEASUREMENT : has
+  PERSON ||--o{ DRUG_EXPOSURE : has
+  PERSON ||--o{ PROCEDURE_OCCURRENCE : has
+  PERSON ||--o{ GENOMIC_VARIANT : has
+  PERSON ||--o{ NOTE : has
+  NOTE ||--o{ NOTE_FACT : yields
+  DEFINITIONS ||--o{ APPROVALS : reviewed_by
+  DEFINITIONS ||--o{ COHORT_RUNS : executed_as
+  COHORT_RUNS ||--o{ RUN_PATIENTS : explains
+  RAG_DOCUMENTS ||--o{ RAG_CHUNKS : split_into
+  PERSON { text person_id PK
+    date birth_date
+    text sex
+    text state
+    text match_key "hashed name+DOB"
+    bigint source_record_id FK }
+  CONDITION_OCCURRENCE { text condition_id PK
+    text code "ICD-10-CM"
+    text histology_code "ICD-O-3"
+    date onset_date }
+  MEASUREMENT { text measurement_id PK
+    text lab_key
+    float value_numeric "canonical unit"
+    float source_value
+    text source_unit
+    date measured_at }
+  GENOMIC_VARIANT { text variant_result_id PK
+    text biomarker_key
+    text result "detected / not_detected / indeterminate"
+    date reported_date }
+  DRUG_EXPOSURE { text drug_exposure_id PK
+    text drug_name
+    text drug_class
+    date start_date }
+  DEFINITIONS { uuid definition_id PK
+    jsonb definition
+    text compiled_sql
+    text sql_sha256
+    text status }
+  APPROVALS { text sql_sha256
+    text decision
+    text decided_by }
+  COHORT_RUNS { uuid cohort_run_id PK
+    text data_version
+    text result_sha256
+    jsonb summary }
+  RAW_RECORDS { bigint raw_id PK
+    text content_sha256
+    jsonb payload
+    text process_status }

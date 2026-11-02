@@ -1,0 +1,2866 @@
+{
+ "openapi": "3.1.0",
+ "info": {
+  "title": "CLINIQ API",
+  "description": "CLINIQ is a research and engineering prototype operating on synthetic data. It is not a clinically validated product and must not be used for medical decision-making or patient care.",
+  "version": "0.1.0"
+ },
+ "paths": {
+  "/api/health": {
+   "get": {
+    "tags": [
+     "system"
+    ],
+    "summary": "Health",
+    "operationId": "health_api_health_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Health Api Health Get"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/me": {
+   "get": {
+    "tags": [
+     "system"
+    ],
+    "summary": "Me",
+    "operationId": "me_api_me_get",
+    "parameters": [
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Me Api Me Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/vocabulary": {
+   "get": {
+    "tags": [
+     "system"
+    ],
+    "summary": "Vocabulary",
+    "operationId": "vocabulary_api_vocabulary_get",
+    "parameters": [
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Vocabulary Api Vocabulary Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/jobs": {
+   "get": {
+    "tags": [
+     "system"
+    ],
+    "summary": "List Jobs",
+    "operationId": "list_jobs_api_jobs_get",
+    "parameters": [
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object",
+          "additionalProperties": true
+         },
+         "title": "Response List Jobs Api Jobs Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/jobs/{job_id}": {
+   "get": {
+    "tags": [
+     "system"
+    ],
+    "summary": "Job Status",
+    "operationId": "job_status_api_jobs__job_id__get",
+    "parameters": [
+     {
+      "name": "job_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Job Id"
+      }
+     },
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Job Status Api Jobs  Job Id  Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/ingest/upload": {
+   "post": {
+    "tags": [
+     "ingestion"
+    ],
+    "summary": "Upload",
+    "operationId": "upload_api_ingest_upload_post",
+    "parameters": [
+     {
+      "name": "wait",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "boolean",
+       "default": false,
+       "title": "Wait"
+      }
+     },
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "multipart/form-data": {
+       "schema": {
+        "$ref": "#/components/schemas/Body_upload_api_ingest_upload_post"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "title": "Response Upload Api Ingest Upload Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/ingest/sample": {
+   "post": {
+    "tags": [
+     "ingestion"
+    ],
+    "summary": "Ingest Sample",
+    "operationId": "ingest_sample_api_ingest_sample_post",
+    "parameters": [
+     {
+      "name": "wait",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "boolean",
+       "default": false,
+       "title": "Wait"
+      }
+     },
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "title": "Response Ingest Sample Api Ingest Sample Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/pipeline/dbt": {
+   "post": {
+    "tags": [
+     "ingestion"
+    ],
+    "summary": "Dbt Build",
+    "operationId": "dbt_build_api_pipeline_dbt_post",
+    "parameters": [
+     {
+      "name": "wait",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "boolean",
+       "default": false,
+       "title": "Wait"
+      }
+     },
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "title": "Response Dbt Build Api Pipeline Dbt Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/evidence/reindex": {
+   "post": {
+    "tags": [
+     "evidence"
+    ],
+    "summary": "Reindex",
+    "operationId": "reindex_api_evidence_reindex_post",
+    "parameters": [
+     {
+      "name": "wait",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "boolean",
+       "default": false,
+       "title": "Wait"
+      }
+     },
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "title": "Response Reindex Api Evidence Reindex Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/pipeline/runs": {
+   "get": {
+    "tags": [
+     "ingestion"
+    ],
+    "summary": "Pipeline Runs",
+    "operationId": "pipeline_runs_api_pipeline_runs_get",
+    "parameters": [
+     {
+      "name": "limit",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 500,
+       "default": 50,
+       "title": "Limit"
+      }
+     },
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object",
+          "additionalProperties": true
+         },
+         "title": "Response Pipeline Runs Api Pipeline Runs Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/pipeline/runs/{run_id}": {
+   "get": {
+    "tags": [
+     "ingestion"
+    ],
+    "summary": "Pipeline Run Detail",
+    "operationId": "pipeline_run_detail_api_pipeline_runs__run_id__get",
+    "parameters": [
+     {
+      "name": "run_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Run Id"
+      }
+     },
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Pipeline Run Detail Api Pipeline Runs  Run Id  Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/dead-letter": {
+   "get": {
+    "tags": [
+     "ingestion"
+    ],
+    "summary": "Dead Letter",
+    "operationId": "dead_letter_api_dead_letter_get",
+    "parameters": [
+     {
+      "name": "status",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Status"
+      }
+     },
+     {
+      "name": "limit",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 1000,
+       "default": 200,
+       "title": "Limit"
+      }
+     },
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object",
+          "additionalProperties": true
+         },
+         "title": "Response Dead Letter Api Dead Letter Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/dead-letter/retry": {
+   "post": {
+    "tags": [
+     "ingestion"
+    ],
+    "summary": "Dead Letter Retry",
+    "operationId": "dead_letter_retry_api_dead_letter_retry_post",
+    "parameters": [
+     {
+      "name": "wait",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "boolean",
+       "default": false,
+       "title": "Wait"
+      }
+     },
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/RetryRequest"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "title": "Response Dead Letter Retry Api Dead Letter Retry Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/data/summary": {
+   "get": {
+    "tags": [
+     "data"
+    ],
+    "summary": "Data Summary",
+    "operationId": "data_summary_api_data_summary_get",
+    "parameters": [
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Data Summary Api Data Summary Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/data/patients": {
+   "get": {
+    "tags": [
+     "data"
+    ],
+    "summary": "Patients",
+    "operationId": "patients_api_data_patients_get",
+    "parameters": [
+     {
+      "name": "q",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Q"
+      }
+     },
+     {
+      "name": "cancer",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Cancer"
+      }
+     },
+     {
+      "name": "limit",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 200,
+       "default": 50,
+       "title": "Limit"
+      }
+     },
+     {
+      "name": "offset",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "default": 0,
+       "title": "Offset"
+      }
+     },
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Patients Api Data Patients Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/data/patients/{person_id}": {
+   "get": {
+    "tags": [
+     "data"
+    ],
+    "summary": "Patient Detail",
+    "operationId": "patient_detail_api_data_patients__person_id__get",
+    "parameters": [
+     {
+      "name": "person_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Person Id"
+      }
+     },
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Patient Detail Api Data Patients  Person Id  Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/data/lineage/{raw_id}": {
+   "get": {
+    "tags": [
+     "data"
+    ],
+    "summary": "Lineage",
+    "operationId": "lineage_api_data_lineage__raw_id__get",
+    "parameters": [
+     {
+      "name": "raw_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Raw Id"
+      }
+     },
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Lineage Api Data Lineage  Raw Id  Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/cohort/extract": {
+   "post": {
+    "tags": [
+     "cohort"
+    ],
+    "summary": "Extract",
+    "operationId": "extract_api_cohort_extract_post",
+    "parameters": [
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ExtractRequest"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Extract Api Cohort Extract Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/cohort/definitions": {
+   "post": {
+    "tags": [
+     "cohort"
+    ],
+    "summary": "Create Definition",
+    "operationId": "create_definition_api_cohort_definitions_post",
+    "parameters": [
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/CreateDefinition"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Create Definition Api Cohort Definitions Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "get": {
+    "tags": [
+     "cohort"
+    ],
+    "summary": "List Definitions",
+    "operationId": "list_definitions_api_cohort_definitions_get",
+    "parameters": [
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object",
+          "additionalProperties": true
+         },
+         "title": "Response List Definitions Api Cohort Definitions Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/cohort/definitions/{definition_id}": {
+   "get": {
+    "tags": [
+     "cohort"
+    ],
+    "summary": "Get Definition",
+    "operationId": "get_definition_api_cohort_definitions__definition_id__get",
+    "parameters": [
+     {
+      "name": "definition_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Definition Id"
+      }
+     },
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Get Definition Api Cohort Definitions  Definition Id  Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/cohort/definitions/{definition_id}/review": {
+   "post": {
+    "tags": [
+     "cohort"
+    ],
+    "summary": "Review",
+    "operationId": "review_api_cohort_definitions__definition_id__review_post",
+    "parameters": [
+     {
+      "name": "definition_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Definition Id"
+      }
+     },
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/Review"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Review Api Cohort Definitions  Definition Id  Review Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/cohort/definitions/{definition_id}/execute": {
+   "post": {
+    "tags": [
+     "cohort"
+    ],
+    "summary": "Execute",
+    "operationId": "execute_api_cohort_definitions__definition_id__execute_post",
+    "parameters": [
+     {
+      "name": "definition_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Definition Id"
+      }
+     },
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Execute Api Cohort Definitions  Definition Id  Execute Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/cohort/runs": {
+   "get": {
+    "tags": [
+     "cohort"
+    ],
+    "summary": "List Runs",
+    "operationId": "list_runs_api_cohort_runs_get",
+    "parameters": [
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object",
+          "additionalProperties": true
+         },
+         "title": "Response List Runs Api Cohort Runs Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/cohort/runs/{run_id}": {
+   "get": {
+    "tags": [
+     "cohort"
+    ],
+    "summary": "Get Run",
+    "operationId": "get_run_api_cohort_runs__run_id__get",
+    "parameters": [
+     {
+      "name": "run_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Run Id"
+      }
+     },
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Get Run Api Cohort Runs  Run Id  Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/cohort/runs/{run_id}/patients": {
+   "get": {
+    "tags": [
+     "cohort"
+    ],
+    "summary": "Run Patients",
+    "operationId": "run_patients_api_cohort_runs__run_id__patients_get",
+    "parameters": [
+     {
+      "name": "run_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Run Id"
+      }
+     },
+     {
+      "name": "classification",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "enum": [
+          "eligible",
+          "potentially_eligible",
+          "ineligible"
+         ],
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Classification"
+      }
+     },
+     {
+      "name": "limit",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 500,
+       "default": 100,
+       "title": "Limit"
+      }
+     },
+     {
+      "name": "offset",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "default": 0,
+       "title": "Offset"
+      }
+     },
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object",
+          "additionalProperties": true
+         },
+         "title": "Response Run Patients Api Cohort Runs  Run Id  Patients Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/cohort/runs/{run_id}/reproduce": {
+   "post": {
+    "tags": [
+     "cohort"
+    ],
+    "summary": "Reproduce",
+    "operationId": "reproduce_api_cohort_runs__run_id__reproduce_post",
+    "parameters": [
+     {
+      "name": "run_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Run Id"
+      }
+     },
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Reproduce Api Cohort Runs  Run Id  Reproduce Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/evidence/search": {
+   "get": {
+    "tags": [
+     "evidence"
+    ],
+    "summary": "Evidence Search",
+    "operationId": "evidence_search_api_evidence_search_get",
+    "parameters": [
+     {
+      "name": "q",
+      "in": "query",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "minLength": 2,
+       "maxLength": 500,
+       "title": "Q"
+      }
+     },
+     {
+      "name": "k",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 20,
+       "minimum": 1,
+       "default": 5,
+       "title": "K"
+      }
+     },
+     {
+      "name": "mode",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "enum": [
+        "hybrid",
+        "bm25",
+        "dense"
+       ],
+       "type": "string",
+       "default": "hybrid",
+       "title": "Mode"
+      }
+     },
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Evidence Search Api Evidence Search Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/evidence/definition": {
+   "post": {
+    "tags": [
+     "evidence"
+    ],
+    "summary": "Evidence Definition",
+    "operationId": "evidence_definition_api_evidence_definition_post",
+    "parameters": [
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/EvidenceForDefinition"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Evidence Definition Api Evidence Definition Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/evidence/documents/{doc_id}": {
+   "get": {
+    "tags": [
+     "evidence"
+    ],
+    "summary": "Evidence Document",
+    "operationId": "evidence_document_api_evidence_documents__doc_id__get",
+    "parameters": [
+     {
+      "name": "doc_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Doc Id"
+      }
+     },
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Evidence Document Api Evidence Documents  Doc Id  Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/eval/runs": {
+   "get": {
+    "tags": [
+     "evaluation"
+    ],
+    "summary": "Eval Runs",
+    "operationId": "eval_runs_api_eval_runs_get",
+    "parameters": [
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object",
+          "additionalProperties": true
+         },
+         "title": "Response Eval Runs Api Eval Runs Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/eval/runs/{eval_run_id}": {
+   "get": {
+    "tags": [
+     "evaluation"
+    ],
+    "summary": "Eval Run",
+    "operationId": "eval_run_api_eval_runs__eval_run_id__get",
+    "parameters": [
+     {
+      "name": "eval_run_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Eval Run Id"
+      }
+     },
+     {
+      "name": "only_failures",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "boolean",
+       "default": false,
+       "title": "Only Failures"
+      }
+     },
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Eval Run Api Eval Runs  Eval Run Id  Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/eval/run": {
+   "post": {
+    "tags": [
+     "evaluation"
+    ],
+    "summary": "Eval Run Now",
+    "operationId": "eval_run_now_api_eval_run_post",
+    "parameters": [
+     {
+      "name": "wait",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "boolean",
+       "default": false,
+       "title": "Wait"
+      }
+     },
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/EvalRequest"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "title": "Response Eval Run Now Api Eval Run Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/monitoring/overview": {
+   "get": {
+    "tags": [
+     "monitoring"
+    ],
+    "summary": "Monitoring",
+    "operationId": "monitoring_api_monitoring_overview_get",
+    "parameters": [
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Monitoring Api Monitoring Overview Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/monitoring/lineage": {
+   "get": {
+    "tags": [
+     "monitoring"
+    ],
+    "summary": "Lineage Graph",
+    "description": "Dataset-level lineage: source files \u2192 raw records \u2192 clinical tables \u2192 dbt models.",
+    "operationId": "lineage_graph_api_monitoring_lineage_get",
+    "parameters": [
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Lineage Graph Api Monitoring Lineage Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ },
+ "components": {
+  "schemas": {
+   "AgeCriterion": {
+    "properties": {
+     "type": {
+      "type": "string",
+      "const": "age",
+      "title": "Type",
+      "default": "age"
+     },
+     "min_years": {
+      "anyOf": [
+       {
+        "type": "integer",
+        "maximum": 120.0,
+        "minimum": 0.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Min Years"
+     },
+     "max_years": {
+      "anyOf": [
+       {
+        "type": "integer",
+        "maximum": 120.0,
+        "minimum": 0.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Max Years"
+     }
+    },
+    "additionalProperties": false,
+    "type": "object",
+    "title": "AgeCriterion"
+   },
+   "BiomarkerCriterion": {
+    "properties": {
+     "type": {
+      "type": "string",
+      "const": "biomarker",
+      "title": "Type",
+      "default": "biomarker"
+     },
+     "markers": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "maxItems": 6,
+      "minItems": 1,
+      "title": "Markers"
+     },
+     "status": {
+      "type": "string",
+      "enum": [
+       "detected",
+       "not_detected"
+      ],
+      "title": "Status",
+      "default": "detected"
+     }
+    },
+    "additionalProperties": false,
+    "type": "object",
+    "required": [
+     "markers"
+    ],
+    "title": "BiomarkerCriterion",
+    "description": "`markers` are OR-ed: detected = any marker detected; not_detected = all markers tested negative."
+   },
+   "Body_upload_api_ingest_upload_post": {
+    "properties": {
+     "files": {
+      "items": {
+       "type": "string",
+       "contentMediaType": "application/octet-stream"
+      },
+      "type": "array",
+      "title": "Files"
+     }
+    },
+    "type": "object",
+    "required": [
+     "files"
+    ],
+    "title": "Body_upload_api_ingest_upload_post"
+   },
+   "CohortDefinition": {
+    "properties": {
+     "schema_version": {
+      "type": "string",
+      "const": "1.0",
+      "title": "Schema Version",
+      "default": "1.0"
+     },
+     "name": {
+      "type": "string",
+      "maxLength": 200,
+      "title": "Name",
+      "default": "Untitled cohort"
+     },
+     "inclusion": {
+      "items": {
+       "oneOf": [
+        {
+         "$ref": "#/components/schemas/AgeCriterion"
+        },
+        {
+         "$ref": "#/components/schemas/SexCriterion"
+        },
+        {
+         "$ref": "#/components/schemas/DiagnosisCriterion"
+        },
+        {
+         "$ref": "#/components/schemas/BiomarkerCriterion"
+        },
+        {
+         "$ref": "#/components/schemas/LabCriterion"
+        },
+        {
+         "$ref": "#/components/schemas/TreatmentCriterion"
+        },
+        {
+         "$ref": "#/components/schemas/ProcedureCriterion"
+        },
+        {
+         "$ref": "#/components/schemas/GeographyCriterion"
+        }
+       ],
+       "discriminator": {
+        "propertyName": "type",
+        "mapping": {
+         "age": "#/components/schemas/AgeCriterion",
+         "biomarker": "#/components/schemas/BiomarkerCriterion",
+         "diagnosis": "#/components/schemas/DiagnosisCriterion",
+         "geography": "#/components/schemas/GeographyCriterion",
+         "lab": "#/components/schemas/LabCriterion",
+         "procedure": "#/components/schemas/ProcedureCriterion",
+         "sex": "#/components/schemas/SexCriterion",
+         "treatment": "#/components/schemas/TreatmentCriterion"
+        }
+       }
+      },
+      "type": "array",
+      "maxItems": 20,
+      "title": "Inclusion"
+     },
+     "exclusion": {
+      "items": {
+       "oneOf": [
+        {
+         "$ref": "#/components/schemas/AgeCriterion"
+        },
+        {
+         "$ref": "#/components/schemas/SexCriterion"
+        },
+        {
+         "$ref": "#/components/schemas/DiagnosisCriterion"
+        },
+        {
+         "$ref": "#/components/schemas/BiomarkerCriterion"
+        },
+        {
+         "$ref": "#/components/schemas/LabCriterion"
+        },
+        {
+         "$ref": "#/components/schemas/TreatmentCriterion"
+        },
+        {
+         "$ref": "#/components/schemas/ProcedureCriterion"
+        },
+        {
+         "$ref": "#/components/schemas/GeographyCriterion"
+        }
+       ],
+       "discriminator": {
+        "propertyName": "type",
+        "mapping": {
+         "age": "#/components/schemas/AgeCriterion",
+         "biomarker": "#/components/schemas/BiomarkerCriterion",
+         "diagnosis": "#/components/schemas/DiagnosisCriterion",
+         "geography": "#/components/schemas/GeographyCriterion",
+         "lab": "#/components/schemas/LabCriterion",
+         "procedure": "#/components/schemas/ProcedureCriterion",
+         "sex": "#/components/schemas/SexCriterion",
+         "treatment": "#/components/schemas/TreatmentCriterion"
+        }
+       }
+      },
+      "type": "array",
+      "maxItems": 20,
+      "title": "Exclusion"
+     },
+     "as_of_date": {
+      "anyOf": [
+       {
+        "type": "string",
+        "format": "date"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "As Of Date"
+     }
+    },
+    "additionalProperties": false,
+    "type": "object",
+    "title": "CohortDefinition"
+   },
+   "CreateDefinition": {
+    "properties": {
+     "definition": {
+      "$ref": "#/components/schemas/CohortDefinition"
+     },
+     "nl_request": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Nl Request"
+     },
+     "extraction": {
+      "anyOf": [
+       {
+        "additionalProperties": true,
+        "type": "object"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Extraction"
+     },
+     "extractor_version": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Extractor Version"
+     }
+    },
+    "type": "object",
+    "required": [
+     "definition"
+    ],
+    "title": "CreateDefinition"
+   },
+   "DiagnosisCriterion": {
+    "properties": {
+     "type": {
+      "type": "string",
+      "const": "diagnosis",
+      "title": "Type",
+      "default": "diagnosis"
+     },
+     "condition": {
+      "type": "string",
+      "title": "Condition"
+     }
+    },
+    "additionalProperties": false,
+    "type": "object",
+    "required": [
+     "condition"
+    ],
+    "title": "DiagnosisCriterion"
+   },
+   "EvalRequest": {
+    "properties": {
+     "suites": {
+      "items": {
+       "type": "string",
+       "enum": [
+        "extraction",
+        "retrieval",
+        "evidence"
+       ]
+      },
+      "type": "array",
+      "title": "Suites",
+      "default": [
+       "extraction",
+       "retrieval",
+       "evidence"
+      ]
+     },
+     "extractors": {
+      "items": {
+       "type": "string",
+       "enum": [
+        "rules-v1",
+        "rules-v2",
+        "llm"
+       ]
+      },
+      "type": "array",
+      "title": "Extractors",
+      "default": [
+       "rules-v1",
+       "rules-v2"
+      ]
+     }
+    },
+    "type": "object",
+    "title": "EvalRequest"
+   },
+   "EvidenceForDefinition": {
+    "properties": {
+     "definition": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/CohortDefinition"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "definition_id": {
+      "anyOf": [
+       {
+        "type": "string",
+        "format": "uuid"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Definition Id"
+     }
+    },
+    "type": "object",
+    "title": "EvidenceForDefinition"
+   },
+   "ExtractRequest": {
+    "properties": {
+     "text": {
+      "type": "string",
+      "maxLength": 4000,
+      "minLength": 3,
+      "title": "Text"
+     },
+     "extractor": {
+      "type": "string",
+      "enum": [
+       "rules-v2",
+       "rules-v1",
+       "llm"
+      ],
+      "title": "Extractor",
+      "default": "rules-v2"
+     }
+    },
+    "type": "object",
+    "required": [
+     "text"
+    ],
+    "title": "ExtractRequest"
+   },
+   "GeographyCriterion": {
+    "properties": {
+     "type": {
+      "type": "string",
+      "const": "geography",
+      "title": "Type",
+      "default": "geography"
+     },
+     "states": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "minItems": 1,
+      "title": "States"
+     }
+    },
+    "additionalProperties": false,
+    "type": "object",
+    "required": [
+     "states"
+    ],
+    "title": "GeographyCriterion"
+   },
+   "HTTPValidationError": {
+    "properties": {
+     "detail": {
+      "items": {
+       "$ref": "#/components/schemas/ValidationError"
+      },
+      "type": "array",
+      "title": "Detail"
+     }
+    },
+    "type": "object",
+    "title": "HTTPValidationError"
+   },
+   "LabCriterion": {
+    "properties": {
+     "type": {
+      "type": "string",
+      "const": "lab",
+      "title": "Type",
+      "default": "lab"
+     },
+     "lab": {
+      "type": "string",
+      "title": "Lab"
+     },
+     "op": {
+      "type": "string",
+      "enum": [
+       ">",
+       ">=",
+       "<",
+       "<=",
+       "between"
+      ],
+      "title": "Op"
+     },
+     "value": {
+      "type": "number",
+      "title": "Value"
+     },
+     "value_max": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Value Max"
+     },
+     "lookback_days": {
+      "type": "integer",
+      "maximum": 3650.0,
+      "minimum": 1.0,
+      "title": "Lookback Days",
+      "default": 365
+     }
+    },
+    "additionalProperties": false,
+    "type": "object",
+    "required": [
+     "lab",
+     "op",
+     "value"
+    ],
+    "title": "LabCriterion"
+   },
+   "ProcedureCriterion": {
+    "properties": {
+     "type": {
+      "type": "string",
+      "const": "procedure",
+      "title": "Type",
+      "default": "procedure"
+     },
+     "procedure_class": {
+      "type": "string",
+      "title": "Procedure Class"
+     }
+    },
+    "additionalProperties": false,
+    "type": "object",
+    "required": [
+     "procedure_class"
+    ],
+    "title": "ProcedureCriterion"
+   },
+   "RetryRequest": {
+    "properties": {
+     "dlq_ids": {
+      "anyOf": [
+       {
+        "items": {
+         "type": "integer"
+        },
+        "type": "array"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Dlq Ids"
+     }
+    },
+    "type": "object",
+    "title": "RetryRequest"
+   },
+   "Review": {
+    "properties": {
+     "sql_sha256": {
+      "type": "string",
+      "maxLength": 64,
+      "minLength": 64,
+      "title": "Sql Sha256"
+     },
+     "approve": {
+      "type": "boolean",
+      "title": "Approve"
+     },
+     "comment": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 2000
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Comment"
+     }
+    },
+    "type": "object",
+    "required": [
+     "sql_sha256",
+     "approve"
+    ],
+    "title": "Review"
+   },
+   "SexCriterion": {
+    "properties": {
+     "type": {
+      "type": "string",
+      "const": "sex",
+      "title": "Type",
+      "default": "sex"
+     },
+     "sex": {
+      "type": "string",
+      "enum": [
+       "female",
+       "male"
+      ],
+      "title": "Sex"
+     }
+    },
+    "additionalProperties": false,
+    "type": "object",
+    "required": [
+     "sex"
+    ],
+    "title": "SexCriterion"
+   },
+   "TreatmentCriterion": {
+    "properties": {
+     "type": {
+      "type": "string",
+      "const": "treatment",
+      "title": "Type",
+      "default": "treatment"
+     },
+     "drug_class": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Drug Class"
+     },
+     "drug": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Drug"
+     }
+    },
+    "additionalProperties": false,
+    "type": "object",
+    "title": "TreatmentCriterion",
+    "description": "History of a drug class (or specific drug), any time before the as-of date."
+   },
+   "ValidationError": {
+    "properties": {
+     "loc": {
+      "items": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "integer"
+        }
+       ]
+      },
+      "type": "array",
+      "title": "Location"
+     },
+     "msg": {
+      "type": "string",
+      "title": "Message"
+     },
+     "type": {
+      "type": "string",
+      "title": "Error Type"
+     },
+     "input": {
+      "title": "Input"
+     },
+     "ctx": {
+      "type": "object",
+      "title": "Context"
+     }
+    },
+    "type": "object",
+    "required": [
+     "loc",
+     "msg",
+     "type"
+    ],
+    "title": "ValidationError"
+   }
+  }
+ },
+ "tags": [
+  {
+   "name": "system"
+  },
+  {
+   "name": "ingestion"
+  },
+  {
+   "name": "data"
+  },
+  {
+   "name": "cohort"
+  },
+  {
+   "name": "evidence"
+  },
+  {
+   "name": "evaluation"
+  },
+  {
+   "name": "monitoring"
+  }
+ ]
+}

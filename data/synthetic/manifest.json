@@ -1,0 +1,36 @@
+{
+  "generator_version": "synth-1.0.0",
+  "seed": 42,
+  "n_patients": 1200,
+  "as_of_date": "2026-01-01",
+  "files": {
+    "fhir_bundles": 13,
+    "lab_rows": 5737,
+    "genomic_rows": 945,
+    "notes": 1036
+  },
+  "injected_faults": {
+    "corrupt_file": 1,
+    "csv_genomic_invalid_result": 3,
+    "csv_lab_missing_patient": 2,
+    "csv_lab_non_numeric": 5,
+    "csv_lab_unknown_code": 3,
+    "empty_note": 2,
+    "exact_duplicate_resource": 15,
+    "future_date": 3,
+    "implausible_lab_value": 6,
+    "invalid_date": 4,
+    "lung_histology_undocumented": 40,
+    "missing_required_code": 5,
+    "orphan_reference": 5,
+    "patient_missing_birthdate": 24,
+    "patient_without_medication_records": 112,
+    "probable_duplicate_person": 3,
+    "unit_variant_creatinine_umol": 318,
+    "unit_variant_hemoglobin_gL": 226,
+    "unmapped_condition_code": 4,
+    "updated_resource_version": 2
+  },
+  "expected_rejections": 39,
+  "notice": "Entirely synthetic data generated for engineering demonstration. Not real patients."
+}

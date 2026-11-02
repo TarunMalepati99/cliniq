@@ -1,0 +1,10 @@
+**/node_modules
+**/.next
+**/__pycache__
+**/.pytest_cache
+frontend
+data/synthetic
+data/uploads
+dbt/target
+dbt/logs
+.git

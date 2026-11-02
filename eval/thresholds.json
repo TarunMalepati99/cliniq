@@ -1,0 +1,15 @@
+{
+  "_comment": "Regression floors for CI. Set just below the measured values in eval/reports; raising a floor requires a new benchmark run that justifies it.",
+  "extraction": {
+    "rules-v2": {
+      "structured_validity": 1.0,
+      "concept_f1": 0.98,
+      "criterion_f1": 0.97,
+      "hallucination_rate_max": 0.01,
+      "exact_match_handwritten": 0.85,
+      "exact_match_templated": 0.98
+    }
+  },
+  "retrieval": {"hybrid": {"recall@5": 0.72, "mrr": 0.90}},
+  "evidence": {"citation_precision": 0.95, "abstention_recall": 0.90, "unsupported_claim_rate_max": 0.0}
+}

@@ -1,0 +1,43 @@
+version: 2
+models:
+  - name: stg_person
+    columns:
+      - name: person_id
+        data_tests: [unique, not_null]
+      - name: sex
+        data_tests:
+          - accepted_values:
+              arguments: {values: ['female', 'male', 'other', 'unknown']}
+      - name: source_record_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: "source('raw', 'records')", field: raw_id}
+  - name: stg_conditions
+    columns:
+      - name: condition_id
+        data_tests: [unique, not_null]
+      - name: person_id
+        data_tests:
+          - relationships:
+              arguments: {to: "ref('stg_person')", field: person_id}
+  - name: stg_genomic
+    columns:
+      - name: result
+        data_tests:
+          - accepted_values:
+              arguments: {values: ['detected', 'not_detected', 'indeterminate']}
+  - name: fct_measurements
+    columns:
+      - name: measurement_id
+        data_tests: [unique, not_null]
+      - name: value_numeric
+        data_tests: [not_null]
+      - name: source_record_id
+        data_tests:
+          - relationships:
+              arguments: {to: "source('raw', 'records')", field: raw_id}
+  - name: mart_patient_summary
+    columns:
+      - name: person_id
+        data_tests: [unique, not_null]

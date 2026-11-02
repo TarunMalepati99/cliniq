@@ -1,0 +1,42 @@
+{"id": "R001", "query": "trials enrolling tumors with an exon 19 deletion of EGFR", "concept": "egfr_exon19del", "relevant_doc_ids": ["REF-EGFR-SENSITIZING", "SYN-L01", "SYN-L02"], "answerable": true}
+{"id": "R002", "query": "studies requiring the L858R substitution", "concept": "egfr_l858r", "relevant_doc_ids": ["REF-EGFR-SENSITIZING", "SYN-L02"], "answerable": true}
+{"id": "R003", "query": "eligibility after acquired T790M resistance", "concept": "egfr_t790m", "relevant_doc_ids": ["REF-EGFR-T790M", "SYN-L03"], "answerable": true}
+{"id": "R004", "query": "KRAS codon 12 cysteine substitution studies", "concept": "kras_g12c", "relevant_doc_ids": ["REF-KRAS-G12C", "SYN-C03", "SYN-L04", "SYN-L05"], "answerable": true}
+{"id": "R005", "query": "ALK fusion positive lung cancer trials", "concept": "alk_fusion", "relevant_doc_ids": ["REF-ALK", "REF-CNS-METS", "SYN-L06"], "answerable": true}
+{"id": "R006", "query": "ROS1 rearranged tumors", "concept": "ros1_fusion", "relevant_doc_ids": ["SYN-L07"], "answerable": true}
+{"id": "R007", "query": "BRAF V600E mutant cancers", "concept": "braf_v600e", "relevant_doc_ids": ["REF-BRAF", "SYN-C02", "SYN-L08", "SYN-M01"], "answerable": true}
+{"id": "R008", "query": "HER2 amplified breast cancer eligibility", "concept": "erbb2_amplification", "relevant_doc_ids": ["REF-HER2", "SYN-B01", "SYN-B02"], "answerable": true}
+{"id": "R009", "query": "germline BRCA1 or BRCA2 carriers", "concept": "brca", "relevant_doc_ids": ["REF-BRCA-PARP", "SYN-B03", "SYN-P01", "SYN-R01"], "answerable": true}
+{"id": "R010", "query": "mismatch repair deficient tumors", "concept": "msi_high", "relevant_doc_ids": ["REF-MSI", "SYN-C01", "SYN-X01"], "answerable": true}
+{"id": "R011", "query": "high PD-L1 expression requirement", "concept": "pdl1_high", "relevant_doc_ids": ["REF-PDL1", "SYN-L05", "SYN-L09", "SYN-X02"], "answerable": true}
+{"id": "R012", "query": "patients who progressed after platinum doublet chemotherapy", "concept": "prior_platinum", "relevant_doc_ids": ["REF-KRAS-G12C", "REF-PRIOR-THERAPY", "SYN-B03", "SYN-C02", "SYN-C03", "SYN-C04", "SYN-L04", "SYN-L08", "SYN-L10", "SYN-L11", "SYN-P01", "SYN-X02"], "answerable": true}
+{"id": "R013", "query": "prior EGFR tyrosine kinase inhibitor exposure required", "concept": "prior_egfr_tki", "relevant_doc_ids": ["REF-EGFR-SENSITIZING", "REF-EGFR-T790M", "REF-PRIOR-THERAPY", "SYN-L01", "SYN-L03"], "answerable": true}
+{"id": "R014", "query": "previously received anti-PD-1 checkpoint blockade", "concept": "prior_io", "relevant_doc_ids": ["REF-MSI", "REF-PDL1", "REF-PRIOR-THERAPY", "SYN-L04", "SYN-L10", "SYN-M02", "SYN-X01"], "answerable": true}
+{"id": "R015", "query": "first-line studies for patients without prior systemic therapy", "concept": "treatment_naive", "relevant_doc_ids": ["REF-ALK", "REF-PRIOR-THERAPY", "SYN-B01", "SYN-C01", "SYN-L02", "SYN-L05", "SYN-L06", "SYN-L09", "SYN-L12", "SYN-M01", "SYN-P02"], "answerable": true}
+{"id": "R016", "query": "progressed on aromatase inhibitor or other endocrine therapy", "concept": "prior_endocrine", "relevant_doc_ids": ["REF-PRIOR-THERAPY", "SYN-B02", "SYN-B04", "SYN-R02"], "answerable": true}
+{"id": "R017", "query": "exclusion of untreated CNS metastases", "concept": "ex_brain_mets", "relevant_doc_ids": ["REF-CNS-METS", "SYN-B02", "SYN-C02", "SYN-L01", "SYN-L03", "SYN-L04", "SYN-L06", "SYN-L10", "SYN-L11", "SYN-M01", "SYN-M02", "SYN-R02"], "answerable": true}
+{"id": "R018", "query": "pneumonitis or interstitial lung disease exclusion", "concept": "ex_ild", "relevant_doc_ids": ["SYN-C01", "SYN-L01", "SYN-L02", "SYN-L05", "SYN-L09", "SYN-L12", "SYN-X02"], "answerable": true}
+{"id": "R019", "query": "NYHA class III-IV heart failure excluded", "concept": "ex_heart_failure", "relevant_doc_ids": ["SYN-B01", "SYN-B02", "SYN-C04", "SYN-L02", "SYN-L06", "SYN-P02", "SYN-R01"], "answerable": true}
+{"id": "R020", "query": "uncontrolled HIV infection exclusion", "concept": "ex_hiv", "relevant_doc_ids": ["SYN-C01", "SYN-L09", "SYN-L12", "SYN-M02", "SYN-X01"], "answerable": true}
+{"id": "R021", "query": "renal function threshold creatinine clearance", "concept": "ex_renal", "relevant_doc_ids": ["REF-RENAL", "SYN-B03", "SYN-C04", "SYN-L07", "SYN-L10", "SYN-P02"], "answerable": true}
+{"id": "R022", "query": "liver function bilirubin and transaminase limits", "concept": "ex_hepatic", "relevant_doc_ids": ["SYN-B04", "SYN-C03", "SYN-L04", "SYN-L08", "SYN-P01"], "answerable": true}
+{"id": "R023", "query": "performance status zero or one", "concept": "ecog_01", "relevant_doc_ids": ["REF-ECOG", "SYN-B01", "SYN-B04", "SYN-C02", "SYN-L01", "SYN-L02", "SYN-L03", "SYN-L04", "SYN-L07", "SYN-L09", "SYN-L12", "SYN-M02", "SYN-P02", "SYN-R01"], "answerable": true}
+{"id": "R024", "query": "ECOG up to 2 allowed", "concept": "ecog_02", "relevant_doc_ids": ["REF-ECOG", "SYN-L06", "SYN-L11"], "answerable": true}
+{"id": "R025", "query": "minimum hemoglobin requirement", "concept": "hemoglobin_9", "relevant_doc_ids": ["SYN-B04", "SYN-C04", "SYN-L10"], "answerable": true}
+{"id": "R026", "query": "platelet count threshold", "concept": "platelets_100", "relevant_doc_ids": ["SYN-C04", "SYN-L10", "SYN-R02"], "answerable": true}
+{"id": "R027", "query": "non-small cell lung carcinoma trials", "concept": "nsclc", "relevant_doc_ids": ["REF-ALK", "REF-BRAF", "REF-CNS-METS", "REF-EGFR-SENSITIZING", "REF-EGFR-T790M", "REF-KRAS-G12C", "REF-PDL1", "SYN-L01", "SYN-L02", "SYN-L03", "SYN-L04", "SYN-L05", "SYN-L06", "SYN-L07", "SYN-L08", "SYN-L09", "SYN-L10", "SYN-X01"], "answerable": true}
+{"id": "R028", "query": "extensive-stage small-cell lung cancer", "concept": "sclc", "relevant_doc_ids": ["SYN-L11", "SYN-L12"], "answerable": true}
+{"id": "R029", "query": "colorectal adenocarcinoma studies", "concept": "colorectal_cancer", "relevant_doc_ids": ["REF-BRAF", "REF-KRAS-G12C", "REF-MSI", "SYN-C01", "SYN-C02", "SYN-C03", "SYN-C04"], "answerable": true}
+{"id": "R030", "query": "pancreatic ductal adenocarcinoma", "concept": "pancreatic_cancer", "relevant_doc_ids": ["REF-BRCA-PARP", "SYN-P01", "SYN-P02"], "answerable": true}
+{"id": "R031", "query": "castration-resistant prostate cancer", "concept": "prostate_cancer", "relevant_doc_ids": ["REF-BRCA-PARP", "SYN-R01", "SYN-R02"], "answerable": true}
+{"id": "R032", "query": "advanced cutaneous melanoma", "concept": "melanoma", "relevant_doc_ids": ["REF-BRAF", "SYN-M01", "SYN-M02"], "answerable": true}
+{"id": "R033", "query": "invasive breast carcinoma trials", "concept": "breast_cancer", "relevant_doc_ids": ["REF-BRCA-PARP", "REF-HER2", "SYN-B01", "SYN-B02", "SYN-B03", "SYN-B04", "SYN-X02"], "answerable": true}
+{"id": "R034", "query": "how to interpret untested biomarkers versus negative results", "concept": "missing_data", "relevant_doc_ids": ["REF-MISSING-DATA"], "answerable": true}
+{"id": "R035", "query": "medication history incomplete when treated elsewhere", "concept": "prior_platinum", "relevant_doc_ids": ["REF-KRAS-G12C", "REF-PRIOR-THERAPY", "SYN-B03", "SYN-C02", "SYN-C03", "SYN-C04", "SYN-L04", "SYN-L08", "SYN-L10", "SYN-L11", "SYN-P01", "SYN-X02"], "answerable": true}
+{"id": "R036", "query": "what does ECOG 2 mean", "concept": "ecog_02", "relevant_doc_ids": ["REF-ECOG", "SYN-L06", "SYN-L11"], "answerable": true}
+{"id": "U001", "query": "CAR-T cell therapy for multiple myeloma", "concept": null, "relevant_doc_ids": [], "answerable": false}
+{"id": "U002", "query": "pediatric asthma inhaler adherence", "concept": null, "relevant_doc_ids": [], "answerable": false}
+{"id": "U003", "query": "hip replacement rehabilitation protocols", "concept": null, "relevant_doc_ids": [], "answerable": false}
+{"id": "U004", "query": "influenza vaccine immunogenicity in infants", "concept": null, "relevant_doc_ids": [], "answerable": false}
+{"id": "U005", "query": "glaucoma eye drop dosing", "concept": null, "relevant_doc_ids": [], "answerable": false}
+{"id": "U006", "query": "dental implant osseointegration", "concept": null, "relevant_doc_ids": [], "answerable": false}

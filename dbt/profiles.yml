@@ -1,0 +1,12 @@
+cliniq:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: "{{ env_var('CLINIQ_PGHOST', 'localhost') }}"
+      port: "{{ env_var('CLINIQ_PGPORT', '5432') | int }}"
+      user: "{{ env_var('CLINIQ_PGUSER', 'cliniq') }}"
+      password: "{{ env_var('CLINIQ_PGPASSWORD', 'cliniq') }}"
+      dbname: "{{ env_var('CLINIQ_PGDATABASE', 'cliniq') }}"
+      schema: analytics
+      threads: 4

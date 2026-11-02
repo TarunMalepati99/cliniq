@@ -1,0 +1,19 @@
+sequenceDiagram
+  actor R as Researcher
+  actor A as Approver
+  participant X as Extractor (rules / LLM)
+  participant C as Compiler + SQL guard
+  participant DB as PostgreSQL (read-only role)
+  R->>X: natural-language request
+  X-->>R: CohortDefinition (allowlisted) + mentions + unsupported phrases
+  R->>C: create draft (edited definition)
+  C->>C: compile → parameterized SQL, sqlglot AST checks
+  C->>DB: EXPLAIN as cliniq_reader
+  C-->>R: draft + SQL + sha256 + validation report
+  A->>C: approve(sql_sha256 they reviewed)
+  Note over C: rejects if hash ≠ current SQL
+  R->>C: execute
+  C->>C: recompile, refuse if hash ≠ approved
+  C->>DB: SELECT in READ ONLY transaction with statement timeout
+  DB-->>C: per-patient evidence per criterion
+  C-->>R: eligible / potentially eligible / ineligible, funnel, missing info, distributions, result hash

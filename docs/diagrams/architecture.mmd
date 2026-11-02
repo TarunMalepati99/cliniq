@@ -1,0 +1,27 @@
+flowchart TB
+  UI["Next.js dashboard (8 pages)<br/>React · TypeScript · Tailwind · Recharts"]
+  subgraph API["FastAPI service — RBAC (viewer/researcher/admin) · request IDs · JSON logs · background jobs"]
+    direction LR
+    ING["Ingestion<br/>land → validate → standardize → load<br/>DLQ · retries · lineage"]
+    COH["Cohort engine<br/>extract → compile → SQL guard<br/>→ human approval → read-only execute"]
+    RAG["Evidence engine<br/>BM25 + LSA embeddings + RRF<br/>anchored citations · abstention"]
+    EV["Evaluation harness<br/>125 extraction items · 42 retrieval queries<br/>version-tracked runs"]
+  end
+  subgraph DB["PostgreSQL 16"]
+    direction LR
+    RAW[("raw.records<br/>content-addressed")]
+    CL[("clinical.*<br/>OMOP-inspired")]
+    DBT[("dbt_staging / dbt_marts<br/>dbt build + 18 tests")]
+    CO[("cohort.*<br/>definitions · approvals · runs")]
+    RG[("rag.*<br/>documents · chunks")]
+    OPS[("ops.*<br/>runs · events · DLQ · DQ · telemetry · evals")]
+  end
+  SRC["Synthetic FHIR R4 bundles · lab/genomic CSV feeds · notes"] --> ING
+  DOCS["Synthetic trial eligibility docs · authored reference notes<br/>(optional: ClinicalTrials.gov fetch)"] --> RAG
+  UI <-->|"/api (bearer token)"| API
+  ING --> RAW --> CL --> DBT
+  COH -->|"SELECT-only role, READ ONLY txn"| CL
+  COH --> CO
+  RAG --> RG
+  EV --> OPS
+  ING --> OPS

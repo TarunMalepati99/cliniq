@@ -1,0 +1,18 @@
+version: 2
+sources:
+  - name: clinical
+    schema: clinical
+    tables:
+      - name: person
+      - name: condition_occurrence
+      - name: measurement
+      - name: drug_exposure
+      - name: procedure_occurrence
+      - name: genomic_variant
+      - name: note
+      - name: note_fact
+      - name: concept
+  - name: raw
+    schema: raw
+    tables:
+      - name: records

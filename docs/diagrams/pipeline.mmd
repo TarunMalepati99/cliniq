@@ -1,0 +1,20 @@
+flowchart TB
+  A[File received] --> B{Bytes already seen?<br/>sha256 in ops.source_files}
+  B -- yes --> B1[Skip file<br/>files_skipped++]
+  B -- no --> C{Parse file}
+  C -- corrupt --> DLQ1[DLQ: parse/file_unparseable]
+  C -- ok --> D[Land each record in raw.records<br/>UNIQUE record_type + content hash]
+  D -- conflict --> D1[duplicate_skipped++]
+  D --> E[Process pending records<br/>Patients first]
+  E --> V1{Schema: Pydantic FHIR subset}
+  V1 -- fail --> DLQ[(ops.dead_letter<br/>stage + error code + payload)]
+  V1 --> V2{Standardize: code systems,<br/>units, plausibility, dates}
+  V2 -- fail --> DLQ
+  V2 --> V3{Reference: patient exists?}
+  V3 -- no --> DLQ
+  V3 --> L[Upsert clinical.* in savepoint<br/>source_record_id + run_id lineage]
+  L -- DB error --> DLQ
+  L --> W[Warnings → ops.dq_issues]
+  L --> P[Post-load: note-derived fields,<br/>probable duplicate persons]
+  P --> DBT[dbt build: staging views, marts,<br/>incremental fact, 18 data tests]
+  DLQ -. retry after fix / late reference .-> E
