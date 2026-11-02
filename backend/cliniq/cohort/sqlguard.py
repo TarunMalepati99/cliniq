@@ -23,7 +23,7 @@ FORBIDDEN_NODES = (exp.Insert, exp.Update, exp.Delete, exp.Drop, exp.Create, exp
                    exp.Grant, exp.TruncateTable, exp.Copy, exp.Into)
 ALLOWED_LITERALS = {"unknown", "positive", "negative", "absent", "detected", "not_detected", "indeterminate", "year",
                     "ecog", "measurement", "note_text", "", "age_years", "sex", "state", "value", "observed", "ref",
-                    "provenance", "source_record_id"}
+                    "provenance", "source_record_id", "value_max", "results_on_date", "conflicting"}
 
 
 @dataclass

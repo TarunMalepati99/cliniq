@@ -34,7 +34,7 @@ from .models import (
     describe,
 )
 
-COMPILER_VERSION = "compiler-1.0.0"
+COMPILER_VERSION = "compiler-1.1.0"
 
 
 @dataclass
@@ -145,29 +145,50 @@ def _biomarker(c: BiomarkerCriterion, p: _P, asof: str) -> str:
 
 
 def _lab(c: LabCriterion, p: _P, asof: str, as_of: date) -> str:
+    """Most recent result in the lookback window.
+
+    Tie rule (deterministic, documented): on the most recent date, prefer the lab's primary
+    code (e.g. serum over blood creatinine; structured ECOG over note-derived). If several
+    results of that priority exist on that date and they disagree about the threshold, the
+    evidence is 'unknown' (conflicting) — never silently resolved by row order.
+    """
     since = p(as_of - timedelta(days=c.lookback_days))
-    if c.op == "between":
-        cmp = f"l.value BETWEEN {p(c.value)} AND {p(c.value_max)}"
-    else:
-        cmp = f"l.value {c.op} {p(c.value)}"  # op is a validated Literal, not user text
+    lab_def = V.LABS[c.lab]
+
+    def cmp(col: str) -> str:
+        if c.op == "between":
+            return f"{col} BETWEEN {p(c.value)} AND {p(c.value_max)}"
+        return f"{col} {c.op} {p(c.value)}"  # op is a validated Literal, not user text
+
     lab = p(c.lab)
-    src = (f"SELECT m.value_numeric AS value, m.measured_at AS observed, m.measurement_id AS ref, 'measurement' AS provenance,\n"
-           f"          m.source_record_id\n"
-           f"   FROM clinical.measurement m WHERE m.person_id = pe.person_id AND m.lab_key = {lab}")
-    if c.lab == "ecog":
-        src += ("\n   UNION ALL\n"
-                "   SELECT nf.fact_value::double precision, n.note_date, nf.note_id, 'note_text', n.source_record_id\n"
-                "   FROM clinical.note_fact nf JOIN clinical.note n ON n.note_id = nf.note_id\n"
-                "   WHERE nf.person_id = pe.person_id AND nf.fact_key = 'ecog'")
+    primary = p(lab_def.code)
+
+    def src() -> str:
+        q = (f"SELECT m.value_numeric AS value, m.measured_at AS observed, m.measurement_id AS ref, 'measurement' AS provenance,\n"
+             f"          m.source_record_id, CASE WHEN m.code = {primary} THEN 0 ELSE 1 END AS priority\n"
+             f"   FROM clinical.measurement m WHERE m.person_id = pe.person_id AND m.lab_key = {lab}")
+        if c.lab == "ecog":
+            q += ("\n   UNION ALL\n"
+                  "   SELECT nf.fact_value::double precision, n.note_date, nf.note_id, 'note_text', n.source_record_id, 2\n"
+                  "   FROM clinical.note_fact nf JOIN clinical.note n ON n.note_id = nf.note_id\n"
+                  "   WHERE nf.person_id = pe.person_id AND nf.fact_key = 'ecog'")
+        return q
+
+    window = f"s.observed <= {asof}::date AND s.observed > {since}::date"
     return (f"SELECT pe.person_id,\n"
-            f"  CASE WHEN l.value IS NULL THEN 'unknown' WHEN {cmp} THEN 'positive' ELSE 'negative' END AS evidence,\n"
-            f"  jsonb_build_object('value', l.value, 'observed', l.observed, 'ref', l.ref, 'provenance', l.provenance,\n"
-            f"                     'source_record_id', l.source_record_id) AS detail\n"
-            f"FROM clinical.person pe LEFT JOIN LATERAL (\n"
-            f"  SELECT s.* FROM (\n   {src}\n  ) s\n"
-            f"  WHERE s.observed <= {asof}::date AND s.observed > {since}::date\n"
-            f"  ORDER BY s.observed DESC, s.ref LIMIT 1\n"
-            f") l ON true")
+            f"  CASE WHEN t.observed IS NULL THEN 'unknown' WHEN v.all_pass THEN 'positive' WHEN NOT v.any_pass THEN 'negative'\n"
+            f"       ELSE 'unknown' END AS evidence,\n"
+            f"  jsonb_build_object('value', v.vmin, 'value_max', v.vmax, 'observed', t.observed, 'results_on_date', v.n,\n"
+            f"                     'conflicting', (v.all_pass IS DISTINCT FROM v.any_pass), 'ref', v.ref, 'provenance', v.provenance,\n"
+            f"                     'source_record_id', v.source_record_id) AS detail\n"
+            f"FROM clinical.person pe\n"
+            f"LEFT JOIN LATERAL (\n  SELECT s.observed, s.priority FROM (\n   {src()}\n  ) s WHERE {window}\n"
+            f"  ORDER BY s.observed DESC, s.priority LIMIT 1\n) t ON true\n"
+            f"LEFT JOIN LATERAL (\n  SELECT count(*) AS n, min(s.value) AS vmin, max(s.value) AS vmax,\n"
+            f"         bool_and({cmp('s.value')}) AS all_pass, bool_or({cmp('s.value')}) AS any_pass,\n"
+            f"         min(s.ref) AS ref, min(s.provenance) AS provenance, min(s.source_record_id) AS source_record_id\n"
+            f"  FROM (\n   {src()}\n  ) s WHERE {window} AND s.observed = t.observed AND s.priority = t.priority\n"
+            f") v ON true")
 
 
 def _treatment(c: TreatmentCriterion, p: _P, asof: str) -> str:

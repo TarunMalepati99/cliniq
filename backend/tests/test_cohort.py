@@ -187,3 +187,21 @@ def test_tampered_sql_refused(db):
                   (d["definition_id"],))
     with pytest.raises(engine.WorkflowError, match="differs from approved"):
         engine.execute(str(d["definition_id"]), "r1@test")
+
+
+def test_same_day_lab_conflict_is_unknown_and_primary_code_wins(fixture_patients):
+    with connect() as c:
+        rid = c.execute("SELECT raw_id, run_id FROM raw.records LIMIT 1").fetchone()
+        rows = [("fxm1", "fx-pos", "2160-0", 1.0), ("fxm2", "fx-pos", "2160-0", 2.0),       # primary code disagrees → unknown
+                ("fxm3", "fx-neg", "2160-0", 1.9), ("fxm4", "fx-neg", "38483-4", 0.9)]       # primary (serum) beats blood → negative
+        for mid, pid, code, val in rows:
+            c.execute("INSERT INTO clinical.measurement (measurement_id, person_id, vocabulary, code, lab_key, value_numeric, unit, measured_at,"
+                      " source_record_id, run_id) VALUES (%s,%s,'LOINC',%s,'creatinine',%s,'mg/dL','2025-10-01',%s,%s) ON CONFLICT DO NOTHING",
+                      (mid, pid, code, val, rid["raw_id"], rid["run_id"]))
+    try:
+        r = _rows({"inclusion": [{"type": "lab", "lab": "creatinine", "op": "<", "value": 1.5}]}, fixture_patients)
+        assert r["fx-pos"]["i1_evidence"] == "unknown" and r["fx-pos"]["i1_detail"]["conflicting"] is True
+        assert r["fx-neg"]["i1_evidence"] == "negative" and r["fx-neg"]["i1_detail"]["value"] == 1.9
+    finally:
+        with connect() as c:
+            c.execute("DELETE FROM clinical.measurement WHERE measurement_id LIKE 'fxm%%'")

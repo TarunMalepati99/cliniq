@@ -35,6 +35,7 @@ harness measures every AI component against gold data.
 | **Reproducibility** | Each run stores the definition hash, SQL hash, data version, fixed as-of date and a hash of the result. "Reproduce run" re-executes and compares. The synthetic data generator is seeded and byte-identical across runs. |
 | **Traceability** | Every clinical row carries `source_record_id` → `raw.records` (content-addressed payload) → `ops.source_files` → `ops.pipeline_runs`. The UI exposes this for every row and every piece of cohort evidence. |
 | **No silent drops** | Every landed record ends as *loaded*, *duplicate* or *rejected*, and every rejection gets a dead-letter row with its stage, error code and payload. On the seeded dataset the pipeline rejects exactly the faults the generator injected (39 of 39), and tests assert this. |
+| **Externally validated** | 295 third-party [Synthea](docs/external_validation.md) patients (245,663 FHIR records) were ingested, and cohort results match an **independent oracle** patient-for-patient across 5 checks. The external data exposed 7 real defects, all now fixed with regression tests. Chia, TREC Clinical Trials and Gemini suites are built and waiting for data or a key. |
 | **Measured AI** | 125 gold extraction requests (35 hand-written, 90 templated), 42 retrieval queries (6 deliberately unanswerable), and citation grounding checks. Runs are tracked by extractor version, prompt hash, benchmark hash, data version and code version. CI enforces regression floors. Results: [docs/evaluation_report.md](docs/evaluation_report.md). |
 
 ## Quick start (local, no cloud)
@@ -60,6 +61,9 @@ cd frontend && npm ci && npm run build && npm run start   # http://localhost:300
 Sign in with a development role (Admin, Researcher, Reviewer, Viewer). These are non-secret dev
 tokens and only work when `CLINIQ_ENV=dev`. In any other environment, configure
 `CLINIQ_API_TOKENS` as described in [.env.example](.env.example).
+
+**Optional Gemini extractor:** `cliniq eval --extractor gemini` or `cliniq serve --gemini`. You type the API key at a
+hidden terminal prompt; it is never stored in code, config or logs. See [docs/external_validation.md](docs/external_validation.md).
 
 **Docker:** `cp .env.example .env` (set the passwords) and run `docker compose up --build`.
 The Dockerfiles and compose file were written but **could not be executed** in the build
@@ -97,7 +101,7 @@ backend/cliniq/
   observability/ structured logging, monitoring queries
   api/          FastAPI app (RBAC, request IDs, background jobs)
 backend/migrations/   forward-only SQL migrations (checksummed)
-backend/tests/        61 unit, integration, API and benchmark-regression tests
+backend/tests/        72 unit, integration, API, external-suite and benchmark-regression tests
 dbt/                  staging views, marts, an incremental fact table, 18 data tests
 frontend/             Next.js 16 / React 19 / Tailwind / Recharts dashboard (8 pages)
 eval/benchmark/       gold extraction + retrieval benchmarks and their builder
@@ -111,6 +115,7 @@ docs/                 design doc, ADRs, evaluation report, limitations, API refe
 - [Technical design](docs/design.md), including the optional GCP deployment path
 - [Architecture decision records](docs/adr/)
 - [Evaluation report](docs/evaluation_report.md), generated from recorded runs
+- [External validation](docs/external_validation.md): Synthea vs an independent oracle; Chia, TREC and Gemini instructions
 - [Limitations and responsible use](docs/limitations.md)
 - [API reference](docs/api.md) (also live at `/docs` and in [docs/openapi.json](docs/openapi.json))
 - Diagrams: [architecture](docs/diagrams/architecture.svg) · [data pipeline](docs/diagrams/pipeline.svg) · [database schema](docs/diagrams/schema.svg) · [cohort workflow](docs/diagrams/cohort_workflow.svg)
@@ -119,7 +124,7 @@ docs/                 design doc, ADRs, evaluation report, limitations, API refe
 
 ```bash
 createdb -O cliniq cliniq_test
-cd backend && pytest          # 61 tests
+cd backend && pytest          # 72 tests
 cd frontend && npm run typecheck && npm run build
 ```
 

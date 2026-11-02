@@ -12,6 +12,7 @@ auth layer — see docs/limitations.md for what a production deployment would ne
 from __future__ import annotations
 
 import logging
+import os
 import re
 import shutil
 import time
@@ -137,7 +138,8 @@ def vocabulary(_: User = Depends(require("viewer"))) -> dict[str, Any]:
         "labs": {k: {"label": v.label, "unit": v.unit} for k, v in V.LABS.items()},
         "drug_classes": {**{k: v[0] for k, v in V.DRUG_CLASSES.items()}, **{k: v[0] for k, v in V.VIRTUAL_DRUG_CLASSES.items()}},
         "drugs": sorted(V.DRUG_TO_CLASS), "procedure_classes": {k: v[0] for k, v in V.PROCEDURE_CLASSES.items()}, "states": V.US_STATES,
-        "extractors": ["rules-v2", "rules-v1"] + (["llm"] if get_settings().anthropic_api_key else []),
+        "extractors": ["rules-v2", "rules-v1"] + (["llm"] if get_settings().anthropic_api_key else [])
+                      + (["gemini"] if os.environ.get("GEMINI_API_KEY") else []),
     }
 
 
@@ -312,17 +314,30 @@ def lineage(raw_id: int, _: User = Depends(require("viewer"))) -> dict[str, Any]
 # ---------------------------------------------------------------- cohort
 class ExtractRequest(BaseModel):
     text: str = Field(min_length=3, max_length=4000)
-    extractor: Literal["rules-v2", "rules-v1", "llm"] = "rules-v2"
+    extractor: Literal["rules-v2", "rules-v1", "llm", "gemini"] = "rules-v2"
 
 
 @app.post("/api/cohort/extract", tags=["cohort"])
 def extract(body: ExtractRequest, _: User = Depends(require("researcher"))) -> dict[str, Any]:
+    if body.extractor == "gemini" and not os.environ.get("GEMINI_API_KEY"):
+        raise HTTPException(503, "Gemini is not enabled; start the API with `cliniq serve --gemini` to enter a key")
     try:
-        ex = get_extractor(body.extractor)
+        ex = _gemini() if body.extractor == "gemini" else get_extractor(body.extractor)
     except RuntimeError as e:
         raise HTTPException(503, str(e)) from None
     r = ex.extract(body.text)
     return r.__dict__
+
+
+_gemini_cache: dict[str, Any] = {}
+
+
+def _gemini() -> Any:
+    """One validated Gemini client per process (model check happens once, non-interactively)."""
+    if "x" not in _gemini_cache:
+        from ..extraction.gemini import GeminiExtractor
+        _gemini_cache["x"] = GeminiExtractor(interactive=False)
+    return _gemini_cache["x"]
 
 
 class CreateDefinition(BaseModel):

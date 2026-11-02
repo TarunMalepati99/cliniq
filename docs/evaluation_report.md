@@ -6,10 +6,10 @@
 
 | Suite | System version | Run file | Benchmark sha256 | Data version | Code |
 |---|---|---|---|---|---|
-| extraction | `rules-v1` | `20261102T201240Z_extraction_rules-v1.json` | `3befb6a01beb` | `dv-d760f6b035cf29a2` | `7573c0f` |
-| extraction | `rules-v2` | `20261102T201257Z_extraction_rules-v2.json` | `3befb6a01beb` | `dv-d760f6b035cf29a2` | `7573c0f` |
-| retrieval | `lsa-tfidf-word+char-svd · bm25 · rrf60 · corpus-ec55bd45b3b11e0f` | `20261102T201258Z_retrieval_lsa-tfidf-word+char-svd_bm25_rrf60_corpus-ec55bd45b3b11e0f.json` | `23cfeb672732` | `dv-d760f6b035cf29a2` | `7573c0f` |
-| evidence | `evidence-1.0.0` | `20261102T201300Z_evidence_evidence-1.0.0.json` | `3befb6a01beb` | `dv-d760f6b035cf29a2` | `7573c0f` |
+| extraction | `rules-v1` | `20261102T205153Z_extraction_rules-v1.json` | `3befb6a01beb` | `dv-d760f6b035cf29a2` | `2e0daab` |
+| extraction | `rules-v2` | `20261102T205212Z_extraction_rules-v2.json` | `3befb6a01beb` | `dv-d760f6b035cf29a2` | `2e0daab` |
+| retrieval | `lsa-tfidf-word+char-svd · bm25 · rrf60 · corpus-ec55bd45b3b11e0f` | `20261102T205214Z_retrieval_lsa-tfidf-word+char-svd_bm25_rrf60_corpus-ec55bd45b3b11e0f.json` | `23cfeb672732` | `dv-d760f6b035cf29a2` | `2e0daab` |
+| evidence | `evidence-1.0.0` | `20261102T205215Z_evidence_evidence-1.0.0.json` | `3befb6a01beb` | `dv-d760f6b035cf29a2` | `2e0daab` |
 
 ## 1. Criteria extraction (125 requests)
 
@@ -30,7 +30,7 @@ Benchmark: `eval/benchmark/extraction_gold.jsonl` — 35 **hand-written** reques
 | SQL execution success | 100.0% | 100.0% |
 | Cohort precision (mean, vs gold eligible set) | 50.7% | 97.6% |
 | Cohort recall (mean) | 75.8% | 98.4% |
-| Latency p50 / p95 | 0.665 / 1.079 ms | 0.93 / 1.609 ms |
+| Latency p50 / p95 | 0.671 / 1.062 ms | 0.934 / 1.888 ms |
 | Inference cost | $0.00 | $0.00 |
 
 Cohort precision/recall average over items whose predicted definition executed; items where both predicted and gold eligible sets were empty count as 1.0 (21 items for v1, 33 for v2).
@@ -68,9 +68,9 @@ Corpus: 28 synthetic trial eligibility documents (generated, with varied phrasin
 
 | Mode | Recall@1 | Recall@3 | Recall@5 | Recall@10 | MRR | Abstention precision | Abstention recall | p95 latency |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| bm25 | 0.251 | 0.614 | 0.747 | 0.881 | 0.954 | 0.75 | 1.0 | 6.411 ms |
-| dense | 0.251 | 0.612 | 0.745 | 0.878 | 0.954 | 0.6667 | 0.6667 | 6.076 ms |
-| hybrid | 0.241 | 0.621 | 0.756 | 0.879 | 0.940 | 0.6667 | 0.6667 | 6.31 ms |
+| bm25 | 0.251 | 0.614 | 0.747 | 0.881 | 0.954 | 0.75 | 1.0 | 6.439 ms |
+| dense | 0.251 | 0.612 | 0.745 | 0.878 | 0.954 | 0.6667 | 0.6667 | 7.684 ms |
+| hybrid | 0.241 | 0.621 | 0.756 | 0.879 | 0.940 | 0.6667 | 0.6667 | 7.716 ms |
 
 - Recall@1 is low by construction: most queries have 3–10 relevant documents, so one result can recover at most a fraction of them. MRR shows the first relevant document is almost always ranked first.
 - BM25 and the local LSA embedder reach similar aggregate scores on this small corpus even though their rankings differ on 40 of 42 queries; hybrid fusion gives a marginal gain at Recall@3–5 and a small loss in MRR. With a corpus this small and synthetic, the honest conclusion is that **no retriever is clearly better**; a neural embedder and a larger, real corpus are needed to make that comparison meaningful.
@@ -85,7 +85,7 @@ Corpus: 28 synthetic trial eligibility documents (generated, with varied phrasin
 | Unsupported claim rate | 0.0% |
 | Insufficient-evidence recall (criteria with no corpus coverage that were flagged) | 96.5% (56/58) |
 | Coverage of answerable criteria | 98.0% (9 false 'insufficient' flags) |
-| Latency p50 / p95 per definition | 14.67 / 23.79 ms |
+| Latency p50 / p95 per definition | 13.25 / 21.6 ms |
 
 The unsupported-claim rate is **0 by construction**: the composer is extractive and only emits a statement when at least one cited passage passes an anchor check. The metric is wired up so that an LLM synthesizer can be evaluated with the same harness.
 

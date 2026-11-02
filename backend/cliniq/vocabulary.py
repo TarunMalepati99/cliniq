@@ -39,6 +39,38 @@ ICD10_CODES: dict[str, str] = {
     "K74.60": "Unspecified cirrhosis of liver",
     "J84.9": "Interstitial pulmonary disease, unspecified",
     "B20": "Human immunodeficiency virus [HIV] disease",
+    "C18.8": "Malignant neoplasm of overlapping sites of colon",
+    "C50.919": "Malignant neoplasm of unspecified site of unspecified female breast",
+    "N18.1": "Chronic kidney disease, stage 1",
+    "N18.2": "Chronic kidney disease, stage 2 (mild)",
+    "N18.30": "Chronic kidney disease, stage 3 unspecified",
+    "N18.6": "End stage renal disease",
+}
+
+SNOMED_SYSTEM = "http://snomed.info/sct"
+# Curated SNOMED CT -> ICD-10-CM crosswalk for cohort logic (code -> (ICD-10-CM, ICD-O-3 histology)).
+# Built from concepts observed in Synthea output; only unambiguous mappings are included.
+# Deliberately NOT mapped: suspected cancer, carcinoma in situ, unspecified "neoplasm of",
+# prediabetes, diabetes-related kidney disorder of unspecified diabetes type.
+# This is a cohort-grade crosswalk, not a billing-grade or official NLM map.
+SNOMED_TO_ICD10: dict[str, tuple[str, str | None]] = {
+    "59621000": ("I10", None),            # Essential hypertension
+    "44054006": ("E11.9", None),          # Diabetes mellitus type 2
+    "90781000119102": ("E11.9", None),    # Microalbuminuria due to type 2 diabetes mellitus
+    "157141000119108": ("E11.9", None),   # Proteinuria due to type 2 diabetes mellitus
+    "368581000119106": ("E11.9", None),   # Neuropathy due to type 2 diabetes mellitus
+    "1551000119108": ("E11.9", None),     # Nonproliferative diabetic retinopathy due to type 2 DM
+    "431855005": ("N18.1", None),         # CKD stage 1
+    "431856006": ("N18.2", None),         # CKD stage 2
+    "433144002": ("N18.30", None),        # CKD stage 3
+    "431857002": ("N18.4", None),         # CKD stage 4
+    "46177005": ("N18.6", None),          # End-stage renal disease
+    "88805009": ("I50.9", None),          # Chronic congestive heart failure
+    "93761005": ("C18.9", None),          # Primary malignant neoplasm of colon
+    "109838007": ("C18.8", None),         # Overlapping malignant neoplasm of colon
+    "254837009": ("C50.919", None),       # Malignant neoplasm of breast
+    "254637007": ("C34.90", "8046/3"),    # Non-small cell lung cancer
+    "254632001": ("C34.90", "8041/3"),    # Small cell carcinoma of lung
 }
 
 
@@ -112,10 +144,12 @@ class Lab:
     unit: str
     plausible: tuple[float, float]
     conversions: dict[str, float] = field(default_factory=dict)  # source unit -> multiplier to canonical
+    alt_codes: tuple[str, ...] = ()  # equivalent codes in the same vocabulary (e.g. blood vs serum specimen)
 
 
 LABS: dict[str, Lab] = {lab.key: lab for lab in [
-    Lab("creatinine", "Serum creatinine", "LOINC", "2160-0", "mg/dL", (0.1, 20), {"umol/L": 1 / 88.42, "µmol/L": 1 / 88.42}),
+    # 38483-4 = Creatinine [Mass/volume] in Blood (used by Synthea); treated as equivalent to serum/plasma 2160-0
+    Lab("creatinine", "Serum creatinine", "LOINC", "2160-0", "mg/dL", (0.1, 20), {"umol/L": 1 / 88.42, "µmol/L": 1 / 88.42}, ("38483-4",)),
     Lab("hemoglobin", "Hemoglobin", "LOINC", "718-7", "g/dL", (2, 25), {"g/L": 0.1}),
     Lab("hba1c", "Hemoglobin A1c", "LOINC", "4548-4", "%", (3, 20)),
     Lab("alt", "Alanine aminotransferase (ALT)", "LOINC", "1742-6", "U/L", (1, 5000)),
@@ -123,11 +157,11 @@ LABS: dict[str, Lab] = {lab.key: lab for lab in [
     Lab("bilirubin", "Total bilirubin", "LOINC", "1975-2", "mg/dL", (0.05, 40), {"umol/L": 1 / 17.1, "µmol/L": 1 / 17.1}),
     Lab("platelets", "Platelet count", "LOINC", "777-3", "10*3/uL", (1, 2000), {"10*9/L": 1.0}),
     Lab("wbc", "White blood cell count", "LOINC", "6690-2", "10*3/uL", (0.1, 300), {"10*9/L": 1.0}),
-    Lab("egfr_renal", "Estimated GFR", "LOINC", "33914-3", "mL/min/1.73m2", (1, 200)),
+    Lab("egfr_renal", "Estimated GFR", "LOINC", "33914-3", "mL/min/1.73m2", (1, 200), {"mL/min/{1.73_m2}": 1.0}),
     Lab("pdl1_tps", "PD-L1 tumor proportion score", "CLINIQ", "PDL1_TPS", "%", (0, 100)),
     Lab("ecog", "ECOG performance status", "CLINIQ", "ECOG", "{score}", (0, 5)),
 ]}
-LAB_BY_CODE = {(lab.vocabulary, lab.code): lab for lab in LABS.values()}
+LAB_BY_CODE = {(lab.vocabulary, code): lab for lab in LABS.values() for code in (lab.code, *lab.alt_codes)}
 
 # ------------------------------------------------------------------ drugs & procedures
 DRUG_CLASSES: dict[str, tuple[str, list[str]]] = {

@@ -2562,7 +2562,8 @@
       "enum": [
        "rules-v2",
        "rules-v1",
-       "llm"
+       "llm",
+       "gemini"
       ],
       "title": "Extractor",
       "default": "rules-v2"

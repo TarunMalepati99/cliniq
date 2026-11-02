@@ -69,7 +69,7 @@ function CohortBuilder() {
         <textarea className="input min-h-[84px]" value={text} onChange={(e) => setText(e.target.value)} />
         <div className="mt-2 flex flex-wrap items-center gap-2">
           <select className="input max-w-[220px]" value={extractor} onChange={(e) => setExtractor(e.target.value)}>
-            {(vocab.data?.extractors ?? ["rules-v2", "rules-v1"]).map((x: string) => <option key={x} value={x}>{x === "rules-v2" ? "rules-v2 (default)" : x === "rules-v1" ? "rules-v1 (baseline)" : "LLM (Anthropic)"}</option>)}
+            {(vocab.data?.extractors ?? ["rules-v2", "rules-v1"]).map((x: string) => <option key={x} value={x}>{x === "rules-v2" ? "rules-v2 (default)" : x === "rules-v1" ? "rules-v1 (baseline)" : x === "gemini" ? "Gemini" : "LLM (Anthropic)"}</option>)}
           </select>
           <button className="btn-primary" onClick={extract} disabled={!!busy || text.trim().length < 3}>{busy === "extract" ? "Extracting…" : "Extract criteria"}</button>
           <span className="text-xs text-ink-3 ml-2">Examples:</span>

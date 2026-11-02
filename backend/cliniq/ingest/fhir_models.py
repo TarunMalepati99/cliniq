@@ -55,18 +55,25 @@ class CodeableConcept(_Base):
         return None
 
 
+_URN_UUID = re.compile(r"^urn:uuid:[0-9a-fA-F\-]{8,64}$")
+
+
 class Reference(_Base):
+    """A subject reference: either a literal `Patient/<id>` or a bundle-local `urn:uuid:` that
+    is resolved through the bundle's fullUrl map (stored as record context at landing)."""
     reference: str
 
     @field_validator("reference")
     @classmethod
     def _patient_ref(cls, v: str) -> str:
-        if not re.match(r"^Patient/[A-Za-z0-9\-.]{1,64}$", v):
-            raise ValueError("subject must reference a Patient (Patient/<id>)")
+        if not (re.match(r"^Patient/[A-Za-z0-9\-.]{1,64}$", v) or _URN_UUID.match(v)):
+            raise ValueError("subject must reference a Patient (Patient/<id> or a bundle urn:uuid)")
         return v
 
     @property
     def patient_id(self) -> str:
+        if not self.reference.startswith("Patient/"):
+            raise ValueError("urn:uuid reference must be resolved through bundle context")
         return self.reference.split("/", 1)[1]
 
 
@@ -150,9 +157,50 @@ class Procedure(_Base):
     subject: Reference
     code: CodeableConcept
     performedDateTime: FhirDate | None = None
+    performedPeriod: Period | None = None
+
+
+class MedicationRequest(_Base):
+    resourceType: Literal["MedicationRequest"]
+    id: _ID
+    status: str
+    subject: Reference
+    medicationCodeableConcept: CodeableConcept | None = None
+    medicationReference: Reference | dict | None = None  # resolved via bundle context
+    authoredOn: FhirDate | None = None
+
+
+class Attachment(_Base):
+    contentType: str | None = None
+    data: str | None = None
+
+
+class DocContent(_Base):
+    attachment: Attachment
+
+
+class DocumentReference(_Base):
+    resourceType: Literal["DocumentReference"]
+    id: _ID
+    status: str | None = None
+    subject: Reference
+    type: CodeableConcept | None = None
+    date: FhirDate | None = None
+    content: list[DocContent]
 
 
 RESOURCE_MODELS: dict[str, type[_Base]] = {
     "Patient": Patient, "Condition": Condition, "Observation": Observation,
-    "MedicationStatement": MedicationStatement, "Procedure": Procedure,
+    "MedicationStatement": MedicationStatement, "Procedure": Procedure, "MedicationRequest": MedicationRequest,
+    "DocumentReference": DocumentReference,
+}
+
+# Valid FHIR R4 resource types that CLINIQ deliberately does not model. Records of these types
+# are landed for lineage and marked 'out_of_scope' (counted per type), not dead-lettered.
+OUT_OF_SCOPE_TYPES = {
+    "Encounter", "Claim", "ExplanationOfBenefit", "DiagnosticReport", "SupplyDelivery", "Immunization", "Device",
+    "Medication", "MedicationAdministration", "MedicationDispense", "ImagingStudy", "CareTeam", "CarePlan", "Provenance",
+    "AllergyIntolerance", "Organization", "Practitioner", "PractitionerRole", "Location", "Coverage", "Goal",
+    "ServiceRequest", "Specimen", "FamilyMemberHistory", "RiskAssessment", "QuestionnaireResponse", "Composition",
+    "Media", "Communication", "Appointment", "EpisodeOfCare", "RelatedPerson", "Group", "List", "Basic",
 }

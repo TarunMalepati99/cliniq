@@ -27,16 +27,54 @@ def test_unit_conversion_creatinine_umol():
 @pytest.mark.parametrize("payload,stage,code", [
     (_obs(value=-1), "business_rule", "implausible_value"),
     (_obs(unit="mmol/L"), "standardization", "unknown_unit"),
-    (_obs(code="0000-0"), "standardization", "unmapped_observation_code"),
     (_obs(when="2024-13-45"), "schema", "invalid_field"),
     (_obs(when="2099-01-01"), "business_rule", "future_date"),
     ({"resourceType": "Condition", "id": "c1", "subject": {"reference": "Patient/p1"}}, "schema", "missing_required_field"),
-    ({"resourceType": "Encounter", "id": "e1"}, "schema", "unsupported_resource_type"),
+    ({"resourceType": "NotAFhirType", "id": "e1"}, "schema", "unsupported_resource_type"),
 ])
 def test_rejections(payload, stage, code):
     with pytest.raises(T.RecordRejected) as ei:
         T.map_fhir(payload, 1, "r")
     assert (ei.value.stage, ei.value.code) == (stage, code)
+
+
+def test_out_of_scope_is_not_a_rejection():
+    with pytest.raises(T.OutOfScope):
+        T.map_fhir({"resourceType": "Encounter", "id": "e1"}, 1, "r")
+    with pytest.raises(T.OutOfScope):  # valid Observation whose code is outside the vocabulary (e.g. a vital sign)
+        T.map_fhir(_obs(code="8867-4", unit="/min", value=72), 1, "r")
+
+
+def test_urn_uuid_subject_resolved_from_bundle_context():
+    obs = _obs()
+    obs["subject"] = {"reference": "urn:uuid:4f8e1c2a-0000-0000-0000-000000000001"}
+    with pytest.raises(T.RecordRejected) as ei:
+        T.map_fhir(obs, 1, "r")
+    assert ei.value.code == "unresolvable_reference"
+    m = T.map_fhir(obs, 1, "r", {"subject": "Patient/p-42"})
+    assert m.person_id == "p-42"
+
+
+def test_snomed_condition_crosswalk_keeps_source_code():
+    c = {"resourceType": "Condition", "id": "c9", "subject": {"reference": "Patient/p1"}, "onsetDateTime": "2020-01-01",
+         "code": {"coding": [{"system": "http://snomed.info/sct", "code": "44054006", "display": "Diabetes mellitus type 2 (disorder)"}]}}
+    m = T.map_fhir(c, 1, "r")
+    assert (m.row["vocabulary"], m.row["code"], m.row["source_vocabulary"], m.row["source_code"]) == ("ICD10CM", "E11.9", "SNOMED", "44054006")
+    c["code"]["coding"][0]["code"] = "315268008"  # Suspected prostate cancer: deliberately not mapped
+    m = T.map_fhir(c, 1, "r")
+    assert m.row["vocabulary"] == "SNOMED" and m.warnings[0][0] == "snomed_not_in_crosswalk"
+
+
+def test_medication_request_rxnorm_and_reference():
+    mr = {"resourceType": "MedicationRequest", "id": "m1", "status": "active", "subject": {"reference": "Patient/p1"},
+          "authoredOn": "2021-02-03T10:00:00-05:00",
+          "medicationCodeableConcept": {"coding": [{"system": "http://www.nlm.nih.gov/research/umls/rxnorm", "code": "314076", "display": "lisinopril 10 MG Oral Tablet"}]}}
+    m = T.map_fhir(mr, 1, "r")
+    assert (m.row["drug_name"], m.row["drug_class"], m.row["vocabulary"]) == ("lisinopril", "antihypertensive", "RXNORM")
+    del mr["medicationCodeableConcept"]
+    mr["medicationReference"] = {"reference": "urn:uuid:aaaaaaaa-0000-0000-0000-000000000000"}
+    m = T.map_fhir(mr, 1, "r", {"medication": {"system": "http://www.nlm.nih.gov/research/umls/rxnorm", "code": "1", "display": "Metformin 500 MG"}})
+    assert m.row["drug_name"] == "metformin"
 
 
 def test_partial_fhir_dates():

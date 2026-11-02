@@ -100,4 +100,7 @@ def get_extractor(name: str) -> Any:
         return RuleExtractor(name)
     if name == "llm":
         return LLMExtractor()
+    if name == "gemini" or name.startswith("gemini:"):
+        from .gemini import GeminiExtractor
+        return GeminiExtractor(model=name.split(":", 1)[1] if ":" in name else None)
     raise ValueError(f"unknown extractor {name}")

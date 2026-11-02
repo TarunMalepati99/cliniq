@@ -259,7 +259,7 @@ def eval_extraction(extractor_name: str, with_db: bool = True, subset: str | Non
     }
     del subset_metrics
     return {"suite": "extraction", "system_version": ex.version, "metrics": metrics, "items": per_item,
-            "prompt_sha256": prompt_sha256() if extractor_name == "llm" else None, "benchmark": BENCH / "extraction_gold.jsonl"}
+            "prompt_sha256": prompt_sha256() if extractor_name.startswith(("llm", "gemini")) else None, "benchmark": BENCH / "extraction_gold.jsonl"}
 
 
 def build_corpus_index() -> HybridIndex:
@@ -410,4 +410,23 @@ def run_suites(suites: list[str], extractors: list[str], with_db: bool = True) -
             out.append(record(r, int((time.monotonic() - t0) * 1000), with_db))
         else:
             raise ValueError(s)
+    return out
+
+
+def run_external(chia: Path | None = None, trec: Path | None = None, extractors: list[str] | None = None,
+                 limit: int | None = None, with_db: bool = True) -> list[dict[str, Any]]:
+    """External benchmarks (Chia concept extraction, TREC Clinical Trials retrieval)."""
+    from .external.chia import eval_chia
+    from .external.trec import eval_trec
+    out = []
+    if chia:
+        for name in extractors or ["rules-v1", "rules-v2"]:
+            t0 = time.monotonic()
+            r = eval_chia(get_extractor(name), chia, limit=limit)
+            r["prompt_sha256"] = prompt_sha256() if name.startswith(("llm", "gemini")) else None
+            out.append(record(r, int((time.monotonic() - t0) * 1000), with_db))
+    if trec:
+        t0 = time.monotonic()
+        r = eval_trec(trec, limit=limit)
+        out.append(record(r, int((time.monotonic() - t0) * 1000), with_db))
     return out

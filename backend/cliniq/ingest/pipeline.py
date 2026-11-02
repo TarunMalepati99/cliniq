@@ -28,7 +28,7 @@ from psycopg.types.json import Jsonb
 from .. import vocabulary as V
 from ..db import connect, retry
 from ..observability.logging import run_id_var
-from .transform import MAPPERS, TRANSFORM_VERSION, Mapped, RecordRejected
+from .transform import MAPPERS, TRANSFORM_VERSION, Mapped, OutOfScope, RecordRejected
 
 log = logging.getLogger(__name__)
 
@@ -38,6 +38,8 @@ TABLE_PK = {
     "drug_exposure": "drug_exposure_id", "procedure_occurrence": "procedure_id", "genomic_variant": "variant_result_id",
     "note": "note_id",
 }
+# Warnings that get an individual ops.dq_issues row (actionable per record); others are aggregated in run metrics.
+PER_RECORD_DQ = {"unmapped_condition_code", "unknown_state"}
 FORMATS = {"fhir_bundle", "fhir_ndjson", "lab_csv", "genomic_csv", "notes_jsonl"}
 
 
@@ -47,6 +49,7 @@ class RawRecord:
     record_type: str
     source_key: str | None
     payload: dict[str, Any]
+    context: dict[str, Any] | None = None  # bundle-level reference resolution (raw payload stays untouched)
 
     @property
     def sha(self) -> str:
@@ -64,7 +67,9 @@ class RunMetrics:
     records_loaded_new: int = 0
     records_updated: int = 0
     records_rejected: int = 0
+    records_out_of_scope: int = 0
     transformation_failures: int = 0
+    out_of_scope_by_kind: Counter = field(default_factory=Counter)
     warnings: Counter = field(default_factory=Counter)
     rejections_by_code: Counter = field(default_factory=Counter)
     loaded_by_table: Counter = field(default_factory=Counter)
@@ -73,6 +78,7 @@ class RunMetrics:
     def as_dict(self) -> dict[str, Any]:
         d = {k: v for k, v in self.__dict__.items() if not isinstance(v, (Counter, dict))}
         d.update(warnings=dict(self.warnings), rejections_by_code=dict(self.rejections_by_code),
+                 out_of_scope_by_kind=dict(self.out_of_scope_by_kind.most_common(40)),
                  loaded_by_table=dict(self.loaded_by_table), stage_ms=self.stage_ms)
         return d
 
@@ -103,12 +109,29 @@ def parse_file(path: Path, fmt: str) -> list[RawRecord]:
         if doc.get("resourceType") != "Bundle" or not isinstance(doc.get("entry"), list):
             raise ValueError("not a FHIR Bundle with an entry array")
         out = []
+        refmap: dict[str, str] = {}
+        meds: dict[str, dict[str, Any]] = {}
+        for e in doc["entry"]:
+            r = e.get("resource") if isinstance(e, dict) else None
+            if isinstance(r, dict) and e.get("fullUrl") and r.get("id"):
+                refmap[e["fullUrl"]] = f"{r.get('resourceType')}/{r['id']}"
+                if r.get("resourceType") == "Medication":
+                    codings = (r.get("code") or {}).get("coding") or []
+                    if codings:
+                        meds[e["fullUrl"]] = codings[0]
         for i, e in enumerate(doc["entry"]):
             r = e.get("resource") if isinstance(e, dict) else None
             if not isinstance(r, dict):
                 out.append(RawRecord(f"{path.name}#entry[{i}]", "Unknown", None, {"_invalid_entry": e}))
                 continue
-            out.append(RawRecord(f"{path.name}#entry[{i}]", str(r.get("resourceType", "Unknown")), r.get("id"), r))
+            ctx: dict[str, Any] = {}
+            subj = (r.get("subject") or {}).get("reference") if isinstance(r.get("subject"), dict) else None
+            if subj and subj in refmap:
+                ctx["subject"] = refmap[subj]
+            mref = (r.get("medicationReference") or {}).get("reference") if isinstance(r.get("medicationReference"), dict) else None
+            if mref and mref in meds:
+                ctx["medication"] = meds[mref]
+            out.append(RawRecord(f"{path.name}#entry[{i}]", str(r.get("resourceType", "Unknown")), r.get("id"), r, ctx or None))
         return out
     if fmt == "fhir_ndjson":
         out = []
@@ -205,9 +228,10 @@ def land_file(run: IngestionRun, path: Path, source_system: str = "synthetic") -
     with conn.cursor() as cur:
         for rec in records:
             cur.execute(
-                "INSERT INTO raw.records (source_file_id, run_id, record_locator, record_type, source_key, content_sha256, payload)"
-                " VALUES (%s,%s,%s,%s,%s,%s,%s) ON CONFLICT (record_type, content_sha256) DO NOTHING RETURNING raw_id",
-                (sfid, run.run_id, rec.locator, rec.record_type, rec.source_key, rec.sha, Jsonb(rec.payload)))
+                "INSERT INTO raw.records (source_file_id, run_id, record_locator, record_type, source_key, content_sha256, payload, context)"
+                " VALUES (%s,%s,%s,%s,%s,%s,%s,%s) ON CONFLICT (record_type, content_sha256) DO NOTHING RETURNING raw_id",
+                (sfid, run.run_id, rec.locator, rec.record_type, rec.source_key, rec.sha, Jsonb(rec.payload),
+                 Jsonb(rec.context) if rec.context else None))
             if cur.fetchone():
                 landed += 1
             else:
@@ -241,14 +265,15 @@ def process_pending(run: IngestionRun, raw_ids: list[int] | None = None) -> None
     t0 = time.monotonic()
     where = "process_status='pending'" if raw_ids is None else "raw_id = ANY(%s)"
     rows = conn.execute(
-        f"SELECT raw_id, source_file_id, record_locator, record_type, payload FROM raw.records WHERE {where}"
+        f"SELECT raw_id, source_file_id, record_locator, record_type, payload, context FROM raw.records WHERE {where}"
         " ORDER BY CASE WHEN record_type='Patient' THEN 0 ELSE 1 END, raw_id", (raw_ids,) if raw_ids is not None else None).fetchall()
     known = {r["person_id"] for r in conn.execute("SELECT person_id FROM clinical.person")}
     for r in rows:
         rtype = r["record_type"]
         mapper = MAPPERS["fhir"] if rtype not in MAPPERS else MAPPERS[rtype]
         try:
-            mapped = mapper(r["payload"], r["raw_id"], run.run_id)
+            mapped = mapper(r["payload"], r["raw_id"], run.run_id, r["context"]) if mapper is MAPPERS["fhir"] else \
+                mapper(r["payload"], r["raw_id"], run.run_id)
             if mapped.table != "person" and mapped.person_id not in known:
                 raise RecordRejected("reference", "unresolved_patient_reference", {"person_id": mapped.person_id})
             with conn.transaction():  # savepoint: isolates DB failures to this record
@@ -266,9 +291,13 @@ def process_pending(run: IngestionRun, raw_ids: list[int] | None = None) -> None
                 m.records_updated += 1
             for code, details in mapped.warnings:
                 m.warnings[code] += 1
-                if code not in ("unit_converted", "missing_birth_date"):
+                if code in PER_RECORD_DQ:
                     conn.execute("INSERT INTO ops.dq_issues (run_id, check_name, severity, entity, entity_id, details) VALUES (%s,%s,'warning',%s,%s,%s)",
                                  (run.run_id, code, mapped.table, mapped.key, Jsonb(details)))
+        except OutOfScope as oos:
+            conn.execute("UPDATE raw.records SET process_status='out_of_scope' WHERE raw_id=%s", (r["raw_id"],))
+            m.records_out_of_scope += 1
+            m.out_of_scope_by_kind["Observation (code not in vocabulary)" if oos.kind.startswith("Observation:") else oos.kind] += 1
         except RecordRejected as rej:
             conn.execute("UPDATE raw.records SET process_status='rejected' WHERE raw_id=%s", (r["raw_id"],))
             run.dead_letter(r["record_locator"], rtype, rej.stage, rej.code, rej.detail, r["payload"], r["source_file_id"])
@@ -365,4 +394,19 @@ def retry_dead_letters(dlq_ids: list[int] | None, triggered_by: str) -> dict[str
         run.metrics.records_rejected = failed
         out = run.finish()
         out["resolved"], out["still_failing"] = resolved, failed
+        return out
+
+
+def reprocess(statuses: tuple[str, ...] = ("out_of_scope",), triggered_by: str = "cli") -> dict[str, Any]:
+    """Backfill: re-run already-landed records (e.g. after the vocabulary gained a code).
+    Raw payloads are not re-read from files; lineage still points at the original source file."""
+    with connect() as conn:
+        run = IngestionRun(conn, triggered_by, {"reprocess_statuses": list(statuses)}, pipeline="reprocess")
+        ids = [r["raw_id"] for r in conn.execute("SELECT raw_id FROM raw.records WHERE process_status = ANY(%s)", (list(statuses),))]
+        conn.execute("UPDATE raw.records SET process_status='pending' WHERE raw_id = ANY(%s)", (ids,))
+        conn.commit()
+        process_pending(run, ids)
+        post_load(run)
+        out = run.finish()
+        out["reprocessed"] = len(ids)
         return out
