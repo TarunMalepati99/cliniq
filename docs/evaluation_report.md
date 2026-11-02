@@ -6,10 +6,10 @@
 
 | Suite | System version | Run file | Benchmark sha256 | Data version | Code |
 |---|---|---|---|---|---|
-| extraction | `rules-v1` | `20261102T195742Z_extraction_rules-v1.json` | `3befb6a01beb` | `dv-fdf6d7df8f3762fc` | `nogit` |
-| extraction | `rules-v2` | `20261102T195802Z_extraction_rules-v2.json` | `3befb6a01beb` | `dv-fdf6d7df8f3762fc` | `nogit` |
-| retrieval | `lsa-tfidf-word+char-svd|bm25|rrf60|corpus-ec55bd45b3b11e0f` | `20261102T195804Z_retrieval_lsa-tfidf-word+char-svd_bm25_rrf60_corpus-ec55bd45b3b11e0f.json` | `23cfeb672732` | `dv-fdf6d7df8f3762fc` | `nogit` |
-| evidence | `evidence-1.0.0` | `20261102T195806Z_evidence_evidence-1.0.0.json` | `3befb6a01beb` | `dv-fdf6d7df8f3762fc` | `nogit` |
+| extraction | `rules-v1` | `20261102T201240Z_extraction_rules-v1.json` | `3befb6a01beb` | `dv-d760f6b035cf29a2` | `7573c0f` |
+| extraction | `rules-v2` | `20261102T201257Z_extraction_rules-v2.json` | `3befb6a01beb` | `dv-d760f6b035cf29a2` | `7573c0f` |
+| retrieval | `lsa-tfidf-word+char-svd · bm25 · rrf60 · corpus-ec55bd45b3b11e0f` | `20261102T201258Z_retrieval_lsa-tfidf-word+char-svd_bm25_rrf60_corpus-ec55bd45b3b11e0f.json` | `23cfeb672732` | `dv-d760f6b035cf29a2` | `7573c0f` |
+| evidence | `evidence-1.0.0` | `20261102T201300Z_evidence_evidence-1.0.0.json` | `3befb6a01beb` | `dv-d760f6b035cf29a2` | `7573c0f` |
 
 ## 1. Criteria extraction (125 requests)
 
@@ -30,7 +30,7 @@ Benchmark: `eval/benchmark/extraction_gold.jsonl` — 35 **hand-written** reques
 | SQL execution success | 100.0% | 100.0% |
 | Cohort precision (mean, vs gold eligible set) | 50.7% | 97.6% |
 | Cohort recall (mean) | 75.8% | 98.4% |
-| Latency p50 / p95 | 0.743 / 1.333 ms | 1.085 / 2.06 ms |
+| Latency p50 / p95 | 0.665 / 1.079 ms | 0.93 / 1.609 ms |
 | Inference cost | $0.00 | $0.00 |
 
 Cohort precision/recall average over items whose predicted definition executed; items where both predicted and gold eligible sets were empty count as 1.0 (21 items for v1, 33 for v2).
@@ -49,11 +49,11 @@ Cohort precision/recall average over items whose predicted definition executed; 
 
 | Item | Category | Request | Missing (gold) | Extra (predicted) |
 |---|---|---|---|---|
-| H020 | wrong_polarity | Patients with NSCLC who never received an EGFR TKI and are EGFR wild-type | `{"markers": ["egfr_exon19del", "egfr_l858r"], "status": "not_detected", "type": "biomarker"}` | `{"markers": ["egfr_exon19del", "egfr_l858r"], "status": "not_detected", "type": "biomarker"}` |
-| H023 | spurious_concept | ROS1-rearranged NSCLC, excluding pregnant women | — | `{"sex": "female", "type": "sex"}` |
-| H024 | missed_concept | patients >= 18 with HIV and Kaposi sarcoma | `{"min_years": 18, "type": "age"}` | — |
-| H028 | missed_concept, spurious_concept | Find prostate cancer patients previously treated with enzalutamide or abiraterone | `{"drug_class": "antiandrogen", "type": "treatment"}` | `{"drug": "abiraterone", "type": "treatment"}`<br>`{"drug": "enzalutamide", "type": "treatment"}` |
-| H030 | missed_concept, spurious_concept | Lung cancer (non-small cell) with L858R, untreated | `{"condition": "nsclc", "type": "diagnosis"}` | `{"condition": "lung_cancer", "type": "diagnosis"}` |
+| H020 | wrong_polarity | Patients with NSCLC who never received an EGFR TKI and are EGFR wild-type | `inclusion: {"markers": ["egfr_exon19del", "egfr_l858r"], "status": "not_detected", "type": "biomarker"}` | `exclusion: {"markers": ["egfr_exon19del", "egfr_l858r"], "status": "not_detected", "type": "biomarker"}` |
+| H023 | spurious_concept | ROS1-rearranged NSCLC, excluding pregnant women | — | `exclusion: {"sex": "female", "type": "sex"}` |
+| H024 | missed_concept | patients >= 18 with HIV and Kaposi sarcoma | `inclusion: {"min_years": 18, "type": "age"}` | — |
+| H028 | missed_concept, spurious_concept | Find prostate cancer patients previously treated with enzalutamide or abiraterone | `inclusion: {"drug_class": "antiandrogen", "type": "treatment"}` | `inclusion: {"drug": "abiraterone", "type": "treatment"}`<br>`inclusion: {"drug": "enzalutamide", "type": "treatment"}` |
+| H030 | missed_concept, spurious_concept | Lung cancer (non-small cell) with L858R, untreated | `inclusion: {"condition": "nsclc", "type": "diagnosis"}` | `inclusion: {"condition": "lung_cancer", "type": "diagnosis"}` |
 
 ### Interpretation
 
@@ -68,9 +68,9 @@ Corpus: 28 synthetic trial eligibility documents (generated, with varied phrasin
 
 | Mode | Recall@1 | Recall@3 | Recall@5 | Recall@10 | MRR | Abstention precision | Abstention recall | p95 latency |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| bm25 | 0.251 | 0.614 | 0.747 | 0.881 | 0.954 | 0.75 | 1.0 | 5.683 ms |
-| dense | 0.251 | 0.612 | 0.745 | 0.878 | 0.954 | 0.6667 | 0.6667 | 7.423 ms |
-| hybrid | 0.241 | 0.621 | 0.756 | 0.879 | 0.940 | 0.6667 | 0.6667 | 8.255 ms |
+| bm25 | 0.251 | 0.614 | 0.747 | 0.881 | 0.954 | 0.75 | 1.0 | 6.411 ms |
+| dense | 0.251 | 0.612 | 0.745 | 0.878 | 0.954 | 0.6667 | 0.6667 | 6.076 ms |
+| hybrid | 0.241 | 0.621 | 0.756 | 0.879 | 0.940 | 0.6667 | 0.6667 | 6.31 ms |
 
 - Recall@1 is low by construction: most queries have 3–10 relevant documents, so one result can recover at most a fraction of them. MRR shows the first relevant document is almost always ranked first.
 - BM25 and the local LSA embedder reach similar aggregate scores on this small corpus even though their rankings differ on 40 of 42 queries; hybrid fusion gives a marginal gain at Recall@3–5 and a small loss in MRR. With a corpus this small and synthetic, the honest conclusion is that **no retriever is clearly better**; a neural embedder and a larger, real corpus are needed to make that comparison meaningful.
@@ -85,7 +85,7 @@ Corpus: 28 synthetic trial eligibility documents (generated, with varied phrasin
 | Unsupported claim rate | 0.0% |
 | Insufficient-evidence recall (criteria with no corpus coverage that were flagged) | 96.5% (56/58) |
 | Coverage of answerable criteria | 98.0% (9 false 'insufficient' flags) |
-| Latency p50 / p95 per definition | 16.63 / 27.25 ms |
+| Latency p50 / p95 per definition | 14.67 / 23.79 ms |
 
 The unsupported-claim rate is **0 by construction**: the composer is extractive and only emits a statement when at least one cited passage passes an anchor check. The metric is wired up so that an LLM synthesizer can be evaluated with the same harness.
 

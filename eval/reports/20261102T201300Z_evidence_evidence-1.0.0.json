@@ -1,13 +1,13 @@
 {
- "eval_run_id": "be51e1d7-3275-449c-8120-3ca42a7b0811",
+ "eval_run_id": "2085c0d5-56d4-4768-9a45-b83fdb304f39",
  "suite": "evidence",
  "system_version": "evidence-1.0.0",
  "prompt_sha256": null,
  "benchmark_sha256": "3befb6a01beb5b3a23e2eaac6d578c8258909010f0a32b5947ef4bfb5c504523",
- "data_version": "dv-8e43ee53ae49e500",
- "code_version": "5b12b0a",
- "timestamp": "20261102T200850Z",
- "duration_ms": 1876,
+ "data_version": "dv-d760f6b035cf29a2",
+ "code_version": "7573c0f",
+ "timestamp": "20261102T201300Z",
+ "duration_ms": 1798,
  "metrics": {
   "n_definitions": 125,
   "n_criteria": 518,
@@ -23,8 +23,8 @@
    "answerable_coverage": 0.9804
   },
   "latency_ms": {
-   "p50": 14.7,
-   "p95": 27.13
+   "p50": 14.67,
+   "p95": 23.79
   }
  },
  "items": [
