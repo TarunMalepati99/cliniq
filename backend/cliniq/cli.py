@@ -102,6 +102,15 @@ def main(argv: list[str] | None = None) -> int:
     return 0
 
 
+def entry() -> int:
+    from .extraction.gemini import GeminiError
+    try:
+        return main()
+    except GeminiError as e:  # quota / key problems: one clear line, no traceback
+        print(f"\nGemini stopped: {e}", file=sys.stderr)
+        return 3
+
+
 if __name__ == "__main__":
-    sys.exit(main())
+    sys.exit(entry())
 _ = REPO_ROOT

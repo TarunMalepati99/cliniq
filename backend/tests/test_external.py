@@ -139,3 +139,63 @@ def test_no_scipy_or_sklearn_imports():
             "bad=[m for m in sys.modules if m.split('.')[0] in ('scipy','sklearn')];"
             "sys.exit(1 if bad else 0)")
     assert subprocess.run([sys.executable, "-c", code]).returncode == 0
+
+
+def _quota_body(quota_id, value="250", delay="7s"):
+    return json.dumps({"error": {"code": 429, "message": f"Quota exceeded for metric ..., limit: {value}", "details": [
+        {"@type": "type.googleapis.com/google.rpc.QuotaFailure", "violations": [{"quotaId": quota_id, "quotaValue": value}]},
+        {"@type": "type.googleapis.com/google.rpc.RetryInfo", "retryDelay": delay}]}})
+
+
+def test_gemini_classifies_quota_errors():
+    import cliniq.extraction.gemini as G
+    daily = G._classify_429(_quota_body("GenerateRequestsPerDayPerProjectPerModel-FreeTier"))
+    zero = G._classify_429(_quota_body("GenerateRequestsPerMinutePerProjectPerModel-FreeTier", value="0"))
+    minute = G._classify_429(_quota_body("GenerateRequestsPerMinutePerProjectPerModel-FreeTier", value="15", delay="21s"))
+    assert isinstance(daily, G.GeminiQuotaExhausted) and isinstance(zero, G.GeminiQuotaExhausted)
+    assert isinstance(minute, G.GeminiRetryable) and minute.retry_after == 21
+
+
+def test_gemini_daily_quota_aborts_run_instead_of_scoring_failures(monkeypatch):
+    import cliniq.extraction.gemini as G
+    monkeypatch.setattr(G.time, "sleep", lambda s: None)
+    calls = {"n": 0}
+
+    def exhausted(url, body, key):
+        calls["n"] += 1
+        raise G.GeminiQuotaExhausted("daily quota used up")
+    ex = GeminiExtractor(model="m", api_key="k", transport=exhausted, interactive=False, validate_model=False)
+    with pytest.raises(G.GeminiQuotaExhausted):
+        ex.extract("hypertension")
+    assert calls["n"] == 1  # no pointless retries
+
+
+def test_gemini_circuit_breaker_after_repeated_rate_limits(monkeypatch):
+    import cliniq.extraction.gemini as G
+    sleeps = []
+    monkeypatch.setattr(G.time, "sleep", lambda s: sleeps.append(s))
+
+    def always_429(url, body, key):
+        raise G.GeminiRetryable("rate limited", retry_after=30)
+    ex = GeminiExtractor(model="m", api_key="k", transport=always_429, interactive=False, validate_model=False)
+    assert not ex.extract("a").valid and not ex.extract("b").valid
+    with pytest.raises(G.GeminiQuotaExhausted):
+        ex.extract("c")
+    assert max(sleeps) <= 65 and 30 in sleeps  # honours Google's retryDelay, capped
+
+
+def test_pick_working_model_skips_models_without_quota():
+    import cliniq.extraction.gemini as G
+    tried = []
+
+    def transport(url, body, key):
+        if body is None:
+            return {"models": [{"name": f"models/{m}", "supportedGenerationMethods": ["generateContent"]}
+                               for m in ("gemini-flash-latest", "gemini-flash-lite-latest", "gemini-2.5-flash")]}
+        model = url.split("/models/")[1].split(":")[0]
+        tried.append(model)
+        if model == "gemini-flash-lite-latest":
+            raise G.GeminiQuotaExhausted("limit 0")
+        return {"candidates": [{"content": {"parts": [{"text": "{}"}]}}]}
+    assert G.pick_working_model("k", None, transport) == "gemini-flash-latest"
+    assert tried == ["gemini-flash-lite-latest", "gemini-flash-latest"]

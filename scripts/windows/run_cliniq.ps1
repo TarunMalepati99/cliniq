@@ -133,19 +133,30 @@ Step "7/8  Gemini API key"
 Write-Host "Get one at https://aistudio.google.com/apikey . Paste it below; nothing will appear while you paste - that is normal."
 $env:GEMINI_API_KEY = Plain (Read-Host "Gemini API key (hidden)" -AsSecureString)
 if (-not $env:GEMINI_API_KEY) { Fail "No API key entered" }
-$env:CLINIQ_GEMINI_DELAY_S = "1"
+$env:CLINIQ_GEMINI_DELAY_S = "5"   # free tier allows roughly 10-15 requests/minute
 $modelFile = Join-Path $env:TEMP "cliniq_gemini_model.txt"
-& $PY -c "from cliniq.extraction.gemini import get_api_key, choose_model; m = choose_model(get_api_key()); open(r'$modelFile', 'w').write(m); print('Using model:', m)"
-Check "Checking the key / choosing a Gemini model"
-$env:CLINIQ_GEMINI_MODEL = (Get-Content $modelFile -Raw).Trim()
+Remove-Item $modelFile -ErrorAction SilentlyContinue
+Write-Host "Testing the key and finding a Gemini model that still has free quota..."
+& $PY -c "from cliniq.extraction.gemini import get_api_key, pick_working_model; m = pick_working_model(get_api_key()); open(r'$modelFile', 'w').write(m); print('Using model:', m)"
+$geminiOk = ($LASTEXITCODE -eq 0) -and (Test-Path $modelFile)
+if ($geminiOk) { $env:CLINIQ_GEMINI_MODEL = (Get-Content $modelFile -Raw).Trim() }
+else { Write-Host "Gemini is not usable with this key right now (see the message above). Rules benchmarks will still run." -ForegroundColor Yellow }
 
 # ------------------------------------------------------------------ 8. benchmarks
-Step "8/8  Benchmarks (Gemini part takes ~5-15 minutes depending on rate limits)"
+Step "8/8  Benchmarks"
+$warnings = @()
 try {
-    & $PY -m cliniq.cli eval --extractor rules-v1 --extractor rules-v2 --extractor gemini | Out-Null; Check "Internal benchmark (rules + Gemini)"
-    if ($haveChia) {
-        & $PY -m cliniq.cli eval --chia $chiaJsonl --extractor rules-v1 --extractor rules-v2 | Out-Null; Check "Chia benchmark (rules)"
-        & $PY -m cliniq.cli eval --chia $chiaJsonl --extractor gemini --limit 300 | Out-Null; Check "Chia benchmark (Gemini, 300 criteria)"
+    & $PY -m cliniq.cli eval --extractor rules-v1 --extractor rules-v2 | Out-Null; Check "Internal benchmark (rules)"
+    if ($haveChia) { & $PY -m cliniq.cli eval --chia $chiaJsonl --extractor rules-v1 --extractor rules-v2 | Out-Null; Check "Chia benchmark (rules)" }
+    if ($geminiOk) {
+        Write-Host "Gemini internal benchmark (125 requests, ~15-25 min at free-tier pace)..."
+        & $PY -m cliniq.cli eval --extractor gemini | Out-Null
+        if ($LASTEXITCODE -ne 0) { $warnings += "Gemini internal benchmark stopped early (quota/rate limit) - see message above" }
+        elseif ($haveChia) {
+            Write-Host "Gemini Chia benchmark (150 criteria)..."
+            & $PY -m cliniq.cli eval --chia $chiaJsonl --extractor gemini --limit 150 | Out-Null
+            if ($LASTEXITCODE -ne 0) { $warnings += "Gemini Chia benchmark stopped early (quota/rate limit)" }
+        }
     }
     & $PY scripts\make_eval_report.py | Out-Null
 } finally {
@@ -155,5 +166,6 @@ try {
 New-Item -ItemType Directory -Force -Path $OUT | Out-Null
 Copy-Item (Join-Path $APP "eval\reports\*") $OUT -Force
 Copy-Item (Join-Path $APP "docs\evaluation_report.md") $OUT -Force
+foreach ($w in $warnings) { Write-Host "WARNING: $w" -ForegroundColor Yellow }
 Write-Host "`nDONE. Results are in $OUT" -ForegroundColor Green
 Write-Host "Tell Claude: 'results are in Downloads'."

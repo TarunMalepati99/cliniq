@@ -30,7 +30,7 @@ from .llm import prompt_sha256, prompt_text
 from .rules import ExtractionResult, normalize, required_fields
 
 API_BASE = "https://generativelanguage.googleapis.com/v1beta"
-DEFAULT_MODEL = os.environ.get("CLINIQ_GEMINI_MODEL", "gemini-flash-latest")
+DEFAULT_MODEL = os.environ.get("CLINIQ_GEMINI_MODEL", "gemini-flash-lite-latest")
 Transport = Callable[[str, dict[str, Any] | None, str], dict[str, Any]]
 
 
@@ -39,7 +39,43 @@ class GeminiError(RuntimeError):
 
 
 class GeminiRetryable(GeminiError):
-    """Rate limit (429) or transient server error (5xx): safe to retry after a pause."""
+    """Per-minute rate limit (429) or transient server error (5xx): safe to retry after a pause."""
+
+    def __init__(self, msg: str, retry_after: float | None = None) -> None:
+        super().__init__(msg)
+        self.retry_after = retry_after
+
+
+class GeminiQuotaExhausted(GeminiError):
+    """Daily quota used up, or the model has no free-tier quota (limit 0). Retrying cannot help,
+    so this aborts the whole run instead of being scored as one failed item."""
+
+
+FALLBACK_MODELS = ["gemini-flash-lite-latest", "gemini-2.5-flash-lite", "gemini-2.0-flash-lite", "gemini-flash-latest",
+                   "gemini-2.5-flash", "gemini-2.0-flash"]
+
+
+def _classify_429(detail: str) -> GeminiError:
+    """Read Google's error details: QuotaFailure (which quota) and RetryInfo (how long to wait)."""
+    retry_after, quota_ids, zero_limit = None, [], False
+    try:
+        err = json.loads(detail).get("error", {})
+        for d in err.get("details", []):
+            if d.get("@type", "").endswith("RetryInfo"):
+                retry_after = float(str(d.get("retryDelay", "0s")).rstrip("s") or 0)
+            if d.get("@type", "").endswith("QuotaFailure"):
+                for v in d.get("violations", []):
+                    quota_ids.append(v.get("quotaId", ""))
+                    zero_limit |= str(v.get("quotaValue", "")) == "0"
+        msg = err.get("message", "")[:300]
+    except (ValueError, AttributeError):
+        msg = detail[:300]
+        zero_limit = "limit: 0" in detail
+    if zero_limit or "limit: 0" in msg:
+        return GeminiQuotaExhausted(f"this model has no quota for your key (limit 0): {msg}")
+    if any("PerDay" in q for q in quota_ids):
+        return GeminiQuotaExhausted(f"daily quota for this model is used up (resets at midnight Pacific): {msg}")
+    return GeminiRetryable(f"rate limited: {msg}", retry_after)
 
 
 def get_api_key(interactive: bool = True) -> str:
@@ -64,10 +100,12 @@ def _http(url: str, body: dict[str, Any] | None, key: str) -> dict[str, Any]:
         with urllib.request.urlopen(req, timeout=120) as r:
             return json.load(r)
     except urllib.error.HTTPError as e:
-        detail = e.read().decode(errors="replace")[:500]
-        if e.code == 429 or e.code >= 500:
+        detail = e.read().decode(errors="replace")[:4000]
+        if e.code == 429:
+            raise _classify_429(detail) from None
+        if e.code >= 500:
             raise GeminiRetryable(f"Gemini API HTTP {e.code}: {detail}") from None
-        raise GeminiError(f"Gemini API HTTP {e.code}: {detail}") from None
+        raise GeminiError(f"Gemini API HTTP {e.code}: {detail[:500]}") from None
     except urllib.error.URLError as e:
         raise GeminiError(f"cannot reach Gemini API: {e.reason}") from None
 
@@ -94,6 +132,33 @@ def choose_model(key: str, requested: str | None = None, interactive: bool = Tru
     return flash[int(pick) - 1] if pick.isdigit() and 0 < int(pick) <= len(flash[:20]) else pick
 
 
+def probe(key: str, model: str, transport: Transport = _http) -> None:
+    """One tiny request to confirm the model actually has quota for this key."""
+    body = {"contents": [{"role": "user", "parts": [{"text": 'Reply with the JSON {"ok": true}'}]}],
+            "generationConfig": {"temperature": 0, "maxOutputTokens": 20, "responseMimeType": "application/json"}}
+    transport(f"{API_BASE}/models/{model}:generateContent", body, key)
+
+
+def pick_working_model(key: str, requested: str | None = None, transport: Transport = _http) -> str:
+    """Try the requested model, then cheap Flash-Lite/Flash fallbacks the key can see; return the first with quota."""
+    available = set(list_models(key, transport))
+    order = [m for m in [requested, *FALLBACK_MODELS] if m and (not available or m in available)]
+    order += sorted(m for m in available if "flash" in m and m not in order and "image" not in m and "tts" not in m
+                    and "audio" not in m and "live" not in m)
+    problems = []
+    for m in dict.fromkeys(order):
+        try:
+            probe(key, m, transport)
+            return m
+        except GeminiQuotaExhausted as e:
+            problems.append(f"{m}: {e}")
+        except GeminiRetryable:
+            return m  # per-minute limit only: usable, the extractor paces itself
+        except GeminiError as e:
+            problems.append(f"{m}: {str(e)[:160]}")
+    raise GeminiQuotaExhausted("no Gemini model with available quota for this key:\n  " + "\n  ".join(problems[:8]))
+
+
 SCHEMA_HINT = (
     "\n\nReturn ONLY a JSON object (no prose, no markdown fences) that validates against this JSON Schema "
     "for CohortDefinition:\n"
@@ -117,15 +182,19 @@ class GeminiExtractor:
                 "generationConfig": {"temperature": 0, "responseMimeType": "application/json"}}
         # pacing + exponential backoff so free-tier rate limits are not scored as extraction failures
         time.sleep(float(os.environ.get("CLINIQ_GEMINI_DELAY_S", "0")))
-        for attempt in range(7):
+        for attempt in range(6):
             try:
                 out = self._transport(f"{API_BASE}/models/{self.model}:generateContent", body, self._key)
+                self._consecutive_failures = 0
                 break
-            except GeminiRetryable:
-                if attempt == 6:
+            except GeminiRetryable as e:
+                if attempt == 5:
+                    self._consecutive_failures = getattr(self, "_consecutive_failures", 0) + 1
+                    if self._consecutive_failures >= 3:
+                        raise GeminiQuotaExhausted(f"Gemini kept refusing requests for 3 items in a row; stopping. Last error: {e}") from None
                     raise
-                wait = min(90, 2 ** (attempt + 1))
-                print(f"  Gemini rate-limited/unavailable; retrying in {wait}s", file=sys.stderr)
+                wait = min(65.0, max(e.retry_after or 0, 2 ** (attempt + 2)))
+                print(f"  Gemini {str(e)[:140]} -- retrying in {wait:.0f}s", file=sys.stderr)
                 time.sleep(wait)
         um = out.get("usageMetadata", {})
         usage = {"input_tokens": int(um.get("promptTokenCount", 0)), "output_tokens": int(um.get("candidatesTokenCount", 0))}
@@ -145,6 +214,8 @@ class GeminiExtractor:
         for _attempt in range(2):
             try:
                 raw, usage = self._call(contents)
+            except GeminiQuotaExhausted:
+                raise  # abort the run: further items would all fail the same way
             except GeminiError as e:
                 errors = [str(e)]
                 break
