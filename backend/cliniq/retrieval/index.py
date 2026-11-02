@@ -22,15 +22,11 @@ from typing import Any, Protocol
 import numpy as np
 from psycopg.types.json import Jsonb
 from rank_bm25 import BM25Okapi
-from scipy.sparse import hstack
-from sklearn.decomposition import TruncatedSVD
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.preprocessing import normalize as l2
-
 from ..db import connect
 from .corpus import load_corpus
+from .lsa import CSR, Tfidf, char_wb_ngrams, randomized_svd_components, sample_texts, word_ngrams
 
-INDEX_VERSION = "hybrid-bm25-lsa-rrf-1.0"
+INDEX_VERSION = "hybrid-bm25-lsa-rrf-1.1"
 STOP = set(["a", "an", "and", "are", "as", "at", "be", "by", "for", "from", "has", "have", "in", "into", "is", "it", "its", "of", "on", "or", "that", "the", "this", "to", "was", "were", "will", "with", "patients", "patient", "who", "must", "study", "trial", "criteria"])
 
 
@@ -103,7 +99,7 @@ class Embedder(Protocol):
 
 
 class LSAEmbedder:
-    """TF-IDF (word 1-2 grams + char 3-5 grams) → truncated SVD.
+    """TF-IDF (word 1-2 grams + char 3-5 grams) → truncated SVD, NumPy only (see lsa.py).
 
     Scales by fitting the vectorizers and SVD on at most `max_fit_docs` documents (a fixed,
     seeded sample) and then embedding every document in float32 batches, so memory is bounded
@@ -116,26 +112,22 @@ class LSAEmbedder:
         self.dims, self.seed, self.max_fit_docs, self.batch = dims, seed, max_fit_docs, batch
 
     def fit(self, texts: list[str]) -> None:
-        import random
-        sample = texts
-        if len(texts) > self.max_fit_docs:
-            rng = random.Random(self.seed)
-            sample = [texts[i] for i in sorted(rng.sample(range(len(texts)), self.max_fit_docs))]
-        self.word = TfidfVectorizer(tokenizer=tokenize, lowercase=False, ngram_range=(1, 2), sublinear_tf=True, token_pattern=None,
-                                    dtype=np.float32, max_features=300_000)
-        self.char = TfidfVectorizer(analyzer="char_wb", ngram_range=(3, 5), sublinear_tf=True, min_df=1, dtype=np.float32,
-                                    max_features=300_000)
-        X = hstack([self.word.fit_transform(sample), self.char.fit_transform(sample)]).tocsr()
-        self.svd = TruncatedSVD(n_components=min(self.dims, X.shape[0] - 1, X.shape[1] - 1), random_state=self.seed)
-        self.svd.fit(X)
+        sample = sample_texts(texts, self.max_fit_docs, self.seed)
+        self.word = Tfidf(lambda t: word_ngrams(tokenize(t)), max_features=300_000)
+        self.char = Tfidf(char_wb_ngrams, max_features=300_000)
+        X = CSR.hstack(self.word.fit_transform(sample), self.char.fit_transform(sample))
+        k = min(self.dims, X.shape[0] - 1, X.shape[1] - 1)
+        self.components = randomized_svd_components(X, k, seed=self.seed)
 
     def encode(self, texts: list[str]) -> np.ndarray:
         out = []
         for i in range(0, len(texts), self.batch):
             part = texts[i:i + self.batch]
-            X = hstack([self.word.transform(part), self.char.transform(part)]).tocsr()
-            out.append(l2(self.svd.transform(X)).astype(np.float32))
-        return np.vstack(out) if out else np.zeros((0, self.svd.n_components), dtype=np.float32)
+            X = CSR.hstack(self.word.transform(part), self.char.transform(part))
+            Z = X.matmul(np.ascontiguousarray(self.components.T))
+            Z /= np.maximum(np.linalg.norm(Z, axis=1, keepdims=True), 1e-12)
+            out.append(Z.astype(np.float32))
+        return np.vstack(out) if out else np.zeros((0, self.components.shape[0]), dtype=np.float32)
 
 
 class STEmbedder:  # pragma: no cover - optional, requires model download

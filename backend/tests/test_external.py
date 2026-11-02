@@ -129,3 +129,13 @@ def test_trec_scoring(tmp_path: Path):
     m = r["metrics"]["bm25"]
     assert m["topics_scored"] == 1 and m["mrr"] == 1.0 and 0 < m["ndcg@10"] <= 1
     assert r["metrics"]["judgment_coverage"] == 1.0
+
+
+def test_no_scipy_or_sklearn_imports():
+    """Windows Smart App Control blocks SciPy's Fortran DLLs; the app must never import them."""
+    import subprocess
+    import sys
+    code = ("import sys, cliniq.cli, cliniq.retrieval.index, cliniq.api.app, cliniq.evaluation.run;"
+            "bad=[m for m in sys.modules if m.split('.')[0] in ('scipy','sklearn')];"
+            "sys.exit(1 if bad else 0)")
+    assert subprocess.run([sys.executable, "-c", code]).returncode == 0

@@ -5,7 +5,7 @@ description = "CLINIQ — Clinical Intelligence & Cohort Feasibility Platform (r
 requires-python = ">=3.11"
 dependencies = [
   "fastapi>=0.115", "uvicorn[standard]>=0.30", "pydantic>=2.7", "psycopg[binary]>=3.2",
-  "sqlglot>=25", "rank-bm25>=0.2.2", "scikit-learn>=1.4", "numpy>=1.26", "python-multipart>=0.0.9",
+  "sqlglot>=25", "rank-bm25>=0.2.2", "numpy>=1.26", "python-multipart>=0.0.9",
 ]
 [project.optional-dependencies]
 llm = ["anthropic>=0.40"]
