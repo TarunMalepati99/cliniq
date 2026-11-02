@@ -61,7 +61,7 @@ def code_version() -> str:
 
 
 def load_jsonl(p: Path) -> list[dict[str, Any]]:
-    return [json.loads(line) for line in p.read_text().splitlines() if line.strip()]
+    return [json.loads(line) for line in p.read_text(encoding="utf-8").splitlines() if line.strip()]
 
 
 def _canon(c: dict[str, Any]) -> str:
@@ -381,7 +381,7 @@ def record(result: dict[str, Any], duration_ms: int, with_db: bool = True) -> di
                "prompt_sha256": result.get("prompt_sha256"), "benchmark_sha256": _sha_file(result["benchmark"]),
                "data_version": dv, "code_version": code_version(), "timestamp": ts, "duration_ms": duration_ms,
                "metrics": result["metrics"], "items": result["items"]}
-    path.write_text(json.dumps(payload, indent=1, default=str))
+    path.write_text(json.dumps(payload, indent=1, default=str), encoding="utf-8")
     if with_db:
         with connect() as c:
             c.execute("""INSERT INTO ops.eval_runs (eval_run_id, suite, system_version, prompt_sha256, benchmark_sha256, data_version, code_version,

@@ -237,7 +237,7 @@ def main() -> None:
     for i, (text, inc, exc, note) in enumerate(templated(), 1):
         out.append({"id": f"T{i:03d}", "subset": "templated", "request": text, "gold": {"inclusion": inc, "exclusion": exc},
                     "notes": note, "review_status": "generated"})
-    (HERE / "extraction_gold.jsonl").write_text("".join(json.dumps(x) + "\n" for x in out))
+    (HERE / "extraction_gold.jsonl").write_text("".join(json.dumps(x) + "\n" for x in out), encoding="utf-8")
 
     corpus = load_corpus(HERE.parents[1] / "data" / "corpus")
     by_concept: dict[str, list[str]] = {}
@@ -291,7 +291,7 @@ def main() -> None:
         rows.append({"id": f"R{i:03d}", "query": q, "concept": concept, "relevant_doc_ids": rel, "answerable": True})
     for j, q in enumerate(unanswerable, 1):
         rows.append({"id": f"U{j:03d}", "query": q, "concept": None, "relevant_doc_ids": [], "answerable": False})
-    (HERE / "retrieval_gold.jsonl").write_text("".join(json.dumps(x) + "\n" for x in rows))
+    (HERE / "retrieval_gold.jsonl").write_text("".join(json.dumps(x) + "\n" for x in rows), encoding="utf-8")
     print(f"extraction items: {len(out)} (handwritten {len(HANDWRITTEN)}), retrieval queries: {len(rows)}")
 
 

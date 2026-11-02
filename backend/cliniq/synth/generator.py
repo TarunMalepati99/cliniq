@@ -455,7 +455,7 @@ class Generator:
         bundles = self._write_bundles(out_dir, resources_by_patient)
         self._inject_csv_faults()
         self._write_csvs(out_dir)
-        (out_dir / "fhir" / "bundle_corrupt.json").write_text('{"resourceType": "Bundle", "type": "collection", "entry": [ {"resource": ')
+        (out_dir / "fhir" / "bundle_corrupt.json").write_text('{"resourceType": "Bundle", "type": "collection", "entry": [ {"resource": ', encoding="utf-8")
         self.ledger.add("corrupt_file")
 
         manifest = {
@@ -465,8 +465,8 @@ class Generator:
             "expected_rejections": self._expected_rejections(),
             "notice": "Entirely synthetic data generated for engineering demonstration. Not real patients.",
         }
-        (out_dir / "manifest.json").write_text(json.dumps(manifest, indent=2))
-        (out_dir / "truth.json").write_text(json.dumps({k: v.__dict__ for k, v in self.truth.items()}, indent=0))
+        (out_dir / "manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+        (out_dir / "truth.json").write_text(json.dumps({k: v.__dict__ for k, v in self.truth.items()}, indent=0), encoding="utf-8")
         return manifest
 
     def _note(self, pid: str, disease: str, ecog: int | None, histology: str | None) -> dict[str, Any]:
@@ -581,20 +581,20 @@ class Generator:
             entries = [{"fullUrl": f"urn:cliniq:{r['resourceType']}/{r['id']}", "resource": r}
                        for rs in by_patient[b:b + self.bundle_size] for r in rs]
             bundle = {"resourceType": "Bundle", "id": f"synthetic-{self.seed}-{n:03d}", "type": "collection", "entry": entries}
-            (out_dir / "fhir" / f"bundle_{n:03d}.json").write_text(json.dumps(bundle, separators=(",", ":")))
+            (out_dir / "fhir" / f"bundle_{n:03d}.json").write_text(json.dumps(bundle, separators=(",", ":")), encoding="utf-8")
             n += 1
         return n
 
     def _write_csvs(self, out_dir: Path) -> None:
-        with (out_dir / "labs_feed.csv").open("w", newline="") as f:
+        with (out_dir / "labs_feed.csv").open("w", newline="", encoding="utf-8") as f:
             w = csv.DictWriter(f, fieldnames=["patient_id", "loinc", "test_name", "value", "unit", "collected_date"])
             w.writeheader()
             w.writerows(self.lab_rows)
-        with (out_dir / "genomics_feed.csv").open("w", newline="") as f:
+        with (out_dir / "genomics_feed.csv").open("w", newline="", encoding="utf-8") as f:
             w = csv.DictWriter(f, fieldnames=["patient_id", "gene", "biomarker", "hgvs_p", "result", "assay", "reported_date"])
             w.writeheader()
             w.writerows(self.genomic_rows)
-        with (out_dir / "notes.jsonl").open("w") as f:
+        with (out_dir / "notes.jsonl").open("w", encoding="utf-8") as f:
             for n in self.notes:
                 f.write(json.dumps(n) + "\n")
 

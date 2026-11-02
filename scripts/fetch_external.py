@@ -81,7 +81,7 @@ def chia_from_hf(out: Path) -> list[dict] | None:
         for ex in ds[split]:
             ex = dict(ex)
             if first:
-                (out / "chia_sample_raw.json").write_text(json.dumps(ex, indent=1, default=str)[:200000])
+                (out / "chia_sample_raw.json").write_text(json.dumps(ex, indent=1, default=str)[:200000], encoding="utf-8")
                 first = False
             ents = [{"id": e["id"], "type": e["type"], "text": " ".join(e["text"]),
                      "spans": [list(map(int, o)) for o in e["offsets"]]} for e in ex.get("entities", [])]
@@ -168,7 +168,7 @@ def chia_from_figshare(out: Path, local_zip: str | None) -> list[dict] | None:
         return None
     recs = chia_from_zip_bytes(blob, src)
     if recs:
-        (out / "chia_sample_raw.json").write_text(json.dumps(recs[0], indent=1)[:200000])
+        (out / "chia_sample_raw.json").write_text(json.dumps(recs[0], indent=1)[:200000], encoding="utf-8")
     return recs
 
 
@@ -195,7 +195,7 @@ def trec_files(out: Path, manifest: dict) -> dict[int, tuple[Path, Path]]:
 def judged_ids(qrels: list[Path]) -> set[str]:
     ids: set[str] = set()
     for q in qrels:
-        for line in q.read_text().splitlines():
+        for line in q.read_text(encoding="utf-8").splitlines():
             f = line.split()
             if len(f) >= 4:
                 ids.add(f[2])
@@ -278,7 +278,7 @@ def main() -> None:
             recs = chia_from_figshare(out, a.chia_zip)
         if recs:
             body = "".join(json.dumps(r) + "\n" for r in recs)
-            (out / "chia.jsonl").write_text(body)
+            (out / "chia.jsonl").write_text(body, encoding="utf-8")
             manifest["chia"] = {"records": len(recs), "trials": len({r["trial_id"] for r in recs}),
                                 "entities": sum(len(r["entities"]) for r in recs), "source": recs[0]["source"], "sha256": sha(body.encode())}
             print(f"  wrote chia.jsonl: {manifest['chia']}")
@@ -297,7 +297,7 @@ def main() -> None:
             if missing and a.ctgov_fallback:
                 trials.update(trials_from_ctgov(missing))
                 missing = sorted(wanted - set(trials))
-            with (out / "trec" / "trials_judged.jsonl").open("w") as f:
+            with (out / "trec" / "trials_judged.jsonl").open("w", encoding="utf-8") as f:
                 for t in trials.values():
                     f.write(json.dumps(t) + "\n")
             manifest["trec"]["trials_judged"] = len(trials)
@@ -306,7 +306,7 @@ def main() -> None:
             if missing and not a.ctgov_fallback:
                 print("  tip: finish downloading the corpus zips from https://www.trec-cds.org/2022.html#documents, or add --ctgov-fallback")
 
-    (out / "MANIFEST.json").write_text(json.dumps(manifest, indent=2))
+    (out / "MANIFEST.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
     print(f"\nDone → {out}\nNext: tell Claude the folder is ready (or run: cliniq eval --chia {out / 'chia.jsonl'} --trec {out / 'trec'})")
 
 

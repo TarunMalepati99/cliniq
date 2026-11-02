@@ -36,7 +36,7 @@ def run_dbt(triggered_by: str = "cli", dbt_dir: Path = DBT_DIR) -> dict[str, Any
     metrics: dict[str, Any] = {"exit_code": proc.returncode}
     failures: list[dict[str, Any]] = []
     if results_path.exists():
-        rr = json.loads(results_path.read_text())
+        rr = json.loads(results_path.read_text(encoding="utf-8"))
         statuses: dict[str, int] = {}
         for r in rr.get("results", []):
             statuses[r["status"]] = statuses.get(r["status"], 0) + 1

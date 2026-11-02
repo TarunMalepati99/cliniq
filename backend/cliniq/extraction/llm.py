@@ -33,7 +33,7 @@ def prompt_text() -> str:
         "drug_classes": sorted([*V.DRUG_CLASSES, *V.VIRTUAL_DRUG_CLASSES]), "drugs": sorted(V.DRUG_TO_CLASS),
         "procedure_classes": sorted(V.PROCEDURE_CLASSES),
     }
-    return PROMPT_PATH.read_text().replace("{{ALLOWED_VALUES}}", json.dumps(allowed, indent=1))
+    return PROMPT_PATH.read_text(encoding="utf-8").replace("{{ALLOWED_VALUES}}", json.dumps(allowed, indent=1))
 
 
 def prompt_sha256() -> str:

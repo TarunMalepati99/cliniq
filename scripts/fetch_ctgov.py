@@ -37,7 +37,7 @@ def main() -> None:
         meta = {"doc_id": nct, "title": f"{nct}: {title}", "doc_type": "trial_eligibility", "concepts": [],
                 "source": f"ClinicalTrials.gov https://clinicaltrials.gov/study/{nct}", "license": "ClinicalTrials.gov terms of use"}
         body = f"# {nct}: {title}\n\n## Eligibility Criteria\n{crit}\n"
-        (OUT / f"{nct}.md").write_text(f"<!-- meta: {json.dumps(meta)} -->\n{body}")
+        (OUT / f"{nct}.md").write_text(f"<!-- meta: {json.dumps(meta)} -->\n{body}", encoding="utf-8")
         n += 1
     print(f"wrote {n} studies to {OUT}; run `cliniq index` to re-index")
 

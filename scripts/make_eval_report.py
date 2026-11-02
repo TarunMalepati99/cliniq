@@ -11,7 +11,7 @@ REP = ROOT / "eval" / "reports"
 
 def latest(suite: str, version_prefix: str = "") -> dict | None:
     files = sorted(REP.glob(f"*_{suite}_*.json"))
-    runs = [json.loads(f.read_text()) | {"_file": f.name} for f in files]
+    runs = [json.loads(f.read_text(encoding="utf-8")) | {"_file": f.name} for f in files]
     runs = [r for r in runs if r["system_version"].startswith(version_prefix)]
     return runs[-1] if runs else None
 
@@ -112,7 +112,7 @@ def main() -> None:
       "passes an anchor check. The metric is wired up so that an LLM synthesizer can be evaluated with the same harness.\n")
     w("## Reproducing\n\n```bash\ncliniq bootstrap          # same seed → byte-identical dataset\ncliniq eval               # writes eval/reports/*.json and ops.eval_runs\npython scripts/make_eval_report.py\n```\n")
     w("CI enforces regression floors from `eval/thresholds.json` (see `backend/tests/test_extraction_and_eval.py`).")
-    (ROOT / "docs" / "evaluation_report.md").write_text("\n".join(L) + "\n")
+    (ROOT / "docs" / "evaluation_report.md").write_text("\n".join(L) + "\n", encoding="utf-8")
     print("wrote docs/evaluation_report.md")
 
 

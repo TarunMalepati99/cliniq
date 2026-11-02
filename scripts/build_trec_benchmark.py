@@ -39,18 +39,18 @@ def main() -> None:
     judged, tg_trials = set(), {}
     for y in (2021, 2022):
         d = tg / "dataset" / f"trec_{y}"
-        rt = json.loads((d / "retrieved_trials.json").read_text())
+        rt = json.loads((d / "retrieved_trials.json").read_text(encoding="utf-8"))
         topics = {p["patient_id"]: p["patient"] for p in rt}
-        for line in (d / "queries.jsonl").read_text().splitlines():
+        for line in (d / "queries.jsonl").read_text(encoding="utf-8").splitlines():
             if line.strip():
                 q = json.loads(line)
                 topics.setdefault(q["_id"], q["text"])
         xml = [f'<topics task="TREC Clinical Trials {y} (via TrialGPT)">']
         xml += [f'<topic number="{k.replace(f"trec-{y}", "")}">{escape(v)}</topic>'
                 for k, v in sorted(topics.items(), key=lambda kv: int(kv[0].replace(f"trec-{y}", "")))]
-        (out / f"topics{y}.xml").write_text("\n".join(xml + ["</topics>"]))
+        (out / f"topics{y}.xml").write_text("\n".join(xml + ["</topics>"]), encoding="utf-8")
         rows = list(csv.DictReader((d / "qrels" / "test.tsv").open(), delimiter="\t"))
-        (out / f"qrels{y}.txt").write_text("".join(f'{r["query-id"].replace(f"trec-{y}", "")} 0 {r["corpus-id"]} {r["score"]}\n' for r in rows))
+        (out / f"qrels{y}.txt").write_text("".join(f'{r["query-id"].replace(f"trec-{y}", "")} 0 {r["corpus-id"]} {r["score"]}\n' for r in rows), encoding="utf-8")
         judged |= {r["corpus-id"] for r in rows}
         for p in rt:
             for lab in ("0", "1", "2"):
@@ -66,14 +66,14 @@ def main() -> None:
             merged[nct] = {"nct_id": nct, "title": t.get("brief_title", ""), "conditions": conds, "summary": t.get("brief_summary", ""),
                            "eligibility": f"Inclusion {t.get('inclusion_criteria') or ''} Exclusion criteria{t.get('exclusion_criteria') or ''}",
                            "source": f"TrialGPT retrieved_trials.json@{commit[:7]}"}
-    with (out / "trials_judged.jsonl").open("w") as f:
+    with (out / "trials_judged.jsonl").open("w", encoding="utf-8") as f:
         for t in merged.values():
             f.write(json.dumps(t) + "\n")
     manifest.update(judged_unique=len(judged), trials_with_text=len(merged), from_official_corpus=n_official,
                     from_trialgpt_only=len(merged) - n_official, coverage=round(len(merged) / len(judged), 4),
                     sha256={f: hashlib.sha256((out / f).read_bytes()).hexdigest()
                             for f in ("topics2021.xml", "qrels2021.txt", "topics2022.xml", "qrels2022.txt")})
-    (out / "MANIFEST.json").write_text(json.dumps(manifest, indent=2))
+    (out / "MANIFEST.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
     print(json.dumps({k: v for k, v in manifest.items() if k != "sha256"}, indent=1))
 
 

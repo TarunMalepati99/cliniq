@@ -38,6 +38,10 @@ class GeminiError(RuntimeError):
     pass
 
 
+class GeminiRetryable(GeminiError):
+    """Rate limit (429) or transient server error (5xx): safe to retry after a pause."""
+
+
 def get_api_key(interactive: bool = True) -> str:
     """Return the key from the environment, or prompt for it with hidden input."""
     key = os.environ.get("GEMINI_API_KEY", "").strip()
@@ -61,6 +65,8 @@ def _http(url: str, body: dict[str, Any] | None, key: str) -> dict[str, Any]:
             return json.load(r)
     except urllib.error.HTTPError as e:
         detail = e.read().decode(errors="replace")[:500]
+        if e.code == 429 or e.code >= 500:
+            raise GeminiRetryable(f"Gemini API HTTP {e.code}: {detail}") from None
         raise GeminiError(f"Gemini API HTTP {e.code}: {detail}") from None
     except urllib.error.URLError as e:
         raise GeminiError(f"cannot reach Gemini API: {e.reason}") from None
@@ -109,7 +115,18 @@ class GeminiExtractor:
     def _call(self, contents: list[dict[str, Any]]) -> tuple[str, dict[str, int]]:
         body = {"systemInstruction": {"parts": [{"text": self._system}]}, "contents": contents,
                 "generationConfig": {"temperature": 0, "responseMimeType": "application/json"}}
-        out = self._transport(f"{API_BASE}/models/{self.model}:generateContent", body, self._key)
+        # pacing + exponential backoff so free-tier rate limits are not scored as extraction failures
+        time.sleep(float(os.environ.get("CLINIQ_GEMINI_DELAY_S", "0")))
+        for attempt in range(7):
+            try:
+                out = self._transport(f"{API_BASE}/models/{self.model}:generateContent", body, self._key)
+                break
+            except GeminiRetryable:
+                if attempt == 6:
+                    raise
+                wait = min(90, 2 ** (attempt + 1))
+                print(f"  Gemini rate-limited/unavailable; retrying in {wait}s", file=sys.stderr)
+                time.sleep(wait)
         um = out.get("usageMetadata", {})
         usage = {"input_tokens": int(um.get("promptTokenCount", 0)), "output_tokens": int(um.get("candidatesTokenCount", 0))}
         try:
@@ -143,8 +160,6 @@ class GeminiExtractor:
                 errors = [f"{'.'.join(map(str, er['loc']))}: {er['msg']}" for er in e.errors()] if isinstance(e, ValidationError) else [str(e)[:300]]
                 contents += [{"role": "model", "parts": [{"text": raw[:4000]}]},
                              {"role": "user", "parts": [{"text": "That output failed validation:\n" + "\n".join(errors) + "\nReturn a corrected JSON object only."}]}]
-            # small pause keeps free-tier rate limits happy during benchmarks
-            time.sleep(float(os.environ.get("CLINIQ_GEMINI_DELAY_S", "0")))
         pin, pout = os.environ.get("CLINIQ_LLM_PRICE_IN_PER_MTOK"), os.environ.get("CLINIQ_LLM_PRICE_OUT_PER_MTOK")
         cost = (usage_total["input_tokens"] * float(pin) + usage_total["output_tokens"] * float(pout)) / 1e6 if pin and pout else None
         crits = (definition or {}).get("inclusion", []) + (definition or {}).get("exclusion", [])

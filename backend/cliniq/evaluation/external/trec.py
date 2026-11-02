@@ -41,7 +41,7 @@ def load_topics(path: Path) -> dict[str, str]:
 
 def load_qrels(path: Path) -> dict[str, dict[str, int]]:
     q: dict[str, dict[str, int]] = defaultdict(dict)
-    for line in path.read_text().splitlines():
+    for line in path.read_text(encoding="utf-8").splitlines():
         f = line.split()
         if len(f) >= 4:
             q[f[0]][f[2]] = int(f[3])

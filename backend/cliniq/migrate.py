@@ -28,7 +28,7 @@ def migrate(url: str | None = None) -> list[str]:
         done = {r["version"]: r["checksum"] for r in conn.execute("SELECT version, checksum FROM public.schema_migrations")}
         conn.commit()
         for path in sorted(MIGRATIONS_DIR.glob("*.sql")):
-            sql = path.read_text()
+            sql = path.read_text(encoding="utf-8")
             checksum = hashlib.sha256(sql.encode()).hexdigest()
             version = path.stem
             if version in done:

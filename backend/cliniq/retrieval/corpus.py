@@ -108,7 +108,7 @@ def build_trials(out_dir: Path, seed: int = 11) -> list[dict[str, Any]]:
         meta = {"doc_id": doc_id, "title": title, "doc_type": "trial_eligibility", "condition": cond,
                 "concepts": sorted({cond, "age", *inc, *exc}), "source": "CLINIQ synthetic trial generator (deterministic, seed 11)",
                 "license": "CC0 (synthetic, generated)"}
-        (out_dir / f"{doc_id}.md").write_text(f"<!-- meta: {json.dumps(meta)} -->\n{body}")
+        (out_dir / f"{doc_id}.md").write_text(f"<!-- meta: {json.dumps(meta)} -->\n{body}", encoding="utf-8")
         docs.append(meta)
     return docs
 
@@ -118,7 +118,7 @@ def load_corpus(corpus_dir: Path) -> list[dict[str, Any]]:
     for path in sorted(corpus_dir.rglob("*.md")):
         if path.name.lower() == "readme.md":
             continue
-        text = path.read_text()
+        text = path.read_text(encoding="utf-8")
         if not text.startswith("<!-- meta:"):
             continue
         header, body = text.split("-->\n", 1)

@@ -500,5 +500,5 @@ def lineage_graph(_: User = Depends(require("viewer"))) -> dict[str, Any]:
 
 def openapi_to_file(path: Path = REPO_ROOT / "docs" / "openapi.json") -> Path:
     import json
-    path.write_text(json.dumps(app.openapi(), indent=1))
+    path.write_text(json.dumps(app.openapi(), indent=1), encoding="utf-8")
     return path

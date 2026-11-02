@@ -62,6 +62,9 @@ Sign in with a development role (Admin, Researcher, Reviewer, Viewer). These are
 tokens and only work when `CLINIQ_ENV=dev`. In any other environment, configure
 `CLINIQ_API_TOKENS` as described in [.env.example](.env.example).
 
+**Windows one-shot:** `powershell -ExecutionPolicy Bypass -File scripts\windows\run_cliniq.ps1`. It installs Python and PostgreSQL if
+missing, builds everything, downloads Chia, asks for a Gemini key (hidden) and runs all benchmarks.
+
 **Optional Gemini extractor:** `cliniq eval --extractor gemini` or `cliniq serve --gemini`. You type the API key at a
 hidden terminal prompt; it is never stored in code, config or logs. See [docs/external_validation.md](docs/external_validation.md).
 

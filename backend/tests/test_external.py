@@ -39,6 +39,23 @@ def test_gemini_validates_repairs_and_never_exposes_key():
     assert all("key=" not in url for url, _ in fake.calls)  # key travels in a header, never the URL
 
 
+def test_gemini_retries_rate_limits(monkeypatch):
+    import cliniq.extraction.gemini as G
+    monkeypatch.setattr(G.time, "sleep", lambda s: None)
+    good = json.dumps({"inclusion": [{"type": "diagnosis", "condition": "hypertension"}]})
+    calls = {"n": 0}
+
+    def flaky(url, body, key):
+        if body is None:
+            return {"models": [{"name": "models/m", "supportedGenerationMethods": ["generateContent"]}]}
+        calls["n"] += 1
+        if calls["n"] < 3:
+            raise G.GeminiRetryable("HTTP 429")
+        return {"candidates": [{"content": {"parts": [{"text": good}]}}], "usageMetadata": {}}
+    r = GeminiExtractor(model="m", api_key="k", transport=flaky, interactive=False).extract("hypertension")
+    assert r.valid and calls["n"] == 3
+
+
 def test_gemini_rejects_invalid_output_without_fallback():
     fake = FakeGemini(["not json", json.dumps({"inclusion": [{"type": "sql", "q": "DROP TABLE x"}]})])
     r = GeminiExtractor(model="gemini-test-flash", api_key="k", transport=fake, interactive=False).extract("x")
