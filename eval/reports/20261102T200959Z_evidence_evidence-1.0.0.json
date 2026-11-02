@@ -1,13 +1,13 @@
 {
- "eval_run_id": "d48349b5-c1ac-457f-94fe-3ba96de12c16",
+ "eval_run_id": "a89a3fac-2735-4d49-8401-e79eac63e052",
  "suite": "evidence",
  "system_version": "evidence-1.0.0",
  "prompt_sha256": null,
  "benchmark_sha256": "3befb6a01beb5b3a23e2eaac6d578c8258909010f0a32b5947ef4bfb5c504523",
- "data_version": "dv-1ff00f001079d84b",
- "code_version": "nogit",
- "timestamp": "20261102T194454Z",
- "duration_ms": 2261,
+ "data_version": "dv-d73b6dd8e21af07a",
+ "code_version": "5b12b0a",
+ "timestamp": "20261102T200959Z",
+ "duration_ms": 1886,
  "metrics": {
   "n_definitions": 125,
   "n_criteria": 518,
@@ -23,8 +23,8 @@
    "answerable_coverage": 0.9804
   },
   "latency_ms": {
-   "p50": 18.04,
-   "p95": 27.4
+   "p50": 14.5,
+   "p95": 23.65
   }
  },
  "items": [

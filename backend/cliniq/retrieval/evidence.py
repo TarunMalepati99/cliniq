@@ -122,10 +122,11 @@ def evidence_for_definition(defn: CohortDefinition, k: int = 5, user: str | None
             refs = sorted({x["doc_id"] for x in citations if x["doc_type"] == "reference_note"})
             statements = []
             if trials:
-                statements.append({"kind": "inferred", "text": f"{len(trials)} retrieved trial document(s) state a comparable criterion.",
+                statements.append({"kind": "inferred", "text": f"{len(trials)} retrieved trial document(s) mention this concept in their eligibility text; "
+                                           "thresholds and qualifiers may differ — read the passages.",
                                    "citations": [x["chunk_id"] for x in citations if x["doc_type"] == "trial_eligibility"]})
             if refs:
-                statements.append({"kind": "inferred", "text": f"{len(refs)} reference note(s) provide background on this concept.",
+                statements.append({"kind": "inferred", "text": f"{len(refs)} reference note(s) mention this concept (background, not eligibility evidence).",
                                    "citations": [x["chunk_id"] for x in citations if x["doc_type"] == "reference_note"]})
             items.append({"cid": cid, "role": role, "label": describe(c), "query": q, "concepts": concepts,
                           "status": "supported" if citations else "insufficient_evidence", "citations": citations,

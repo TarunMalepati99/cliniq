@@ -1,13 +1,13 @@
 {
- "eval_run_id": "89ad5ca8-3702-4e86-8eb0-3fcca3bf395c",
+ "eval_run_id": "049ae8b6-b396-4456-bdae-6802b4f2a602",
  "suite": "extraction",
  "system_version": "rules-v1",
  "prompt_sha256": null,
  "benchmark_sha256": "3befb6a01beb5b3a23e2eaac6d578c8258909010f0a32b5947ef4bfb5c504523",
- "data_version": "dv-ec5e312786367130",
- "code_version": "nogit",
- "timestamp": "20261102T195419Z",
- "duration_ms": 15871,
+ "data_version": "dv-d73b6dd8e21af07a",
+ "code_version": "5b12b0a",
+ "timestamp": "20261102T200938Z",
+ "duration_ms": 15187,
  "metrics": {
   "n_items": 125,
   "structured_validity": 0.992,
@@ -29,8 +29,8 @@
   "cohort_recall": 0.7581,
   "cohort_items_both_empty": 21,
   "latency_ms": {
-   "p50": 0.727,
-   "p95": 1.156
+   "p50": 0.672,
+   "p95": 1.279
   },
   "cost_usd_total": 0.0,
   "failure_categories": {
@@ -103,7 +103,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 9.688,
+    "latency_ms": 6.453,
     "cohort_pred": 12,
     "cohort_gold": 12,
     "cohort_precision": 1.0,
@@ -155,14 +155,14 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"drug\": \"trastuzumab\", \"type\": \"treatment\"}",
-     "{\"min_years\": 51, \"type\": \"age\"}"
+     "exclusion: {\"drug\": \"trastuzumab\", \"type\": \"treatment\"}",
+     "inclusion: {\"min_years\": 51, \"type\": \"age\"}"
     ],
     "extra": [
-     "{\"drug\": \"trastuzumab\", \"type\": \"treatment\"}"
+     "inclusion: {\"drug\": \"trastuzumab\", \"type\": \"treatment\"}"
     ],
     "unsupported": [],
-    "latency_ms": 0.842,
+    "latency_ms": 0.852,
     "cohort_pred": 13,
     "cohort_gold": 0,
     "cohort_precision": 0.0,
@@ -206,14 +206,14 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"drug_class\": \"immunotherapy\", \"type\": \"treatment\"}",
-     "{\"markers\": [\"alk_fusion\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}"
+     "exclusion: {\"drug_class\": \"immunotherapy\", \"type\": \"treatment\"}",
+     "inclusion: {\"markers\": [\"alk_fusion\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}"
     ],
     "extra": [
-     "{\"drug_class\": \"immunotherapy\", \"type\": \"treatment\"}"
+     "inclusion: {\"drug_class\": \"immunotherapy\", \"type\": \"treatment\"}"
     ],
     "unsupported": [],
-    "latency_ms": 0.54,
+    "latency_ms": 0.582,
     "cohort_pred": 66,
     "cohort_gold": 47,
     "cohort_precision": 0.0,
@@ -250,12 +250,12 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
-     "{\"states\": [\"IN\", \"OH\"], \"type\": \"geography\"}"
+     "exclusion: {\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
+     "inclusion: {\"states\": [\"IN\", \"OH\"], \"type\": \"geography\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.655,
+    "latency_ms": 1.069,
     "cohort_pred": 24,
     "cohort_gold": 0,
     "cohort_precision": 0.0,
@@ -302,15 +302,15 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"condition\": \"ckd\", \"type\": \"diagnosis\"}",
-     "{\"lab\": \"creatinine\", \"op\": \"<\", \"type\": \"lab\", \"value\": 1.5}",
-     "{\"min_years\": 18, \"type\": \"age\"}"
+     "exclusion: {\"condition\": \"ckd\", \"type\": \"diagnosis\"}",
+     "inclusion: {\"lab\": \"creatinine\", \"op\": \"<\", \"type\": \"lab\", \"value\": 1.5}",
+     "inclusion: {\"min_years\": 18, \"type\": \"age\"}"
     ],
     "extra": [
-     "{\"condition\": \"ckd\", \"type\": \"diagnosis\"}"
+     "inclusion: {\"condition\": \"ckd\", \"type\": \"diagnosis\"}"
     ],
     "unsupported": [],
-    "latency_ms": 1.097,
+    "latency_ms": 0.718,
     "cohort_pred": 1,
     "cohort_gold": 11,
     "cohort_precision": 0.0,
@@ -352,7 +352,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.57,
+    "latency_ms": 0.533,
     "cohort_pred": 16,
     "cohort_gold": 16,
     "cohort_precision": 1.0,
@@ -399,7 +399,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.589,
+    "latency_ms": 0.598,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -446,11 +446,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"min_years\": 65, \"type\": \"age\"}"
+     "inclusion: {\"min_years\": 65, \"type\": \"age\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.958,
+    "latency_ms": 0.663,
     "cohort_pred": 3,
     "cohort_gold": 1,
     "cohort_precision": 0.3333,
@@ -492,13 +492,13 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}"
+     "exclusion: {\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}"
     ],
     "extra": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}"
+     "inclusion: {\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}"
     ],
     "unsupported": [],
-    "latency_ms": 0.564,
+    "latency_ms": 0.596,
     "cohort_pred": 2,
     "cohort_gold": 4,
     "cohort_precision": 0.0,
@@ -536,12 +536,12 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 9.0}",
-     "{\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100.0}"
+     "inclusion: {\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 9.0}",
+     "inclusion: {\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100.0}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.764,
+    "latency_ms": 0.701,
     "cohort_pred": 40,
     "cohort_gold": 34,
     "cohort_precision": 0.85,
@@ -581,7 +581,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.982,
+    "latency_ms": 0.558,
     "cohort_pred": 45,
     "cohort_gold": 45,
     "cohort_precision": 1.0,
@@ -623,11 +623,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"detected\", \"type\": \"biomarker\"}"
+     "inclusion: {\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"detected\", \"type\": \"biomarker\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.592,
+    "latency_ms": 0.638,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -657,12 +657,12 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"markers\": [\"erbb2_amplification\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}",
-     "{\"max_years\": 59, \"type\": \"age\"}"
+     "inclusion: {\"markers\": [\"erbb2_amplification\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}",
+     "inclusion: {\"max_years\": 59, \"type\": \"age\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.77,
+    "latency_ms": 0.864,
     "cohort_pred": 122,
     "cohort_gold": 28,
     "cohort_precision": 0.2295,
@@ -713,7 +713,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.736,
+    "latency_ms": 0.672,
     "cohort_pred": 5,
     "cohort_gold": 5,
     "cohort_precision": 1.0,
@@ -747,7 +747,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.524,
+    "latency_ms": 0.874,
     "cohort_pred": 129,
     "cohort_gold": 129,
     "cohort_precision": 1.0,
@@ -781,7 +781,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.433,
+    "latency_ms": 0.726,
     "cohort_pred": 11,
     "cohort_gold": 11,
     "cohort_precision": 1.0,
@@ -830,17 +830,17 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"heart_failure\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"hiv\", \"type\": \"diagnosis\"}"
+     "exclusion: {\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}",
+     "exclusion: {\"condition\": \"heart_failure\", \"type\": \"diagnosis\"}",
+     "exclusion: {\"condition\": \"hiv\", \"type\": \"diagnosis\"}"
     ],
     "extra": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"heart_failure\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"hiv\", \"type\": \"diagnosis\"}"
+     "inclusion: {\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}",
+     "inclusion: {\"condition\": \"heart_failure\", \"type\": \"diagnosis\"}",
+     "inclusion: {\"condition\": \"hiv\", \"type\": \"diagnosis\"}"
     ],
     "unsupported": [],
-    "latency_ms": 0.639,
+    "latency_ms": 0.634,
     "cohort_pred": 0,
     "cohort_gold": 9,
     "cohort_precision": 0.0,
@@ -870,11 +870,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"lab\": \"hba1c\", \"op\": \">\", \"type\": \"lab\", \"value\": 8.0}"
+     "inclusion: {\"lab\": \"hba1c\", \"op\": \">\", \"type\": \"lab\", \"value\": 8.0}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.757,
+    "latency_ms": 0.463,
     "cohort_pred": 235,
     "cohort_gold": 92,
     "cohort_precision": 0.3915,
@@ -904,11 +904,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"lab\": \"bilirubin\", \"op\": \">\", \"type\": \"lab\", \"value\": 2.0}"
+     "inclusion: {\"lab\": \"bilirubin\", \"op\": \">\", \"type\": \"lab\", \"value\": 2.0}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.828,
+    "latency_ms": 0.439,
     "cohort_pred": 19,
     "cohort_gold": 15,
     "cohort_precision": 0.7895,
@@ -944,14 +944,14 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"drug_class\": \"egfr_tki\", \"type\": \"treatment\"}",
-     "{\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}"
+     "exclusion: {\"drug_class\": \"egfr_tki\", \"type\": \"treatment\"}",
+     "inclusion: {\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}"
     ],
     "extra": [
-     "{\"drug_class\": \"egfr_tki\", \"type\": \"treatment\"}"
+     "inclusion: {\"drug_class\": \"egfr_tki\", \"type\": \"treatment\"}"
     ],
     "unsupported": [],
-    "latency_ms": 1.009,
+    "latency_ms": 0.504,
     "cohort_pred": 27,
     "cohort_gold": 139,
     "cohort_precision": 0.0,
@@ -986,7 +986,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.572,
+    "latency_ms": 0.593,
     "cohort_pred": 41,
     "cohort_gold": 41,
     "cohort_precision": 1.0,
@@ -1016,12 +1016,12 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"min_years\": 65, \"type\": \"age\"}",
-     "{\"states\": [\"TX\"], \"type\": \"geography\"}"
+     "inclusion: {\"min_years\": 65, \"type\": \"age\"}",
+     "inclusion: {\"states\": [\"TX\"], \"type\": \"geography\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.429,
+    "latency_ms": 0.67,
     "cohort_pred": 464,
     "cohort_gold": 23,
     "cohort_precision": 0.0496,
@@ -1064,10 +1064,10 @@
     },
     "missing": [],
     "extra": [
-     "{\"sex\": \"female\", \"type\": \"sex\"}"
+     "exclusion: {\"sex\": \"female\", \"type\": \"sex\"}"
     ],
     "unsupported": [],
-    "latency_ms": 0.485,
+    "latency_ms": 0.814,
     "cohort_pred": 1,
     "cohort_gold": 1,
     "cohort_precision": 1.0,
@@ -1097,11 +1097,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"min_years\": 18, \"type\": \"age\"}"
+     "inclusion: {\"min_years\": 18, \"type\": \"age\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.651,
+    "latency_ms": 0.425,
     "cohort_pred": 8,
     "cohort_gold": 8,
     "cohort_precision": 1.0,
@@ -1140,13 +1140,13 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"condition\": \"ckd\", \"type\": \"diagnosis\"}"
+     "exclusion: {\"condition\": \"ckd\", \"type\": \"diagnosis\"}"
     ],
     "extra": [
-     "{\"condition\": \"ckd\", \"type\": \"diagnosis\"}"
+     "inclusion: {\"condition\": \"ckd\", \"type\": \"diagnosis\"}"
     ],
     "unsupported": [],
-    "latency_ms": 0.828,
+    "latency_ms": 0.526,
     "cohort_pred": 1,
     "cohort_gold": 2,
     "cohort_precision": 0.0,
@@ -1205,13 +1205,13 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}"
+     "exclusion: {\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}"
     ],
     "extra": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}"
+     "inclusion: {\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}"
     ],
     "unsupported": [],
-    "latency_ms": 0.991,
+    "latency_ms": 0.619,
     "cohort_pred": 1,
     "cohort_gold": 4,
     "cohort_precision": 0.0,
@@ -1241,12 +1241,12 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"lab\": \"creatinine\", \"op\": \"<\", \"type\": \"lab\", \"value\": 1.2}",
-     "{\"lab\": \"egfr_renal\", \"op\": \">=\", \"type\": \"lab\", \"value\": 60.0}"
+     "inclusion: {\"lab\": \"creatinine\", \"op\": \"<\", \"type\": \"lab\", \"value\": 1.2}",
+     "inclusion: {\"lab\": \"egfr_renal\", \"op\": \">=\", \"type\": \"lab\", \"value\": 60.0}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.802,
+    "latency_ms": 0.583,
     "cohort_pred": 79,
     "cohort_gold": 0,
     "cohort_precision": 0.0,
@@ -1287,14 +1287,14 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"drug_class\": \"antiandrogen\", \"type\": \"treatment\"}"
+     "inclusion: {\"drug_class\": \"antiandrogen\", \"type\": \"treatment\"}"
     ],
     "extra": [
-     "{\"drug\": \"abiraterone\", \"type\": \"treatment\"}",
-     "{\"drug\": \"enzalutamide\", \"type\": \"treatment\"}"
+     "inclusion: {\"drug\": \"abiraterone\", \"type\": \"treatment\"}",
+     "inclusion: {\"drug\": \"enzalutamide\", \"type\": \"treatment\"}"
     ],
     "unsupported": [],
-    "latency_ms": 0.562,
+    "latency_ms": 0.634,
     "cohort_pred": 0,
     "cohort_gold": 28,
     "cohort_precision": 0.0,
@@ -1333,7 +1333,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.677,
+    "latency_ms": 0.551,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -1371,14 +1371,14 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"condition\": \"nsclc\", \"type\": \"diagnosis\"}",
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}"
+     "exclusion: {\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
+     "inclusion: {\"condition\": \"nsclc\", \"type\": \"diagnosis\"}"
     ],
     "extra": [
-     "{\"condition\": \"lung_cancer\", \"type\": \"diagnosis\"}"
+     "inclusion: {\"condition\": \"lung_cancer\", \"type\": \"diagnosis\"}"
     ],
     "unsupported": [],
-    "latency_ms": 0.553,
+    "latency_ms": 0.5,
     "cohort_pred": 15,
     "cohort_gold": 0,
     "cohort_precision": 0.0,
@@ -1401,12 +1401,12 @@
      "exclusion": []
     },
     "missing": [
-     "{\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 10.0}",
-     "{\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"detected\", \"type\": \"biomarker\"}"
+     "inclusion: {\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 10.0}",
+     "inclusion: {\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"detected\", \"type\": \"biomarker\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.531
+    "latency_ms": 0.454
    }
   },
   {
@@ -1432,12 +1432,12 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"lab\": \"platelets\", \"op\": \">\", \"type\": \"lab\", \"value\": 75.0}",
-     "{\"lab\": \"wbc\", \"op\": \">\", \"type\": \"lab\", \"value\": 3.0}"
+     "inclusion: {\"lab\": \"platelets\", \"op\": \">\", \"type\": \"lab\", \"value\": 75.0}",
+     "inclusion: {\"lab\": \"wbc\", \"op\": \">\", \"type\": \"lab\", \"value\": 3.0}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.33,
+    "latency_ms": 0.374,
     "cohort_pred": 342,
     "cohort_gold": 293,
     "cohort_precision": 0.8567,
@@ -1467,11 +1467,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"markers\": [\"msi_high\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}"
+     "inclusion: {\"markers\": [\"msi_high\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.715,
+    "latency_ms": 0.455,
     "cohort_pred": 236,
     "cohort_gold": 160,
     "cohort_precision": 0.678,
@@ -1518,7 +1518,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.58,
+    "latency_ms": 0.582,
     "cohort_pred": 4,
     "cohort_gold": 4,
     "cohort_precision": 1.0,
@@ -1559,11 +1559,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"max_years\": 35, \"type\": \"age\"}"
+     "inclusion: {\"max_years\": 35, \"type\": \"age\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.504,
+    "latency_ms": 0.496,
     "cohort_pred": 2,
     "cohort_gold": 0,
     "cohort_precision": 0.0,
@@ -1601,13 +1601,13 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
-     "{\"lab\": \"bilirubin\", \"op\": \"<\", \"type\": \"lab\", \"value\": 1.5}",
-     "{\"max_years\": 74, \"type\": \"age\"}"
+     "exclusion: {\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
+     "inclusion: {\"lab\": \"bilirubin\", \"op\": \"<\", \"type\": \"lab\", \"value\": 1.5}",
+     "inclusion: {\"max_years\": 74, \"type\": \"age\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.68,
+    "latency_ms": 0.629,
     "cohort_pred": 252,
     "cohort_gold": 16,
     "cohort_precision": 0.0635,
@@ -1646,13 +1646,13 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"condition\": \"hiv\", \"type\": \"diagnosis\"}"
+     "exclusion: {\"condition\": \"hiv\", \"type\": \"diagnosis\"}"
     ],
     "extra": [
-     "{\"condition\": \"hiv\", \"type\": \"diagnosis\"}"
+     "inclusion: {\"condition\": \"hiv\", \"type\": \"diagnosis\"}"
     ],
     "unsupported": [],
-    "latency_ms": 0.561,
+    "latency_ms": 0.575,
     "cohort_pred": 0,
     "cohort_gold": 48,
     "cohort_precision": 0.0,
@@ -1703,15 +1703,15 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"hiv\", \"type\": \"diagnosis\"}"
+     "exclusion: {\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}",
+     "exclusion: {\"condition\": \"hiv\", \"type\": \"diagnosis\"}"
     ],
     "extra": [
-     "{\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"hiv\", \"type\": \"diagnosis\"}"
+     "inclusion: {\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}",
+     "inclusion: {\"condition\": \"hiv\", \"type\": \"diagnosis\"}"
     ],
     "unsupported": [],
-    "latency_ms": 0.669,
+    "latency_ms": 1.11,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -1757,7 +1757,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.648,
+    "latency_ms": 0.67,
     "cohort_pred": 19,
     "cohort_gold": 19,
     "cohort_precision": 1.0,
@@ -1807,12 +1807,12 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"lab\": \"bilirubin\", \"op\": \"<\", \"type\": \"lab\", \"value\": 1.5}",
-     "{\"states\": [\"IN\"], \"type\": \"geography\"}"
+     "inclusion: {\"lab\": \"bilirubin\", \"op\": \"<\", \"type\": \"lab\", \"value\": 1.5}",
+     "inclusion: {\"states\": [\"IN\"], \"type\": \"geography\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.761,
+    "latency_ms": 0.796,
     "cohort_pred": 14,
     "cohort_gold": 0,
     "cohort_precision": 0.0,
@@ -1855,14 +1855,14 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"condition\": \"hiv\", \"type\": \"diagnosis\"}",
-     "{\"min_years\": 61, \"type\": \"age\"}"
+     "exclusion: {\"condition\": \"hiv\", \"type\": \"diagnosis\"}",
+     "inclusion: {\"min_years\": 61, \"type\": \"age\"}"
     ],
     "extra": [
-     "{\"condition\": \"hiv\", \"type\": \"diagnosis\"}"
+     "inclusion: {\"condition\": \"hiv\", \"type\": \"diagnosis\"}"
     ],
     "unsupported": [],
-    "latency_ms": 0.594,
+    "latency_ms": 0.639,
     "cohort_pred": 0,
     "cohort_gold": 1,
     "cohort_precision": 0.0,
@@ -1897,14 +1897,14 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}",
-     "{\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 9.0}"
+     "exclusion: {\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}",
+     "inclusion: {\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 9.0}"
     ],
     "extra": [
-     "{\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}"
+     "inclusion: {\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}"
     ],
     "unsupported": [],
-    "latency_ms": 0.65,
+    "latency_ms": 0.566,
     "cohort_pred": 6,
     "cohort_gold": 276,
     "cohort_precision": 0.0,
@@ -1942,7 +1942,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.776,
+    "latency_ms": 0.523,
     "cohort_pred": 1,
     "cohort_gold": 1,
     "cohort_precision": 1.0,
@@ -1990,13 +1990,13 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"markers\": [\"msi_high\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}",
-     "{\"min_years\": 41, \"type\": \"age\"}",
-     "{\"states\": [\"OH\"], \"type\": \"geography\"}"
+     "inclusion: {\"markers\": [\"msi_high\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}",
+     "inclusion: {\"min_years\": 41, \"type\": \"age\"}",
+     "inclusion: {\"states\": [\"OH\"], \"type\": \"geography\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 1.045,
+    "latency_ms": 1.425,
     "cohort_pred": 61,
     "cohort_gold": 5,
     "cohort_precision": 0.082,
@@ -2031,11 +2031,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}"
+     "inclusion: {\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 1.021,
+    "latency_ms": 0.62,
     "cohort_pred": 279,
     "cohort_gold": 156,
     "cohort_precision": 0.5591,
@@ -2077,11 +2077,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"min_years\": 41, \"type\": \"age\"}"
+     "inclusion: {\"min_years\": 41, \"type\": \"age\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.661,
+    "latency_ms": 0.641,
     "cohort_pred": 33,
     "cohort_gold": 32,
     "cohort_precision": 0.9697,
@@ -2116,15 +2116,15 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"condition\": \"ckd\", \"type\": \"diagnosis\"}",
-     "{\"min_years\": 18, \"type\": \"age\"}",
-     "{\"states\": [\"CA\", \"TX\"], \"type\": \"geography\"}"
+     "exclusion: {\"condition\": \"ckd\", \"type\": \"diagnosis\"}",
+     "inclusion: {\"min_years\": 18, \"type\": \"age\"}",
+     "inclusion: {\"states\": [\"CA\", \"TX\"], \"type\": \"geography\"}"
     ],
     "extra": [
-     "{\"condition\": \"ckd\", \"type\": \"diagnosis\"}"
+     "inclusion: {\"condition\": \"ckd\", \"type\": \"diagnosis\"}"
     ],
     "unsupported": [],
-    "latency_ms": 1.321,
+    "latency_ms": 0.576,
     "cohort_pred": 11,
     "cohort_gold": 78,
     "cohort_precision": 0.0,
@@ -2179,12 +2179,12 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 9.0}",
-     "{\"max_years\": 49, \"type\": \"age\"}"
+     "inclusion: {\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 9.0}",
+     "inclusion: {\"max_years\": 49, \"type\": \"age\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.859,
+    "latency_ms": 0.949,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -2226,11 +2226,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}"
+     "exclusion: {\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 1.055,
+    "latency_ms": 0.608,
     "cohort_pred": 5,
     "cohort_gold": 1,
     "cohort_precision": 0.2,
@@ -2277,11 +2277,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"min_years\": 61, \"type\": \"age\"}"
+     "inclusion: {\"min_years\": 61, \"type\": \"age\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.679,
+    "latency_ms": 0.672,
     "cohort_pred": 5,
     "cohort_gold": 4,
     "cohort_precision": 0.8,
@@ -2325,16 +2325,16 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"heart_failure\", \"type\": \"diagnosis\"}",
-     "{\"max_years\": 74, \"type\": \"age\"}"
+     "exclusion: {\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}",
+     "exclusion: {\"condition\": \"heart_failure\", \"type\": \"diagnosis\"}",
+     "inclusion: {\"max_years\": 74, \"type\": \"age\"}"
     ],
     "extra": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"heart_failure\", \"type\": \"diagnosis\"}"
+     "inclusion: {\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}",
+     "inclusion: {\"condition\": \"heart_failure\", \"type\": \"diagnosis\"}"
     ],
     "unsupported": [],
-    "latency_ms": 0.63,
+    "latency_ms": 0.592,
     "cohort_pred": 0,
     "cohort_gold": 92,
     "cohort_precision": 0.0,
@@ -2377,14 +2377,14 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}",
-     "{\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 9.0}"
+     "exclusion: {\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}",
+     "inclusion: {\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 9.0}"
     ],
     "extra": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}"
+     "inclusion: {\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}"
     ],
     "unsupported": [],
-    "latency_ms": 0.616,
+    "latency_ms": 0.643,
     "cohort_pred": 0,
     "cohort_gold": 4,
     "cohort_precision": 0.0,
@@ -2432,14 +2432,14 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}",
-     "{\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"detected\", \"type\": \"biomarker\"}"
+     "exclusion: {\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}",
+     "inclusion: {\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"detected\", \"type\": \"biomarker\"}"
     ],
     "extra": [
-     "{\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}"
+     "inclusion: {\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}"
     ],
     "unsupported": [],
-    "latency_ms": 0.878,
+    "latency_ms": 0.726,
     "cohort_pred": 4,
     "cohort_gold": 21,
     "cohort_precision": 0.0,
@@ -2487,14 +2487,14 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"condition\": \"interstitial_lung_disease\", \"type\": \"diagnosis\"}",
-     "{\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"detected\", \"type\": \"biomarker\"}"
+     "exclusion: {\"condition\": \"interstitial_lung_disease\", \"type\": \"diagnosis\"}",
+     "inclusion: {\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"detected\", \"type\": \"biomarker\"}"
     ],
     "extra": [
-     "{\"condition\": \"interstitial_lung_disease\", \"type\": \"diagnosis\"}"
+     "inclusion: {\"condition\": \"interstitial_lung_disease\", \"type\": \"diagnosis\"}"
     ],
     "unsupported": [],
-    "latency_ms": 0.738,
+    "latency_ms": 0.718,
     "cohort_pred": 3,
     "cohort_gold": 8,
     "cohort_precision": 0.0,
@@ -2537,11 +2537,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}"
+     "exclusion: {\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 1.1,
+    "latency_ms": 0.677,
     "cohort_pred": 1,
     "cohort_gold": 0,
     "cohort_precision": 0.0,
@@ -2591,7 +2591,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.722,
+    "latency_ms": 0.759,
     "cohort_pred": 10,
     "cohort_gold": 10,
     "cohort_precision": 1.0,
@@ -2633,11 +2633,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"lab\": \"bilirubin\", \"op\": \"<\", \"type\": \"lab\", \"value\": 1.5}"
+     "inclusion: {\"lab\": \"bilirubin\", \"op\": \"<\", \"type\": \"lab\", \"value\": 1.5}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 1.004,
+    "latency_ms": 0.791,
     "cohort_pred": 2,
     "cohort_gold": 2,
     "cohort_precision": 1.0,
@@ -2674,13 +2674,13 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
-     "{\"min_years\": 65, \"type\": \"age\"}",
-     "{\"states\": [\"IN\"], \"type\": \"geography\"}"
+     "exclusion: {\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
+     "inclusion: {\"min_years\": 65, \"type\": \"age\"}",
+     "inclusion: {\"states\": [\"IN\"], \"type\": \"geography\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.587,
+    "latency_ms": 0.714,
     "cohort_pred": 11,
     "cohort_gold": 0,
     "cohort_precision": 0.0,
@@ -2722,11 +2722,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"min_years\": 50, \"type\": \"age\"}"
+     "inclusion: {\"min_years\": 50, \"type\": \"age\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.69,
+    "latency_ms": 0.934,
     "cohort_pred": 2,
     "cohort_gold": 0,
     "cohort_precision": 0.0,
@@ -2768,11 +2768,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"min_years\": 21, \"type\": \"age\"}"
+     "inclusion: {\"min_years\": 21, \"type\": \"age\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.652,
+    "latency_ms": 0.648,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -2806,11 +2806,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"min_years\": 61, \"type\": \"age\"}"
+     "inclusion: {\"min_years\": 61, \"type\": \"age\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.778,
+    "latency_ms": 0.743,
     "cohort_pred": 118,
     "cohort_gold": 70,
     "cohort_precision": 0.5932,
@@ -2856,13 +2856,13 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 9.0}",
-     "{\"min_years\": 18, \"type\": \"age\"}",
-     "{\"states\": [\"IN\"], \"type\": \"geography\"}"
+     "inclusion: {\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 9.0}",
+     "inclusion: {\"min_years\": 18, \"type\": \"age\"}",
+     "inclusion: {\"states\": [\"IN\"], \"type\": \"geography\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.79,
+    "latency_ms": 0.882,
     "cohort_pred": 3,
     "cohort_gold": 2,
     "cohort_precision": 0.6667,
@@ -2897,11 +2897,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"min_years\": 21, \"type\": \"age\"}"
+     "inclusion: {\"min_years\": 21, \"type\": \"age\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.606,
+    "latency_ms": 0.551,
     "cohort_pred": 49,
     "cohort_gold": 49,
     "cohort_precision": 1.0,
@@ -2936,7 +2936,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.584,
+    "latency_ms": 0.807,
     "cohort_pred": 77,
     "cohort_gold": 77,
     "cohort_precision": 1.0,
@@ -2988,16 +2988,16 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"ckd\", \"type\": \"diagnosis\"}",
-     "{\"states\": [\"CA\", \"TX\"], \"type\": \"geography\"}"
+     "exclusion: {\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}",
+     "exclusion: {\"condition\": \"ckd\", \"type\": \"diagnosis\"}",
+     "inclusion: {\"states\": [\"CA\", \"TX\"], \"type\": \"geography\"}"
     ],
     "extra": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"ckd\", \"type\": \"diagnosis\"}"
+     "inclusion: {\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}",
+     "inclusion: {\"condition\": \"ckd\", \"type\": \"diagnosis\"}"
     ],
     "unsupported": [],
-    "latency_ms": 0.845,
+    "latency_ms": 1.322,
     "cohort_pred": 1,
     "cohort_gold": 6,
     "cohort_precision": 0.0,
@@ -3036,15 +3036,15 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}",
-     "{\"markers\": [\"erbb2_amplification\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}",
-     "{\"min_years\": 61, \"type\": \"age\"}"
+     "exclusion: {\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}",
+     "inclusion: {\"markers\": [\"erbb2_amplification\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}",
+     "inclusion: {\"min_years\": 61, \"type\": \"age\"}"
     ],
     "extra": [
-     "{\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}"
+     "inclusion: {\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}"
     ],
     "unsupported": [],
-    "latency_ms": 1.156,
+    "latency_ms": 0.888,
     "cohort_pred": 2,
     "cohort_gold": 47,
     "cohort_precision": 0.0,
@@ -3095,16 +3095,16 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"hiv\", \"type\": \"diagnosis\"}",
-     "{\"min_years\": 50, \"type\": \"age\"}"
+     "exclusion: {\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}",
+     "exclusion: {\"condition\": \"hiv\", \"type\": \"diagnosis\"}",
+     "inclusion: {\"min_years\": 50, \"type\": \"age\"}"
     ],
     "extra": [
-     "{\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"hiv\", \"type\": \"diagnosis\"}"
+     "inclusion: {\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}",
+     "inclusion: {\"condition\": \"hiv\", \"type\": \"diagnosis\"}"
     ],
     "unsupported": [],
-    "latency_ms": 0.666,
+    "latency_ms": 0.652,
     "cohort_pred": 0,
     "cohort_gold": 76,
     "cohort_precision": 0.0,
@@ -3146,11 +3146,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 9.0}"
+     "inclusion: {\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 9.0}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.672,
+    "latency_ms": 0.641,
     "cohort_pred": 17,
     "cohort_gold": 15,
     "cohort_precision": 0.8824,
@@ -3196,11 +3196,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"max_years\": 74, \"type\": \"age\"}"
+     "inclusion: {\"max_years\": 74, \"type\": \"age\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 1.058,
+    "latency_ms": 0.659,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -3255,12 +3255,12 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"lab\": \"bilirubin\", \"op\": \"<\", \"type\": \"lab\", \"value\": 1.5}",
-     "{\"min_years\": 71, \"type\": \"age\"}"
+     "inclusion: {\"lab\": \"bilirubin\", \"op\": \"<\", \"type\": \"lab\", \"value\": 1.5}",
+     "inclusion: {\"min_years\": 71, \"type\": \"age\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.822,
+    "latency_ms": 0.797,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -3310,7 +3310,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.745,
+    "latency_ms": 0.659,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -3353,12 +3353,12 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
-     "{\"markers\": [\"erbb2_amplification\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}"
+     "exclusion: {\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
+     "inclusion: {\"markers\": [\"erbb2_amplification\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.709,
+    "latency_ms": 0.627,
     "cohort_pred": 41,
     "cohort_gold": 5,
     "cohort_precision": 0.122,
@@ -3393,15 +3393,15 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}",
-     "{\"markers\": [\"msi_high\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}",
-     "{\"states\": [\"CA\", \"TX\"], \"type\": \"geography\"}"
+     "exclusion: {\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}",
+     "inclusion: {\"markers\": [\"msi_high\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}",
+     "inclusion: {\"states\": [\"CA\", \"TX\"], \"type\": \"geography\"}"
     ],
     "extra": [
-     "{\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}"
+     "inclusion: {\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}"
     ],
     "unsupported": [],
-    "latency_ms": 0.697,
+    "latency_ms": 0.612,
     "cohort_pred": 1,
     "cohort_gold": 22,
     "cohort_precision": 0.0,
@@ -3451,16 +3451,16 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"hiv\", \"type\": \"diagnosis\"}",
-     "{\"min_years\": 65, \"type\": \"age\"}"
+     "exclusion: {\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}",
+     "exclusion: {\"condition\": \"hiv\", \"type\": \"diagnosis\"}",
+     "inclusion: {\"min_years\": 65, \"type\": \"age\"}"
     ],
     "extra": [
-     "{\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"hiv\", \"type\": \"diagnosis\"}"
+     "inclusion: {\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}",
+     "inclusion: {\"condition\": \"hiv\", \"type\": \"diagnosis\"}"
     ],
     "unsupported": [],
-    "latency_ms": 0.64,
+    "latency_ms": 0.69,
     "cohort_pred": 0,
     "cohort_gold": 1,
     "cohort_precision": 0.0,
@@ -3507,7 +3507,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 1.413,
+    "latency_ms": 0.675,
     "cohort_pred": 8,
     "cohort_gold": 8,
     "cohort_precision": 1.0,
@@ -3558,7 +3558,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.83,
+    "latency_ms": 0.821,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -3605,7 +3605,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.691,
+    "latency_ms": 0.636,
     "cohort_pred": 2,
     "cohort_gold": 2,
     "cohort_precision": 1.0,
@@ -3649,11 +3649,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"markers\": [\"erbb2_amplification\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}"
+     "inclusion: {\"markers\": [\"erbb2_amplification\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.838,
+    "latency_ms": 0.664,
     "cohort_pred": 85,
     "cohort_gold": 60,
     "cohort_precision": 0.7059,
@@ -3696,11 +3696,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"min_years\": 61, \"type\": \"age\"}"
+     "inclusion: {\"min_years\": 61, \"type\": \"age\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.705,
+    "latency_ms": 0.715,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -3745,14 +3745,14 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"drug_class\": \"immunotherapy\", \"type\": \"treatment\"}",
-     "{\"markers\": [\"erbb2_amplification\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}"
+     "exclusion: {\"drug_class\": \"immunotherapy\", \"type\": \"treatment\"}",
+     "inclusion: {\"markers\": [\"erbb2_amplification\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}"
     ],
     "extra": [
-     "{\"drug_class\": \"immunotherapy\", \"type\": \"treatment\"}"
+     "inclusion: {\"drug_class\": \"immunotherapy\", \"type\": \"treatment\"}"
     ],
     "unsupported": [],
-    "latency_ms": 0.772,
+    "latency_ms": 0.656,
     "cohort_pred": 0,
     "cohort_gold": 33,
     "cohort_precision": 0.0,
@@ -3797,11 +3797,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"states\": [\"IN\"], \"type\": \"geography\"}"
+     "inclusion: {\"states\": [\"IN\"], \"type\": \"geography\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.75,
+    "latency_ms": 0.766,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -3847,13 +3847,13 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100.0}"
+     "inclusion: {\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100.0}"
     ],
     "extra": [
-     "{\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100000.0}"
+     "inclusion: {\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100000.0}"
     ],
     "unsupported": [],
-    "latency_ms": 0.642,
+    "latency_ms": 0.621,
     "cohort_pred": 0,
     "cohort_gold": 59,
     "cohort_precision": 0.0,
@@ -3896,15 +3896,15 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
-     "{\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100.0}",
-     "{\"markers\": [\"erbb2_amplification\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}"
+     "exclusion: {\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
+     "inclusion: {\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100.0}",
+     "inclusion: {\"markers\": [\"erbb2_amplification\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}"
     ],
     "extra": [
-     "{\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100000.0}"
+     "inclusion: {\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100000.0}"
     ],
     "unsupported": [],
-    "latency_ms": 0.716,
+    "latency_ms": 2.019,
     "cohort_pred": 0,
     "cohort_gold": 9,
     "cohort_precision": 0.0,
@@ -3934,12 +3934,12 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
-     "{\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}"
+     "exclusion: {\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
+     "inclusion: {\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.856,
+    "latency_ms": 0.481,
     "cohort_pred": 342,
     "cohort_gold": 22,
     "cohort_precision": 0.0643,
@@ -3982,13 +3982,13 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 9.0}",
-     "{\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"detected\", \"type\": \"biomarker\"}",
-     "{\"min_years\": 18, \"type\": \"age\"}"
+     "inclusion: {\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 9.0}",
+     "inclusion: {\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"detected\", \"type\": \"biomarker\"}",
+     "inclusion: {\"min_years\": 18, \"type\": \"age\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.796,
+    "latency_ms": 1.305,
     "cohort_pred": 243,
     "cohort_gold": 17,
     "cohort_precision": 0.07,
@@ -4035,7 +4035,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.716,
+    "latency_ms": 0.674,
     "cohort_pred": 9,
     "cohort_gold": 9,
     "cohort_precision": 1.0,
@@ -4085,14 +4085,14 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"condition\": \"interstitial_lung_disease\", \"type\": \"diagnosis\"}",
-     "{\"min_years\": 65, \"type\": \"age\"}"
+     "exclusion: {\"condition\": \"interstitial_lung_disease\", \"type\": \"diagnosis\"}",
+     "inclusion: {\"min_years\": 65, \"type\": \"age\"}"
     ],
     "extra": [
-     "{\"condition\": \"interstitial_lung_disease\", \"type\": \"diagnosis\"}"
+     "inclusion: {\"condition\": \"interstitial_lung_disease\", \"type\": \"diagnosis\"}"
     ],
     "unsupported": [],
-    "latency_ms": 0.731,
+    "latency_ms": 0.678,
     "cohort_pred": 0,
     "cohort_gold": 6,
     "cohort_precision": 0.0,
@@ -4145,14 +4145,14 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100.0}",
-     "{\"max_years\": 64, \"type\": \"age\"}"
+     "inclusion: {\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100.0}",
+     "inclusion: {\"max_years\": 64, \"type\": \"age\"}"
     ],
     "extra": [
-     "{\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100000.0}"
+     "inclusion: {\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100000.0}"
     ],
     "unsupported": [],
-    "latency_ms": 0.772,
+    "latency_ms": 0.644,
     "cohort_pred": 0,
     "cohort_gold": 13,
     "cohort_precision": 0.0,
@@ -4195,15 +4195,15 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}",
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
-     "{\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"detected\", \"type\": \"biomarker\"}"
+     "exclusion: {\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}",
+     "exclusion: {\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
+     "inclusion: {\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"detected\", \"type\": \"biomarker\"}"
     ],
     "extra": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}"
+     "inclusion: {\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}"
     ],
     "unsupported": [],
-    "latency_ms": 0.729,
+    "latency_ms": 1.258,
     "cohort_pred": 25,
     "cohort_gold": 0,
     "cohort_precision": 0.0,
@@ -4253,11 +4253,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}"
+     "exclusion: {\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.755,
+    "latency_ms": 0.797,
     "cohort_pred": 7,
     "cohort_gold": 2,
     "cohort_precision": 0.2857,
@@ -4299,7 +4299,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.8,
+    "latency_ms": 0.517,
     "cohort_pred": 23,
     "cohort_gold": 23,
     "cohort_precision": 1.0,
@@ -4342,7 +4342,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.769,
+    "latency_ms": 0.676,
     "cohort_pred": 1,
     "cohort_gold": 1,
     "cohort_precision": 1.0,
@@ -4389,11 +4389,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"max_years\": 74, \"type\": \"age\"}"
+     "inclusion: {\"max_years\": 74, \"type\": \"age\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.714,
+    "latency_ms": 0.702,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -4442,7 +4442,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 1.194,
+    "latency_ms": 1.25,
     "cohort_pred": 1,
     "cohort_gold": 1,
     "cohort_precision": 1.0,
@@ -4472,11 +4472,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}"
+     "exclusion: {\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.447,
+    "latency_ms": 0.561,
     "cohort_pred": 77,
     "cohort_gold": 11,
     "cohort_precision": 0.1429,
@@ -4524,12 +4524,12 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"detected\", \"type\": \"biomarker\"}",
-     "{\"states\": [\"IN\"], \"type\": \"geography\"}"
+     "inclusion: {\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"detected\", \"type\": \"biomarker\"}",
+     "inclusion: {\"states\": [\"IN\"], \"type\": \"geography\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.981,
+    "latency_ms": 1.11,
     "cohort_pred": 20,
     "cohort_gold": 1,
     "cohort_precision": 0.05,
@@ -4585,7 +4585,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.815,
+    "latency_ms": 0.889,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -4636,11 +4636,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}"
+     "exclusion: {\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.752,
+    "latency_ms": 0.802,
     "cohort_pred": 4,
     "cohort_gold": 0,
     "cohort_precision": 0.0,
@@ -4670,11 +4670,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 9.0}"
+     "inclusion: {\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 9.0}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.473,
+    "latency_ms": 0.466,
     "cohort_pred": 342,
     "cohort_gold": 282,
     "cohort_precision": 0.8246,
@@ -4719,7 +4719,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.622,
+    "latency_ms": 0.886,
     "cohort_pred": 22,
     "cohort_gold": 22,
     "cohort_precision": 1.0,
@@ -4770,7 +4770,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.727,
+    "latency_ms": 1.073,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -4813,11 +4813,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"min_years\": 21, \"type\": \"age\"}"
+     "inclusion: {\"min_years\": 21, \"type\": \"age\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.646,
+    "latency_ms": 0.739,
     "cohort_pred": 43,
     "cohort_gold": 42,
     "cohort_precision": 0.9767,
@@ -4847,11 +4847,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"max_years\": 74, \"type\": \"age\"}"
+     "inclusion: {\"max_years\": 74, \"type\": \"age\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.748,
+    "latency_ms": 0.46,
     "cohort_pred": 342,
     "cohort_gold": 270,
     "cohort_precision": 0.7895,
@@ -4894,11 +4894,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"lab\": \"bilirubin\", \"op\": \"<\", \"type\": \"lab\", \"value\": 1.5}"
+     "inclusion: {\"lab\": \"bilirubin\", \"op\": \"<\", \"type\": \"lab\", \"value\": 1.5}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 1.137,
+    "latency_ms": 1.088,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -4948,15 +4948,15 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100.0}",
-     "{\"min_years\": 18, \"type\": \"age\"}",
-     "{\"states\": [\"IN\"], \"type\": \"geography\"}"
+     "inclusion: {\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100.0}",
+     "inclusion: {\"min_years\": 18, \"type\": \"age\"}",
+     "inclusion: {\"states\": [\"IN\"], \"type\": \"geography\"}"
     ],
     "extra": [
-     "{\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100000.0}"
+     "inclusion: {\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100000.0}"
     ],
     "unsupported": [],
-    "latency_ms": 1.224,
+    "latency_ms": 0.849,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -5009,13 +5009,13 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100.0}"
+     "inclusion: {\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100.0}"
     ],
     "extra": [
-     "{\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100000.0}"
+     "inclusion: {\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100000.0}"
     ],
     "unsupported": [],
-    "latency_ms": 0.763,
+    "latency_ms": 0.714,
     "cohort_pred": 0,
     "cohort_gold": 35,
     "cohort_precision": 0.0,
@@ -5060,12 +5060,12 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
-     "{\"max_years\": 64, \"type\": \"age\"}"
+     "exclusion: {\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
+     "inclusion: {\"max_years\": 64, \"type\": \"age\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.684,
+    "latency_ms": 0.657,
     "cohort_pred": 4,
     "cohort_gold": 0,
     "cohort_precision": 0.0,
@@ -5105,14 +5105,14 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}",
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}"
+     "exclusion: {\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}",
+     "exclusion: {\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}"
     ],
     "extra": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}"
+     "inclusion: {\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}"
     ],
     "unsupported": [],
-    "latency_ms": 0.66,
+    "latency_ms": 0.849,
     "cohort_pred": 0,
     "cohort_gold": 5,
     "cohort_precision": 0.0,
@@ -5167,12 +5167,12 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
-     "{\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 9.0}"
+     "exclusion: {\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
+     "inclusion: {\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 9.0}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 1.02,
+    "latency_ms": 0.923,
     "cohort_pred": 5,
     "cohort_gold": 1,
     "cohort_precision": 0.2,
@@ -5218,7 +5218,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 1.099,
+    "latency_ms": 0.64,
     "cohort_pred": 5,
     "cohort_gold": 5,
     "cohort_precision": 1.0,
@@ -5260,12 +5260,12 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 9.0}",
-     "{\"states\": [\"OH\"], \"type\": \"geography\"}"
+     "inclusion: {\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 9.0}",
+     "inclusion: {\"states\": [\"OH\"], \"type\": \"geography\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.665,
+    "latency_ms": 0.787,
     "cohort_pred": 2,
     "cohort_gold": 0,
     "cohort_precision": 0.0,
@@ -5303,7 +5303,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.563,
+    "latency_ms": 0.622,
     "cohort_pred": 1,
     "cohort_gold": 1,
     "cohort_precision": 1.0,
@@ -5354,12 +5354,12 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"min_years\": 65, \"type\": \"age\"}",
-     "{\"states\": [\"CA\", \"TX\"], \"type\": \"geography\"}"
+     "inclusion: {\"min_years\": 65, \"type\": \"age\"}",
+     "inclusion: {\"states\": [\"CA\", \"TX\"], \"type\": \"geography\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.793,
+    "latency_ms": 3.733,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -5408,12 +5408,12 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
-     "{\"min_years\": 50, \"type\": \"age\"}"
+     "exclusion: {\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
+     "inclusion: {\"min_years\": 50, \"type\": \"age\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.745,
+    "latency_ms": 0.687,
     "cohort_pred": 4,
     "cohort_gold": 1,
     "cohort_precision": 0.25,
@@ -5463,7 +5463,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.739,
+    "latency_ms": 0.709,
     "cohort_pred": 12,
     "cohort_gold": 12,
     "cohort_precision": 1.0,
@@ -5507,16 +5507,16 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"condition\": \"heart_failure\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"interstitial_lung_disease\", \"type\": \"diagnosis\"}",
-     "{\"lab\": \"bilirubin\", \"op\": \"<\", \"type\": \"lab\", \"value\": 1.5}"
+     "exclusion: {\"condition\": \"heart_failure\", \"type\": \"diagnosis\"}",
+     "exclusion: {\"condition\": \"interstitial_lung_disease\", \"type\": \"diagnosis\"}",
+     "inclusion: {\"lab\": \"bilirubin\", \"op\": \"<\", \"type\": \"lab\", \"value\": 1.5}"
     ],
     "extra": [
-     "{\"condition\": \"heart_failure\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"interstitial_lung_disease\", \"type\": \"diagnosis\"}"
+     "inclusion: {\"condition\": \"heart_failure\", \"type\": \"diagnosis\"}",
+     "inclusion: {\"condition\": \"interstitial_lung_disease\", \"type\": \"diagnosis\"}"
     ],
     "unsupported": [],
-    "latency_ms": 0.833,
+    "latency_ms": 0.68,
     "cohort_pred": 0,
     "cohort_gold": 113,
     "cohort_precision": 0.0,
@@ -5546,7 +5546,7 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"min_years\": 71, \"type\": \"age\"}"
+     "inclusion: {\"min_years\": 71, \"type\": \"age\"}"
     ],
     "extra": [],
     "unsupported": [],
@@ -5592,15 +5592,15 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}",
-     "{\"min_years\": 65, \"type\": \"age\"}",
-     "{\"states\": [\"IN\"], \"type\": \"geography\"}"
+     "exclusion: {\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}",
+     "inclusion: {\"min_years\": 65, \"type\": \"age\"}",
+     "inclusion: {\"states\": [\"IN\"], \"type\": \"geography\"}"
     ],
     "extra": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}"
+     "inclusion: {\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}"
     ],
     "unsupported": [],
-    "latency_ms": 0.734,
+    "latency_ms": 0.973,
     "cohort_pred": 0,
     "cohort_gold": 1,
     "cohort_precision": 0.0,
@@ -5647,11 +5647,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"min_years\": 18, \"type\": \"age\"}"
+     "inclusion: {\"min_years\": 18, \"type\": \"age\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 4.085,
+    "latency_ms": 0.713,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -5702,7 +5702,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.686,
+    "latency_ms": 0.701,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -5737,7 +5737,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.544,
+    "latency_ms": 0.522,
     "cohort_pred": 56,
     "cohort_gold": 56,
     "cohort_precision": 1.0,
@@ -5777,12 +5777,12 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"min_years\": 71, \"type\": \"age\"}",
-     "{\"states\": [\"CA\", \"TX\"], \"type\": \"geography\"}"
+     "inclusion: {\"min_years\": 71, \"type\": \"age\"}",
+     "inclusion: {\"states\": [\"CA\", \"TX\"], \"type\": \"geography\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.694,
+    "latency_ms": 1.279,
     "cohort_pred": 56,
     "cohort_gold": 1,
     "cohort_precision": 0.0179,
@@ -5829,7 +5829,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.575,
+    "latency_ms": 0.588,
     "cohort_pred": 58,
     "cohort_gold": 58,
     "cohort_precision": 1.0,
@@ -5889,13 +5889,13 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100.0}"
+     "inclusion: {\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100.0}"
     ],
     "extra": [
-     "{\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100000.0}"
+     "inclusion: {\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100000.0}"
     ],
     "unsupported": [],
-    "latency_ms": 0.842,
+    "latency_ms": 0.883,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -5932,11 +5932,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"states\": [\"OH\"], \"type\": \"geography\"}"
+     "inclusion: {\"states\": [\"OH\"], \"type\": \"geography\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.567,
+    "latency_ms": 0.526,
     "cohort_pred": 24,
     "cohort_gold": 1,
     "cohort_precision": 0.0417,

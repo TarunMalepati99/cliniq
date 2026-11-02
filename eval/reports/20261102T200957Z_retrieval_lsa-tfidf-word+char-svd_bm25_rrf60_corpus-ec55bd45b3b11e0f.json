@@ -1,13 +1,13 @@
 {
- "eval_run_id": "112a8a61-a9db-49e4-ac6f-72075d0e7291",
+ "eval_run_id": "06da7c1a-54b9-4608-bd78-a1c64a63658c",
  "suite": "retrieval",
  "system_version": "lsa-tfidf-word+char-svd|bm25|rrf60|corpus-ec55bd45b3b11e0f",
  "prompt_sha256": null,
  "benchmark_sha256": "23cfeb67273243c21b2fed292f5683a5855441853a507626b1b9b68f39d73a27",
- "data_version": "dv-1ff00f001079d84b",
- "code_version": "nogit",
- "timestamp": "20261102T194452Z",
- "duration_ms": 791,
+ "data_version": "dv-d73b6dd8e21af07a",
+ "code_version": "5b12b0a",
+ "timestamp": "20261102T200957Z",
+ "duration_ms": 668,
  "metrics": {
   "n_items": 42,
   "n_answerable": 36,
@@ -23,8 +23,8 @@
     "false_abstentions_on_answerable": 2
    },
    "latency_ms": {
-    "p50": 5.396,
-    "p95": 6.767
+    "p50": 4.875,
+    "p95": 5.842
    }
   },
   "dense": {
@@ -39,8 +39,8 @@
     "false_abstentions_on_answerable": 2
    },
    "latency_ms": {
-    "p50": 7.005,
-    "p95": 10.011
+    "p50": 5.612,
+    "p95": 6.469
    }
   },
   "hybrid": {
@@ -55,8 +55,8 @@
     "false_abstentions_on_answerable": 2
    },
    "latency_ms": {
-    "p50": 5.797,
-    "p95": 8.984
+    "p50": 5.408,
+    "p95": 6.245
    }
   }
  },

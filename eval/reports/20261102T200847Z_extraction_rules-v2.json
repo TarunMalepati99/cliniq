@@ -1,64 +1,57 @@
 {
- "eval_run_id": "e51194e6-d4b0-4e50-a568-94c168ae6732",
+ "eval_run_id": "f661e641-6561-4aaa-92b0-9ef858ce484c",
  "suite": "extraction",
- "system_version": "rules-v1",
+ "system_version": "rules-v2",
  "prompt_sha256": null,
  "benchmark_sha256": "3befb6a01beb5b3a23e2eaac6d578c8258909010f0a32b5947ef4bfb5c504523",
- "data_version": "dv-fdf6d7df8f3762fc",
- "code_version": "nogit",
- "timestamp": "20261102T195742Z",
- "duration_ms": 17164,
+ "data_version": "dv-8e43ee53ae49e500",
+ "code_version": "5b12b0a",
+ "timestamp": "20261102T200847Z",
+ "duration_ms": 20539,
  "metrics": {
   "n_items": 125,
-  "structured_validity": 0.992,
+  "structured_validity": 1.0,
   "concept": {
-   "precision": 0.99,
-   "recall": 0.7645,
-   "f1": 0.8627
+   "precision": 0.9923,
+   "recall": 0.9942,
+   "f1": 0.9932
   },
   "criterion": {
-   "precision": 0.885,
-   "recall": 0.6834,
-   "f1": 0.7712
+   "precision": 0.9904,
+   "recall": 0.9923,
+   "f1": 0.9913
   },
-  "exact_match": 0.248,
-  "polarity_accuracy": 0.9091,
+  "exact_match": 0.96,
+  "polarity_accuracy": 0.9981,
   "hallucination_rate": 0.0,
   "sql_success_rate": 1.0,
-  "cohort_precision": 0.5067,
-  "cohort_recall": 0.7581,
-  "cohort_items_both_empty": 21,
+  "cohort_precision": 0.976,
+  "cohort_recall": 0.984,
+  "cohort_items_both_empty": 33,
   "latency_ms": {
-   "p50": 0.743,
-   "p95": 1.333
+   "p50": 0.951,
+   "p95": 2.133
   },
   "cost_usd_total": 0.0,
   "failure_categories": {
-   "missed_concept": 84,
-   "wrong_polarity": 28,
+   "wrong_polarity": 1,
    "spurious_concept": 3,
-   "invalid_output": 1,
-   "wrong_value": 3
+   "missed_concept": 3
   },
   "by_subset": {
    "handwritten": {
     "n": 35,
-    "exact_match": 0.2857,
+    "exact_match": 0.8571,
     "failure_categories": {
-     "missed_concept": 20,
-     "wrong_polarity": 8,
+     "wrong_polarity": 1,
      "spurious_concept": 3,
-     "invalid_output": 1
+     "missed_concept": 3
     }
    },
    "templated": {
     "n": 90,
-    "exact_match": 0.2333,
-    "failure_categories": {
-     "missed_concept": 64,
-     "wrong_polarity": 20,
-     "wrong_value": 3
-    }
+    "exact_match": 1.0,
+    "failure_categories": {}
    }
   }
  },
@@ -103,21 +96,18 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 22.032,
-    "cohort_pred": 12,
-    "cohort_gold": 12,
+    "latency_ms": 20.51,
+    "cohort_pred": 11,
+    "cohort_gold": 11,
     "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "H002",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept",
-    "wrong_polarity"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Women over 50 with HER2-positive breast cancer who have not received trastuzumab, excluding anyone with heart failure.",
     "subset": "handwritten",
@@ -125,6 +115,11 @@
      "schema_version": "1.0",
      "name": "Women over 50 with HER2-positive breast cancer who have not received trastuzumab\u2026",
      "inclusion": [
+      {
+       "type": "age",
+       "min_years": 51,
+       "max_years": null
+      },
       {
        "type": "sex",
        "sex": "female"
@@ -139,14 +134,14 @@
       {
        "type": "diagnosis",
        "condition": "breast_cancer"
-      },
+      }
+     ],
+     "exclusion": [
       {
        "type": "treatment",
        "drug_class": null,
        "drug": "trastuzumab"
-      }
-     ],
-     "exclusion": [
+      },
       {
        "type": "diagnosis",
        "condition": "heart_failure"
@@ -154,29 +149,21 @@
      ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"drug\": \"trastuzumab\", \"type\": \"treatment\"}",
-     "{\"min_years\": 51, \"type\": \"age\"}"
-    ],
-    "extra": [
-     "{\"drug\": \"trastuzumab\", \"type\": \"treatment\"}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 0.919,
-    "cohort_pred": 13,
+    "latency_ms": 2.231,
+    "cohort_pred": 0,
     "cohort_gold": 0,
-    "cohort_precision": 0.0,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "H003",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept",
-    "wrong_polarity"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "ALK-negative NSCLC patients with ECOG 0-1 and no prior immunotherapy",
     "subset": "handwritten",
@@ -184,6 +171,13 @@
      "schema_version": "1.0",
      "name": "ALK-negative NSCLC patients with ECOG 0-1 and no prior immunotherapy",
      "inclusion": [
+      {
+       "type": "biomarker",
+       "markers": [
+        "alk_fusion"
+       ],
+       "status": "not_detected"
+      },
       {
        "type": "diagnosis",
        "condition": "nsclc"
@@ -195,38 +189,32 @@
        "value": 1.0,
        "value_max": null,
        "lookback_days": 365
-      },
+      }
+     ],
+     "exclusion": [
       {
        "type": "treatment",
        "drug_class": "immunotherapy",
        "drug": null
       }
      ],
-     "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"drug_class\": \"immunotherapy\", \"type\": \"treatment\"}",
-     "{\"markers\": [\"alk_fusion\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}"
-    ],
-    "extra": [
-     "{\"drug_class\": \"immunotherapy\", \"type\": \"treatment\"}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 0.843,
-    "cohort_pred": 66,
+    "latency_ms": 1.151,
+    "cohort_pred": 47,
     "cohort_gold": 47,
-    "cohort_precision": 0.0,
-    "cohort_recall": 0.0
+    "cohort_precision": 1.0,
+    "cohort_recall": 1.0
    }
   },
   {
    "item_id": "H004",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Treatment-naive colorectal cancer with MSI-H status in Indiana or Ohio",
     "subset": "handwritten",
@@ -244,32 +232,39 @@
         "msi_high"
        ],
        "status": "detected"
+      },
+      {
+       "type": "geography",
+       "states": [
+        "IN",
+        "OH"
+       ]
       }
      ],
-     "exclusion": [],
+     "exclusion": [
+      {
+       "type": "treatment",
+       "drug_class": "any_systemic_therapy",
+       "drug": null
+      }
+     ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
-     "{\"states\": [\"IN\", \"OH\"], \"type\": \"geography\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.558,
-    "cohort_pred": 24,
+    "latency_ms": 1.381,
+    "cohort_pred": 0,
     "cohort_gold": 0,
-    "cohort_precision": 0.0,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "H005",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept",
-    "wrong_polarity"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Adults with KRAS G12C lung adenocarcinoma previously treated with platinum-based chemotherapy, without chronic kidney disease, and creatinine below 1.5 mg/dL.",
     "subset": "handwritten",
@@ -277,6 +272,11 @@
      "schema_version": "1.0",
      "name": "Adults with KRAS G12C lung adenocarcinoma previously treated with platinum-based\u2026",
      "inclusion": [
+      {
+       "type": "age",
+       "min_years": 18,
+       "max_years": null
+      },
       {
        "type": "biomarker",
        "markers": [
@@ -294,27 +294,30 @@
        "drug": null
       },
       {
+       "type": "lab",
+       "lab": "creatinine",
+       "op": "<",
+       "value": 1.5,
+       "value_max": null,
+       "lookback_days": 365
+      }
+     ],
+     "exclusion": [
+      {
        "type": "diagnosis",
        "condition": "ckd"
       }
      ],
-     "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"condition\": \"ckd\", \"type\": \"diagnosis\"}",
-     "{\"lab\": \"creatinine\", \"op\": \"<\", \"type\": \"lab\", \"value\": 1.5}",
-     "{\"min_years\": 18, \"type\": \"age\"}"
-    ],
-    "extra": [
-     "{\"condition\": \"ckd\", \"type\": \"diagnosis\"}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 0.75,
-    "cohort_pred": 1,
+    "latency_ms": 1.084,
+    "cohort_pred": 11,
     "cohort_gold": 11,
-    "cohort_precision": 0.0,
-    "cohort_recall": 0.0
+    "cohort_precision": 1.0,
+    "cohort_recall": 1.0
    }
   },
   {
@@ -352,7 +355,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.644,
+    "latency_ms": 0.878,
     "cohort_pred": 16,
     "cohort_gold": 16,
     "cohort_precision": 1.0,
@@ -399,7 +402,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.668,
+    "latency_ms": 0.835,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -408,11 +411,9 @@
   },
   {
    "item_id": "H008",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Men 65 or older with prostate cancer and a BRCA2 mutation, excluding prior PARP inhibitors",
     "subset": "handwritten",
@@ -420,6 +421,11 @@
      "schema_version": "1.0",
      "name": "Men 65 or older with prostate cancer and a BRCA2 mutation, excluding prior PARP \u2026",
      "inclusion": [
+      {
+       "type": "age",
+       "min_years": 65,
+       "max_years": null
+      },
       {
        "type": "sex",
        "sex": "male"
@@ -445,25 +451,21 @@
      ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"min_years\": 65, \"type\": \"age\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.714,
-    "cohort_pred": 3,
+    "latency_ms": 0.845,
+    "cohort_pred": 1,
     "cohort_gold": 1,
-    "cohort_precision": 0.3333,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "H009",
-   "passed": false,
-   "failure_category": "wrong_polarity",
-   "categories": [
-    "wrong_polarity"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "NSCLC with PD-L1 TPS >= 50% and no brain metastases",
     "subset": "handwritten",
@@ -482,36 +484,31 @@
        "value": 50.0,
        "value_max": null,
        "lookback_days": 365
-      },
+      }
+     ],
+     "exclusion": [
       {
        "type": "diagnosis",
        "condition": "brain_metastases"
       }
      ],
-     "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}"
-    ],
-    "extra": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 0.638,
-    "cohort_pred": 2,
+    "latency_ms": 0.666,
+    "cohort_pred": 4,
     "cohort_gold": 4,
-    "cohort_precision": 0.0,
-    "cohort_recall": 0.0
+    "cohort_precision": 1.0,
+    "cohort_recall": 1.0
    }
   },
   {
    "item_id": "H010",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Patients with pancreatic adenocarcinoma, ECOG 0 to 1, hemoglobin at least 9 g/dL, platelet count of at least 100,000 per microliter",
     "subset": "handwritten",
@@ -530,21 +527,34 @@
        "value": 1.0,
        "value_max": null,
        "lookback_days": 365
+      },
+      {
+       "type": "lab",
+       "lab": "hemoglobin",
+       "op": ">=",
+       "value": 9.0,
+       "value_max": null,
+       "lookback_days": 365
+      },
+      {
+       "type": "lab",
+       "lab": "platelets",
+       "op": ">=",
+       "value": 100.0,
+       "value_max": null,
+       "lookback_days": 365
       }
      ],
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 9.0}",
-     "{\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100.0}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.971,
-    "cohort_pred": 40,
+    "latency_ms": 1.026,
+    "cohort_pred": 34,
     "cohort_gold": 34,
-    "cohort_precision": 0.85,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
@@ -581,7 +591,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.812,
+    "latency_ms": 0.779,
     "cohort_pred": 45,
     "cohort_gold": 45,
     "cohort_precision": 1.0,
@@ -590,11 +600,9 @@
   },
   {
    "item_id": "H012",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Identify EGFR-mutant NSCLC patients who progressed on osimertinib and have a T790M mutation",
     "subset": "handwritten",
@@ -602,6 +610,14 @@
      "schema_version": "1.0",
      "name": "Identify EGFR-mutant NSCLC patients who progressed on osimertinib and have a T79\u2026",
      "inclusion": [
+      {
+       "type": "biomarker",
+       "markers": [
+        "egfr_exon19del",
+        "egfr_l858r"
+       ],
+       "status": "detected"
+      },
       {
        "type": "diagnosis",
        "condition": "nsclc"
@@ -622,12 +638,12 @@
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"detected\", \"type\": \"biomarker\"}"
-    ],
+    "missing": [],
     "extra": [],
-    "unsupported": [],
-    "latency_ms": 0.726,
+    "unsupported": [
+     "progressed on"
+    ],
+    "latency_ms": 0.804,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -636,11 +652,9 @@
   },
   {
    "item_id": "H013",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Breast cancer patients who are HER2-negative, aged under 60",
     "subset": "handwritten",
@@ -649,23 +663,32 @@
      "name": "Breast cancer patients who are HER2-negative, aged under 60",
      "inclusion": [
       {
+       "type": "age",
+       "min_years": null,
+       "max_years": 59
+      },
+      {
        "type": "diagnosis",
        "condition": "breast_cancer"
+      },
+      {
+       "type": "biomarker",
+       "markers": [
+        "erbb2_amplification"
+       ],
+       "status": "not_detected"
       }
      ],
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"markers\": [\"erbb2_amplification\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}",
-     "{\"max_years\": 59, \"type\": \"age\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.518,
-    "cohort_pred": 122,
+    "latency_ms": 0.719,
+    "cohort_pred": 28,
     "cohort_gold": 28,
-    "cohort_precision": 0.2295,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
@@ -713,7 +736,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.739,
+    "latency_ms": 0.934,
     "cohort_pred": 5,
     "cohort_gold": 5,
     "cohort_precision": 1.0,
@@ -747,7 +770,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.636,
+    "latency_ms": 0.774,
     "cohort_pred": 129,
     "cohort_gold": 129,
     "cohort_precision": 1.0,
@@ -781,7 +804,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.464,
+    "latency_ms": 0.565,
     "cohort_pred": 11,
     "cohort_gold": 11,
     "cohort_precision": 1.0,
@@ -790,11 +813,9 @@
   },
   {
    "item_id": "H017",
-   "passed": false,
-   "failure_category": "wrong_polarity",
-   "categories": [
-    "wrong_polarity"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Exclusion criteria: brain metastases; heart failure; HIV. Inclusion criteria: NSCLC with an ALK rearrangement.",
     "subset": "handwritten",
@@ -802,18 +823,6 @@
      "schema_version": "1.0",
      "name": "Exclusion criteria: brain metastases; heart failure; HIV. Inclusion criteria: NS\u2026",
      "inclusion": [
-      {
-       "type": "diagnosis",
-       "condition": "brain_metastases"
-      },
-      {
-       "type": "diagnosis",
-       "condition": "heart_failure"
-      },
-      {
-       "type": "diagnosis",
-       "condition": "hiv"
-      },
       {
        "type": "diagnosis",
        "condition": "nsclc"
@@ -826,34 +835,37 @@
        "status": "detected"
       }
      ],
-     "exclusion": [],
+     "exclusion": [
+      {
+       "type": "diagnosis",
+       "condition": "brain_metastases"
+      },
+      {
+       "type": "diagnosis",
+       "condition": "heart_failure"
+      },
+      {
+       "type": "diagnosis",
+       "condition": "hiv"
+      }
+     ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"heart_failure\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"hiv\", \"type\": \"diagnosis\"}"
-    ],
-    "extra": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"heart_failure\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"hiv\", \"type\": \"diagnosis\"}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 0.674,
-    "cohort_pred": 0,
+    "latency_ms": 0.85,
+    "cohort_pred": 9,
     "cohort_gold": 9,
-    "cohort_precision": 0.0,
-    "cohort_recall": 0.0
+    "cohort_precision": 1.0,
+    "cohort_recall": 1.0
    }
   },
   {
    "item_id": "H018",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Patients with type 2 diabetes and HbA1c above 8%",
     "subset": "handwritten",
@@ -864,30 +876,34 @@
       {
        "type": "diagnosis",
        "condition": "type2_diabetes"
+      },
+      {
+       "type": "lab",
+       "lab": "hba1c",
+       "op": ">",
+       "value": 8.0,
+       "value_max": null,
+       "lookback_days": 365
       }
      ],
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"lab\": \"hba1c\", \"op\": \">\", \"type\": \"lab\", \"value\": 8.0}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.742,
-    "cohort_pred": 235,
+    "latency_ms": 0.739,
+    "cohort_pred": 92,
     "cohort_gold": 92,
-    "cohort_precision": 0.3915,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "H019",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Find people with cirrhosis and total bilirubin over 2 mg/dL",
     "subset": "handwritten",
@@ -898,29 +914,34 @@
       {
        "type": "diagnosis",
        "condition": "cirrhosis"
+      },
+      {
+       "type": "lab",
+       "lab": "bilirubin",
+       "op": ">",
+       "value": 2.0,
+       "value_max": null,
+       "lookback_days": 365
       }
      ],
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"lab\": \"bilirubin\", \"op\": \">\", \"type\": \"lab\", \"value\": 2.0}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.534,
-    "cohort_pred": 19,
+    "latency_ms": 0.755,
+    "cohort_pred": 15,
     "cohort_gold": 15,
-    "cohort_precision": 0.7895,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "H020",
    "passed": false,
-   "failure_category": "missed_concept",
+   "failure_category": "wrong_polarity",
    "categories": [
-    "missed_concept",
     "wrong_polarity"
    ],
    "details": {
@@ -933,26 +954,34 @@
       {
        "type": "diagnosis",
        "condition": "nsclc"
-      },
+      }
+     ],
+     "exclusion": [
       {
        "type": "treatment",
        "drug_class": "egfr_tki",
        "drug": null
+      },
+      {
+       "type": "biomarker",
+       "markers": [
+        "egfr_exon19del",
+        "egfr_l858r"
+       ],
+       "status": "not_detected"
       }
      ],
-     "exclusion": [],
      "as_of_date": null
     },
     "missing": [
-     "{\"drug_class\": \"egfr_tki\", \"type\": \"treatment\"}",
-     "{\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}"
+     "inclusion: {\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}"
     ],
     "extra": [
-     "{\"drug_class\": \"egfr_tki\", \"type\": \"treatment\"}"
+     "exclusion: {\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}"
     ],
     "unsupported": [],
-    "latency_ms": 0.539,
-    "cohort_pred": 27,
+    "latency_ms": 0.871,
+    "cohort_pred": 1,
     "cohort_gold": 139,
     "cohort_precision": 0.0,
     "cohort_recall": 0.0
@@ -985,8 +1014,11 @@
     },
     "missing": [],
     "extra": [],
-    "unsupported": [],
-    "latency_ms": 0.625,
+    "unsupported": [
+     "life expectancy of at least 12 weeks",
+     "stage IV"
+    ],
+    "latency_ms": 0.8,
     "cohort_pred": 41,
     "cohort_gold": 41,
     "cohort_precision": 1.0,
@@ -995,11 +1027,9 @@
   },
   {
    "item_id": "H022",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Older adults with hypertension living in Texas",
     "subset": "handwritten",
@@ -1008,23 +1038,31 @@
      "name": "Older adults with hypertension living in Texas",
      "inclusion": [
       {
+       "type": "age",
+       "min_years": 65,
+       "max_years": null
+      },
+      {
        "type": "diagnosis",
        "condition": "hypertension"
+      },
+      {
+       "type": "geography",
+       "states": [
+        "TX"
+       ]
       }
      ],
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"min_years\": 65, \"type\": \"age\"}",
-     "{\"states\": [\"TX\"], \"type\": \"geography\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.435,
-    "cohort_pred": 464,
+    "latency_ms": 0.649,
+    "cohort_pred": 23,
     "cohort_gold": 23,
-    "cohort_precision": 0.0496,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
@@ -1064,10 +1102,12 @@
     },
     "missing": [],
     "extra": [
-     "{\"sex\": \"female\", \"type\": \"sex\"}"
+     "exclusion: {\"sex\": \"female\", \"type\": \"sex\"}"
     ],
-    "unsupported": [],
-    "latency_ms": 0.493,
+    "unsupported": [
+     "pregnant"
+    ],
+    "latency_ms": 0.755,
     "cohort_pred": 1,
     "cohort_gold": 1,
     "cohort_precision": 1.0,
@@ -1097,11 +1137,11 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"min_years\": 18, \"type\": \"age\"}"
+     "inclusion: {\"min_years\": 18, \"type\": \"age\"}"
     ],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.67,
+    "latency_ms": 0.667,
     "cohort_pred": 8,
     "cohort_gold": 8,
     "cohort_precision": 1.0,
@@ -1110,11 +1150,9 @@
   },
   {
    "item_id": "H025",
-   "passed": false,
-   "failure_category": "wrong_polarity",
-   "categories": [
-    "wrong_polarity"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Individuals with heart failure treated with apixaban, no history of CKD",
     "subset": "handwritten",
@@ -1130,36 +1168,31 @@
        "type": "treatment",
        "drug_class": null,
        "drug": "apixaban"
-      },
+      }
+     ],
+     "exclusion": [
       {
        "type": "diagnosis",
        "condition": "ckd"
       }
      ],
-     "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"condition\": \"ckd\", \"type\": \"diagnosis\"}"
-    ],
-    "extra": [
-     "{\"condition\": \"ckd\", \"type\": \"diagnosis\"}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 0.601,
-    "cohort_pred": 1,
+    "latency_ms": 0.708,
+    "cohort_pred": 2,
     "cohort_gold": 2,
-    "cohort_precision": 0.0,
-    "cohort_recall": 0.0
+    "cohort_precision": 1.0,
+    "cohort_recall": 1.0
    }
   },
   {
    "item_id": "H026",
-   "passed": false,
-   "failure_category": "wrong_polarity",
-   "categories": [
-    "wrong_polarity"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "NSCLC, KRAS G12C, prior platinum chemo and prior immunotherapy, ECOG \u2264 1, no untreated brain metastases",
     "subset": "handwritten",
@@ -1195,36 +1228,31 @@
        "value": 1.0,
        "value_max": null,
        "lookback_days": 365
-      },
+      }
+     ],
+     "exclusion": [
       {
        "type": "diagnosis",
        "condition": "brain_metastases"
       }
      ],
-     "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}"
-    ],
-    "extra": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 0.812,
-    "cohort_pred": 1,
+    "latency_ms": 0.886,
+    "cohort_pred": 4,
     "cohort_gold": 4,
-    "cohort_precision": 0.0,
-    "cohort_recall": 0.0
+    "cohort_precision": 1.0,
+    "cohort_recall": 1.0
    }
   },
   {
    "item_id": "H027",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Patients with eGFR >= 60 and creatinine less than 1.2 mg/dL who have chronic kidney disease",
     "subset": "handwritten",
@@ -1233,6 +1261,22 @@
      "name": "Patients with eGFR >= 60 and creatinine less than 1.2 mg/dL who have chronic kid\u2026",
      "inclusion": [
       {
+       "type": "lab",
+       "lab": "egfr_renal",
+       "op": ">=",
+       "value": 60.0,
+       "value_max": null,
+       "lookback_days": 365
+      },
+      {
+       "type": "lab",
+       "lab": "creatinine",
+       "op": "<",
+       "value": 1.2,
+       "value_max": null,
+       "lookback_days": 365
+      },
+      {
        "type": "diagnosis",
        "condition": "ckd"
       }
@@ -1240,16 +1284,13 @@
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"lab\": \"creatinine\", \"op\": \"<\", \"type\": \"lab\", \"value\": 1.2}",
-     "{\"lab\": \"egfr_renal\", \"op\": \">=\", \"type\": \"lab\", \"value\": 60.0}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.55,
-    "cohort_pred": 79,
+    "latency_ms": 1.443,
+    "cohort_pred": 0,
     "cohort_gold": 0,
-    "cohort_precision": 0.0,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
@@ -1287,14 +1328,14 @@
      "as_of_date": null
     },
     "missing": [
-     "{\"drug_class\": \"antiandrogen\", \"type\": \"treatment\"}"
+     "inclusion: {\"drug_class\": \"antiandrogen\", \"type\": \"treatment\"}"
     ],
     "extra": [
-     "{\"drug\": \"abiraterone\", \"type\": \"treatment\"}",
-     "{\"drug\": \"enzalutamide\", \"type\": \"treatment\"}"
+     "inclusion: {\"drug\": \"abiraterone\", \"type\": \"treatment\"}",
+     "inclusion: {\"drug\": \"enzalutamide\", \"type\": \"treatment\"}"
     ],
     "unsupported": [],
-    "latency_ms": 0.541,
+    "latency_ms": 0.826,
     "cohort_pred": 0,
     "cohort_gold": 28,
     "cohort_precision": 0.0,
@@ -1333,7 +1374,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 1.028,
+    "latency_ms": 0.825,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -1367,19 +1408,24 @@
        "status": "detected"
       }
      ],
-     "exclusion": [],
+     "exclusion": [
+      {
+       "type": "treatment",
+       "drug_class": "any_systemic_therapy",
+       "drug": null
+      }
+     ],
      "as_of_date": null
     },
     "missing": [
-     "{\"condition\": \"nsclc\", \"type\": \"diagnosis\"}",
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}"
+     "inclusion: {\"condition\": \"nsclc\", \"type\": \"diagnosis\"}"
     ],
     "extra": [
-     "{\"condition\": \"lung_cancer\", \"type\": \"diagnosis\"}"
+     "inclusion: {\"condition\": \"lung_cancer\", \"type\": \"diagnosis\"}"
     ],
     "unsupported": [],
-    "latency_ms": 1.092,
-    "cohort_pred": 15,
+    "latency_ms": 0.697,
+    "cohort_pred": 1,
     "cohort_gold": 0,
     "cohort_precision": 0.0,
     "cohort_recall": 1.0
@@ -1387,35 +1433,51 @@
   },
   {
    "item_id": "H031",
-   "passed": false,
-   "failure_category": "invalid_output",
-   "categories": [
-    "invalid_output",
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Patients with an EGFR mutation and hemoglobin of at least 100 g/L",
     "subset": "handwritten",
     "predicted": {
-     "inclusion": [],
-     "exclusion": []
+     "schema_version": "1.0",
+     "name": "Patients with an EGFR mutation and hemoglobin of at least 100 g/L",
+     "inclusion": [
+      {
+       "type": "biomarker",
+       "markers": [
+        "egfr_exon19del",
+        "egfr_l858r"
+       ],
+       "status": "detected"
+      },
+      {
+       "type": "lab",
+       "lab": "hemoglobin",
+       "op": ">=",
+       "value": 10.0,
+       "value_max": null,
+       "lookback_days": 365
+      }
+     ],
+     "exclusion": [],
+     "as_of_date": null
     },
-    "missing": [
-     "{\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 10.0}",
-     "{\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"detected\", \"type\": \"biomarker\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.557
+    "latency_ms": 0.883,
+    "cohort_pred": 25,
+    "cohort_gold": 25,
+    "cohort_precision": 1.0,
+    "cohort_recall": 1.0
    }
   },
   {
    "item_id": "H032",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "NSCLC patients with WBC above 3 and platelets above 75",
     "subset": "handwritten",
@@ -1426,31 +1488,42 @@
       {
        "type": "diagnosis",
        "condition": "nsclc"
+      },
+      {
+       "type": "lab",
+       "lab": "wbc",
+       "op": ">",
+       "value": 3.0,
+       "value_max": null,
+       "lookback_days": 365
+      },
+      {
+       "type": "lab",
+       "lab": "platelets",
+       "op": ">",
+       "value": 75.0,
+       "value_max": null,
+       "lookback_days": 365
       }
      ],
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"lab\": \"platelets\", \"op\": \">\", \"type\": \"lab\", \"value\": 75.0}",
-     "{\"lab\": \"wbc\", \"op\": \">\", \"type\": \"lab\", \"value\": 3.0}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.346,
-    "cohort_pred": 342,
+    "latency_ms": 0.645,
+    "cohort_pred": 293,
     "cohort_gold": 293,
-    "cohort_precision": 0.8567,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "H033",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Colon cancer patients that are microsatellite stable",
     "subset": "handwritten",
@@ -1461,20 +1534,25 @@
       {
        "type": "diagnosis",
        "condition": "colorectal_cancer"
+      },
+      {
+       "type": "biomarker",
+       "markers": [
+        "msi_high"
+       ],
+       "status": "not_detected"
       }
      ],
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"markers\": [\"msi_high\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.467,
-    "cohort_pred": 236,
+    "latency_ms": 0.92,
+    "cohort_pred": 160,
     "cohort_gold": 160,
-    "cohort_precision": 0.678,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
@@ -1518,7 +1596,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.605,
+    "latency_ms": 0.752,
     "cohort_pred": 4,
     "cohort_gold": 4,
     "cohort_precision": 1.0,
@@ -1527,11 +1605,9 @@
   },
   {
    "item_id": "H035",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Women aged 35 or younger with breast cancer and BRCA1",
     "subset": "handwritten",
@@ -1539,6 +1615,11 @@
      "schema_version": "1.0",
      "name": "Women aged 35 or younger with breast cancer and BRCA1",
      "inclusion": [
+      {
+       "type": "age",
+       "min_years": null,
+       "max_years": 35
+      },
       {
        "type": "sex",
        "sex": "female"
@@ -1558,25 +1639,21 @@
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"max_years\": 35, \"type\": \"age\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.573,
-    "cohort_pred": 2,
+    "latency_ms": 0.716,
+    "cohort_pred": 0,
     "cohort_gold": 0,
-    "cohort_precision": 0.0,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T001",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "How many patients under 75 with non-small-cell lung carcinoma, treatment-naive, total bilirubin below 1.5 mg/dL, ECOG <= 2",
     "subset": "templated",
@@ -1585,8 +1662,21 @@
      "name": "How many patients under 75 with non-small-cell lung carcinoma, treatment-naive, \u2026",
      "inclusion": [
       {
+       "type": "age",
+       "min_years": null,
+       "max_years": 74
+      },
+      {
        "type": "diagnosis",
        "condition": "nsclc"
+      },
+      {
+       "type": "lab",
+       "lab": "bilirubin",
+       "op": "<",
+       "value": 1.5,
+       "value_max": null,
+       "lookback_days": 365
       },
       {
        "type": "lab",
@@ -1597,30 +1687,30 @@
        "lookback_days": 365
       }
      ],
-     "exclusion": [],
+     "exclusion": [
+      {
+       "type": "treatment",
+       "drug_class": "any_systemic_therapy",
+       "drug": null
+      }
+     ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
-     "{\"lab\": \"bilirubin\", \"op\": \"<\", \"type\": \"lab\", \"value\": 1.5}",
-     "{\"max_years\": 74, \"type\": \"age\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 1.136,
-    "cohort_pred": 252,
+    "latency_ms": 1.074,
+    "cohort_pred": 16,
     "cohort_gold": 16,
-    "cohort_precision": 0.0635,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T002",
-   "passed": false,
-   "failure_category": "wrong_polarity",
-   "categories": [
-    "wrong_polarity"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "I need patients aged 18-65 with prostate adenocarcinoma, without HIV",
     "subset": "templated",
@@ -1636,36 +1726,31 @@
       {
        "type": "diagnosis",
        "condition": "prostate_cancer"
-      },
+      }
+     ],
+     "exclusion": [
       {
        "type": "diagnosis",
        "condition": "hiv"
       }
      ],
-     "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"condition\": \"hiv\", \"type\": \"diagnosis\"}"
-    ],
-    "extra": [
-     "{\"condition\": \"hiv\", \"type\": \"diagnosis\"}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 0.673,
-    "cohort_pred": 0,
+    "latency_ms": 0.744,
+    "cohort_pred": 48,
     "cohort_gold": 48,
-    "cohort_precision": 0.0,
-    "cohort_recall": 0.0
+    "cohort_precision": 1.0,
+    "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T003",
-   "passed": false,
-   "failure_category": "wrong_polarity",
-   "categories": [
-    "wrong_polarity"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "I need patients with pancreatic cancer and a germline BRCA mutation, who received prior immunotherapy, without HIV and cirrhosis",
     "subset": "templated",
@@ -1689,7 +1774,9 @@
        "type": "treatment",
        "drug_class": "immunotherapy",
        "drug": null
-      },
+      }
+     ],
+     "exclusion": [
       {
        "type": "diagnosis",
        "condition": "hiv"
@@ -1699,19 +1786,12 @@
        "condition": "cirrhosis"
       }
      ],
-     "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"hiv\", \"type\": \"diagnosis\"}"
-    ],
-    "extra": [
-     "{\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"hiv\", \"type\": \"diagnosis\"}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 0.698,
+    "latency_ms": 0.935,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -1757,20 +1837,18 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.615,
-    "cohort_pred": 19,
-    "cohort_gold": 19,
+    "latency_ms": 0.886,
+    "cohort_pred": 18,
+    "cohort_gold": 18,
     "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T005",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "I need patients with melanoma and BRAF V600E, who received prior immunotherapy, total bilirubin below 1.5 mg/dL, hemoglobin >= 9 g/dL, in Indiana.",
     "subset": "templated",
@@ -1796,37 +1874,45 @@
       },
       {
        "type": "lab",
+       "lab": "bilirubin",
+       "op": "<",
+       "value": 1.5,
+       "value_max": null,
+       "lookback_days": 365
+      },
+      {
+       "type": "lab",
        "lab": "hemoglobin",
        "op": ">=",
        "value": 9.0,
        "value_max": null,
        "lookback_days": 365
+      },
+      {
+       "type": "geography",
+       "states": [
+        "IN"
+       ]
       }
      ],
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"lab\": \"bilirubin\", \"op\": \"<\", \"type\": \"lab\", \"value\": 1.5}",
-     "{\"states\": [\"IN\"], \"type\": \"geography\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 1.222,
-    "cohort_pred": 14,
+    "latency_ms": 2.457,
+    "cohort_pred": 0,
     "cohort_gold": 0,
-    "cohort_precision": 0.0,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T006",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept",
-    "wrong_polarity"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Count patients over 60 with pancreatic cancer and a germline BRCA mutation, without HIV.",
     "subset": "templated",
@@ -1834,6 +1920,11 @@
      "schema_version": "1.0",
      "name": "Count patients over 60 with pancreatic cancer and a germline BRCA mutation, with\u2026",
      "inclusion": [
+      {
+       "type": "age",
+       "min_years": 61,
+       "max_years": null
+      },
       {
        "type": "diagnosis",
        "condition": "pancreatic_cancer"
@@ -1845,38 +1936,31 @@
         "brca2_pathogenic"
        ],
        "status": "detected"
-      },
+      }
+     ],
+     "exclusion": [
       {
        "type": "diagnosis",
        "condition": "hiv"
       }
      ],
-     "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"condition\": \"hiv\", \"type\": \"diagnosis\"}",
-     "{\"min_years\": 61, \"type\": \"age\"}"
-    ],
-    "extra": [
-     "{\"condition\": \"hiv\", \"type\": \"diagnosis\"}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 1.129,
-    "cohort_pred": 0,
+    "latency_ms": 0.885,
+    "cohort_pred": 1,
     "cohort_gold": 1,
-    "cohort_precision": 0.0,
-    "cohort_recall": 0.0
+    "cohort_precision": 1.0,
+    "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T007",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept",
-    "wrong_polarity"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Identify patients with non-small-cell lung carcinoma, hemoglobin of at least 90 g/L, without cirrhosis.",
     "subset": "templated",
@@ -1889,26 +1973,30 @@
        "condition": "nsclc"
       },
       {
+       "type": "lab",
+       "lab": "hemoglobin",
+       "op": ">=",
+       "value": 9.0,
+       "value_max": null,
+       "lookback_days": 365
+      }
+     ],
+     "exclusion": [
+      {
        "type": "diagnosis",
        "condition": "cirrhosis"
       }
      ],
-     "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}",
-     "{\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 9.0}"
-    ],
-    "extra": [
-     "{\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 0.587,
-    "cohort_pred": 6,
+    "latency_ms": 0.836,
+    "cohort_pred": 276,
     "cohort_gold": 276,
-    "cohort_precision": 0.0,
-    "cohort_recall": 0.0
+    "cohort_precision": 1.0,
+    "cohort_recall": 1.0
    }
   },
   {
@@ -1942,7 +2030,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.554,
+    "latency_ms": 0.723,
     "cohort_pred": 1,
     "cohort_gold": 1,
     "cohort_precision": 1.0,
@@ -1951,11 +2039,9 @@
   },
   {
    "item_id": "T009",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Count patients over 40 with CRC and microsatellite stable tumors, with prior platinum-based chemotherapy, ECOG performance status of 0 or 1, living in Ohio; excluding patients with interstitial lung disease.",
     "subset": "templated",
@@ -1964,8 +2050,20 @@
      "name": "Count patients over 40 with CRC and microsatellite stable tumors, with prior pla\u2026",
      "inclusion": [
       {
+       "type": "age",
+       "min_years": 41,
+       "max_years": null
+      },
+      {
        "type": "diagnosis",
        "condition": "colorectal_cancer"
+      },
+      {
+       "type": "biomarker",
+       "markers": [
+        "msi_high"
+       ],
+       "status": "not_detected"
       },
       {
        "type": "treatment",
@@ -1979,6 +2077,12 @@
        "value": 1.0,
        "value_max": null,
        "lookback_days": 365
+      },
+      {
+       "type": "geography",
+       "states": [
+        "OH"
+       ]
       }
      ],
      "exclusion": [
@@ -1989,27 +2093,21 @@
      ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"markers\": [\"msi_high\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}",
-     "{\"min_years\": 41, \"type\": \"age\"}",
-     "{\"states\": [\"OH\"], \"type\": \"geography\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.993,
-    "cohort_pred": 61,
+    "latency_ms": 1.248,
+    "cohort_pred": 5,
     "cohort_gold": 5,
-    "cohort_precision": 0.082,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T010",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "I need patients between 30 and 75 years old with non-small cell lung cancer and EGFR wild-type status.",
     "subset": "templated",
@@ -2025,30 +2123,34 @@
       {
        "type": "diagnosis",
        "condition": "nsclc"
+      },
+      {
+       "type": "biomarker",
+       "markers": [
+        "egfr_exon19del",
+        "egfr_l858r"
+       ],
+       "status": "not_detected"
       }
      ],
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.861,
-    "cohort_pred": 279,
+    "latency_ms": 0.873,
+    "cohort_pred": 156,
     "cohort_gold": 156,
-    "cohort_precision": 0.5591,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T011",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Identify patients over 40 with cutaneous melanoma and BRAF V600E; excluding patients with interstitial lung disease",
     "subset": "templated",
@@ -2056,6 +2158,11 @@
      "schema_version": "1.0",
      "name": "Identify patients over 40 with cutaneous melanoma and BRAF V600E; excluding pati\u2026",
      "inclusion": [
+      {
+       "type": "age",
+       "min_years": 41,
+       "max_years": null
+      },
       {
        "type": "diagnosis",
        "condition": "melanoma"
@@ -2076,26 +2183,21 @@
      ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"min_years\": 41, \"type\": \"age\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.59,
-    "cohort_pred": 33,
+    "latency_ms": 1.062,
+    "cohort_pred": 32,
     "cohort_gold": 32,
-    "cohort_precision": 0.9697,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T012",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept",
-    "wrong_polarity"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Find patients aged 18 or older with non-small cell lung cancer, from Texas or California, without chronic kidney disease.",
     "subset": "templated",
@@ -2104,40 +2206,45 @@
      "name": "Find patients aged 18 or older with non-small cell lung cancer, from Texas or Ca\u2026",
      "inclusion": [
       {
+       "type": "age",
+       "min_years": 18,
+       "max_years": null
+      },
+      {
        "type": "diagnosis",
        "condition": "nsclc"
       },
+      {
+       "type": "geography",
+       "states": [
+        "CA",
+        "TX"
+       ]
+      }
+     ],
+     "exclusion": [
       {
        "type": "diagnosis",
        "condition": "ckd"
       }
      ],
-     "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"condition\": \"ckd\", \"type\": \"diagnosis\"}",
-     "{\"min_years\": 18, \"type\": \"age\"}",
-     "{\"states\": [\"CA\", \"TX\"], \"type\": \"geography\"}"
-    ],
-    "extra": [
-     "{\"condition\": \"ckd\", \"type\": \"diagnosis\"}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 0.718,
-    "cohort_pred": 11,
+    "latency_ms": 0.928,
+    "cohort_pred": 78,
     "cohort_gold": 78,
-    "cohort_precision": 0.0,
-    "cohort_recall": 0.0
+    "cohort_precision": 1.0,
+    "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T013",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Show me patients under 50 with colorectal cancer and BRAF V600E, who received prior immunotherapy, ECOG performance status of 0 or 1, hemoglobin of at least 90 g/L, excluding brain metastases.",
     "subset": "templated",
@@ -2145,6 +2252,11 @@
      "schema_version": "1.0",
      "name": "Show me patients under 50 with colorectal cancer and BRAF V600E, who received pr\u2026",
      "inclusion": [
+      {
+       "type": "age",
+       "min_years": null,
+       "max_years": 49
+      },
       {
        "type": "diagnosis",
        "condition": "colorectal_cancer"
@@ -2168,6 +2280,14 @@
        "value": 1.0,
        "value_max": null,
        "lookback_days": 365
+      },
+      {
+       "type": "lab",
+       "lab": "hemoglobin",
+       "op": ">=",
+       "value": 9.0,
+       "value_max": null,
+       "lookback_days": 365
       }
      ],
      "exclusion": [
@@ -2178,13 +2298,10 @@
      ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 9.0}",
-     "{\"max_years\": 49, \"type\": \"age\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.896,
+    "latency_ms": 1.158,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -2193,11 +2310,9 @@
   },
   {
    "item_id": "T014",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Find patients with prostate cancer and a BRCA2 mutation, treatment-naive, excluding heart failure.",
     "subset": "templated",
@@ -2219,31 +2334,32 @@
      ],
      "exclusion": [
       {
+       "type": "treatment",
+       "drug_class": "any_systemic_therapy",
+       "drug": null
+      },
+      {
        "type": "diagnosis",
        "condition": "heart_failure"
       }
      ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.638,
-    "cohort_pred": 5,
+    "latency_ms": 0.821,
+    "cohort_pred": 1,
     "cohort_gold": 1,
-    "cohort_precision": 0.2,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T015",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "How many patients over 60 with colorectal cancer and BRAF V600E, with prior platinum-based chemotherapy, excluding HIV",
     "subset": "templated",
@@ -2251,6 +2367,11 @@
      "schema_version": "1.0",
      "name": "How many patients over 60 with colorectal cancer and BRAF V600E, with prior plat\u2026",
      "inclusion": [
+      {
+       "type": "age",
+       "min_years": 61,
+       "max_years": null
+      },
       {
        "type": "diagnosis",
        "condition": "colorectal_cancer"
@@ -2276,26 +2397,21 @@
      ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"min_years\": 61, \"type\": \"age\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 1.333,
-    "cohort_pred": 5,
+    "latency_ms": 0.943,
+    "cohort_pred": 4,
     "cohort_gold": 4,
-    "cohort_precision": 0.8,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T016",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept",
-    "wrong_polarity"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Find patients under 75 with colon cancer, previously treated, without heart failure and brain metastases.",
     "subset": "templated",
@@ -2304,6 +2420,11 @@
      "name": "Find patients under 75 with colon cancer, previously treated, without heart fail\u2026",
      "inclusion": [
       {
+       "type": "age",
+       "min_years": null,
+       "max_years": 74
+      },
+      {
        "type": "diagnosis",
        "condition": "colorectal_cancer"
       },
@@ -2311,7 +2432,9 @@
        "type": "treatment",
        "drug_class": "any_systemic_therapy",
        "drug": null
-      },
+      }
+     ],
+     "exclusion": [
       {
        "type": "diagnosis",
        "condition": "heart_failure"
@@ -2321,34 +2444,23 @@
        "condition": "brain_metastases"
       }
      ],
-     "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"heart_failure\", \"type\": \"diagnosis\"}",
-     "{\"max_years\": 74, \"type\": \"age\"}"
-    ],
-    "extra": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"heart_failure\", \"type\": \"diagnosis\"}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 1.514,
-    "cohort_pred": 0,
+    "latency_ms": 0.943,
+    "cohort_pred": 92,
     "cohort_gold": 92,
-    "cohort_precision": 0.0,
-    "cohort_recall": 0.0
+    "cohort_precision": 1.0,
+    "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T017",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept",
-    "wrong_polarity"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "I need patients with breast cancer and a BRCA1/2 mutation, hemoglobin of at least 90 g/L, without brain metastases.",
     "subset": "templated",
@@ -2369,36 +2481,37 @@
        "status": "detected"
       },
       {
+       "type": "lab",
+       "lab": "hemoglobin",
+       "op": ">=",
+       "value": 9.0,
+       "value_max": null,
+       "lookback_days": 365
+      }
+     ],
+     "exclusion": [
+      {
        "type": "diagnosis",
        "condition": "brain_metastases"
       }
      ],
-     "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}",
-     "{\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 9.0}"
-    ],
-    "extra": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 0.641,
-    "cohort_pred": 0,
+    "latency_ms": 1.046,
+    "cohort_pred": 4,
     "cohort_gold": 4,
-    "cohort_precision": 0.0,
-    "cohort_recall": 0.0
+    "cohort_precision": 1.0,
+    "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T018",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept",
-    "wrong_polarity"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Count patients aged 30-75 with non-small-cell lung carcinoma and EGFR-mutant disease, creatinine < 1.5 mg/dL, without cirrhosis",
     "subset": "templated",
@@ -2416,44 +2529,45 @@
        "condition": "nsclc"
       },
       {
+       "type": "biomarker",
+       "markers": [
+        "egfr_exon19del",
+        "egfr_l858r"
+       ],
+       "status": "detected"
+      },
+      {
        "type": "lab",
        "lab": "creatinine",
        "op": "<",
        "value": 1.5,
        "value_max": null,
        "lookback_days": 365
-      },
+      }
+     ],
+     "exclusion": [
       {
        "type": "diagnosis",
        "condition": "cirrhosis"
       }
      ],
-     "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}",
-     "{\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"detected\", \"type\": \"biomarker\"}"
-    ],
-    "extra": [
-     "{\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 1.035,
-    "cohort_pred": 4,
+    "latency_ms": 1.0,
+    "cohort_pred": 21,
     "cohort_gold": 21,
-    "cohort_precision": 0.0,
-    "cohort_recall": 0.0
+    "cohort_precision": 1.0,
+    "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T019",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept",
-    "wrong_polarity"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Find patients between 18 and 65 years old with non-small cell lung cancer and EGFR-mutant disease, ECOG 0-1, without interstitial lung disease",
     "subset": "templated",
@@ -2471,43 +2585,45 @@
        "condition": "nsclc"
       },
       {
+       "type": "biomarker",
+       "markers": [
+        "egfr_exon19del",
+        "egfr_l858r"
+       ],
+       "status": "detected"
+      },
+      {
        "type": "lab",
        "lab": "ecog",
        "op": "<=",
        "value": 1.0,
        "value_max": null,
        "lookback_days": 365
-      },
+      }
+     ],
+     "exclusion": [
       {
        "type": "diagnosis",
        "condition": "interstitial_lung_disease"
       }
      ],
-     "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"condition\": \"interstitial_lung_disease\", \"type\": \"diagnosis\"}",
-     "{\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"detected\", \"type\": \"biomarker\"}"
-    ],
-    "extra": [
-     "{\"condition\": \"interstitial_lung_disease\", \"type\": \"diagnosis\"}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 0.826,
-    "cohort_pred": 3,
+    "latency_ms": 1.043,
+    "cohort_pred": 8,
     "cohort_gold": 8,
-    "cohort_precision": 0.0,
-    "cohort_recall": 0.0
+    "cohort_precision": 1.0,
+    "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T020",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Find patients with pancreatic cancer and a germline BRCA mutation, treatment-naive, excluding HIV.",
     "subset": "templated",
@@ -2530,21 +2646,24 @@
      ],
      "exclusion": [
       {
+       "type": "treatment",
+       "drug_class": "any_systemic_therapy",
+       "drug": null
+      },
+      {
        "type": "diagnosis",
        "condition": "hiv"
       }
      ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.735,
-    "cohort_pred": 1,
+    "latency_ms": 0.823,
+    "cohort_pred": 0,
     "cohort_gold": 0,
-    "cohort_precision": 0.0,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
@@ -2591,7 +2710,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.745,
+    "latency_ms": 1.442,
     "cohort_pred": 10,
     "cohort_gold": 10,
     "cohort_precision": 1.0,
@@ -2600,11 +2719,9 @@
   },
   {
    "item_id": "T022",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Find patients between 50 and 80 years old with breast carcinoma and a BRCA2 mutation, total bilirubin below 1.5 mg/dL.",
     "subset": "templated",
@@ -2627,17 +2744,23 @@
         "brca2_pathogenic"
        ],
        "status": "detected"
+      },
+      {
+       "type": "lab",
+       "lab": "bilirubin",
+       "op": "<",
+       "value": 1.5,
+       "value_max": null,
+       "lookback_days": 365
       }
      ],
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"lab\": \"bilirubin\", \"op\": \"<\", \"type\": \"lab\", \"value\": 1.5}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.726,
+    "latency_ms": 1.028,
     "cohort_pred": 2,
     "cohort_gold": 2,
     "cohort_precision": 1.0,
@@ -2646,11 +2769,9 @@
   },
   {
    "item_id": "T023",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Find patients aged 65 or older with NSCLC and ALK-positive disease, treatment-naive, in Indiana.",
     "subset": "templated",
@@ -2658,6 +2779,11 @@
      "schema_version": "1.0",
      "name": "Find patients aged 65 or older with NSCLC and ALK-positive disease, treatment-na\u2026",
      "inclusion": [
+      {
+       "type": "age",
+       "min_years": 65,
+       "max_years": null
+      },
       {
        "type": "diagnosis",
        "condition": "nsclc"
@@ -2668,32 +2794,38 @@
         "alk_fusion"
        ],
        "status": "detected"
+      },
+      {
+       "type": "geography",
+       "states": [
+        "IN"
+       ]
       }
      ],
-     "exclusion": [],
+     "exclusion": [
+      {
+       "type": "treatment",
+       "drug_class": "any_systemic_therapy",
+       "drug": null
+      }
+     ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
-     "{\"min_years\": 65, \"type\": \"age\"}",
-     "{\"states\": [\"IN\"], \"type\": \"geography\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.615,
-    "cohort_pred": 11,
+    "latency_ms": 0.874,
+    "cohort_pred": 0,
     "cohort_gold": 0,
-    "cohort_precision": 0.0,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T024",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "I need patients aged 50 or older with prostate cancer and a BRCA2 mutation, previously treated.",
     "subset": "templated",
@@ -2701,6 +2833,11 @@
      "schema_version": "1.0",
      "name": "I need patients aged 50 or older with prostate cancer and a BRCA2 mutation, prev\u2026",
      "inclusion": [
+      {
+       "type": "age",
+       "min_years": 50,
+       "max_years": null
+      },
       {
        "type": "diagnosis",
        "condition": "prostate_cancer"
@@ -2721,25 +2858,21 @@
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"min_years\": 50, \"type\": \"age\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.743,
-    "cohort_pred": 2,
+    "latency_ms": 1.371,
+    "cohort_pred": 0,
     "cohort_gold": 0,
-    "cohort_precision": 0.0,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T025",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Show me patients aged 21 or older with prostate adenocarcinoma and a BRCA2 mutation, previously treated with enzalutamide.",
     "subset": "templated",
@@ -2747,6 +2880,11 @@
      "schema_version": "1.0",
      "name": "Show me patients aged 21 or older with prostate adenocarcinoma and a BRCA2 mutat\u2026",
      "inclusion": [
+      {
+       "type": "age",
+       "min_years": 21,
+       "max_years": null
+      },
       {
        "type": "diagnosis",
        "condition": "prostate_cancer"
@@ -2767,12 +2905,10 @@
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"min_years\": 21, \"type\": \"age\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.792,
+    "latency_ms": 1.276,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -2781,11 +2917,9 @@
   },
   {
    "item_id": "T026",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Identify women over 60 with breast cancer.",
     "subset": "templated",
@@ -2793,6 +2927,11 @@
      "schema_version": "1.0",
      "name": "Identify women over 60 with breast cancer.",
      "inclusion": [
+      {
+       "type": "age",
+       "min_years": 61,
+       "max_years": null
+      },
       {
        "type": "sex",
        "sex": "female"
@@ -2805,25 +2944,21 @@
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"min_years\": 61, \"type\": \"age\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.589,
-    "cohort_pred": 118,
+    "latency_ms": 0.677,
+    "cohort_pred": 70,
     "cohort_gold": 70,
-    "cohort_precision": 0.5932,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T027",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "How many patients aged 18 or older with breast cancer and a BRCA1/2 mutation, creatinine < 1.5 mg/dL, hemoglobin of at least 90 g/L, in Indiana",
     "subset": "templated",
@@ -2831,6 +2966,11 @@
      "schema_version": "1.0",
      "name": "How many patients aged 18 or older with breast cancer and a BRCA1/2 mutation, cr\u2026",
      "inclusion": [
+      {
+       "type": "age",
+       "min_years": 18,
+       "max_years": null
+      },
       {
        "type": "diagnosis",
        "condition": "breast_cancer"
@@ -2850,32 +2990,40 @@
        "value": 1.5,
        "value_max": null,
        "lookback_days": 365
+      },
+      {
+       "type": "lab",
+       "lab": "hemoglobin",
+       "op": ">=",
+       "value": 9.0,
+       "value_max": null,
+       "lookback_days": 365
+      },
+      {
+       "type": "geography",
+       "states": [
+        "IN"
+       ]
       }
      ],
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 9.0}",
-     "{\"min_years\": 18, \"type\": \"age\"}",
-     "{\"states\": [\"IN\"], \"type\": \"geography\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 1.198,
-    "cohort_pred": 3,
+    "latency_ms": 1.617,
+    "cohort_pred": 2,
     "cohort_gold": 2,
-    "cohort_precision": 0.6667,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T028",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "How many patients aged 21 or older with melanoma, previously treated.",
     "subset": "templated",
@@ -2883,6 +3031,11 @@
      "schema_version": "1.0",
      "name": "How many patients aged 21 or older with melanoma, previously treated.",
      "inclusion": [
+      {
+       "type": "age",
+       "min_years": 21,
+       "max_years": null
+      },
       {
        "type": "diagnosis",
        "condition": "melanoma"
@@ -2896,12 +3049,10 @@
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"min_years\": 21, \"type\": \"age\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.623,
+    "latency_ms": 0.809,
     "cohort_pred": 49,
     "cohort_gold": 49,
     "cohort_precision": 1.0,
@@ -2936,7 +3087,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.601,
+    "latency_ms": 1.101,
     "cohort_pred": 77,
     "cohort_gold": 77,
     "cohort_precision": 1.0,
@@ -2945,12 +3096,9 @@
   },
   {
    "item_id": "T030",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept",
-    "wrong_polarity"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Find patients with small cell lung cancer, with prior platinum-based chemotherapy, hemoglobin >= 9 g/dL, from Texas or California, without brain metastases and chronic kidney disease.",
     "subset": "templated",
@@ -2976,6 +3124,15 @@
        "lookback_days": 365
       },
       {
+       "type": "geography",
+       "states": [
+        "CA",
+        "TX"
+       ]
+      }
+     ],
+     "exclusion": [
+      {
        "type": "diagnosis",
        "condition": "brain_metastases"
       },
@@ -2984,34 +3141,23 @@
        "condition": "ckd"
       }
      ],
-     "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"ckd\", \"type\": \"diagnosis\"}",
-     "{\"states\": [\"CA\", \"TX\"], \"type\": \"geography\"}"
-    ],
-    "extra": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"ckd\", \"type\": \"diagnosis\"}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 0.782,
-    "cohort_pred": 1,
+    "latency_ms": 1.207,
+    "cohort_pred": 6,
     "cohort_gold": 6,
-    "cohort_precision": 0.0,
-    "cohort_recall": 0.0
+    "cohort_precision": 1.0,
+    "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T031",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept",
-    "wrong_polarity"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Count women over 60 with breast cancer and HER2-negative status, without cirrhosis",
     "subset": "templated",
@@ -3019,6 +3165,11 @@
      "schema_version": "1.0",
      "name": "Count women over 60 with breast cancer and HER2-negative status, without cirrhos\u2026",
      "inclusion": [
+      {
+       "type": "age",
+       "min_years": 61,
+       "max_years": null
+      },
       {
        "type": "sex",
        "sex": "female"
@@ -3028,37 +3179,36 @@
        "condition": "breast_cancer"
       },
       {
+       "type": "biomarker",
+       "markers": [
+        "erbb2_amplification"
+       ],
+       "status": "not_detected"
+      }
+     ],
+     "exclusion": [
+      {
        "type": "diagnosis",
        "condition": "cirrhosis"
       }
      ],
-     "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}",
-     "{\"markers\": [\"erbb2_amplification\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}",
-     "{\"min_years\": 61, \"type\": \"age\"}"
-    ],
-    "extra": [
-     "{\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 0.649,
-    "cohort_pred": 2,
+    "latency_ms": 0.814,
+    "cohort_pred": 47,
     "cohort_gold": 47,
-    "cohort_precision": 0.0,
-    "cohort_recall": 0.0
+    "cohort_precision": 1.0,
+    "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T032",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept",
-    "wrong_polarity"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Count women aged 50 or older with breast carcinoma, hemoglobin >= 9 g/dL, without HIV and cirrhosis.",
     "subset": "templated",
@@ -3066,6 +3216,11 @@
      "schema_version": "1.0",
      "name": "Count women aged 50 or older with breast carcinoma, hemoglobin >= 9 g/dL, withou\u2026",
      "inclusion": [
+      {
+       "type": "age",
+       "min_years": 50,
+       "max_years": null
+      },
       {
        "type": "sex",
        "sex": "female"
@@ -3081,7 +3236,9 @@
        "value": 9.0,
        "value_max": null,
        "lookback_days": 365
-      },
+      }
+     ],
+     "exclusion": [
       {
        "type": "diagnosis",
        "condition": "hiv"
@@ -3091,33 +3248,23 @@
        "condition": "cirrhosis"
       }
      ],
-     "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"hiv\", \"type\": \"diagnosis\"}",
-     "{\"min_years\": 50, \"type\": \"age\"}"
-    ],
-    "extra": [
-     "{\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"hiv\", \"type\": \"diagnosis\"}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 0.934,
-    "cohort_pred": 0,
+    "latency_ms": 1.016,
+    "cohort_pred": 76,
     "cohort_gold": 76,
-    "cohort_precision": 0.0,
-    "cohort_recall": 0.0
+    "cohort_precision": 1.0,
+    "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T033",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Identify patients between 40 and 70 years old with colon cancer and MSI-H tumors, hemoglobin of at least 90 g/L.",
     "subset": "templated",
@@ -3140,30 +3287,34 @@
         "msi_high"
        ],
        "status": "detected"
+      },
+      {
+       "type": "lab",
+       "lab": "hemoglobin",
+       "op": ">=",
+       "value": 9.0,
+       "value_max": null,
+       "lookback_days": 365
       }
      ],
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 9.0}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 1.252,
-    "cohort_pred": 17,
+    "latency_ms": 0.951,
+    "cohort_pred": 15,
     "cohort_gold": 15,
-    "cohort_precision": 0.8824,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T034",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Find men under 75 with prostate adenocarcinoma and a BRCA2 mutation, previously treated with enzalutamide.",
     "subset": "templated",
@@ -3171,6 +3322,11 @@
      "schema_version": "1.0",
      "name": "Find men under 75 with prostate adenocarcinoma and a BRCA2 mutation, previously \u2026",
      "inclusion": [
+      {
+       "type": "age",
+       "min_years": null,
+       "max_years": 74
+      },
       {
        "type": "sex",
        "sex": "male"
@@ -3195,12 +3351,10 @@
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"max_years\": 74, \"type\": \"age\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 1.043,
+    "latency_ms": 0.909,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -3209,11 +3363,9 @@
   },
   {
    "item_id": "T035",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "I need patients over 70 with prostate adenocarcinoma and a BRCA2 mutation, who received prior immunotherapy, total bilirubin below 1.5 mg/dL, ECOG <= 2; excluding patients with HIV.",
     "subset": "templated",
@@ -3221,6 +3373,11 @@
      "schema_version": "1.0",
      "name": "I need patients over 70 with prostate adenocarcinoma and a BRCA2 mutation, who r\u2026",
      "inclusion": [
+      {
+       "type": "age",
+       "min_years": 71,
+       "max_years": null
+      },
       {
        "type": "diagnosis",
        "condition": "prostate_cancer"
@@ -3239,6 +3396,14 @@
       },
       {
        "type": "lab",
+       "lab": "bilirubin",
+       "op": "<",
+       "value": 1.5,
+       "value_max": null,
+       "lookback_days": 365
+      },
+      {
+       "type": "lab",
        "lab": "ecog",
        "op": "<=",
        "value": 2.0,
@@ -3254,13 +3419,10 @@
      ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"lab\": \"bilirubin\", \"op\": \"<\", \"type\": \"lab\", \"value\": 1.5}",
-     "{\"min_years\": 71, \"type\": \"age\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.868,
+    "latency_ms": 1.241,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -3310,7 +3472,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.747,
+    "latency_ms": 1.135,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -3319,11 +3481,9 @@
   },
   {
    "item_id": "T037",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Identify patients between 40 and 70 years old with breast cancer and HER2-negative status, treatment-naive, ECOG 0-1.",
     "subset": "templated",
@@ -3341,6 +3501,13 @@
        "condition": "breast_cancer"
       },
       {
+       "type": "biomarker",
+       "markers": [
+        "erbb2_amplification"
+       ],
+       "status": "not_detected"
+      },
+      {
        "type": "lab",
        "lab": "ecog",
        "op": "<=",
@@ -3349,30 +3516,30 @@
        "lookback_days": 365
       }
      ],
-     "exclusion": [],
+     "exclusion": [
+      {
+       "type": "treatment",
+       "drug_class": "any_systemic_therapy",
+       "drug": null
+      }
+     ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
-     "{\"markers\": [\"erbb2_amplification\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.716,
-    "cohort_pred": 41,
+    "latency_ms": 1.012,
+    "cohort_pred": 5,
     "cohort_gold": 5,
-    "cohort_precision": 0.122,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T038",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept",
-    "wrong_polarity"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Count patients with colon cancer and microsatellite stable tumors, from Texas or California, without cirrhosis",
     "subset": "templated",
@@ -3385,37 +3552,43 @@
        "condition": "colorectal_cancer"
       },
       {
+       "type": "biomarker",
+       "markers": [
+        "msi_high"
+       ],
+       "status": "not_detected"
+      },
+      {
+       "type": "geography",
+       "states": [
+        "CA",
+        "TX"
+       ]
+      }
+     ],
+     "exclusion": [
+      {
        "type": "diagnosis",
        "condition": "cirrhosis"
       }
      ],
-     "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}",
-     "{\"markers\": [\"msi_high\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}",
-     "{\"states\": [\"CA\", \"TX\"], \"type\": \"geography\"}"
-    ],
-    "extra": [
-     "{\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 0.614,
-    "cohort_pred": 1,
+    "latency_ms": 0.928,
+    "cohort_pred": 22,
     "cohort_gold": 22,
-    "cohort_precision": 0.0,
-    "cohort_recall": 0.0
+    "cohort_precision": 1.0,
+    "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T039",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept",
-    "wrong_polarity"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Show me men aged 65 or older with prostate adenocarcinoma and a BRCA2 mutation, without cirrhosis and HIV.",
     "subset": "templated",
@@ -3423,6 +3596,11 @@
      "schema_version": "1.0",
      "name": "Show me men aged 65 or older with prostate adenocarcinoma and a BRCA2 mutation, \u2026",
      "inclusion": [
+      {
+       "type": "age",
+       "min_years": 65,
+       "max_years": null
+      },
       {
        "type": "sex",
        "sex": "male"
@@ -3437,7 +3615,9 @@
         "brca2_pathogenic"
        ],
        "status": "detected"
-      },
+      }
+     ],
+     "exclusion": [
       {
        "type": "diagnosis",
        "condition": "cirrhosis"
@@ -3447,24 +3627,16 @@
        "condition": "hiv"
       }
      ],
-     "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"hiv\", \"type\": \"diagnosis\"}",
-     "{\"min_years\": 65, \"type\": \"age\"}"
-    ],
-    "extra": [
-     "{\"condition\": \"cirrhosis\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"hiv\", \"type\": \"diagnosis\"}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 0.661,
-    "cohort_pred": 0,
+    "latency_ms": 1.508,
+    "cohort_pred": 1,
     "cohort_gold": 1,
-    "cohort_precision": 0.0,
-    "cohort_recall": 0.0
+    "cohort_precision": 1.0,
+    "cohort_recall": 1.0
    }
   },
   {
@@ -3507,7 +3679,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.686,
+    "latency_ms": 0.885,
     "cohort_pred": 8,
     "cohort_gold": 8,
     "cohort_precision": 1.0,
@@ -3558,7 +3730,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.901,
+    "latency_ms": 1.022,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -3605,7 +3777,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.738,
+    "latency_ms": 1.521,
     "cohort_pred": 2,
     "cohort_gold": 2,
     "cohort_precision": 1.0,
@@ -3614,11 +3786,9 @@
   },
   {
    "item_id": "T043",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "I need patients aged 40-70 with breast cancer and HER2-negative status; excluding patients with HIV and interstitial lung disease",
     "subset": "templated",
@@ -3634,6 +3804,13 @@
       {
        "type": "diagnosis",
        "condition": "breast_cancer"
+      },
+      {
+       "type": "biomarker",
+       "markers": [
+        "erbb2_amplification"
+       ],
+       "status": "not_detected"
       }
      ],
      "exclusion": [
@@ -3648,25 +3825,21 @@
      ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"markers\": [\"erbb2_amplification\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.711,
-    "cohort_pred": 85,
+    "latency_ms": 1.721,
+    "cohort_pred": 60,
     "cohort_gold": 60,
-    "cohort_precision": 0.7059,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T044",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Count patients over 60 with pancreatic adenocarcinoma and a germline BRCA mutation, with prior platinum-based chemotherapy",
     "subset": "templated",
@@ -3674,6 +3847,11 @@
      "schema_version": "1.0",
      "name": "Count patients over 60 with pancreatic adenocarcinoma and a germline BRCA mutati\u2026",
      "inclusion": [
+      {
+       "type": "age",
+       "min_years": 61,
+       "max_years": null
+      },
       {
        "type": "diagnosis",
        "condition": "pancreatic_cancer"
@@ -3695,12 +3873,10 @@
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"min_years\": 61, \"type\": \"age\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.812,
+    "latency_ms": 1.086,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -3709,12 +3885,9 @@
   },
   {
    "item_id": "T045",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept",
-    "wrong_polarity"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Find women between 18 and 65 years old with breast carcinoma and HER2-negative status, without prior immunotherapy",
     "subset": "templated",
@@ -3736,36 +3909,37 @@
        "condition": "breast_cancer"
       },
       {
+       "type": "biomarker",
+       "markers": [
+        "erbb2_amplification"
+       ],
+       "status": "not_detected"
+      }
+     ],
+     "exclusion": [
+      {
        "type": "treatment",
        "drug_class": "immunotherapy",
        "drug": null
       }
      ],
-     "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"drug_class\": \"immunotherapy\", \"type\": \"treatment\"}",
-     "{\"markers\": [\"erbb2_amplification\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}"
-    ],
-    "extra": [
-     "{\"drug_class\": \"immunotherapy\", \"type\": \"treatment\"}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 0.816,
-    "cohort_pred": 0,
+    "latency_ms": 0.925,
+    "cohort_pred": 33,
     "cohort_gold": 33,
-    "cohort_precision": 0.0,
-    "cohort_recall": 0.0
+    "cohort_precision": 1.0,
+    "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T046",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "How many patients with prostate adenocarcinoma, with prior platinum-based chemotherapy, in Indiana; excluding patients with interstitial lung disease and prior immunotherapy.",
     "subset": "templated",
@@ -3781,6 +3955,12 @@
        "type": "treatment",
        "drug_class": "platinum_chemotherapy",
        "drug": null
+      },
+      {
+       "type": "geography",
+       "states": [
+        "IN"
+       ]
       }
      ],
      "exclusion": [
@@ -3796,12 +3976,10 @@
      ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"states\": [\"IN\"], \"type\": \"geography\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.765,
+    "latency_ms": 1.087,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -3810,11 +3988,9 @@
   },
   {
    "item_id": "T047",
-   "passed": false,
-   "failure_category": "wrong_value",
-   "categories": [
-    "wrong_value"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Identify patients with small cell lung cancer, creatinine < 1.5 mg/dL, platelets >= 100,000/uL",
     "subset": "templated",
@@ -3838,7 +4014,7 @@
        "type": "lab",
        "lab": "platelets",
        "op": ">=",
-       "value": 100000.0,
+       "value": 100.0,
        "value_max": null,
        "lookback_days": 365
       }
@@ -3846,27 +4022,21 @@
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100.0}"
-    ],
-    "extra": [
-     "{\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100000.0}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 1.051,
-    "cohort_pred": 0,
+    "latency_ms": 0.804,
+    "cohort_pred": 59,
     "cohort_gold": 59,
-    "cohort_precision": 0.0,
-    "cohort_recall": 0.0
+    "cohort_precision": 1.0,
+    "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T048",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Count patients between 50 and 80 years old with breast carcinoma and HER2-negative status, treatment-naive, platelets >= 100,000/uL.",
     "subset": "templated",
@@ -3884,40 +4054,45 @@
        "condition": "breast_cancer"
       },
       {
+       "type": "biomarker",
+       "markers": [
+        "erbb2_amplification"
+       ],
+       "status": "not_detected"
+      },
+      {
        "type": "lab",
        "lab": "platelets",
        "op": ">=",
-       "value": 100000.0,
+       "value": 100.0,
        "value_max": null,
        "lookback_days": 365
       }
      ],
-     "exclusion": [],
+     "exclusion": [
+      {
+       "type": "treatment",
+       "drug_class": "any_systemic_therapy",
+       "drug": null
+      }
+     ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
-     "{\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100.0}",
-     "{\"markers\": [\"erbb2_amplification\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}"
-    ],
-    "extra": [
-     "{\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100000.0}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 0.693,
-    "cohort_pred": 0,
+    "latency_ms": 2.038,
+    "cohort_pred": 9,
     "cohort_gold": 9,
-    "cohort_precision": 0.0,
-    "cohort_recall": 0.0
+    "cohort_precision": 1.0,
+    "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T049",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Count patients with NSCLC and EGFR wild-type status, treatment-naive.",
     "subset": "templated",
@@ -3928,31 +4103,40 @@
       {
        "type": "diagnosis",
        "condition": "nsclc"
+      },
+      {
+       "type": "biomarker",
+       "markers": [
+        "egfr_exon19del",
+        "egfr_l858r"
+       ],
+       "status": "not_detected"
       }
      ],
-     "exclusion": [],
+     "exclusion": [
+      {
+       "type": "treatment",
+       "drug_class": "any_systemic_therapy",
+       "drug": null
+      }
+     ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
-     "{\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"not_detected\", \"type\": \"biomarker\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.513,
-    "cohort_pred": 342,
+    "latency_ms": 1.097,
+    "cohort_pred": 22,
     "cohort_gold": 22,
-    "cohort_precision": 0.0643,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T050",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "How many patients aged 18 or older with non-small-cell lung carcinoma and EGFR-mutant disease, ECOG <= 2, hemoglobin of at least 90 g/L; excluding patients with heart failure.",
     "subset": "templated",
@@ -3961,14 +4145,35 @@
      "name": "How many patients aged 18 or older with non-small-cell lung carcinoma and EGFR-m\u2026",
      "inclusion": [
       {
+       "type": "age",
+       "min_years": 18,
+       "max_years": null
+      },
+      {
        "type": "diagnosis",
        "condition": "nsclc"
+      },
+      {
+       "type": "biomarker",
+       "markers": [
+        "egfr_exon19del",
+        "egfr_l858r"
+       ],
+       "status": "detected"
       },
       {
        "type": "lab",
        "lab": "ecog",
        "op": "<=",
        "value": 2.0,
+       "value_max": null,
+       "lookback_days": 365
+      },
+      {
+       "type": "lab",
+       "lab": "hemoglobin",
+       "op": ">=",
+       "value": 9.0,
        "value_max": null,
        "lookback_days": 365
       }
@@ -3981,17 +4186,13 @@
      ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 9.0}",
-     "{\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"detected\", \"type\": \"biomarker\"}",
-     "{\"min_years\": 18, \"type\": \"age\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.868,
-    "cohort_pred": 243,
+    "latency_ms": 1.207,
+    "cohort_pred": 17,
     "cohort_gold": 17,
-    "cohort_precision": 0.07,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
@@ -4035,7 +4236,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.915,
+    "latency_ms": 1.086,
     "cohort_pred": 9,
     "cohort_gold": 9,
     "cohort_precision": 1.0,
@@ -4044,12 +4245,9 @@
   },
   {
    "item_id": "T052",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept",
-    "wrong_polarity"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Identify patients aged 65 or older with CRC and BRAF V600E, hemoglobin >= 9 g/dL, without interstitial lung disease.",
     "subset": "templated",
@@ -4057,6 +4255,11 @@
      "schema_version": "1.0",
      "name": "Identify patients aged 65 or older with CRC and BRAF V600E, hemoglobin >= 9 g/dL\u2026",
      "inclusion": [
+      {
+       "type": "age",
+       "min_years": 65,
+       "max_years": null
+      },
       {
        "type": "diagnosis",
        "condition": "colorectal_cancer"
@@ -4075,37 +4278,31 @@
        "value": 9.0,
        "value_max": null,
        "lookback_days": 365
-      },
+      }
+     ],
+     "exclusion": [
       {
        "type": "diagnosis",
        "condition": "interstitial_lung_disease"
       }
      ],
-     "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"condition\": \"interstitial_lung_disease\", \"type\": \"diagnosis\"}",
-     "{\"min_years\": 65, \"type\": \"age\"}"
-    ],
-    "extra": [
-     "{\"condition\": \"interstitial_lung_disease\", \"type\": \"diagnosis\"}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 0.81,
-    "cohort_pred": 0,
+    "latency_ms": 1.527,
+    "cohort_pred": 6,
     "cohort_gold": 6,
-    "cohort_precision": 0.0,
-    "cohort_recall": 0.0
+    "cohort_precision": 1.0,
+    "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T053",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Show me patients under 65 with colorectal cancer and MSI-H tumors, platelets >= 100,000/uL, creatinine < 1.5 mg/dL.",
     "subset": "templated",
@@ -4113,6 +4310,11 @@
      "schema_version": "1.0",
      "name": "Show me patients under 65 with colorectal cancer and MSI-H tumors, platelets >= \u2026",
      "inclusion": [
+      {
+       "type": "age",
+       "min_years": null,
+       "max_years": 64
+      },
       {
        "type": "diagnosis",
        "condition": "colorectal_cancer"
@@ -4128,7 +4330,7 @@
        "type": "lab",
        "lab": "platelets",
        "op": ">=",
-       "value": 100000.0,
+       "value": 100.0,
        "value_max": null,
        "lookback_days": 365
       },
@@ -4144,29 +4346,21 @@
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100.0}",
-     "{\"max_years\": 64, \"type\": \"age\"}"
-    ],
-    "extra": [
-     "{\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100000.0}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 1.211,
-    "cohort_pred": 0,
+    "latency_ms": 1.705,
+    "cohort_pred": 13,
     "cohort_gold": 13,
-    "cohort_precision": 0.0,
-    "cohort_recall": 0.0
+    "cohort_precision": 1.0,
+    "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T054",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept",
-    "wrong_polarity"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "How many patients with non-small-cell lung carcinoma and EGFR-mutant disease, treatment-naive, ECOG performance status of 0 or 1, without brain metastases",
     "subset": "templated",
@@ -4179,44 +4373,50 @@
        "condition": "nsclc"
       },
       {
+       "type": "biomarker",
+       "markers": [
+        "egfr_exon19del",
+        "egfr_l858r"
+       ],
+       "status": "detected"
+      },
+      {
        "type": "lab",
        "lab": "ecog",
        "op": "<=",
        "value": 1.0,
        "value_max": null,
        "lookback_days": 365
+      }
+     ],
+     "exclusion": [
+      {
+       "type": "treatment",
+       "drug_class": "any_systemic_therapy",
+       "drug": null
       },
       {
        "type": "diagnosis",
        "condition": "brain_metastases"
       }
      ],
-     "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}",
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
-     "{\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"detected\", \"type\": \"biomarker\"}"
-    ],
-    "extra": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 0.772,
-    "cohort_pred": 25,
+    "latency_ms": 1.716,
+    "cohort_pred": 0,
     "cohort_gold": 0,
-    "cohort_precision": 0.0,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T055",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Identify patients aged 30-75 with non-small-cell lung carcinoma and ALK-positive disease, treatment-naive, hemoglobin >= 9 g/dL.",
     "subset": "templated",
@@ -4249,18 +4449,22 @@
        "lookback_days": 365
       }
      ],
-     "exclusion": [],
+     "exclusion": [
+      {
+       "type": "treatment",
+       "drug_class": "any_systemic_therapy",
+       "drug": null
+      }
+     ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.807,
-    "cohort_pred": 7,
+    "latency_ms": 1.056,
+    "cohort_pred": 2,
     "cohort_gold": 2,
-    "cohort_precision": 0.2857,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
@@ -4299,7 +4503,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.881,
+    "latency_ms": 0.738,
     "cohort_pred": 23,
     "cohort_gold": 23,
     "cohort_precision": 1.0,
@@ -4342,7 +4546,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 1.045,
+    "latency_ms": 1.336,
     "cohort_pred": 1,
     "cohort_gold": 1,
     "cohort_precision": 1.0,
@@ -4351,11 +4555,9 @@
   },
   {
    "item_id": "T058",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Identify patients under 75 with melanoma and BRAF V600E, with prior platinum-based chemotherapy; excluding patients with interstitial lung disease",
     "subset": "templated",
@@ -4363,6 +4565,11 @@
      "schema_version": "1.0",
      "name": "Identify patients under 75 with melanoma and BRAF V600E, with prior platinum-bas\u2026",
      "inclusion": [
+      {
+       "type": "age",
+       "min_years": null,
+       "max_years": 74
+      },
       {
        "type": "diagnosis",
        "condition": "melanoma"
@@ -4388,12 +4595,10 @@
      ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"max_years\": 74, \"type\": \"age\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 1.158,
+    "latency_ms": 1.718,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -4442,7 +4647,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 1.247,
+    "latency_ms": 1.03,
     "cohort_pred": 1,
     "cohort_gold": 1,
     "cohort_precision": 1.0,
@@ -4451,11 +4656,9 @@
   },
   {
    "item_id": "T060",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "I need patients with prostate adenocarcinoma, treatment-naive.",
     "subset": "templated",
@@ -4468,28 +4671,30 @@
        "condition": "prostate_cancer"
       }
      ],
-     "exclusion": [],
+     "exclusion": [
+      {
+       "type": "treatment",
+       "drug_class": "any_systemic_therapy",
+       "drug": null
+      }
+     ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.524,
-    "cohort_pred": 77,
+    "latency_ms": 0.625,
+    "cohort_pred": 11,
     "cohort_gold": 11,
-    "cohort_precision": 0.1429,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T061",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Show me patients between 50 and 80 years old with non-small-cell lung carcinoma and EGFR-mutant disease, after an EGFR TKI, hemoglobin >= 9 g/dL, in Indiana.",
     "subset": "templated",
@@ -4507,6 +4712,14 @@
        "condition": "nsclc"
       },
       {
+       "type": "biomarker",
+       "markers": [
+        "egfr_exon19del",
+        "egfr_l858r"
+       ],
+       "status": "detected"
+      },
+      {
        "type": "treatment",
        "drug_class": "egfr_tki",
        "drug": null
@@ -4518,21 +4731,24 @@
        "value": 9.0,
        "value_max": null,
        "lookback_days": 365
+      },
+      {
+       "type": "geography",
+       "states": [
+        "IN"
+       ]
       }
      ],
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"markers\": [\"egfr_exon19del\", \"egfr_l858r\"], \"status\": \"detected\", \"type\": \"biomarker\"}",
-     "{\"states\": [\"IN\"], \"type\": \"geography\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.832,
-    "cohort_pred": 20,
+    "latency_ms": 1.177,
+    "cohort_pred": 1,
     "cohort_gold": 1,
-    "cohort_precision": 0.05,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
@@ -4585,7 +4801,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 1.565,
+    "latency_ms": 2.133,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -4594,11 +4810,9 @@
   },
   {
    "item_id": "T063",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Find patients between 18 and 65 years old with colorectal cancer and KRAS G12C, treatment-naive, excluding brain metastases and chronic kidney disease.",
     "subset": "templated",
@@ -4625,6 +4839,11 @@
      ],
      "exclusion": [
       {
+       "type": "treatment",
+       "drug_class": "any_systemic_therapy",
+       "drug": null
+      },
+      {
        "type": "diagnosis",
        "condition": "brain_metastases"
       },
@@ -4635,25 +4854,21 @@
      ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 1.342,
-    "cohort_pred": 4,
+    "latency_ms": 1.207,
+    "cohort_pred": 0,
     "cohort_gold": 0,
-    "cohort_precision": 0.0,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T064",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Identify patients with NSCLC, hemoglobin of at least 90 g/L",
     "subset": "templated",
@@ -4664,20 +4879,26 @@
       {
        "type": "diagnosis",
        "condition": "nsclc"
+      },
+      {
+       "type": "lab",
+       "lab": "hemoglobin",
+       "op": ">=",
+       "value": 9.0,
+       "value_max": null,
+       "lookback_days": 365
       }
      ],
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 9.0}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.506,
-    "cohort_pred": 342,
+    "latency_ms": 0.858,
+    "cohort_pred": 282,
     "cohort_gold": 282,
-    "cohort_precision": 0.8246,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
@@ -4719,7 +4940,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 1.244,
+    "latency_ms": 0.745,
     "cohort_pred": 22,
     "cohort_gold": 22,
     "cohort_precision": 1.0,
@@ -4770,7 +4991,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 1.244,
+    "latency_ms": 1.082,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -4779,11 +5000,9 @@
   },
   {
    "item_id": "T067",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "I need patients aged 21 or older with SCLC, who received prior immunotherapy, ECOG <= 2.",
     "subset": "templated",
@@ -4791,6 +5010,11 @@
      "schema_version": "1.0",
      "name": "I need patients aged 21 or older with SCLC, who received prior immunotherapy, EC\u2026",
      "inclusion": [
+      {
+       "type": "age",
+       "min_years": 21,
+       "max_years": null
+      },
       {
        "type": "diagnosis",
        "condition": "sclc"
@@ -4812,25 +5036,21 @@
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"min_years\": 21, \"type\": \"age\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.906,
-    "cohort_pred": 43,
+    "latency_ms": 0.917,
+    "cohort_pred": 42,
     "cohort_gold": 42,
-    "cohort_precision": 0.9767,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T068",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "I need patients under 75 with NSCLC.",
     "subset": "templated",
@@ -4839,6 +5059,11 @@
      "name": "I need patients under 75 with NSCLC.",
      "inclusion": [
       {
+       "type": "age",
+       "min_years": null,
+       "max_years": 74
+      },
+      {
        "type": "diagnosis",
        "condition": "nsclc"
       }
@@ -4846,25 +5071,21 @@
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"max_years\": 74, \"type\": \"age\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.458,
-    "cohort_pred": 342,
-    "cohort_gold": 270,
-    "cohort_precision": 0.7895,
+    "latency_ms": 0.582,
+    "cohort_pred": 269,
+    "cohort_gold": 269,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T069",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Count patients with breast carcinoma, with prior platinum-based chemotherapy, total bilirubin below 1.5 mg/dL, hemoglobin >= 9 g/dL.",
     "subset": "templated",
@@ -4883,6 +5104,14 @@
       },
       {
        "type": "lab",
+       "lab": "bilirubin",
+       "op": "<",
+       "value": 1.5,
+       "value_max": null,
+       "lookback_days": 365
+      },
+      {
+       "type": "lab",
        "lab": "hemoglobin",
        "op": ">=",
        "value": 9.0,
@@ -4893,12 +5122,10 @@
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"lab\": \"bilirubin\", \"op\": \"<\", \"type\": \"lab\", \"value\": 1.5}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.719,
+    "latency_ms": 1.688,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -4907,11 +5134,9 @@
   },
   {
    "item_id": "T070",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "I need patients aged 18 or older with melanoma and BRAF V600E, previously treated, platelets >= 100,000/uL, in Indiana.",
     "subset": "templated",
@@ -4919,6 +5144,11 @@
      "schema_version": "1.0",
      "name": "I need patients aged 18 or older with melanoma and BRAF V600E, previously treate\u2026",
      "inclusion": [
+      {
+       "type": "age",
+       "min_years": 18,
+       "max_years": null
+      },
       {
        "type": "diagnosis",
        "condition": "melanoma"
@@ -4939,24 +5169,24 @@
        "type": "lab",
        "lab": "platelets",
        "op": ">=",
-       "value": 100000.0,
+       "value": 100.0,
        "value_max": null,
        "lookback_days": 365
+      },
+      {
+       "type": "geography",
+       "states": [
+        "IN"
+       ]
       }
      ],
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100.0}",
-     "{\"min_years\": 18, \"type\": \"age\"}",
-     "{\"states\": [\"IN\"], \"type\": \"geography\"}"
-    ],
-    "extra": [
-     "{\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100000.0}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 0.751,
+    "latency_ms": 1.075,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -4965,11 +5195,9 @@
   },
   {
    "item_id": "T071",
-   "passed": false,
-   "failure_category": "wrong_value",
-   "categories": [
-    "wrong_value"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Show me patients aged 30-75 with SCLC, previously treated, platelets >= 100,000/uL, excluding brain metastases.",
     "subset": "templated",
@@ -4995,7 +5223,7 @@
        "type": "lab",
        "lab": "platelets",
        "op": ">=",
-       "value": 100000.0,
+       "value": 100.0,
        "value_max": null,
        "lookback_days": 365
       }
@@ -5008,27 +5236,21 @@
      ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100.0}"
-    ],
-    "extra": [
-     "{\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100000.0}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 0.763,
-    "cohort_pred": 0,
+    "latency_ms": 1.163,
+    "cohort_pred": 35,
     "cohort_gold": 35,
-    "cohort_precision": 0.0,
-    "cohort_recall": 0.0
+    "cohort_precision": 1.0,
+    "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T072",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Identify patients under 65 with prostate adenocarcinoma and a BRCA2 mutation, treatment-naive, ECOG <= 2.",
     "subset": "templated",
@@ -5036,6 +5258,11 @@
      "schema_version": "1.0",
      "name": "Identify patients under 65 with prostate adenocarcinoma and a BRCA2 mutation, tr\u2026",
      "inclusion": [
+      {
+       "type": "age",
+       "min_years": null,
+       "max_years": 64
+      },
       {
        "type": "diagnosis",
        "condition": "prostate_cancer"
@@ -5056,30 +5283,30 @@
        "lookback_days": 365
       }
      ],
-     "exclusion": [],
+     "exclusion": [
+      {
+       "type": "treatment",
+       "drug_class": "any_systemic_therapy",
+       "drug": null
+      }
+     ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
-     "{\"max_years\": 64, \"type\": \"age\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.69,
-    "cohort_pred": 4,
+    "latency_ms": 0.871,
+    "cohort_pred": 0,
     "cohort_gold": 0,
-    "cohort_precision": 0.0,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T073",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept",
-    "wrong_polarity"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Show me patients between 18 and 65 years old with prostate adenocarcinoma, treatment-naive, without brain metastases.",
     "subset": "templated",
@@ -5095,37 +5322,36 @@
       {
        "type": "diagnosis",
        "condition": "prostate_cancer"
+      }
+     ],
+     "exclusion": [
+      {
+       "type": "treatment",
+       "drug_class": "any_systemic_therapy",
+       "drug": null
       },
       {
        "type": "diagnosis",
        "condition": "brain_metastases"
       }
      ],
-     "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}",
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}"
-    ],
-    "extra": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 0.659,
-    "cohort_pred": 0,
+    "latency_ms": 1.992,
+    "cohort_pred": 5,
     "cohort_gold": 5,
-    "cohort_precision": 0.0,
-    "cohort_recall": 0.0
+    "cohort_precision": 1.0,
+    "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T074",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Count patients between 40 and 70 years old with colorectal cancer and BRAF V600E, treatment-naive, hemoglobin of at least 90 g/L, creatinine < 1.5 mg/dL; excluding patients with cirrhosis",
     "subset": "templated",
@@ -5151,6 +5377,14 @@
       },
       {
        "type": "lab",
+       "lab": "hemoglobin",
+       "op": ">=",
+       "value": 9.0,
+       "value_max": null,
+       "lookback_days": 365
+      },
+      {
+       "type": "lab",
        "lab": "creatinine",
        "op": "<",
        "value": 1.5,
@@ -5160,22 +5394,24 @@
      ],
      "exclusion": [
       {
+       "type": "treatment",
+       "drug_class": "any_systemic_therapy",
+       "drug": null
+      },
+      {
        "type": "diagnosis",
        "condition": "cirrhosis"
       }
      ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
-     "{\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 9.0}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 1.252,
-    "cohort_pred": 5,
+    "latency_ms": 2.026,
+    "cohort_pred": 1,
     "cohort_gold": 1,
-    "cohort_precision": 0.2,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
@@ -5218,7 +5454,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.626,
+    "latency_ms": 0.878,
     "cohort_pred": 5,
     "cohort_gold": 5,
     "cohort_precision": 1.0,
@@ -5227,11 +5463,9 @@
   },
   {
    "item_id": "T076",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Show me patients with breast cancer and a BRCA2 mutation, hemoglobin of at least 90 g/L, living in Ohio, excluding interstitial lung disease",
     "subset": "templated",
@@ -5249,6 +5483,20 @@
         "brca2_pathogenic"
        ],
        "status": "detected"
+      },
+      {
+       "type": "lab",
+       "lab": "hemoglobin",
+       "op": ">=",
+       "value": 9.0,
+       "value_max": null,
+       "lookback_days": 365
+      },
+      {
+       "type": "geography",
+       "states": [
+        "OH"
+       ]
       }
      ],
      "exclusion": [
@@ -5259,16 +5507,13 @@
      ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"lab\": \"hemoglobin\", \"op\": \">=\", \"type\": \"lab\", \"value\": 9.0}",
-     "{\"states\": [\"OH\"], \"type\": \"geography\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 1.021,
-    "cohort_pred": 2,
+    "latency_ms": 1.04,
+    "cohort_pred": 0,
     "cohort_gold": 0,
-    "cohort_precision": 0.0,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
@@ -5303,7 +5548,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.619,
+    "latency_ms": 0.807,
     "cohort_pred": 1,
     "cohort_gold": 1,
     "cohort_precision": 1.0,
@@ -5312,11 +5557,9 @@
   },
   {
    "item_id": "T078",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Count patients aged 65 or older with prostate adenocarcinoma and a BRCA2 mutation, who received prior immunotherapy, from Texas or California, excluding brain metastases and HIV.",
     "subset": "templated",
@@ -5324,6 +5567,11 @@
      "schema_version": "1.0",
      "name": "Count patients aged 65 or older with prostate adenocarcinoma and a BRCA2 mutatio\u2026",
      "inclusion": [
+      {
+       "type": "age",
+       "min_years": 65,
+       "max_years": null
+      },
       {
        "type": "diagnosis",
        "condition": "prostate_cancer"
@@ -5339,6 +5587,13 @@
        "type": "treatment",
        "drug_class": "immunotherapy",
        "drug": null
+      },
+      {
+       "type": "geography",
+       "states": [
+        "CA",
+        "TX"
+       ]
       }
      ],
      "exclusion": [
@@ -5353,13 +5608,10 @@
      ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"min_years\": 65, \"type\": \"age\"}",
-     "{\"states\": [\"CA\", \"TX\"], \"type\": \"geography\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.855,
+    "latency_ms": 1.167,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -5368,11 +5620,9 @@
   },
   {
    "item_id": "T079",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Find men aged 50 or older with prostate adenocarcinoma and a BRCA2 mutation, treatment-naive, hemoglobin >= 9 g/dL.",
     "subset": "templated",
@@ -5380,6 +5630,11 @@
      "schema_version": "1.0",
      "name": "Find men aged 50 or older with prostate adenocarcinoma and a BRCA2 mutation, tre\u2026",
      "inclusion": [
+      {
+       "type": "age",
+       "min_years": 50,
+       "max_years": null
+      },
       {
        "type": "sex",
        "sex": "male"
@@ -5404,19 +5659,22 @@
        "lookback_days": 365
       }
      ],
-     "exclusion": [],
+     "exclusion": [
+      {
+       "type": "treatment",
+       "drug_class": "any_systemic_therapy",
+       "drug": null
+      }
+     ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"drug_class\": \"any_systemic_therapy\", \"type\": \"treatment\"}",
-     "{\"min_years\": 50, \"type\": \"age\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.862,
-    "cohort_pred": 4,
+    "latency_ms": 2.167,
+    "cohort_pred": 1,
     "cohort_gold": 1,
-    "cohort_precision": 0.25,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
@@ -5463,7 +5721,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 1.088,
+    "latency_ms": 1.495,
     "cohort_pred": 12,
     "cohort_gold": 12,
     "cohort_precision": 1.0,
@@ -5472,12 +5730,9 @@
   },
   {
    "item_id": "T081",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept",
-    "wrong_polarity"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Find patients between 18 and 65 years old with colon cancer, total bilirubin below 1.5 mg/dL, without heart failure and interstitial lung disease.",
     "subset": "templated",
@@ -5495,6 +5750,16 @@
        "condition": "colorectal_cancer"
       },
       {
+       "type": "lab",
+       "lab": "bilirubin",
+       "op": "<",
+       "value": 1.5,
+       "value_max": null,
+       "lookback_days": 365
+      }
+     ],
+     "exclusion": [
+      {
        "type": "diagnosis",
        "condition": "heart_failure"
       },
@@ -5503,33 +5768,23 @@
        "condition": "interstitial_lung_disease"
       }
      ],
-     "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"condition\": \"heart_failure\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"interstitial_lung_disease\", \"type\": \"diagnosis\"}",
-     "{\"lab\": \"bilirubin\", \"op\": \"<\", \"type\": \"lab\", \"value\": 1.5}"
-    ],
-    "extra": [
-     "{\"condition\": \"heart_failure\", \"type\": \"diagnosis\"}",
-     "{\"condition\": \"interstitial_lung_disease\", \"type\": \"diagnosis\"}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 0.698,
-    "cohort_pred": 0,
+    "latency_ms": 2.315,
+    "cohort_pred": 113,
     "cohort_gold": 113,
-    "cohort_precision": 0.0,
-    "cohort_recall": 0.0
+    "cohort_precision": 1.0,
+    "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T082",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Find patients over 70 with NSCLC.",
     "subset": "templated",
@@ -5538,6 +5793,11 @@
      "name": "Find patients over 70 with NSCLC.",
      "inclusion": [
       {
+       "type": "age",
+       "min_years": 71,
+       "max_years": null
+      },
+      {
        "type": "diagnosis",
        "condition": "nsclc"
       }
@@ -5545,26 +5805,21 @@
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"min_years\": 71, \"type\": \"age\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.578,
-    "cohort_pred": 342,
+    "latency_ms": 0.669,
+    "cohort_pred": 102,
     "cohort_gold": 102,
-    "cohort_precision": 0.2982,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T083",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept",
-    "wrong_polarity"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Identify patients aged 65 or older with CRC and BRAF V600E, in Indiana, without brain metastases",
     "subset": "templated",
@@ -5572,6 +5827,11 @@
      "schema_version": "1.0",
      "name": "Identify patients aged 65 or older with CRC and BRAF V600E, in Indiana, without \u2026",
      "inclusion": [
+      {
+       "type": "age",
+       "min_years": 65,
+       "max_years": null
+      },
       {
        "type": "diagnosis",
        "condition": "colorectal_cancer"
@@ -5584,36 +5844,35 @@
        "status": "detected"
       },
       {
+       "type": "geography",
+       "states": [
+        "IN"
+       ]
+      }
+     ],
+     "exclusion": [
+      {
        "type": "diagnosis",
        "condition": "brain_metastases"
       }
      ],
-     "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}",
-     "{\"min_years\": 65, \"type\": \"age\"}",
-     "{\"states\": [\"IN\"], \"type\": \"geography\"}"
-    ],
-    "extra": [
-     "{\"condition\": \"brain_metastases\", \"type\": \"diagnosis\"}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 0.625,
-    "cohort_pred": 0,
+    "latency_ms": 0.937,
+    "cohort_pred": 1,
     "cohort_gold": 1,
-    "cohort_precision": 0.0,
-    "cohort_recall": 0.0
+    "cohort_precision": 1.0,
+    "cohort_recall": 1.0
    }
   },
   {
    "item_id": "T084",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Find patients aged 18 or older with NSCLC and KRAS G12C, after an EGFR TKI, excluding chronic kidney disease",
     "subset": "templated",
@@ -5621,6 +5880,11 @@
      "schema_version": "1.0",
      "name": "Find patients aged 18 or older with NSCLC and KRAS G12C, after an EGFR TKI, excl\u2026",
      "inclusion": [
+      {
+       "type": "age",
+       "min_years": 18,
+       "max_years": null
+      },
       {
        "type": "diagnosis",
        "condition": "nsclc"
@@ -5646,12 +5910,10 @@
      ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"min_years\": 18, \"type\": \"age\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.743,
+    "latency_ms": 1.794,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -5702,7 +5964,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 1.594,
+    "latency_ms": 0.909,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -5737,7 +5999,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.984,
+    "latency_ms": 1.321,
     "cohort_pred": 56,
     "cohort_gold": 56,
     "cohort_precision": 1.0,
@@ -5746,11 +6008,9 @@
   },
   {
    "item_id": "T087",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "How many patients over 70 with small cell lung cancer, who received prior immunotherapy, from Texas or California; excluding patients with cirrhosis.",
     "subset": "templated",
@@ -5759,6 +6019,11 @@
      "name": "How many patients over 70 with small cell lung cancer, who received prior immuno\u2026",
      "inclusion": [
       {
+       "type": "age",
+       "min_years": 71,
+       "max_years": null
+      },
+      {
        "type": "diagnosis",
        "condition": "sclc"
       },
@@ -5766,6 +6031,13 @@
        "type": "treatment",
        "drug_class": "immunotherapy",
        "drug": null
+      },
+      {
+       "type": "geography",
+       "states": [
+        "CA",
+        "TX"
+       ]
       }
      ],
      "exclusion": [
@@ -5776,16 +6048,13 @@
      ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"min_years\": 71, \"type\": \"age\"}",
-     "{\"states\": [\"CA\", \"TX\"], \"type\": \"geography\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 1.454,
-    "cohort_pred": 56,
+    "latency_ms": 2.239,
+    "cohort_pred": 1,
     "cohort_gold": 1,
-    "cohort_precision": 0.0179,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   },
@@ -5829,7 +6098,7 @@
     "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.821,
+    "latency_ms": 1.166,
     "cohort_pred": 58,
     "cohort_gold": 58,
     "cohort_precision": 1.0,
@@ -5838,11 +6107,9 @@
   },
   {
    "item_id": "T089",
-   "passed": false,
-   "failure_category": "wrong_value",
-   "categories": [
-    "wrong_value"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "I need patients between 30 and 75 years old with breast carcinoma and HER2-positive disease, who received prior immunotherapy, platelets >= 100,000/uL, excluding cirrhosis.",
     "subset": "templated",
@@ -5875,7 +6142,7 @@
        "type": "lab",
        "lab": "platelets",
        "op": ">=",
-       "value": 100000.0,
+       "value": 100.0,
        "value_max": null,
        "lookback_days": 365
       }
@@ -5888,14 +6155,10 @@
      ],
      "as_of_date": null
     },
-    "missing": [
-     "{\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100.0}"
-    ],
-    "extra": [
-     "{\"lab\": \"platelets\", \"op\": \">=\", \"type\": \"lab\", \"value\": 100000.0}"
-    ],
+    "missing": [],
+    "extra": [],
     "unsupported": [],
-    "latency_ms": 0.899,
+    "latency_ms": 1.158,
     "cohort_pred": 0,
     "cohort_gold": 0,
     "cohort_precision": 1.0,
@@ -5904,11 +6167,9 @@
   },
   {
    "item_id": "T090",
-   "passed": false,
-   "failure_category": "missed_concept",
-   "categories": [
-    "missed_concept"
-   ],
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
    "details": {
     "request": "Show me patients with colorectal cancer and MSI-H tumors, living in Ohio.",
     "subset": "templated",
@@ -5926,20 +6187,24 @@
         "msi_high"
        ],
        "status": "detected"
+      },
+      {
+       "type": "geography",
+       "states": [
+        "OH"
+       ]
       }
      ],
      "exclusion": [],
      "as_of_date": null
     },
-    "missing": [
-     "{\"states\": [\"OH\"], \"type\": \"geography\"}"
-    ],
+    "missing": [],
     "extra": [],
     "unsupported": [],
-    "latency_ms": 0.563,
-    "cohort_pred": 24,
+    "latency_ms": 0.882,
+    "cohort_pred": 1,
     "cohort_gold": 1,
-    "cohort_precision": 0.0417,
+    "cohort_precision": 1.0,
     "cohort_recall": 1.0
    }
   }
