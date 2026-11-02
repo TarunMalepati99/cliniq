@@ -5,9 +5,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "backend"))
-from cliniq.api.app import app  # noqa: E402
-
-from cliniq.api.app import current_user  # noqa: E402
+from cliniq.api.app import app, current_user  # noqa: E402
 
 
 def min_role(route) -> str:
