@@ -1,5 +1,6 @@
 from datetime import date
 
+import psycopg
 import pytest
 from pydantic import ValidationError
 
@@ -62,12 +63,10 @@ def test_sql_guard_blocks_unsafe_sql(sql, failed):
 
 
 def test_reader_role_cannot_write_or_read_ops(db):
-    with read_only() as c:
-        with pytest.raises(Exception):
-            c.execute("SELECT * FROM ops.dead_letter LIMIT 1")
-    with read_only() as c:
-        with pytest.raises(Exception):
-            c.execute("DELETE FROM clinical.person")
+    with read_only() as c, pytest.raises(psycopg.Error):
+        c.execute("SELECT * FROM ops.dead_letter LIMIT 1")
+    with read_only() as c, pytest.raises(psycopg.Error):
+        c.execute("DELETE FROM clinical.person")
 
 
 # ---------------------------------------------------------------- tri-state semantics (hand-built fixtures)

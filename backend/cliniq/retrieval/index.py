@@ -22,6 +22,7 @@ from typing import Any, Protocol
 import numpy as np
 from psycopg.types.json import Jsonb
 from rank_bm25 import BM25Okapi
+
 from ..db import connect
 from .corpus import load_corpus
 from .lsa import CSR, Tfidf, char_wb_ngrams, randomized_svd_components, sample_texts, word_ngrams

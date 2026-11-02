@@ -11,7 +11,6 @@ VIEWER = {"Authorization": "Bearer dev-viewer-token"}
 
 @pytest.fixture(scope="module")
 def client(db):
-    from pathlib import Path
 
     from cliniq.config import REPO_ROOT
     from cliniq.retrieval.index import index_corpus

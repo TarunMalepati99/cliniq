@@ -8,7 +8,6 @@ from cliniq.db import fetch_all, fetch_one
 from cliniq.ingest import transform as T
 from cliniq.ingest.pipeline import ingest_paths, retry_dead_letters
 
-
 # ---------------------------------------------------------------- unit: transform
 
 def _obs(code="2160-0", value=1.0, unit="mg/dL", when="2025-01-01"):
