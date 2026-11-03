@@ -14,7 +14,11 @@ import pytest
 
 TEST_DB = os.environ.get("CLINIQ_TEST_DATABASE_URL", "postgresql://cliniq:cliniq@localhost:5432/cliniq_test")
 os.environ["CLINIQ_DATABASE_URL"] = TEST_DB
-os.environ.setdefault("CLINIQ_READER_DATABASE_URL", TEST_DB.replace("cliniq:cliniq@", "cliniq_reader:cliniq_reader@"))
+# Always point the read-only role at the *test* database. Using setdefault here let an inherited
+# CLINIQ_READER_DATABASE_URL (as CI sets for the app DB) send cohort queries to a different,
+# not-yet-built database. Override explicitly with CLINIQ_TEST_READER_DATABASE_URL if needed.
+os.environ["CLINIQ_READER_DATABASE_URL"] = os.environ.get(
+    "CLINIQ_TEST_READER_DATABASE_URL", TEST_DB.replace("cliniq:cliniq@", "cliniq_reader:cliniq_reader@"))
 os.environ["CLINIQ_ENV"] = "dev"
 logging.disable(logging.WARNING)
 
