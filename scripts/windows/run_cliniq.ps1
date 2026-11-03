@@ -21,7 +21,7 @@ $DL   = Join-Path $HOME "Downloads"
 $ROOT = Join-Path $DL "cliniq_app"
 $APP  = Join-Path $ROOT "cliniq"
 $EXT  = Join-Path $DL "cliniq_external"
-$OUT  = Join-Path $DL "cliniq_results"
+$ResultsDir = Join-Path $DL "cliniq_results"
 
 function Step($m)   { Write-Host "`n=== $m ===" -ForegroundColor Cyan }
 function Fail($m)   { Write-Host "`nERROR: $m" -ForegroundColor Red; Write-Host "Copy the text above into the chat with Claude (never your API key)."; if ($env:GEMINI_API_KEY) { Remove-Item Env:GEMINI_API_KEY }; exit 1 }
@@ -43,8 +43,8 @@ $candidates = @(
 foreach ($cand in $candidates) {
     $exe = $cand.exe; $args0 = $cand.args
     if (-not (Get-Command $exe -ErrorAction SilentlyContinue)) { continue }
-    $out = & $exe @args0 -c "import sys; print(sys.executable if sys.version_info >= (3, 11) else '')" 2>$null
-    if ($LASTEXITCODE -eq 0 -and $out -and $out.Trim()) { $PyBase = $out.Trim(); break }
+    $probeOut = & $exe @args0 -c "import sys; print(sys.executable if sys.version_info >= (3, 11) else '')" 2>$null
+    if ($LASTEXITCODE -eq 0 -and $probeOut -and $probeOut.Trim()) { $PyBase = $probeOut.Trim(); break }
 }
 if (-not $PyBase) {
     Write-Host "Installing Python 3.12 with winget (approve the Windows prompt if asked)..."
@@ -60,17 +60,17 @@ Write-Host "Python: $PyBase"
 Step "2/8  PostgreSQL"
 function Find-Psql { Get-ChildItem "C:\Program Files\PostgreSQL\*\bin\psql.exe" -ErrorAction SilentlyContinue |
     Sort-Object { $_.Directory.Parent.Name -as [double] } -Descending | Select-Object -First 1 }
-$psql = Find-Psql
-if (-not $psql) {
+$psqlItem = Find-Psql
+if (-not $psqlItem) {
     Write-Host "Installing PostgreSQL 16 with winget (approve the Windows prompt; takes a few minutes)..."
     winget install -e --id PostgreSQL.PostgreSQL.16 --accept-package-agreements --accept-source-agreements `
         --override "--mode unattended --unattendedmodeui none --superpassword postgres --serverport 5432"
     Check "PostgreSQL install"
-    $psql = Find-Psql
-    if (-not $psql) { Fail "PostgreSQL installed but psql.exe not found under C:\Program Files\PostgreSQL" }
+    $psqlItem = Find-Psql
+    if (-not $psqlItem) { Fail "PostgreSQL installed but psql.exe not found under C:\Program Files\PostgreSQL" }
 }
-$PSQL = $psql.FullName
-$env:Path = "$($psql.Directory.FullName);$env:Path"
+$PSQL = $psqlItem.FullName
+$env:Path = "$($psqlItem.Directory.FullName);$env:Path"
 Get-Service -Name "postgresql*" -ErrorAction SilentlyContinue | Where-Object Status -ne "Running" | ForEach-Object {
     try { Start-Service $_ -ErrorAction Stop } catch { Write-Host "Could not start $($_.Name); run PowerShell as Administrator or start it in services.msc" -ForegroundColor Yellow }
 }
@@ -163,9 +163,9 @@ try {
     Remove-Item Env:GEMINI_API_KEY -ErrorAction SilentlyContinue
 }
 
-New-Item -ItemType Directory -Force -Path $OUT | Out-Null
-Copy-Item (Join-Path $APP "eval\reports\*") $OUT -Force
-Copy-Item (Join-Path $APP "docs\evaluation_report.md") $OUT -Force
+New-Item -ItemType Directory -Force -Path $ResultsDir | Out-Null
+Copy-Item (Join-Path $APP "eval\reports\*") $ResultsDir -Force
+Copy-Item (Join-Path $APP "docs\evaluation_report.md") $ResultsDir -Force
 foreach ($w in $warnings) { Write-Host "WARNING: $w" -ForegroundColor Yellow }
-Write-Host "`nDONE. Results are in $OUT" -ForegroundColor Green
+Write-Host "`nDONE. Results are in $ResultsDir" -ForegroundColor Green
 Write-Host "Tell Claude: 'results are in Downloads'."

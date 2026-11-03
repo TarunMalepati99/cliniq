@@ -35,7 +35,7 @@ harness measures every AI component against gold data.
 | **Reproducibility** | Each run stores the definition hash, SQL hash, data version, fixed as-of date and a hash of the result. "Reproduce run" re-executes and compares. The synthetic data generator is seeded and byte-identical across runs. |
 | **Traceability** | Every clinical row carries `source_record_id` → `raw.records` (content-addressed payload) → `ops.source_files` → `ops.pipeline_runs`. The UI exposes this for every row and every piece of cohort evidence. |
 | **No silent drops** | Every landed record ends as *loaded*, *duplicate* or *rejected*, and every rejection gets a dead-letter row with its stage, error code and payload. On the seeded dataset the pipeline rejects exactly the faults the generator injected (39 of 39), and tests assert this. |
-| **Externally validated** | 295 third-party [Synthea](docs/external_validation.md) patients (245,663 FHIR records) were ingested, and cohort results match an **independent oracle** patient-for-patient across 5 checks. The external data exposed 7 real defects, all now fixed with regression tests. On **TREC Clinical Trials 2021/2022** (125 real patient topics, 51,460 human judgments), hybrid retrieval reaches nDCG@10 0.457, against 0.254 for random ordering. Chia and Gemini suites are built and waiting for data or a key. |
+| **Externally validated** | 295 third-party [Synthea](docs/external_validation.md) patients (245,663 FHIR records) were ingested, and cohort results match an **independent oracle** patient-for-patient across 5 checks. The external data exposed 7 real defects, all now fixed with regression tests. On **TREC Clinical Trials 2021/2022** (125 real patient topics, 51,460 human judgments), hybrid retrieval reaches nDCG@10 0.457, against 0.254 for random ordering. On **Chia** (independent human annotations), rules-v2 reaches concept F1 0.82, compared with 0.99 on its own benchmark, and CLINIQ's vocabulary covers only 9% of Chia's concepts. **Gemini** (Flash-Lite) leads internally (98.4% exact match vs 96.0%) but ties rules-v2 on the same 150 Chia lines (F1 0.814 vs 0.815). |
 | **Measured AI** | 125 gold extraction requests (35 hand-written, 90 templated), 42 retrieval queries (6 deliberately unanswerable), and citation grounding checks. Runs are tracked by extractor version, prompt hash, benchmark hash, data version and code version. CI enforces regression floors. Results: [docs/evaluation_report.md](docs/evaluation_report.md). |
 
 ## Quick start (local, no cloud)
@@ -118,7 +118,7 @@ docs/                 design doc, ADRs, evaluation report, limitations, API refe
 - [Technical design](docs/design.md), including the optional GCP deployment path
 - [Architecture decision records](docs/adr/)
 - [Evaluation report](docs/evaluation_report.md), generated from recorded runs
-- [External validation](docs/external_validation.md): Synthea vs an independent oracle; Chia, TREC and Gemini instructions
+- [External validation](docs/external_validation.md): Synthea vs an independent oracle; Chia, TREC and Gemini results
 - [Limitations and responsible use](docs/limitations.md)
 - [API reference](docs/api.md) (also live at `/docs` and in [docs/openapi.json](docs/openapi.json))
 - Diagrams: [architecture](docs/diagrams/architecture.svg) · [data pipeline](docs/diagrams/pipeline.svg) · [database schema](docs/diagrams/schema.svg) · [cohort workflow](docs/diagrams/cohort_workflow.svg)

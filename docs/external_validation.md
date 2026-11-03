@@ -7,9 +7,9 @@ and ground truth that CLINIQ did **not** produce.
 | Source | Status | What it tests |
 |---|---|---|
 | **Synthea** (MITRE, third-party FHIR R4) | ✅ done — results below | FHIR ingestion robustness; cohort correctness vs an independent oracle |
-| **Chia** (Kury et al. 2020, annotated eligibility criteria) | ⏳ suite built and tested on fixtures; data only on figshare/Hugging Face (blocked here; the GitHub repo has code only) | criteria extraction against independent human annotation |
+| **Chia** (Kury et al. 2020, annotated eligibility criteria) | ✅ done: 12,409 criterion lines, 2,534 with in-vocabulary concepts scored (§2b) | criteria extraction against independent human annotation |
 | **TREC Clinical Trials 2021/2022** (NIST) | ✅ done: 125 topics, 51,460 judgments with text (results in §2) | patient → trial retrieval against human relevance judgments |
-| **Gemini extractor** | ⏳ adapter built and tested with a fake transport; needs your key at the terminal | LLM extraction on the same benchmarks as the rule extractors |
+| **Gemini extractor** | ✅ done: `gemini-flash-lite-latest`, internal 125 items + Chia 150 lines (§3) | LLM extraction on the same benchmarks as the rule extractors |
 
 ## 1. Synthea
 
@@ -112,18 +112,33 @@ CLINIQ_DATABASE_URL=… CLINIQ_READER_DATABASE_URL=… python scripts/verify_syn
 - The absolute level is modest. CLINIQ's retriever was built for criterion → passage evidence lookup, not for matching a whole patient note to trials, and it does no criterion-level reasoning. This is the clearest signal of where an LLM matching stage would add value.
 - **Defect found and fixed:** the dense embedder ran out of memory on 34,677 trials (killed at 6.3 GB). The LSA embedder now fits on a bounded, seeded sample (8,000 documents) and embeds in float32 batches. Results on the internal benchmark are unchanged (recall@5 0.756, MRR 0.940).
 
-## 2b. Chia (pending data)
+## 2b. Chia (run on 2026-11-02, Windows, `scripts/windows/run_cliniq.ps1`)
 
-The sandboxes CLINIQ was built in cannot reach Hugging Face, figshare or NIST. Run this on a machine
-with normal internet access:
+Chia gold annotations were written by independent annotators, so these are the first extraction
+numbers in this project that the author did not create the answers for.
 
+- **Coverage first:** CLINIQ's vocabulary can represent only **9.0%** of Chia's annotated clinical
+  entities (2,199 of 24,342). CLINIQ is a fixed-vocabulary system for a few oncology/cardiometabolic
+  use cases, and most Chia concepts are outside it. Everything below is scored only on the 2,534
+  criterion lines that contain at least one concept CLINIQ can express.
+
+| Extractor (all 2,534 lines) | Concept P | Concept R | F1 | Polarity acc. |
+|---|---|---|---|---|
+| rules-v1 | 0.950 | 0.575 | 0.716 | 0.983 |
+| rules-v2 | 0.924 | 0.732 | **0.817** | 0.977 |
+
+- **rules-v2 by concept type (F1):** sex 0.99, diagnosis 0.96, procedure 0.82, age 0.73, lab 0.65,
+  treatment 0.61. The weak spots are lab criteria (recall 0.49: many lab names and phrasings the lexicon
+  lacks) and treatments (recall 0.45).
+- **Internal vs external gap:** rules-v2 scores 96.0% exact match / 0.99 concept F1 on its own
+  benchmark but 0.82 F1 on Chia, even within its vocabulary. The internal benchmark overstates real-world
+  accuracy, which is the reason for running Chia.
+
+**Reproduce**
 ```bash
 # simplest: open https://doi.org/10.6084/m9.figshare.11855817.v2 in a browser → "Download all" → the zip lands in Downloads
 python scripts/fetch_external.py --chia-zip ~/Downloads/<that zip> --skip-trec
-# or via Hugging Face:
-pip install "datasets<4"      # bigbio/chia uses a dataset script; datasets 4.x removed support
-python scripts/fetch_external.py   # → ~/Downloads/cliniq_external/
-cliniq eval --chia ~/Downloads/cliniq_external/chia.jsonl --trec ~/Downloads/cliniq_external/trec
+cliniq eval --chia ~/Downloads/cliniq_external/chia.jsonl --extractor rules-v1 --extractor rules-v2
 ```
 
 - **Chia → CLINIQ mapping** (`backend/cliniq/evaluation/external/chia.py`):
@@ -137,15 +152,43 @@ cliniq eval --chia ~/Downloads/cliniq_external/chia.jsonl --trec ~/Downloads/cli
   - Reported: nDCG@10 (gains 0/1/2), P@10 and MRR on eligible trials, Recall@100, and how many judgments had trial text available. Your corpus has parts 1 and 3 of 5.
   - Re-ranking a judged pool is easier than full-corpus retrieval, so the numbers are not comparable with official TREC runs.
 
-## 3. Gemini extractor
+## 3. Gemini extractor (run on 2026-11-02, `gemini-flash-lite-latest`, free tier)
+
+**Internal benchmark (125 requests: 35 handwritten, 90 templated)**
+
+| Extractor | Exact match | Handwritten | Concept F1 | Polarity | Cohort P / R | Hallucination | p50 latency |
+|---|---|---|---|---|---|---|---|
+| rules-v1 | 24.8% | 28.6% | 0.863 | 0.909 | 0.507 / 0.758 | 0 | 1 ms |
+| rules-v2 | 96.0% | 85.7% | 0.993 | 0.998 | 0.976 / 0.984 | 0 | 2 ms |
+| Gemini | **98.4%** | **94.3%** | **0.995** | **1.000** | **0.991 / 0.992** | 0 | 6.1 s |
+
+- Gemini is best on the handwritten requests (33 of 35 vs 30 of 35), which are the ones most like real
+  user phrasing.
+- All 125 Gemini outputs passed schema and allowlist validation.
+
+**Chia, same 150 lines for every extractor** (`--limit 150`: the first 150 in-vocabulary lines)
+
+| Extractor | Concept P | Concept R | F1 | Polarity acc. | No valid output |
+|---|---|---|---|---|---|
+| rules-v1 | 0.910 | 0.632 | 0.746 | 0.975 | 40 |
+| rules-v2 | 0.890 | 0.751 | **0.815** | 0.966 | 29 |
+| Gemini | 0.848 | **0.782** | **0.814** | 0.894 | **16** |
+
+- **On independent annotations, Gemini and rules-v2 are tied on F1.** Gemini finds more concepts
+  (higher recall, fewer empty outputs, much better on labs: F1 0.90). It is less precise and gets
+  inclusion/exclusion polarity wrong more often (0.89 vs 0.97).
+- Gemini's 2.4-point exact-match lead on the internal benchmark does not carry over to Chia.
+  Reading: the LLM is better at unusual phrasing, the rules are more reliable about polarity. A
+  sensible next step is a hybrid (rules first, LLM for lines the rules cannot parse); not built.
+- Caveats: 150 lines is a small sample (roughly ±6 points on F1), one model, one prompt version, temperature 0.
 
 ```bash
 cliniq eval --extractor rules-v2 --extractor gemini                         # internal benchmark
-cliniq eval --chia …/chia.jsonl --extractor gemini --limit 300              # Chia subset (rate limits)
+cliniq eval --chia …/chia.jsonl --extractor gemini --limit 150              # Chia subset (free-tier quota)
 cliniq serve --gemini                                                       # enables "Gemini" in the UI
 ```
 
-- The key is typed at a hidden `getpass` prompt, or read from the process's `GEMINI_API_KEY`. It is kept in memory only, sent in the `x-goog-api-key` header (never in the URL), and never logged or written to disk.
-- The requested model is checked against the live model list for your key; if it is unavailable, you are asked to choose one.
+- The key is typed at a hidden prompt, or read from the process's `GEMINI_API_KEY`. It is kept in memory only, sent in the `x-goog-api-key` header (never in the URL), and never logged or written to disk.
+- Before running, one probe request finds a model that actually has quota for the key, starting with Flash-Lite. Google's 429 details decide what happens next: a daily or zero quota stops the run, a per-minute limit waits the `retryDelay`.
 - Output goes through the same allowlist validation, with one repair round and no silent fallback.
-- **Data note:** Google's changelog says new paid-tier projects store `generateContent` requests by default. That is acceptable for public Chia text and synthetic data. **Never send PhysioNet/MIMIC or other data-use-agreement data.**
+- **Data note:** Google may store `generateContent` requests depending on tier. That is acceptable for public Chia text and synthetic data. **Never send PhysioNet/MIMIC or other data-use-agreement data.**

@@ -1,0 +1,3600 @@
+{
+ "eval_run_id": "30540e9d-515c-4f5c-aea1-1bf31370b53a",
+ "suite": "chia",
+ "system_version": "rules-v2",
+ "prompt_sha256": null,
+ "benchmark_sha256": "d820ce385d0988661538ba382f4d8a5eca25dde2e29a801c3ca021814a92f611",
+ "data_version": "dv-d760f6b035cf29a2",
+ "code_version": "355a0ec",
+ "timestamp": "20261103T012044Z",
+ "duration_ms": 1220,
+ "metrics": {
+  "n_units_total": 12409,
+  "n_units_evaluated": 150,
+  "selection": "lines with \u22651 in-vocabulary gold concept",
+  "concept": {
+   "precision": 0.8896,
+   "recall": 0.7513,
+   "f1": 0.8146
+  },
+  "polarity_accuracy": 0.9655,
+  "invalid_outputs": 29,
+  "per_concept_type": {
+   "age": {
+    "precision": 0.6875,
+    "recall": 0.7333,
+    "f1": 0.7097,
+    "support": 15
+   },
+   "biomarker": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 1
+   },
+   "diagnosis": {
+    "precision": 0.9318,
+    "recall": 0.9535,
+    "f1": 0.9425,
+    "support": 43
+   },
+   "lab": {
+    "precision": 0.9524,
+    "recall": 0.4444,
+    "f1": 0.6061,
+    "support": 45
+   },
+   "procedure": {
+    "precision": 0.7778,
+    "recall": 0.875,
+    "f1": 0.8235,
+    "support": 24
+   },
+   "sex": {
+    "precision": 0.9167,
+    "recall": 1.0,
+    "f1": 0.9565,
+    "support": 22
+   },
+   "treatment": {
+    "precision": 0.9667,
+    "recall": 0.6744,
+    "f1": 0.7945,
+    "support": 43
+   }
+  },
+  "vocabulary_coverage": {
+   "clinical_entities": 24342,
+   "mapped_to_cliniq": 2199,
+   "share": 0.0903
+  },
+  "top_unmapped_conditions": [
+   [
+    "pregnant",
+    230
+   ],
+   [
+    "pregnancy",
+    195
+   ],
+   [
+    "allergy",
+    192
+   ],
+   [
+    "hypersensitivity",
+    136
+   ],
+   [
+    "contraindication",
+    100
+   ],
+   [
+    "malignancy",
+    83
+   ],
+   [
+    "stroke",
+    83
+   ],
+   [
+    "infection",
+    69
+   ],
+   [
+    "contraindications",
+    65
+   ],
+   [
+    "lactating",
+    57
+   ],
+   [
+    "myocardial infarction",
+    53
+   ],
+   [
+    "alcohol abuse",
+    45
+   ],
+   [
+    "intolerance",
+    45
+   ],
+   [
+    "dementia",
+    44
+   ],
+   [
+    "liver disease",
+    42
+   ],
+   [
+    "drug abuse",
+    41
+   ],
+   [
+    "cancer",
+    40
+   ],
+   [
+    "healthy",
+    39
+   ],
+   [
+    "cardiovascular disease",
+    39
+   ],
+   [
+    "allergic",
+    38
+   ],
+   [
+    "disease",
+    37
+   ],
+   [
+    "asthma",
+    37
+   ],
+   [
+    "childbearing potential",
+    36
+   ],
+   [
+    "bleeding",
+    34
+   ],
+   [
+    "schizophrenia",
+    33
+   ]
+  ],
+  "latency_ms": {
+   "p50": 0.548,
+   "p95": 1.307
+  },
+  "failure_categories": {
+   "wrong_polarity": 5,
+   "missed_concept": 41,
+   "spurious_concept": 17
+  }
+ },
+ "items": [
+  {
+   "item_id": "NCT00050349_exc#0",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Patients with symptomatic CNS metastases or leptomeningeal involvement",
+    "section": "exclusion",
+    "gold": {
+     "diagnosis:brain_metastases": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:brain_metastases": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00050349_exc#1506",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "HIV+ patients",
+    "section": "exclusion",
+    "gold": {
+     "diagnosis:hiv": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:hiv": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00050349_exc#72",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Patients with known brain metastases, unless these metastases have been treated and/or have been stable for at least six months prior to study start. Subjects with a history of brain metastases must have a head CT with contrast to document either response or progression.",
+    "section": "exclusion",
+    "gold": {
+     "diagnosis:brain_metastases": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:brain_metastases": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00050349_exc#773",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Patients with severe cardiac insufficiency patients taking Coumadin or other warfarin-containing agents with the exception of low dose warfarin (1 mg or less) for the maintenance of in-dwelling lines or ports",
+    "section": "exclusion",
+    "gold": {
+     "treatment:warfarin": [
+      "exclusion",
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "treatment:warfarin": [
+      "exclusion",
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00050349_exc#983",
+   "passed": false,
+   "failure_category": "wrong_polarity",
+   "categories": [
+    "wrong_polarity"
+   ],
+   "details": {
+    "text": "Patients taking any experimental therapies history of another malignancy within 5 years prior to study entry except curatively treated non-melanoma skin cancer, prostate cancer, or cervical cancer in situ",
+    "section": "exclusion",
+    "gold": {
+     "diagnosis:melanoma": [
+      "inclusion"
+     ],
+     "diagnosis:prostate_cancer": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:melanoma": [
+      "inclusion"
+     ],
+     "diagnosis:prostate_cancer": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00050349_inc#0",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Patients with biopsy-proven metastatic carcinoid tumors or other neuroendocrine tumors (Islet cell, Gastrinomas and VIPomas) with at least one measurable lesion (other than bone) that has either not been previously irradiated or if previously irradiated has demonstrated progression since the radiation therapy",
+    "section": "inclusion",
+    "gold": {
+     "procedure:radiation_therapy": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "procedure:radiation_therapy": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00050349_inc#312",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept",
+    "wrong_polarity"
+   ],
+   "details": {
+    "text": "The patient has no major impairment of renal or hepatic function, as defined by the following laboratory parameters: total bilirubin <1.5 X ULN; AST, ALT<2.5X ULN (<5 X ULN if liver metastases are present)",
+    "section": "inclusion",
+    "gold": {
+     "lab:bilirubin": [
+      "inclusion"
+     ],
+     "lab:ast": [
+      "inclusion"
+     ],
+     "lab:alt": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "lab:alt": [
+      "inclusion"
+     ],
+     "lab:bilirubin": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00050349_inc#834",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Karnofsky Performance Status > 60",
+    "section": "inclusion",
+    "gold": {
+     "lab:ecog": [
+      "inclusion"
+     ]
+    },
+    "predicted": {},
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00050349_inc#869",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Female patients must have a negative serum pregnancy test at screening. (Not applicable to patients with bilateral oophorectomy and/or hysterectomy or to those patients who are postmenopausal.)",
+    "section": "inclusion",
+    "gold": {
+     "sex:sex": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "sex:sex": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00061308_exc#0",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Women of child-bearing potential that do not practice adequate contraception.",
+    "section": "exclusion",
+    "gold": {
+     "sex:sex": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "sex:sex": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00061308_exc#566",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Received radiation to more than 10% of bone.",
+    "section": "exclusion",
+    "gold": {
+     "procedure:radiation_therapy": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "procedure:radiation_therapy": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00061308_exc#612",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Prior treatment with topotecan or gemcitabine.",
+    "section": "exclusion",
+    "gold": {
+     "treatment:gemcitabine": [
+      "exclusion"
+     ],
+     "treatment:any_systemic_therapy": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "treatment:gemcitabine": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00061308_inc#0",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Have had one prior platinum-based chemotherapy regimen for the treatment of primary disease.",
+    "section": "inclusion",
+    "gold": {
+     "treatment:platinum_chemotherapy": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "treatment:platinum_chemotherapy": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00061308_inc#153",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Must have had a treatment-free interval of greater than 6 months following response to platinum.",
+    "section": "inclusion",
+    "gold": {
+     "treatment:platinum_chemotherapy": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "treatment:platinum_chemotherapy": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00061308_inc#251",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "ECOG performance status of 0,1, or 2.",
+    "section": "inclusion",
+    "gold": {
+     "lab:ecog": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "lab:ecog": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00094861_exc#0",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Metastatic disease (M1)/stage 4 NSCLC",
+    "section": "exclusion",
+    "gold": {
+     "diagnosis:nsclc": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:nsclc": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00094861_exc#1000",
+   "passed": false,
+   "failure_category": "spurious_concept",
+   "categories": [
+    "spurious_concept",
+    "wrong_polarity"
+   ],
+   "details": {
+    "text": "Prior invasive malignancy during the past 3 years other than non-melanomatous skin cancer. Note: Patients with prior surgically-cured malignancies [eg, stage I breast cancer or prostate cancer, in-situ carcinoma of the cervix, etc] are not excluded; however, sponsor approval must be obtained before patient is randomized.",
+    "section": "exclusion",
+    "gold": {
+     "diagnosis:melanoma": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:melanoma": [
+      "exclusion"
+     ],
+     "diagnosis:breast_cancer": [
+      "exclusion"
+     ],
+     "diagnosis:prostate_cancer": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00094861_exc#1497",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Four weeks or less since completion of treatment using an investigational product/device in another clinical study or presence of any unresolved toxicity from previous treatment",
+    "section": "exclusion",
+    "gold": {
+     "treatment:any_systemic_therapy": [
+      "exclusion"
+     ]
+    },
+    "predicted": {},
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00094861_exc#1676",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Previous treatment on this study or with a fibroblast growth factor",
+    "section": "exclusion",
+    "gold": {
+     "treatment:any_systemic_therapy": [
+      "exclusion"
+     ]
+    },
+    "predicted": {},
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00094861_exc#1745",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Known to be sero-positive for human immunodeficiency virus (HIV), hepatitis C virus (HCV), or hepatitis B virus (HBV)",
+    "section": "exclusion",
+    "gold": {
+     "diagnosis:hiv": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:hiv": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00094861_exc#1864",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Pregnant or breastfeeding women",
+    "section": "exclusion",
+    "gold": {
+     "sex:sex": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "sex:sex": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00094861_exc#840",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Shielding of any part of the esophagus during radiotherapy (including posterior spinal cord shielding)",
+    "section": "exclusion",
+    "gold": {
+     "procedure:radiation_therapy": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "procedure:radiation_therapy": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00094861_exc#944",
+   "passed": false,
+   "failure_category": "spurious_concept",
+   "categories": [
+    "spurious_concept"
+   ],
+   "details": {
+    "text": "Prior chemotherapy, radiotherapy, or surgery for NSCLC",
+    "section": "exclusion",
+    "gold": {
+     "treatment:any_chemotherapy": [
+      "exclusion"
+     ],
+     "procedure:radiation_therapy": [
+      "exclusion"
+     ],
+     "diagnosis:nsclc": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "treatment:any_chemotherapy": [
+      "exclusion"
+     ],
+     "procedure:radiation_therapy": [
+      "exclusion"
+     ],
+     "procedure:surgical_resection": [
+      "exclusion"
+     ],
+     "diagnosis:nsclc": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00094861_inc#0",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Patients with a histologically or cytologically proven diagnosis of NSCLC",
+    "section": "inclusion",
+    "gold": {
+     "diagnosis:nsclc": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:nsclc": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00094861_inc#1166",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Females of childbearing potential: negative serum or urine pregnancy test",
+    "section": "inclusion",
+    "gold": {
+     "sex:sex": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "sex:sex": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00094861_inc#135",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Initial radiotherapy field of treatment to encompass greater than or equal to 30% of the esophagus",
+    "section": "inclusion",
+    "gold": {
+     "procedure:radiation_therapy": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "procedure:radiation_therapy": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00094861_inc#398",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "18 years of age or older",
+    "section": "inclusion",
+    "gold": {
+     "age:age": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "age:age": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00094861_inc#424",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Eastern Cooperative Oncology Group (ECOG) performance status of 0 - 2",
+    "section": "inclusion",
+    "gold": {
+     "lab:ecog": [
+      "inclusion"
+     ]
+    },
+    "predicted": {},
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00094861_inc#495",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Hemoglobin (hgb) greater than or equal to 10 g/dL without transfusional support or growth factor use in the 4 weeks before study randomization",
+    "section": "inclusion",
+    "gold": {
+     "lab:hemoglobin": [
+      "inclusion"
+     ]
+    },
+    "predicted": {},
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00094861_inc#778",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Platelet count greater than or equal to 100 x 10^9/L",
+    "section": "inclusion",
+    "gold": {
+     "lab:platelets": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "lab:platelets": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00094861_inc#832",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Serum bilirubin less than or equal to 1.5 x institutional upper limit of normal (ULN)",
+    "section": "inclusion",
+    "gold": {
+     "lab:bilirubin": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "lab:bilirubin": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00094861_inc#919",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Serum creatinine less than or equal to 2.0 mg/dL (Note: Patients with a serum creatinine greater than or equal to 1.4 and less than or equal to 2.0 mg/dL must demonstrate a 24-hour urinary creatinine clearance greater than or equal to 50 mL/min)",
+    "section": "inclusion",
+    "gold": {
+     "lab:creatinine": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "lab:creatinine": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00122070_inc#80",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Be between age 18 and 55 years",
+    "section": "inclusion",
+    "gold": {
+     "age:age": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "age:age": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00183885_exc#0",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Patients who have received prior chemotherapy for unresectable disease",
+    "section": "exclusion",
+    "gold": {
+     "treatment:any_chemotherapy": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "treatment:any_chemotherapy": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00183885_exc#301",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Patients with psychiatric disorders that would interfere with consent or follow-up. Pregnant or lactating women. Men and women of reproductive potential may not participate unless they have agreed to use an effective contraceptive method.",
+    "section": "exclusion",
+    "gold": {
+     "sex:sex": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "sex:sex": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00183885_exc#72",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Patients with any active or uncontrolled infection, including known HIV infection. (Patients with active hepatitis B will be placed on lamivudine. Patients with active hepatitis C will be eligible if liver tests qualify (5.1.9)",
+    "section": "exclusion",
+    "gold": {
+     "diagnosis:hiv": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:hiv": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00183885_inc#1331",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Patients must have adequate hepatic function as documented by a serum bilirubin less than or equal to 2x the institutional upper limit of normal, regardless of whether patients have liver involvement secondary to tumor. Patients may not have ascites or the ascites must be responsive to diuretics.",
+    "section": "inclusion",
+    "gold": {
+     "lab:bilirubin": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "lab:bilirubin": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00183885_inc#570",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Patients must have measurable disease. If prior radiation therapy was administered, measurable disease must be outside the radiation field.",
+    "section": "inclusion",
+    "gold": {
+     "procedure:radiation_therapy": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "procedure:radiation_therapy": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00183885_inc#711",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Patients must have a Zubrod performance status of 0-2.",
+    "section": "inclusion",
+    "gold": {
+     "lab:ecog": [
+      "inclusion"
+     ]
+    },
+    "predicted": {},
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00183885_inc#837",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Patients must have a pre-treatment granulocyte count (i.e., segmented neutrophils + bands) of greater than or equal to 1,500/mm3, a hemoglobin level of greater than or equal to 9 gm/dl, and platelet count greater than or equal to 50,000/mm3. The granulocyte requirement may be waived if in the investigator's opinion the lower count reflects hypersplenism with adequate bone marrow reserves.",
+    "section": "inclusion",
+    "gold": {
+     "lab:hemoglobin": [
+      "inclusion"
+     ],
+     "lab:platelets": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "lab:hemoglobin": [
+      "inclusion"
+     ],
+     "lab:platelets": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00198913_inc#0",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "type 2 diabetic, age 18 and over, informed consent,",
+    "section": "inclusion",
+    "gold": {
+     "diagnosis:type2_diabetes": [
+      "inclusion"
+     ],
+     "age:age": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "age:age": [
+      "inclusion"
+     ],
+     "diagnosis:type2_diabetes": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00235170_exc#0",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "1. Congestive heart failure;",
+    "section": "exclusion",
+    "gold": {
+     "diagnosis:heart_failure": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:heart_failure": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00235170_exc#94",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "3. Planned need for major surgery (e.g. valve surgery or resection of aortic or left ventricular aneurysm, carotid end-arterectomy, abdominal aortic aneurysm surgery etc.);",
+    "section": "exclusion",
+    "gold": {
+     "procedure:surgical_resection": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "procedure:surgical_resection": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00236340_inc#0",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Pregnant women with abdomen discumfort and ultrasound diagnosis of polyhydramnios (AFI>25cm)",
+    "section": "inclusion",
+    "gold": {
+     "sex:sex": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "sex:sex": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00250640_inc#313",
+   "passed": false,
+   "failure_category": "spurious_concept",
+   "categories": [
+    "spurious_concept",
+    "wrong_polarity"
+   ],
+   "details": {
+    "text": "No prior treatment with Ventavis or other active treatments for primary pulmonary hypertension within 6 weeks of date of study inclusion (unless otherwise advised by Bayer Schering Pharma)",
+    "section": "inclusion",
+    "gold": {
+     "diagnosis:hypertension": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "treatment:any_systemic_therapy": [
+      "inclusion"
+     ],
+     "diagnosis:hypertension": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00250640_inc#94",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Patient with primary pulmonary hypertension (i.e. Idiopathic Pulmonary Arterial Hypertension or Familial Pulmonary Arterial Hypertension) and classified as NYHA functional class III (NYHA = New York Heart Association)",
+    "section": "inclusion",
+    "gold": {
+     "diagnosis:hypertension": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:hypertension": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00305097_exc#0",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Any condition/illness that may affect the study outcomes or would make participation potentially harmful such as pregnancy or breastfeeding, diabetes mellitus, heart disease, stroke, hypertension, malabsorption syndromes, GERD, a history of ulcer, according to a detailed medical history.",
+    "section": "exclusion",
+    "gold": {
+     "diagnosis:type2_diabetes": [
+      "exclusion"
+     ],
+     "diagnosis:hypertension": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:type2_diabetes": [
+      "exclusion"
+     ],
+     "diagnosis:hypertension": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00305097_exc#290",
+   "passed": false,
+   "failure_category": "spurious_concept",
+   "categories": [
+    "spurious_concept"
+   ],
+   "details": {
+    "text": "Abnormal hepatic function (liver function test > twice the normal range), abnormal renal function (creatinine > 1.1 mg/dl), fasting plasma glucose in the diabetic range (>/= 126 mg/dl), or blood pressure > 140/90 mmHg.",
+    "section": "exclusion",
+    "gold": {
+     "lab:creatinine": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "lab:creatinine": [
+      "exclusion"
+     ],
+     "diagnosis:type2_diabetes": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00305097_inc#0",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Aged at least 18 years with an ability and willingness to give written informed consent.",
+    "section": "inclusion",
+    "gold": {
+     "age:age": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "age:age": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00312429_inc#209",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Cancer and Leukemia Group B (CALGB) performance status less than or equal to 2",
+    "section": "inclusion",
+    "gold": {
+     "lab:ecog": [
+      "inclusion"
+     ]
+    },
+    "predicted": {},
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00312429_inc#289",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "White blood cell count, platelet, hematocrit, tuberculosis, aspartate aminotransferase (AST), alanine aminotransferase (ALT), alkaline phosphatase, creatinine, and HIV test results reviewed by transplant center",
+    "section": "inclusion",
+    "gold": {
+     "lab:wbc": [
+      "inclusion"
+     ],
+     "lab:platelets": [
+      "inclusion"
+     ],
+     "lab:ast": [
+      "inclusion"
+     ],
+     "lab:alt": [
+      "inclusion"
+     ],
+     "lab:creatinine": [
+      "inclusion"
+     ],
+     "diagnosis:hiv": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:hiv": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00312429_inc#967",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "If female, willing to use contraception throughout the study",
+    "section": "inclusion",
+    "gold": {
+     "sex:sex": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "sex:sex": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00317148_inc#0",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Healthy postmenopausal women with 50 or more moderate to severe hot flushes.",
+    "section": "inclusion",
+    "gold": {
+     "sex:sex": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "sex:sex": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00317148_inc#78",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Women between 40 to 70 years of age.",
+    "section": "inclusion",
+    "gold": {
+     "sex:sex": [
+      "inclusion"
+     ],
+     "age:age": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "sex:sex": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00319748_exc#1502",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Any history of brain metastases or any other active central nervous system (CNS) disease",
+    "section": "exclusion",
+    "gold": {
+     "diagnosis:brain_metastases": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:brain_metastases": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00319748_exc#533",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Radiotherapy within 3 weeks of the first dose of 852A",
+    "section": "exclusion",
+    "gold": {
+     "procedure:radiation_therapy": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "procedure:radiation_therapy": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00319748_exc#833",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Cardiac ischemia, cardiac arrhythmias or congestive heart failure uncontrolled by medication",
+    "section": "exclusion",
+    "gold": {
+     "diagnosis:heart_failure": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:heart_failure": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00319748_inc#0",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Adequate performance status:",
+    "section": "inclusion",
+    "gold": {
+     "lab:ecog": [
+      "inclusion"
+     ]
+    },
+    "predicted": {},
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00319748_inc#1341",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Subjects must have failed at least two previous chemotherapy regimens. Paclitaxel must have been a component of one or both regimens and cisplatin or carboplatin must have been a component of one or both regimens.",
+    "section": "inclusion",
+    "gold": {
+     "treatment:any_chemotherapy": [
+      "inclusion"
+     ],
+     "treatment:paclitaxel": [
+      "inclusion"
+     ],
+     "treatment:cisplatin": [
+      "inclusion"
+     ],
+     "treatment:carboplatin": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "treatment:any_chemotherapy": [
+      "inclusion"
+     ],
+     "treatment:paclitaxel": [
+      "inclusion"
+     ],
+     "treatment:cisplatin": [
+      "inclusion"
+     ],
+     "treatment:carboplatin": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00319748_inc#152",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "If female and of childbearing potential, are willing to use adequate contraception (hormonal, barrier method, abstinence) prior to study entry and for the duration of study participation.",
+    "section": "inclusion",
+    "gold": {
+     "sex:sex": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "sex:sex": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00319748_inc#1587",
+   "passed": false,
+   "failure_category": "spurious_concept",
+   "categories": [
+    "spurious_concept"
+   ],
+   "details": {
+    "text": "Histologically proven recurrent or persistent endometrial cancer that is not amenable to curative treatment with surgery and/or radiation therapy AND has failed 2 previous treatment regimens",
+    "section": "inclusion",
+    "gold": {
+     "procedure:radiation_therapy": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "procedure:surgical_resection": [
+      "inclusion"
+     ],
+     "procedure:radiation_therapy": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00319748_inc#1810",
+   "passed": false,
+   "failure_category": "spurious_concept",
+   "categories": [
+    "spurious_concept"
+   ],
+   "details": {
+    "text": "Histologically proven recurrent or persistent squamous cell carcinoma, adenosquamous carcinoma, or adenocarcinoma of the cervix that is not amenable to curative treatment with surgery and/or radiation therapy AND has failed 2 previous treatment regimens.",
+    "section": "inclusion",
+    "gold": {
+     "procedure:radiation_therapy": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "procedure:surgical_resection": [
+      "inclusion"
+     ],
+     "procedure:radiation_therapy": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00319748_inc#443",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Metastatic breast cancer (BR)",
+    "section": "inclusion",
+    "gold": {
+     "diagnosis:breast_cancer": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:breast_cancer": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00319748_inc#655",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Progression on or failure to respond to at least one previous chemotherapy regimen for metastatic disease",
+    "section": "inclusion",
+    "gold": {
+     "treatment:any_chemotherapy": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "treatment:any_chemotherapy": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00319748_inc#762",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Progression on prior therapy with a hormonal agent if estrogen receptor or progesterone receptor positive, and/or with trastuzumab if HER2-neu positive. If patient has progressed through hormone or trastuzumab therapy only, must have received one chemotherapy regimen.",
+    "section": "inclusion",
+    "gold": {
+     "biomarker:ERBB2": [
+      "inclusion"
+     ],
+     "treatment:trastuzumab": [
+      "inclusion"
+     ],
+     "treatment:endocrine_therapy": [
+      "inclusion"
+     ],
+     "treatment:any_chemotherapy": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "treatment:trastuzumab": [
+      "inclusion"
+     ],
+     "biomarker:ERBB2": [
+      "inclusion"
+     ],
+     "treatment:any_chemotherapy": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00324363_exc#211",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Have characteristics contraindicating metformin or sulfonylurea use.",
+    "section": "exclusion",
+    "gold": {
+     "treatment:metformin": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "treatment:metformin": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00324363_inc#0",
+   "passed": false,
+   "failure_category": "spurious_concept",
+   "categories": [
+    "spurious_concept"
+   ],
+   "details": {
+    "text": "Treated with a stable dose of one of the following for at least 3 months prior to screening: * >=1000 mg/day immediate-release metformin; or metformin >=1000 mg/day and sulfonylurea; or sulfonylurea/metformin combination therapy.",
+    "section": "inclusion",
+    "gold": {
+     "treatment:metformin": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "age:age": [
+      "inclusion"
+     ],
+     "treatment:metformin": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00324363_inc#231",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "HbA1c between 7.1% and 11.0%, inclusive.",
+    "section": "inclusion",
+    "gold": {
+     "lab:hba1c": [
+      "inclusion"
+     ]
+    },
+    "predicted": {},
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00343668_exc#1150",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "i. Warfarin, phenprocoumon: increase bleeding tendency ii. Increase blood concentration of phenytoin iii. sorivudine: inhibit DPD -> increase toxicity according to fluoropyrimidine iv. allopurinol : decrease activity of S-1",
+    "section": "exclusion",
+    "gold": {
+     "treatment:warfarin": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "treatment:warfarin": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00343668_exc#271",
+   "passed": false,
+   "failure_category": "wrong_polarity",
+   "categories": [
+    "wrong_polarity"
+   ],
+   "details": {
+    "text": "Past or concurrent history of neoplasm other than stomach cancer, except for curatively treated non-melanoma skin cancer or in situ carcinoma of the cervix uteri",
+    "section": "exclusion",
+    "gold": {
+     "diagnosis:melanoma": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:melanoma": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00343668_exc#38",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Central nervous system (CNS) metastases or prior radiation for CNS metastases",
+    "section": "exclusion",
+    "gold": {
+     "procedure:radiation_therapy": [
+      "exclusion"
+     ],
+     "diagnosis:brain_metastases": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "procedure:radiation_therapy": [
+      "exclusion"
+     ],
+     "diagnosis:brain_metastases": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00343668_exc#434",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Pregnant or lactating women, women of childbearing potential not employing adequate contraception",
+    "section": "exclusion",
+    "gold": {
+     "sex:sex": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "sex:sex": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00343668_exc#578",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Unstable cardiac disease despite treatment, myocardial infarction within 6 months prior to study entry",
+    "section": "exclusion",
+    "gold": {
+     "treatment:any_systemic_therapy": [
+      "exclusion"
+     ]
+    },
+    "predicted": {},
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00343668_exc#923",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Concomitant administration of any other experimental drug under investigation, or concomitant chemotherapy, hormonal therapy, or immunotherapy",
+    "section": "exclusion",
+    "gold": {
+     "treatment:any_chemotherapy": [
+      "exclusion"
+     ],
+     "treatment:endocrine_therapy": [
+      "exclusion"
+     ],
+     "treatment:immunotherapy": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "treatment:any_chemotherapy": [
+      "exclusion"
+     ],
+     "treatment:endocrine_therapy": [
+      "exclusion"
+     ],
+     "treatment:immunotherapy": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00343668_inc#219",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Age 18 to 70 years old",
+    "section": "inclusion",
+    "gold": {
+     "age:age": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "age:age": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00343668_inc#292",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "ECOG performance status of 2 or lower",
+    "section": "inclusion",
+    "gold": {
+     "lab:ecog": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "lab:ecog": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00343668_inc#331",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Adequate bone marrow function(absolute neutrophil count [ANC] \u22651,500/\u00b5L, hemoglobin \u22659.0 g/dL,and platelets \u2265100,000/\u00b5L)",
+    "section": "inclusion",
+    "gold": {
+     "lab:hemoglobin": [
+      "inclusion"
+     ],
+     "lab:platelets": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "lab:hemoglobin": [
+      "inclusion"
+     ],
+     "lab:platelets": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00343668_inc#453",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Adequate kidney function (serum creatinine < 1.5 mg/dL)",
+    "section": "inclusion",
+    "gold": {
+     "lab:creatinine": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "lab:creatinine": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00343668_inc#510",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Adequate liver function (serum total bilirubin < 2 times the upper normal limit (UNL); serum transaminases levels <3 times [<5 times for patients with liver metastasis] UNL)",
+    "section": "inclusion",
+    "gold": {
+     "lab:bilirubin": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "lab:bilirubin": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00343668_inc#685",
+   "passed": false,
+   "failure_category": "spurious_concept",
+   "categories": [
+    "spurious_concept"
+   ],
+   "details": {
+    "text": "No prior chemotherapy but prior adjuvant chemotherapy finished at least 6 months before enrollment was allowed. (but, prior adjuvant chemotherapy with capecitabine or S-1 or camptothecin analogues was excluded)",
+    "section": "inclusion",
+    "gold": {
+     "treatment:any_chemotherapy": [
+      "exclusion"
+     ],
+     "treatment:capecitabine": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "age:age": [
+      "inclusion"
+     ],
+     "treatment:any_chemotherapy": [
+      "exclusion",
+      "inclusion"
+     ],
+     "treatment:capecitabine": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00343668_inc#897",
+   "passed": false,
+   "failure_category": "spurious_concept",
+   "categories": [
+    "spurious_concept"
+   ],
+   "details": {
+    "text": "No prior radiation therapy for at least 4 weeks before enrollment in the study",
+    "section": "inclusion",
+    "gold": {
+     "procedure:radiation_therapy": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "age:age": [
+      "exclusion"
+     ],
+     "procedure:radiation_therapy": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00356148_inc#0",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Women at any age with early stage breast cancer (stage I-II) and American Society of Anesthesiologists (ASA) score of I-II.",
+    "section": "inclusion",
+    "gold": {
+     "sex:sex": [
+      "inclusion"
+     ],
+     "diagnosis:breast_cancer": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "sex:sex": [
+      "inclusion"
+     ],
+     "diagnosis:breast_cancer": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00379366_exc#0",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "contra-indications of radiotherapy",
+    "section": "exclusion",
+    "gold": {
+     "procedure:radiation_therapy": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "procedure:radiation_therapy": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00391690_exc#255",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Patients with clinically symptomatic brain metastases",
+    "section": "exclusion",
+    "gold": {
+     "diagnosis:brain_metastases": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:brain_metastases": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00391690_exc#421",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Severe physical or psychological concomitant diseases that might impair compliance with the provisions of the study protocol or that might impair the assessment of drug or patient safety, e.g. clinically significant ascites, cardiac failure, NYHA III or IV, clinically relevant pathologic findings in ECG",
+    "section": "exclusion",
+    "gold": {
+     "diagnosis:heart_failure": [
+      "exclusion"
+     ]
+    },
+    "predicted": {},
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00391690_inc#0",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Patients with histologically confirmed diagnosis of prostate cancer who have not yet developed bone metastases",
+    "section": "inclusion",
+    "gold": {
+     "diagnosis:prostate_cancer": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:prostate_cancer": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00391690_inc#112",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Prostate cancer patients with a rise in PSA under hormone therapy.",
+    "section": "inclusion",
+    "gold": {
+     "diagnosis:prostate_cancer": [
+      "inclusion"
+     ],
+     "treatment:endocrine_therapy": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:prostate_cancer": [
+      "inclusion"
+     ],
+     "treatment:endocrine_therapy": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00391690_inc#195",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Patients who have undergone prostatectomy: any rise in PSA or",
+    "section": "inclusion",
+    "gold": {
+     "procedure:surgical_resection": [
+      "inclusion"
+     ]
+    },
+    "predicted": {},
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00391690_inc#258",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Patients without prostatectomy: 2 consecutive rises in PSA levels relative to a previous reference value, separated by one month. The first measurement must occur one month after the reference value and must be above the reference value. The second confirmatory measurement taken one month after the first measurement must be greater than the first measurement.",
+    "section": "inclusion",
+    "gold": {
+     "procedure:surgical_resection": [
+      "inclusion"
+     ]
+    },
+    "predicted": {},
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00391690_inc#621",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Previous chemotherapy or radiotherapy must have been performed \u2265 8 weeks prior to study entry.",
+    "section": "inclusion",
+    "gold": {
+     "treatment:any_chemotherapy": [
+      "inclusion"
+     ],
+     "procedure:radiation_therapy": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "treatment:any_chemotherapy": [
+      "inclusion"
+     ],
+     "procedure:radiation_therapy": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00391690_inc#717",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Eastern Cooperative Oncology Group (ECOG) score of 0, 1 or 2 (patients that spend less than 50% of time in bed during the day)",
+    "section": "inclusion",
+    "gold": {
+     "lab:ecog": [
+      "inclusion"
+     ]
+    },
+    "predicted": {},
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00391690_inc#845",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Adequate liver function - serum total bilirubin concentration less than 1.5 x upper limit of normal value",
+    "section": "inclusion",
+    "gold": {
+     "lab:bilirubin": [
+      "inclusion"
+     ]
+    },
+    "predicted": {},
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00391690_inc#952",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Age: \u2265 18 years",
+    "section": "inclusion",
+    "gold": {
+     "age:age": [
+      "inclusion"
+     ]
+    },
+    "predicted": {},
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00396734_exc#52",
+   "passed": false,
+   "failure_category": "spurious_concept",
+   "categories": [
+    "spurious_concept"
+   ],
+   "details": {
+    "text": "Subjects who are diagnosed as suffering from psychotic illness according to DSM-IV (Axis 1)22, or with a history of CNS disease, a history of infection that might affect CNS (HIV, syphilis, cytomegalovirus, herpes), or a history of head injury with loss of consciousness,pregnant women.",
+    "section": "exclusion",
+    "gold": {
+     "diagnosis:hiv": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:hiv": [
+      "exclusion"
+     ],
+     "sex:sex": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00397215_inc#141",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "A male or female aged 61 years or above at the time of the first vaccination.",
+    "section": "inclusion",
+    "gold": {
+     "age:age": [
+      "inclusion"
+     ],
+     "sex:sex": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "age:age": [
+      "inclusion"
+     ],
+     "sex:sex": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00401245_inc#0",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Generally healthy, postmenopausal woman who seeks treatment for hot flushes.",
+    "section": "inclusion",
+    "gold": {
+     "sex:sex": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "sex:sex": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00425789_inc#0",
+   "passed": false,
+   "failure_category": "spurious_concept",
+   "categories": [
+    "spurious_concept"
+   ],
+   "details": {
+    "text": "The study will include 40 post-deep peel women (exoderm), older than 18 years old, treated by the same dermatologist (dr. Landau).",
+    "section": "inclusion",
+    "gold": {
+     "sex:sex": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "age:age": [
+      "inclusion"
+     ],
+     "sex:sex": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00425789_inc#380",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "The control group will be matched by the following parameters: age, skin color and type, and indication for peeling, and will be picked up by the dermatologist.",
+    "section": "inclusion",
+    "gold": {
+     "age:age": [
+      "inclusion"
+     ]
+    },
+    "predicted": {},
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00426751_exc#129",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Oral anticoagulation with International Normalized Ratio (INR) > 2",
+    "section": "exclusion",
+    "gold": {
+     "treatment:anticoagulant": [
+      "exclusion"
+     ]
+    },
+    "predicted": {},
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00426751_exc#197",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Known platelets < 100.000/\u00b5l or known hemorrhagic diathesis",
+    "section": "exclusion",
+    "gold": {
+     "lab:platelets": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "lab:platelets": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00426751_exc#586",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Known severe renal (creatinine clearance <30ml/min) or hepatic insufficiency as well as Alanine transaminase (ALT)/aspartate transaminase (AST) elevations = 3xUpper limit normal (ULN); isolated AST-elevation is not considered an exclusion criteria from study participation",
+    "section": "exclusion",
+    "gold": {
+     "lab:alt": [
+      "exclusion"
+     ],
+     "lab:ast": [
+      "exclusion"
+     ],
+     "diagnosis:ckd": [
+      "exclusion"
+     ]
+    },
+    "predicted": {},
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00426751_inc#0",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Women must be postmenopausal (i.e.12 months without menstrual period), or surgically sterile, i.e. women of child bearing potential are not allowed to be included into the study. In cases of doubt a pregnancy test should be performed. (NB -post menopausal women currently receiving hormone replacement are permissible)",
+    "section": "inclusion",
+    "gold": {
+     "sex:sex": [
+      "exclusion",
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "sex:sex": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00445029_exc#0",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Pregnant or lactating women.",
+    "section": "exclusion",
+    "gold": {
+     "sex:sex": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "sex:sex": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00445029_exc#386",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Exposure to sun or UV radiations, 15 days before the patch testing.",
+    "section": "exclusion",
+    "gold": {
+     "procedure:radiation_therapy": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "procedure:radiation_therapy": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00445029_inc#18",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Patients aged from 18 to 65 years old.",
+    "section": "inclusion",
+    "gold": {
+     "age:age": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "age:age": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00445029_inc#92",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Female participants must use a contraceptive method.",
+    "section": "inclusion",
+    "gold": {
+     "sex:sex": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "sex:sex": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00455663_inc#123",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Currently receiving treatment with an atypical antipsychotic and continuation on the medication has been recommended",
+    "section": "inclusion",
+    "gold": {
+     "treatment:any_systemic_therapy": [
+      "inclusion"
+     ]
+    },
+    "predicted": {},
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00461136_exc#0",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Severe Hypertension Grade 3 WHO classification (Mean Sitting Diastolic Blood Pressure (MSDBP) 110 mmHg and/or Mean Sitting Systolic Blood Pressure MSSBP 180 mmHg)",
+    "section": "exclusion",
+    "gold": {
+     "diagnosis:hypertension": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:hypertension": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00461136_exc#1009",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Uncontrolled Type II diabetes mellitus (Hemaglobin subtype A1C (HbA1C) >11 %)",
+    "section": "exclusion",
+    "gold": {
+     "diagnosis:type2_diabetes": [
+      "exclusion"
+     ],
+     "lab:hba1c": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:type2_diabetes": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00461136_exc#1651",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "History of major gastrointestinal tract surgery such as gastrectomy, gastroenterostomy, or bowel resection",
+    "section": "exclusion",
+    "gold": {
+     "procedure:surgical_resection": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "procedure:surgical_resection": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00461136_exc#2329",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "History of immunocompromise, including a positive HIV test result.",
+    "section": "exclusion",
+    "gold": {
+     "diagnosis:hiv": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:hiv": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00461136_exc#275",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Kidney disease not caused by diabetes or hypertension",
+    "section": "exclusion",
+    "gold": {
+     "diagnosis:type2_diabetes": [
+      "exclusion"
+     ],
+     "diagnosis:hypertension": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:type2_diabetes": [
+      "exclusion"
+     ],
+     "diagnosis:hypertension": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00461136_exc#3494",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Pregnant or nursing woman.",
+    "section": "exclusion",
+    "gold": {
+     "sex:sex": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "sex:sex": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00461136_exc#368",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "GFR < 40 ml/min/1.73m2 as measured by the MDRD formula",
+    "section": "exclusion",
+    "gold": {
+     "lab:egfr_renal": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "lab:egfr_renal": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00461136_exc#547",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Current diagnosis of heart failure (New York Heart Association (NYHA) Class II-IV)",
+    "section": "exclusion",
+    "gold": {
+     "diagnosis:heart_failure": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:heart_failure": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00461136_inc#0",
+   "passed": false,
+   "failure_category": "spurious_concept",
+   "categories": [
+    "spurious_concept"
+   ],
+   "details": {
+    "text": "Male and/or female patients from 30-80 years of age with a diagnosis of Type 2 diabetes (WHO criteria).",
+    "section": "inclusion",
+    "gold": {
+     "diagnosis:type2_diabetes": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "sex:sex": [
+      "inclusion"
+     ],
+     "diagnosis:type2_diabetes": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00461136_inc#213",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Glomerular filtration rate (GFR) \u2265 40 ml/min (estimated using Modification of Diet in Renal Disease (MDRD) formula) in the last 4 months.",
+    "section": "inclusion",
+    "gold": {
+     "lab:egfr_renal": [
+      "inclusion"
+     ]
+    },
+    "predicted": {},
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00461136_inc#352",
+   "passed": false,
+   "failure_category": "spurious_concept",
+   "categories": [
+    "spurious_concept"
+   ],
+   "details": {
+    "text": "Female patients must be postmenopausal or must have had a bilateral oophorectomy or must have been surgically sterilized or hysterectomized at least 6 months prior to screening.",
+    "section": "inclusion",
+    "gold": {
+     "sex:sex": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "age:age": [
+      "inclusion"
+     ],
+     "sex:sex": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00480129_exc#0",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Ongoing allergen immunotherapy",
+    "section": "exclusion",
+    "gold": {
+     "treatment:immunotherapy": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "treatment:immunotherapy": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00502567_exc#32",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "history of poorly controlled hypertension",
+    "section": "exclusion",
+    "gold": {
+     "diagnosis:hypertension": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:hypertension": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00502567_inc#0",
+   "passed": false,
+   "failure_category": "spurious_concept",
+   "categories": [
+    "spurious_concept"
+   ],
+   "details": {
+    "text": "histologically confirmed metastatic cancer that is not amenable to surgery or radiation therapy with curative intent",
+    "section": "inclusion",
+    "gold": {
+     "procedure:radiation_therapy": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "procedure:surgical_resection": [
+      "inclusion"
+     ],
+     "procedure:radiation_therapy": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00527826_exc#0",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Known other respiratory disorders or signs for other respiratory disorders (e.g. asthma, lung cancer, sarcoidosis, tuberculosis, lung fibrosis, cystic fibrosis, bronchoectasis).",
+    "section": "exclusion",
+    "gold": {
+     "diagnosis:lung_cancer": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:lung_cancer": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00527826_exc#1461",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Pregnant or lactating female and female of childbearing potential.",
+    "section": "exclusion",
+    "gold": {
+     "sex:sex": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "sex:sex": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00527826_exc#375",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Having undergone lung surgery (e.g. lung resection including lung volume reduction surgery, lung transplant) or subjects scheduled for surgery.",
+    "section": "exclusion",
+    "gold": {
+     "procedure:surgical_resection": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "procedure:surgical_resection": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00527826_inc#130",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Male or female subjects, aged >=40 years. Females must be of Non Child Bearing Potential. The definition of Non Child Bearing Potential is as following: Females, regardless of their age, with functioning ovaries and who have a current documented tubal ligation or hysterectomy, or females who are post-menopausal.",
+    "section": "inclusion",
+    "gold": {
+     "age:age": [
+      "inclusion"
+     ],
+     "sex:sex": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "age:age": [
+      "inclusion"
+     ],
+     "sex:sex": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00543712_exc#0",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Systemic therapy or radiotherapy within 4 weeks prior to Day 1",
+    "section": "exclusion",
+    "gold": {
+     "treatment:any_systemic_therapy": [
+      "exclusion"
+     ],
+     "procedure:radiation_therapy": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "procedure:radiation_therapy": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00543712_exc#1311",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Use of anticoagulation therapy",
+    "section": "exclusion",
+    "gold": {
+     "treatment:anticoagulant": [
+      "exclusion"
+     ]
+    },
+    "predicted": {},
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00543712_exc#373",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Known active brain metastases",
+    "section": "exclusion",
+    "gold": {
+     "diagnosis:brain_metastases": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:brain_metastases": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00543712_exc#544",
+   "passed": false,
+   "failure_category": "spurious_concept",
+   "categories": [
+    "spurious_concept"
+   ],
+   "details": {
+    "text": "Clinically significant, symptomatic cardiovascular disease, New York Heart Association (NYHA) Grade II or greater congestive heart failure, serious cardiac arrhythmia, Grade II or greater peripheral vascular disease, or history of major heart surgery within 6 months of Day 1, or any situation that would likely limit compliance with study requirements",
+    "section": "exclusion",
+    "gold": {
+     "diagnosis:heart_failure": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:heart_failure": [
+      "exclusion"
+     ],
+     "procedure:surgical_resection": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00543712_exc#64",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Prior therapy with agents targeting the DR5 apoptosis pathway",
+    "section": "exclusion",
+    "gold": {
+     "treatment:any_systemic_therapy": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "treatment:any_systemic_therapy": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00543712_inc#274",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "ECOG performance status of 0-2",
+    "section": "inclusion",
+    "gold": {
+     "lab:ecog": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "lab:ecog": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00543712_inc#83",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Age \u2265 18 years",
+    "section": "inclusion",
+    "gold": {
+     "age:age": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "age:age": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00586898_inc#0",
+   "passed": false,
+   "failure_category": "spurious_concept",
+   "categories": [
+    "spurious_concept"
+   ],
+   "details": {
+    "text": "-Patients residing in the following clinical states wit! be considered: A. Rising PSA: Patients with a history of localized disease who have undergone definitive radiation or surgery. These patients must demonstrate progression of disease biochemically as outlined below. Patients in this group may not have radiographically evident disease.",
+    "section": "inclusion",
+    "gold": {
+     "procedure:radiation_therapy": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "procedure:radiation_therapy": [
+      "inclusion"
+     ],
+     "procedure:surgical_resection": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00586898_inc#1070",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "WBC >_3500/mm3, platelet count >_100,000/mm3.",
+    "section": "inclusion",
+    "gold": {
+     "lab:wbc": [
+      "inclusion"
+     ],
+     "lab:platelets": [
+      "inclusion"
+     ]
+    },
+    "predicted": {},
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00586898_inc#1117",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Bilirubin <2.0 mg/dl or SGOT <3.0 X the upper limit of normal.",
+    "section": "inclusion",
+    "gold": {
+     "lab:bilirubin": [
+      "inclusion"
+     ],
+     "lab:ast": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "lab:bilirubin": [
+      "inclusion"
+     ],
+     "lab:ast": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00586898_inc#1181",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Creatinine <_1.6 mg/dl or creatinine clearance >_60 cc/min.",
+    "section": "inclusion",
+    "gold": {
+     "lab:creatinine": [
+      "inclusion"
+     ]
+    },
+    "predicted": {},
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00586898_inc#1242",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Prior hormonal therapy is allowed as:",
+    "section": "inclusion",
+    "gold": {
+     "treatment:endocrine_therapy": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "treatment:endocrine_therapy": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00586898_inc#1281",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "1. Neoadjuvant treatment prior to radiation therapy or radical prostatectomy, provided that the total duration of exposure does not exceed 10 months.",
+    "section": "inclusion",
+    "gold": {
+     "procedure:radiation_therapy": [
+      "inclusion"
+     ],
+     "procedure:surgical_resection": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "procedure:radiation_therapy": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00586898_inc#1509",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Patients must be at least 18 years of age.",
+    "section": "inclusion",
+    "gold": {
+     "age:age": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "age:age": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00586898_inc#343",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "B. Non-castrate metastatic: Patients must present with radiographic evidence of metastatic disease at the time of diagnosis or after treatment for localized disease. These patients must show newly detected disease or progressing disease in bone or in soft tissue. Biochemical progression is defined as: minimum no. of determinations: 3 Interval: >2 weeks Minimal Baseline PSA value (ng/ml): 2 Minimal % increase in range of values: 50%",
+    "section": "inclusion",
+    "gold": {
+     "treatment:any_systemic_therapy": [
+      "inclusion"
+     ]
+    },
+    "predicted": {},
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00586898_inc#780",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Diagnosis of prostate adenocarcinoma histologically confirmed at MSKCC.",
+    "section": "inclusion",
+    "gold": {
+     "diagnosis:prostate_cancer": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:prostate_cancer": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00586898_inc#933",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Karnofskcy performance status (KPS) >_70%.",
+    "section": "inclusion",
+    "gold": {
+     "lab:ecog": [
+      "inclusion"
+     ]
+    },
+    "predicted": {},
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00599924_exc#0",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Prior treatment with more than 6 cycles of traditional alkylating agent-based chemotherapy regimens",
+    "section": "exclusion",
+    "gold": {
+     "treatment:any_systemic_therapy": [
+      "exclusion"
+     ],
+     "treatment:any_chemotherapy": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "treatment:any_chemotherapy": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00599924_exc#101",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Prior treatment with more than 2 cycles of carboplating-based chemotherapy regimens",
+    "section": "exclusion",
+    "gold": {
+     "treatment:any_systemic_therapy": [
+      "exclusion"
+     ],
+     "treatment:any_chemotherapy": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "treatment:any_chemotherapy": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00599924_exc#186",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "For colorectal cancer patients in the expanded cohorts, prior treatment with more than 2 systemic chemotherapy regimens in the metastatic setting",
+    "section": "exclusion",
+    "gold": {
+     "diagnosis:colorectal_cancer": [
+      "exclusion"
+     ],
+     "treatment:any_systemic_therapy": [
+      "exclusion"
+     ],
+     "treatment:any_chemotherapy": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "diagnosis:colorectal_cancer": [
+      "exclusion"
+     ],
+     "treatment:any_chemotherapy": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00599924_inc#160",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Eastern Cooperative Oncology Group (ECOG) 0 or 1",
+    "section": "inclusion",
+    "gold": {
+     "lab:ecog": [
+      "inclusion"
+     ]
+    },
+    "predicted": {},
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00609531_exc#0",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Age less than 10 years or greater than 55 years, at time of consent",
+    "section": "exclusion",
+    "gold": {
+     "age:age": [
+      "exclusion"
+     ]
+    },
+    "predicted": {},
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00609531_exc#1111",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept"
+   ],
+   "details": {
+    "text": "Prior history of citalopram treatment failure at appropriate doses and duration",
+    "section": "exclusion",
+    "gold": {
+     "treatment:any_systemic_therapy": [
+      "exclusion"
+     ]
+    },
+    "predicted": {},
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00609531_inc#51",
+   "passed": true,
+   "failure_category": null,
+   "categories": [],
+   "details": {
+    "text": "Age 10-55 years",
+    "section": "inclusion",
+    "gold": {
+     "age:age": [
+      "inclusion"
+     ]
+    },
+    "predicted": {
+     "age:age": [
+      "inclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  },
+  {
+   "item_id": "NCT00625742_exc#427",
+   "passed": false,
+   "failure_category": "missed_concept",
+   "categories": [
+    "missed_concept",
+    "spurious_concept"
+   ],
+   "details": {
+    "text": "7. Have an ALT/AST>3x upper limit of normal.",
+    "section": "exclusion",
+    "gold": {
+     "lab:alt": [
+      "exclusion"
+     ]
+    },
+    "predicted": {
+     "lab:ast": [
+      "exclusion"
+     ]
+    },
+    "subset": "chia"
+   }
+  }
+ ]
+}
